@@ -1,0 +1,35 @@
+{
+    "schemaVersion": 1,
+    "license": "MIT",
+    "id": "marbles",
+    "version": "${version}",
+
+    "name": "Marbles",
+    "description": "Description",
+    "icon": "pack.png",
+
+    "authors": [
+        "Dodo Gang"
+    ],
+    "contributors": [],
+    "contact": {
+        "homepage": "https://marbles.dodogang.net",
+        "sources": "https://github.com/dodogang/marbles",
+        "issues": "https://github.com/dodogang/marbles/issues"
+    },
+
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "net.dodogang.marbles.Marbles"
+        ],
+        "client": [],
+        "server": []
+    },
+    "mixins": [],
+    "depends": {
+        "fabricloader": ">=0.10.0",
+        "fabric": ">=0.28.0",
+        "minecraft": ">=1.16.2"
+    }
+}
