@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "marbles:block/hoopsi_spruce_planks",
+    "top": "marbles:block/hoopsi_spruce_planks",
+    "side": "marbles:block/hoopsi_spruce_planks"
+  }
+}

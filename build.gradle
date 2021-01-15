@@ -29,11 +29,17 @@ repositories {
 }
 
 dependencies {
+    // base
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.minecraft_version}+build.${project.yarn_build}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
+    // chord
+    include ("com.github.andantedevs:chord:${project.chord_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
+    modImplementation ("com.github.andantedevs:chord:${project.chord_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
+
+    // runtime utils
     modRuntime ("io.github.prospector:modmenu:${project.mod_menu_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
     // modRuntime ("com.github.jellysquid3:sodium-fabric:1.16.x~${project.sodium_version}-SNAPSHOT") { exclude ( group: "net.fabricmc.fabric-api" ) }
     // modRuntime ("com.github.jellysquid3:lithium-fabric:${project.lithium_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
