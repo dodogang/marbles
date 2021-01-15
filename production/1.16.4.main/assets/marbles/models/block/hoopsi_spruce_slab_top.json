@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "marbles:block/hoopsi_spruce_planks",
-    "top": "marbles:block/hoopsi_spruce_planks",
-    "side": "marbles:block/hoopsi_spruce_planks"
-  }
-}

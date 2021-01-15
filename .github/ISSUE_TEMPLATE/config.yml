@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
   - name: Wiki
-    url: https://marbles.dodogang.net
-    about: A detailed summary of Marbles's features
+    url: https://direbats.teamhollow.net
+    about: A detailed summary of Direbats's features
+  - name: Features Roadmap (Trello)
+    url: https://trello.com/b/krhbFb8Y
+    about: A list of features and plans for the future - check here if you're making a feature request!
