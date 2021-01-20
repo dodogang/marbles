@@ -5,6 +5,8 @@ import me.andante.chord.block.CBambooSaplingBlock;
 import me.andante.chord.block.helper.WoodBlocks;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.*;
+import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
+import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -20,8 +22,8 @@ public class MarblesBlocks {
     // WOOD
     //
 
-    public static final WoodBlocks ASPEN = new WoodBlocks.Builder().boatType(BoatEntity.Type.BIRCH).itemGroup(Marbles.ITEM_GROUP).build(Marbles.MOD_ID, "aspen");
-    public static final WoodBlocks HOOPSI = new WoodBlocks.Builder().boatType(BoatEntity.Type.SPRUCE).itemGroup(Marbles.ITEM_GROUP).build(Marbles.MOD_ID, "hoopsi_spruce");
+    public static final WoodBlocks ASPEN = new WoodBlocks.Builder().saplingGenerator(new AspenSaplingGenerator()).boatType(BoatEntity.Type.BIRCH).itemGroup(Marbles.ITEM_GROUP).build(Marbles.MOD_ID, "aspen");
+    public static final WoodBlocks HOOPSI_SPRUCE = new WoodBlocks.Builder().saplingGenerator(new HoopsiSpruceSaplingGenerator()).boatType(BoatEntity.Type.SPRUCE).itemGroup(Marbles.ITEM_GROUP).build(Marbles.MOD_ID, "hoopsi_spruce");
 
     //
     // YELLOW BAMBOO

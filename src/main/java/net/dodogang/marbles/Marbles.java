@@ -25,6 +25,8 @@ public class Marbles implements ModInitializer {
         new MarblesBlocks();
         new MarblesItems();
 
+        new MarblesConfiguredFeatures();
+
         log("Initialized");
     }
 

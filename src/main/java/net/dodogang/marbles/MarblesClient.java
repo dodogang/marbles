@@ -9,7 +9,7 @@ import net.minecraft.client.render.RenderLayer;
 public class MarblesClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        CClientUtils.registerWoodBlocks(MarblesBlocks.ASPEN, MarblesBlocks.HOOPSI);
+        CClientUtils.registerWoodBlocks(MarblesBlocks.ASPEN, MarblesBlocks.HOOPSI_SPRUCE);
 
         BlockRenderLayerMap brlmInstance = BlockRenderLayerMap.INSTANCE;
         brlmInstance.putBlocks(RenderLayer.getCutout(), MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_BAMBOO_SAPLING, MarblesBlocks.YELLOW_SCAFFOLDING);
