@@ -1,0 +1,46 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "age": "0"
+      },
+      "apply": [
+        {
+          "model": "marbles:block/yellow_bamboo_age0"
+        },
+        {
+          "model": "marbles:block/yellow_bamboo_age0_alt"
+        }
+      ]
+    },
+    {
+      "when": {
+        "age": "1"
+      },
+      "apply": [
+        {
+          "model": "marbles:block/yellow_bamboo_age1"
+        },
+        {
+          "model": "marbles:block/yellow_bamboo_age1_alt"
+        }
+      ]
+    },
+    {
+      "when": {
+        "leaves": "small"
+      },
+      "apply": {
+        "model": "marbles:block/yellow_bamboo_small_leaves"
+      }
+    },
+    {
+      "when": {
+        "leaves": "large"
+      },
+      "apply": {
+        "model": "marbles:block/yellow_bamboo_large_leaves"
+      }
+    }
+  ]
+}

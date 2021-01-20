@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "marbles:block/yellow_bamboo_sapling"
+  }
+}

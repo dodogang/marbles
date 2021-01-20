@@ -3,6 +3,10 @@
     "mod.marbles.description": "",
     "itemGroup.marbles.item_group": "Marbles",
 
+    "block.marbles.yellow_bamboo": "Yellow Bamboo",
+    "block.marbles.yellow_bamboo_sapling": "Yellow Bamboo Sapling",
+    "block.marbles.yellow_scaffolding": "Yellow Scaffolding",
+
     "block.marbles.aspen_planks": "Aspen Planks",
     "block.marbles.aspen_sapling": "Aspen Sapling",
     "block.marbles.aspen_door": "Aspen Door",
@@ -19,8 +23,10 @@
     "block.marbles.aspen_button": "Aspen Button",
     "block.marbles.aspen_fence": "Aspen Fence",
     "block.marbles.aspen_fence_gate": "Aspen Fence Gate",
+    "block.marbles.aspen_trapdoor": "Aspen Trapdoor",
     "block.marbles.potted_aspen_sapling": "Potted Aspen Sapling",
     "item.marbles.aspen_boat": "Aspen Boat",
+    "entity.marbles.aspen_boat": "Aspen Boat",
 
     "block.marbles.hoopsi_spruce_planks": "Hoopsi Spruce Planks",
     "block.marbles.hoopsi_spruce_sapling": "Hoopsi Spruce Sapling",
@@ -38,6 +44,10 @@
     "block.marbles.hoopsi_spruce_button": "Hoopsi Spruce Button",
     "block.marbles.hoopsi_spruce_fence": "Hoopsi Spruce Fence",
     "block.marbles.hoopsi_spruce_fence_gate": "Hoopsi Spruce Fence Gate",
+    "block.marbles.hoopsi_spruce_trapdoor": "Hoopsi Spruce Trapdoor",
     "block.marbles.potted_hoopsi_spruce_sapling": "Potted Hoopsi Spruce Sapling",
-    "item.marbles.hoopsi_spruce_boat": "Hoopsi Spruce Boat"
+    "item.marbles.hoopsi_spruce_boat": "Hoopsi Spruce Boat",
+    "entity.marbles.hoopsi_spruce_boat": "Hoopsi Spruce Boat",
+
+    "death.fell.accident.marbles:yellow_scaffolding": "%1$s fell off yellow scaffolding"
 }

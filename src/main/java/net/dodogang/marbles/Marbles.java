@@ -6,7 +6,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -16,7 +15,7 @@ public class Marbles implements ModInitializer {
     public static final String MOD_ID = "marbles";
     public static final String MOD_NAME = "Marbles";
 
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "item_group"), () -> new ItemStack(Items.QUARTZ_BLOCK));
+    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "item_group"), () -> new ItemStack(MarblesItems.YELLOW_SCAFFOLDING));
     public static Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     @Override
@@ -24,6 +23,7 @@ public class Marbles implements ModInitializer {
         log("Initializing");
 
         new MarblesBlocks();
+        new MarblesItems();
 
         log("Initialized");
     }

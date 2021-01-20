@@ -1,0 +1,6 @@
+{
+  "parent": "marbles:block/yellow_bamboo_age1",
+  "textures": {
+    "all": "marbles:block/yellow_bamboo_stalk_alt"
+  }
+}

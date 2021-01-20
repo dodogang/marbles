@@ -1,0 +1,29 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "texture": "marbles:block/yellow_bamboo_small_leaves",
+    "particle": "#texture"
+  },
+  "elements": [
+    {
+      "from": [-7.5, -16, 7.5],
+      "to": [23.7, 16, 7.5],
+      "shade": false,
+      "rotation": {"angle": 0, "axis": "y", "origin": [0, 2, 8]},
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0}
+      }
+    },
+    {
+      "from": [7.5, -16, -7.5],
+      "to": [7.5, 16, 23.7],
+      "shade": false,
+      "rotation": {"angle": 0, "axis": "y", "origin": [8, 8, -2]},
+      "faces": {
+        "east": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0}
+      }
+    }
+  ]
+}
