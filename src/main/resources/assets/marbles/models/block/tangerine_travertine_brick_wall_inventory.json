@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "marbles:block/tangerine_travertine_bricks"
+  }
+}

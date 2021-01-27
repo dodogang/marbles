@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:lemon_travertine"
+    }
+  },
+  "result": {
+    "item": "marbles:lemon_travertine_slab",
+    "count": 6
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:capped_tangerine_travertine"
+    }
+  },
+  "result": {
+    "item": "marbles:capped_tangerine_travertine_wall",
+    "count": 6
+  }
+}

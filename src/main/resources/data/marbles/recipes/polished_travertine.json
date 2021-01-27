@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TT",
+    "TT"
+  ],
+  "key": {
+    "T": {
+      "item": "marbles:travertine"
+    }
+  },
+  "result": {
+    "item": "marbles:polished_travertine",
+    "count": 4
+  }
+}

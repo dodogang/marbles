@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "marbles:block/capped_lemon_travertine_top",
+    "side": "marbles:block/capped_lemon_travertine"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#marbles:craftable_tangerine_travertine",
+    "marbles:tangerine_travertine_bricks"
+  ]
+}

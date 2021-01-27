@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:capped_peach_travertine"
+    }
+  },
+  "result": {
+    "item": "marbles:capped_peach_travertine_wall",
+    "count": 6
+  }
+}

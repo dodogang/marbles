@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:polished_tangerine_travertine"
+    }
+  },
+  "result": {
+    "item": "marbles:polished_tangerine_travertine_slab",
+    "count": 6
+  }
+}

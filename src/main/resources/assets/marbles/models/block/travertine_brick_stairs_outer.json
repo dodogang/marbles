@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "marbles:block/travertine_bricks_top",
+    "top": "marbles:block/travertine_bricks_top",
+    "side": "marbles:block/travertine_bricks"
+  }
+}
