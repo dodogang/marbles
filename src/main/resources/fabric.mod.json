@@ -28,7 +28,9 @@
         ],
         "server": []
     },
-    "mixins": [],
+    "mixins": [
+        "marbles.mixins.json"
+    ],
     "depends": {
         "fabricloader": ">=0.11.0",
         "fabric": ">=0.29.0",

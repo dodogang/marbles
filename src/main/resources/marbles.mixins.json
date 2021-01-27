@@ -1,0 +1,12 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.dodogang.marbles.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "FluidBlockMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
