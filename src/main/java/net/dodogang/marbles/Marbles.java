@@ -15,7 +15,7 @@ public class Marbles implements ModInitializer {
     public static final String MOD_ID = "marbles";
     public static final String MOD_NAME = "Marbles";
 
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "item_group"), () -> new ItemStack(MarblesItems.YELLOW_SCAFFOLDING));
+    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "item_group"), () -> new ItemStack(MarblesBlocks.TRAVERTINE));
     public static Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     @Override

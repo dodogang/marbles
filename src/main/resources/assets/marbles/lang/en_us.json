@@ -1,6 +1,6 @@
 {
     "mod.marbles.name": "Marbles",
-    "mod.marbles.description": "",
+    "mod.marbles.description": "Description",
     "itemGroup.marbles.item_group": "Marbles",
 
     "block.marbles.yellow_bamboo": "Yellow Bamboo",
