@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "marbles:block/peach_travertine_salt_lamp"
+  }
+}

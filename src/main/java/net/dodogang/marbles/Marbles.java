@@ -22,6 +22,8 @@ public class Marbles implements ModInitializer {
     public void onInitialize() {
         log("Initializing");
 
+        new MarblesParticles();
+
         new MarblesBlocks();
         new MarblesItems();
 

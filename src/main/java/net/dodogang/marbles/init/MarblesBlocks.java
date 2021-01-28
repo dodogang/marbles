@@ -6,7 +6,9 @@ import me.andante.chord.block.helper.WoodBlocks;
 import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.*;
+import net.dodogang.marbles.block.enums.SpirePart;
 import net.dodogang.marbles.block.sapling.*;
+import net.dodogang.marbles.state.property.MarblesProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.vehicle.BoatEntity;
@@ -17,14 +19,6 @@ import net.minecraft.util.registry.Registry;
 
 @SuppressWarnings("unused")
 public class MarblesBlocks {
-    //
-    // CODE CLEANLINESS OVERLOAD
-    //
-
-    private static final String brick = "_brick";
-    private static final String capped = "capped_";
-    private static final String polished = "polished_";
-
     //
     // WOOD
     //
@@ -37,13 +31,13 @@ public class MarblesBlocks {
     //
 
     private static final String travertine = "travertine";
-    private static final String travertineBrick = travertine + brick;
+    private static final String travertineBrick = travertine + "_brick";
     private static final String lemonTravertine = "lemon_" + travertine;
-    private static final String lemonTravertineBrick = lemonTravertine + brick;
+    private static final String lemonTravertineBrick = lemonTravertine + "_brick";
     private static final String peachTravertine = "peach_" + travertine;
-    private static final String peachTravertineBrick = peachTravertine + brick;
+    private static final String peachTravertineBrick = peachTravertine + "_brick";
     private static final String tangerineTravertine = "tangerine_" + travertine;
-    private static final String tangerineTravertineBrick = tangerineTravertine + brick;
+    private static final String tangerineTravertineBrick = tangerineTravertine + "_brick";
 
     public static final Block TRAVERTINE = register("travertine", new PillarBlock(
             FabricBlockSettings.of(Material.STONE, MaterialColor.STONE)
@@ -118,13 +112,57 @@ public class MarblesBlocks {
     public static final Block CAPPED_TANGERINE_TRAVERTINE_WALL = createWall(CAPPED_TANGERINE_TRAVERTINE);
     public static final Block POLISHED_TANGERINE_TRAVERTINE_WALL = createWall(POLISHED_TANGERINE_TRAVERTINE);
 
+    public static final Block TRAVERTINE_OBSIDIAN = register(travertine + "_obsidian", new Block(
+        FabricBlockSettings.of(Material.STONE, MaterialColor.BROWN)
+            .strength(50.0F, 1200.0F)
+            .requiresTool()
+        )
+    );
+
+    public static final Block TRAVERTINE_SALT_LAMP = createSaltLamp(TRAVERTINE);
+    public static final Block LEMON_TRAVERTINE_SALT_LAMP = createSaltLamp(LEMON_TRAVERTINE);
+    public static final Block PEACH_TRAVERTINE_SALT_LAMP = createSaltLamp(PEACH_TRAVERTINE);
+    public static final Block TANGERINE_TRAVERTINE_SALT_LAMP = createSaltLamp(TANGERINE_TRAVERTINE);
+
+    //
+    // PINK SALT
+    //
+
+    public static final Block PINK_SALT = register("pink_salt", new Block(FabricBlockSettings.copy(Blocks.STONE)));
+    public static final Block CRUMBLED_PINK_SALT = register("crumbled_pink_salt", new Block(FabricBlockSettings.copy(PINK_SALT)));
+    public static final Block PINK_SALT_SPIRE = register(PinkSaltSpireBlock.id, new PinkSaltSpireBlock(
+        FabricBlockSettings.copy(PINK_SALT)
+            .luminance(
+                (state) -> {
+                    SpirePart spirePart = state.get(MarblesProperties.SPIRE_PART);
+                    return spirePart == SpirePart.TIP || spirePart == SpirePart.TIP_MERGE ? 4 : 1;
+                }
+            )
+        )
+    );
+    public static final Block PINK_SALT_STACK = register(PinkSaltStackBlock.id, new PinkSaltStackBlock(
+        FabricBlockSettings.copy(PINK_SALT)
+            .luminance(
+                (state) -> state.get(MarblesProperties.RETAINED_LIGHT)
+            )
+            .breakInstantly()
+        )
+    );
+    public static final Block PINK_SALT_STUMP = register(PinkSaltStumpBlock.id, new PinkSaltStumpBlock(
+        FabricBlockSettings.copy(PINK_SALT)
+            .luminance(
+                (state) -> state.get(MarblesProperties.RETAINED_LIGHT) / 3
+            )
+            .breakInstantly()
+        )
+    );
+
     //
     // YELLOW BAMBOO
     //
 
-    private static final String yellowBamboo = "yellow_bamboo";
-    public static final CBambooBlock YELLOW_BAMBOO = (CBambooBlock)register(yellowBamboo, new CBambooBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copy(Blocks.BAMBOO)));
-    public static final CBambooSaplingBlock YELLOW_BAMBOO_SAPLING = (CBambooSaplingBlock)register(yellowBamboo + "_sapling", new CBambooSaplingBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copy(Blocks.BAMBOO_SAPLING)), false);
+    public static final CBambooBlock YELLOW_BAMBOO = (CBambooBlock)register("yellow_bamboo", new CBambooBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copy(Blocks.BAMBOO)));
+    public static final CBambooSaplingBlock YELLOW_BAMBOO_SAPLING = (CBambooSaplingBlock)register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copy(Blocks.BAMBOO_SAPLING)), false);
 
     public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copy(Blocks.SCAFFOLDING)), false);
 
@@ -160,8 +198,17 @@ public class MarblesBlocks {
     private static Block createStairs(String id, Block block) {
         return register(id + "_stairs", new PublicStairsBlock(block.getDefaultState(), FabricBlockSettings.copy(block)));
     }
+
     private static Block createPillarBricks(Block block) {
         return register(getBlockId(block) + "_bricks", new PillarBlock(FabricBlockSettings.copy(block)));
+    }
+    private static Block createSaltLamp(Block block) {
+        return register(getBlockId(block) + "_salt_lamp", new Block(
+            FabricBlockSettings.copy(block)
+                .strength(0.75F, 3.0F)
+                .luminance((state) -> 15)
+            )
+        );
     }
 
     private static String getBlockId(Block block) {

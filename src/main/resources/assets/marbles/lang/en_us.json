@@ -71,6 +71,10 @@
     "block.marbles.polished_tangerine_travertine_wall": "Polished Tangerine Travertine Wall",
     "block.marbles.polished_tangerine_travertine_slab": "Polished Tangerine Travertine Slab",
     "block.marbles.polished_tangerine_travertine_stairs": "Polished Tangerine Travertine Stairs",
+    "block.marbles.travertine_salt_lamp": "Travertine Salt Lamp",
+    "block.marbles.lemon_travertine_salt_lamp": "Lemon Travertine Salt Lamp",
+    "block.marbles.peach_travertine_salt_lamp": "Peach Travertine Salt Lamp",
+    "block.marbles.tangerine_travertine_salt_lamp": "Tangerine Travertine Salt Lamp",
 
     "block.marbles.aspen_planks": "Aspen Planks",
     "block.marbles.aspen_sapling": "Aspen Sapling",
@@ -113,6 +117,13 @@
     "block.marbles.potted_hoopsi_spruce_sapling": "Potted Hoopsi Spruce Sapling",
     "item.marbles.hoopsi_spruce_boat": "Hoopsi Spruce Boat",
     "entity.marbles.hoopsi_spruce_boat": "Hoopsi Spruce Boat",
+
+    "item.marbles.pink_salt_shard": "Pink Salt Shard",
+    "block.marbles.pink_salt": "Pink Salt",
+    "block.marbles.crumbled_pink_salt": "Crumbled Pink Salt",
+    "block.marbles.pink_salt_spire": "Pink Salt Spire",
+    "block.marbles.pink_salt_stack": "Pink Salt Stack",
+    "block.marbles.pink_salt_stump": "Pink Salt Stump",
 
     "death.fell.accident.marbles:yellow_scaffolding": "%1$s fell off yellow scaffolding"
 }
