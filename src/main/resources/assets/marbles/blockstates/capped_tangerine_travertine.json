@@ -1,16 +1,30 @@
 {
   "variants": {
-    "axis=x": {
-      "model": "marbles:block/capped_tangerine_travertine",
-      "x": 90,
-      "y": 90
-    },
-    "axis=y": {
+    "facing=down": {
+      "x": 180,
       "model": "marbles:block/capped_tangerine_travertine"
     },
-    "axis=z": {
-      "model": "marbles:block/capped_tangerine_travertine",
-      "x": 90
+    "facing=east": {
+      "x": 90,
+      "y": 90,
+      "model": "marbles:block/capped_tangerine_travertine"
+    },
+    "facing=north": {
+      "x": 90,
+      "model": "marbles:block/capped_tangerine_travertine"
+    },
+    "facing=south": {
+      "x": 90,
+      "y": 180,
+      "model": "marbles:block/capped_tangerine_travertine"
+    },
+    "facing=up": {
+      "model": "marbles:block/capped_tangerine_travertine"
+    },
+    "facing=west": {
+      "x": 90,
+      "y": 270,
+      "model": "marbles:block/capped_tangerine_travertine"
     }
   }
 }

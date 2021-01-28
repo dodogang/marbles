@@ -5,7 +5,7 @@ import me.andante.chord.block.CBambooSaplingBlock;
 import me.andante.chord.block.helper.WoodBlocks;
 import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.marbles.Marbles;
-import net.dodogang.marbles.block.YellowScaffoldingBlock;
+import net.dodogang.marbles.block.*;
 import net.dodogang.marbles.block.sapling.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -52,14 +52,8 @@ public class MarblesBlocks {
         )
     );
     public static final Block TRAVERTINE_BRICKS = createPillarBricks(TRAVERTINE);
-    public static final Block CAPPED_TRAVERTINE = register(capped + travertine, new PillarBlock(FabricBlockSettings.copy(TRAVERTINE)));
-    public static final Block POLISHED_TRAVERTINE = register(polished + travertine, new Block(FabricBlockSettings.copy(TRAVERTINE)));
-    public static final Block TRAVERTINE_OBSIDIAN = register(travertine + "_obsidian", new Block(
-        FabricBlockSettings.of(Material.STONE, MaterialColor.BROWN)
-            .strength(50.0F, 1200.0F)
-            .requiresTool()
-        )
-    );
+    public static final Block CAPPED_TRAVERTINE = register("capped_" + travertine, new MarblesFacingBlock(FabricBlockSettings.copy(TRAVERTINE)));
+    public static final Block POLISHED_TRAVERTINE = register("polished_" + travertine, new Block(FabricBlockSettings.copy(TRAVERTINE)));
     public static final Block TRAVERTINE_SLAB = createSlab(TRAVERTINE);
     public static final Block TRAVERTINE_BRICK_SLAB = createSlab(travertineBrick, TRAVERTINE_BRICKS);
     public static final Block CAPPED_TRAVERTINE_SLAB = createSlab(CAPPED_TRAVERTINE);
@@ -75,8 +69,8 @@ public class MarblesBlocks {
 
     public static final Block LEMON_TRAVERTINE = register(lemonTravertine, new PillarBlock(FabricBlockSettings.copy(TRAVERTINE)));
     public static final Block LEMON_TRAVERTINE_BRICKS = createPillarBricks(LEMON_TRAVERTINE);
-    public static final Block CAPPED_LEMON_TRAVERTINE = register(capped + lemonTravertine, new PillarBlock(FabricBlockSettings.copy(LEMON_TRAVERTINE)));
-    public static final Block POLISHED_LEMON_TRAVERTINE = register(polished + lemonTravertine, new Block(FabricBlockSettings.copy(LEMON_TRAVERTINE)));
+    public static final Block CAPPED_LEMON_TRAVERTINE = register("capped_" + lemonTravertine, new MarblesFacingBlock(FabricBlockSettings.copy(LEMON_TRAVERTINE)));
+    public static final Block POLISHED_LEMON_TRAVERTINE = register("polished_" + lemonTravertine, new Block(FabricBlockSettings.copy(LEMON_TRAVERTINE)));
     public static final Block LEMON_TRAVERTINE_SLAB = createSlab(LEMON_TRAVERTINE);
     public static final Block LEMON_TRAVERTINE_BRICK_SLAB = createSlab(lemonTravertineBrick, LEMON_TRAVERTINE_BRICKS);
     public static final Block CAPPED_LEMON_TRAVERTINE_SLAB = createSlab(CAPPED_LEMON_TRAVERTINE);
@@ -92,8 +86,8 @@ public class MarblesBlocks {
 
     public static final Block PEACH_TRAVERTINE = register(peachTravertine, new PillarBlock(FabricBlockSettings.copy(TRAVERTINE)));
     public static final Block PEACH_TRAVERTINE_BRICKS = createPillarBricks(PEACH_TRAVERTINE);
-    public static final Block CAPPED_PEACH_TRAVERTINE = register(capped + peachTravertine, new PillarBlock(FabricBlockSettings.copy(PEACH_TRAVERTINE)));
-    public static final Block POLISHED_PEACH_TRAVERTINE = register(polished + peachTravertine, new Block(FabricBlockSettings.copy(PEACH_TRAVERTINE)));
+    public static final Block CAPPED_PEACH_TRAVERTINE = register("capped_" + peachTravertine, new MarblesFacingBlock(FabricBlockSettings.copy(PEACH_TRAVERTINE)));
+    public static final Block POLISHED_PEACH_TRAVERTINE = register("polished_" + peachTravertine, new Block(FabricBlockSettings.copy(PEACH_TRAVERTINE)));
     public static final Block PEACH_TRAVERTINE_SLAB = createSlab(PEACH_TRAVERTINE);
     public static final Block PEACH_TRAVERTINE_BRICK_SLAB = createSlab(peachTravertineBrick, PEACH_TRAVERTINE_BRICKS);
     public static final Block CAPPED_PEACH_TRAVERTINE_SLAB = createSlab(CAPPED_PEACH_TRAVERTINE);
@@ -109,8 +103,8 @@ public class MarblesBlocks {
 
     public static final Block TANGERINE_TRAVERTINE = register(tangerineTravertine, new PillarBlock(FabricBlockSettings.copy(TRAVERTINE)));
     public static final Block TANGERINE_TRAVERTINE_BRICKS = createPillarBricks(TANGERINE_TRAVERTINE);
-    public static final Block CAPPED_TANGERINE_TRAVERTINE = register(capped + tangerineTravertine, new PillarBlock(FabricBlockSettings.copy(TANGERINE_TRAVERTINE)));
-    public static final Block POLISHED_TANGERINE_TRAVERTINE = register(polished + tangerineTravertine, new Block(FabricBlockSettings.copy(TANGERINE_TRAVERTINE)));
+    public static final Block CAPPED_TANGERINE_TRAVERTINE = register("capped_" + tangerineTravertine, new MarblesFacingBlock(FabricBlockSettings.copy(TANGERINE_TRAVERTINE)));
+    public static final Block POLISHED_TANGERINE_TRAVERTINE = register("polished_" + tangerineTravertine, new Block(FabricBlockSettings.copy(TANGERINE_TRAVERTINE)));
     public static final Block TANGERINE_TRAVERTINE_SLAB = createSlab(TANGERINE_TRAVERTINE);
     public static final Block TANGERINE_TRAVERTINE_BRICK_SLAB = createSlab(tangerineTravertineBrick, TANGERINE_TRAVERTINE_BRICKS);
     public static final Block CAPPED_TANGERINE_TRAVERTINE_SLAB = createSlab(CAPPED_TANGERINE_TRAVERTINE);
