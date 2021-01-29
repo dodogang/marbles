@@ -125,5 +125,8 @@
     "block.marbles.pink_salt_stack": "Pink Salt Stack",
     "block.marbles.pink_salt_stump": "Pink Salt Stump",
 
+    "biome.marbles.yellow_bamboo_jungle": "Yellow Bamboo Jungle",
+    "biome.marbles.yellow_bamboo_jungle_hills": "Yellow Bamboo Jungle Hills",
+
     "death.fell.accident.marbles:yellow_scaffolding": "%1$s fell off yellow scaffolding"
 }
