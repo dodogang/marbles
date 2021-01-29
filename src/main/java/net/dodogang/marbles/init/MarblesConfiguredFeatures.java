@@ -1,5 +1,6 @@
 package net.dodogang.marbles.init;
 
+import com.google.common.collect.ImmutableList;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.world.gen.feature.YellowBambooFeature;
 import net.minecraft.block.BlockState;
@@ -8,6 +9,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.UniformIntDistribution;
+import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.CountNoiseBiasedDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.feature.*;
@@ -27,16 +29,27 @@ public class MarblesConfiguredFeatures {
                 new SimpleBlockStateProvider(States.ASPEN_LOG),
                 new SimpleBlockStateProvider(States.ASPEN_LEAVES),
                 new PineFoliagePlacer(
-                    UniformIntDistribution.of(2, 1),
-                    UniformIntDistribution.of(0, 2),
-                    UniformIntDistribution.of(4, 2)
+                    UniformIntDistribution.of(2),
+                    UniformIntDistribution.of(1),
+                    UniformIntDistribution.of(4, 1)
                 ),
                 new StraightTrunkPlacer(5, 2, 1),
                 new TwoLayersFeatureSize(6, 0, 6)
             )
-                .ignoreVines()
-                .build()
+            .ignoreVines()
+            .build()
         )
+    );
+    public static final ConfiguredFeature<?,?> TREES_ASPEN = register(
+        "trees_" + MarblesBlocks.ASPEN.getId(),
+        Feature.RANDOM_SELECTOR.configure(
+            new RandomFeatureConfig(
+                ImmutableList.of(ASPEN.withChance(0.0F)),
+                ASPEN
+            )
+        )
+        .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+        .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(20, 0.1F, 1)))
     );
 
     public static final ConfiguredFeature<TreeFeatureConfig, ?> HOOPSI_SPRUCE = register(
@@ -73,6 +86,17 @@ public class MarblesConfiguredFeatures {
             )
             .build()
         )
+    );
+    public static final ConfiguredFeature<?, ?> TREES_HOOPSI_SPRUCE = register(
+        "trees_" + MarblesBlocks.HOOPSI_SPRUCE.getId(),
+        Feature.RANDOM_SELECTOR.configure(
+            new RandomFeatureConfig(
+                ImmutableList.of(MEGA_HOOPSI_SPRUCE.withChance(0.1F)),
+                HOOPSI_SPRUCE
+            )
+        )
+        .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+        .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
     );
 
     public static final ConfiguredFeature<?, ?> YELLOW_BAMBOO = register(
