@@ -32,7 +32,7 @@ public class PinkSaltParticle extends AscendingParticle {
 
         @Override
         public Particle createParticle(DefaultParticleType particleType, ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
-            return new PinkSaltParticle(world, x, y, z, 0.0D, 0.0D, 0.0D, 0.8F, this.spriteProvider);
+            return new PinkSaltParticle(world, x, y, z, velocityX, velocityY, velocityZ, 0.8F, this.spriteProvider);
         }
     }
 }

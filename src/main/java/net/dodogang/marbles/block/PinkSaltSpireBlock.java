@@ -11,6 +11,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.fluid.FluidState;
@@ -113,7 +114,25 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
 
     @Override
     public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
-        if (projectile instanceof TridentEntity && projectile.getVelocity().length() > 0.6D) world.breakBlock(hit.getBlockPos(), true);
+        if (projectile.getVelocity().length() > 0.6D && projectile instanceof PersistentProjectileEntity) {
+            BlockPos pos = hit.getBlockPos();
+
+            if (projectile instanceof TridentEntity) {
+                world.breakBlock(pos, true);
+            } else {
+                this.scheduleFall(state, world, pos);
+            }
+
+            Random random = world.random;
+            for (int i = 0; i < 40; i++) {
+                double clamp = 0.3D;
+                double x = pos.getX() + (random.nextBoolean() ? 0.2D : -0.2D) + Math.min(1 - clamp, Math.max(clamp, random.nextDouble()));
+                double y = pos.getY() + (random.nextBoolean() ? 0.2D : -0.2D) + Math.min(1 - clamp, Math.max(clamp, random.nextDouble()));
+                double z = pos.getZ() + (random.nextBoolean() ? 0.2D : -0.2D) + Math.min(1 - clamp, Math.max(clamp, random.nextDouble()));
+
+                world.addParticle(MarblesParticles.PINK_SALT, x, y, z, 0.0D, -0.1D, 0.0D);
+            }
+        }
     }
 
     @Override
