@@ -20,3 +20,6 @@ bin/
 #fabric
 run/
 production/
+
+#wtf
+logs/
