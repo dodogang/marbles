@@ -7,7 +7,8 @@ import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.*;
 import net.dodogang.marbles.block.enums.SpirePart;
-import net.dodogang.marbles.block.sapling.*;
+import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
+import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.dodogang.marbles.state.property.MarblesProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -17,6 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+// @formatter:off
 @SuppressWarnings("unused")
 public class MarblesBlocks {
     //
@@ -156,6 +158,17 @@ public class MarblesBlocks {
             .breakInstantly()
         )
     );
+
+    //
+    // LAPIS SET
+    //
+
+    // @formatter:on
+    public static final Block LAPIS_SHINGLES = register("lapis_shingles", new Block(FabricBlockSettings.copy(Blocks.LAPIS_BLOCK)));
+    public static final Block LAPIS_SHINGLES_SLAB = createSlab("lapis_shingles", LAPIS_SHINGLES);
+    public static final Block LAPIS_SHINGLES_STAIRS = createStairs("lapis_shingles", LAPIS_SHINGLES);
+
+    // @formatter:off
 
     //
     // YELLOW BAMBOO

@@ -19,6 +19,13 @@ public class YellowScaffoldingBlock extends CScaffoldingBlock {
         Block.createCuboidShape(0.0D, 0.0D, 13.0D, 3.0D, 16.0D, 16.0D),
         Block.createCuboidShape(13.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D)
     );
+    private static final VoxelShape NORMAL_COLLISION_SHAPE = VoxelShapes.union(
+        Block.createCuboidShape(0.0D, 13.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+        Block.createCuboidShape(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 3.0D),
+        Block.createCuboidShape(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 3.0D),
+        Block.createCuboidShape(0.0D, 0.0D, 13.0D, 3.0D, 16.0D, 16.0D),
+        Block.createCuboidShape(13.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D)
+    );
     private static final VoxelShape BOTTOM_OUTLINE_SHAPE = VoxelShapes.union(
         NORMAL_OUTLINE_SHAPE,
         Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
@@ -37,13 +44,17 @@ public class YellowScaffoldingBlock extends CScaffoldingBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return state.get(BOTTOM) ? BOTTOM_OUTLINE_SHAPE : NORMAL_OUTLINE_SHAPE;
+        if (!context.isHolding(state.getBlock().asItem())) {
+            return state.get(BOTTOM) ? BOTTOM_OUTLINE_SHAPE : NORMAL_OUTLINE_SHAPE;
+        } else {
+            return VoxelShapes.fullCube();
+        }
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         if (context.isAbove(VoxelShapes.fullCube(), pos, true) && !context.isDescending()) {
-            return NORMAL_OUTLINE_SHAPE;
+            return NORMAL_COLLISION_SHAPE;
         } else {
             return state.get(DISTANCE) != 0 && state.get(BOTTOM) && context.isAbove(OUTLINE_SHAPE, pos, true) ? COLLISION_SHAPE : VoxelShapes.empty();
         }
