@@ -18,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-// @formatter:off
 @SuppressWarnings("unused")
 public class MarblesBlocks {
     //
@@ -163,12 +162,9 @@ public class MarblesBlocks {
     // LAPIS SET
     //
 
-    // @formatter:on
     public static final Block LAPIS_SHINGLES = register("lapis_shingles", new Block(FabricBlockSettings.copy(Blocks.LAPIS_BLOCK)));
-    public static final Block LAPIS_SHINGLES_SLAB = createSlab("lapis_shingles", LAPIS_SHINGLES);
-    public static final Block LAPIS_SHINGLES_STAIRS = createStairs("lapis_shingles", LAPIS_SHINGLES);
-
-    // @formatter:off
+    public static final Block LAPIS_SHINGLES_SLAB = createSlab(LAPIS_SHINGLES);
+    public static final Block LAPIS_SHINGLES_STAIRS = createStairs(LAPIS_SHINGLES);
 
     //
     // YELLOW BAMBOO

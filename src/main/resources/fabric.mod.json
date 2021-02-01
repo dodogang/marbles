@@ -1,40 +1,40 @@
 {
-    "schemaVersion": 1,
-    "license": "MIT",
-    "id": "marbles",
-    "version": "${version}",
+  "schemaVersion": 1,
+  "license": "MIT",
+  "id": "marbles",
+  "version": "${version}",
 
-    "name": "Marbles",
-    "description": "Description",
-    "icon": "pack.png",
+  "name": "Marbles",
+  "description": "Description",
+  "icon": "pack.png",
 
-    "authors": [
-        "Dodo Gang"
+  "authors": [
+    "Dodo Gang"
+  ],
+  "contributors": [],
+  "contact": {
+    "homepage": "https://marbles.dodogang.net",
+    "sources": "https://github.com/dodogang/marbles",
+    "issues": "https://github.com/dodogang/marbles/issues"
+  },
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.dodogang.marbles.Marbles"
     ],
-    "contributors": [],
-    "contact": {
-        "homepage": "https://marbles.dodogang.net",
-        "sources": "https://github.com/dodogang/marbles",
-        "issues": "https://github.com/dodogang/marbles/issues"
-    },
-
-    "environment": "*",
-    "entrypoints": {
-        "main": [
-            "net.dodogang.marbles.Marbles"
-        ],
-        "client": [
-            "net.dodogang.marbles.MarblesClient"
-        ],
-        "server": []
-    },
-    "mixins": [
-        "marbles.mixins.json"
+    "client": [
+      "net.dodogang.marbles.MarblesClient"
     ],
-    "depends": {
-        "fabricloader": ">=0.11.0",
-        "fabric": ">=0.29.0",
-        "minecraft": ">=1.16.2",
-        "chord": ">=1.4.3"
-    }
+    "server": []
+  },
+  "mixins": [
+    "marbles.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.0",
+    "fabric": ">=0.29.0",
+    "minecraft": ">=1.16.2",
+    "chord": ">=1.4.3"
+  }
 }
