@@ -1,0 +1,10 @@
+{
+  "layers": [
+    {
+      "vertexSource": "canvas:shaders/material/default.vert",
+      "fragmentSource": "marbles:shaders/material/luminance_5.frag",
+      "disableAo": true,
+      "disableDiffuse": true
+    }
+  ]
+}

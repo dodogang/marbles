@@ -26,6 +26,11 @@ repositories {
         name = "Jitpack"
         url = "https://jitpack.io"
     }
+    maven { url "https://maven.dblsaiko.net/" }
+    maven { url "http://server.bbkr.space:8081/artifactory/libs-release/" }
+    maven { url 'https://maven.blamejared.com' }
+    maven { url "https://maven.fabricmc.net/" }
+    jcenter()
 }
 
 dependencies {
@@ -42,9 +47,16 @@ dependencies {
     // runtime utils
     modRuntime ("io.github.prospector:modmenu:${project.mod_menu_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
     modRuntime ("com.github.joaoh1:OkZoomer:${project.okzoomer_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
-    modRuntime ("com.github.jellysquid3:sodium-fabric:${project.sodium_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
+
+    // modRuntime ("com.github.jellysquid3:sodium-fabric:${project.sodium_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
     modRuntime ("com.github.jellysquid3:lithium-fabric:${project.lithium_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
     modRuntime ("com.github.jellysquid3:phosphor-fabric:${project.phosphor_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
+
+    modImplementation("grondag:canvas-mc116:1.0.+") {
+        exclude group: "net.fabricmc"
+        exclude group: "net.fabricmc.fabric-api"
+        exclude group: "me.shedaniel"
+    }
 }
 
 processResources {

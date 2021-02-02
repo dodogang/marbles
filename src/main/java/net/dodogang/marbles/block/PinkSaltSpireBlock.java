@@ -7,6 +7,7 @@ import net.dodogang.marbles.state.property.MarblesProperties;
 import net.dodogang.marbles.util.Utils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.loader.util.sat4j.core.Vec;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.FallingBlockEntity;
@@ -194,7 +195,7 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
     }
 
     private static void spawnFallingBlock(BlockState state, ServerWorld world, BlockPos pos) {
-        Vec3d vec3d = Vec3d.ofBottomCenter(pos);
+        Vec3d vec3d = Vec3d.ofBottomCenter(pos).add(state.getModelOffset(world, pos));
         FallingBlockEntity fallingBlockEntity = new FallingBlockEntity(world, vec3d.x, vec3d.y, vec3d.z, state.with(VERTICAL_DIRECTION, state.get(VERTICAL_DIRECTION).getOpposite()));
         if (isTip(state)) {
             fallingBlockEntity.setHurtEntities(true);

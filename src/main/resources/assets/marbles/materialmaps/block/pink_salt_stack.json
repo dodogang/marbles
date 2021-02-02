@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "retained_light=1,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_1"
+    },
+    "retained_light=2,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_2"
+    },
+    "retained_light=3,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_3"
+    },
+    "retained_light=4,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_4"
+    },
+    "retained_light=5,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_5"
+    },
+    "retained_light=6,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_6"
+    },
+    "retained_light=7,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_7"
+    },
+    "retained_light=8,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_8"
+    },
+    "retained_light=9,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_9"
+    },
+    "retained_light=10,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_10"
+    },
+    "retained_light=11,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_11"
+    },
+    "retained_light=12,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_12"
+    },
+    "retained_light=13,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_13"
+    },
+    "retained_light=14,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_14"
+    },
+    "retained_light=15,waterlogged=false": {
+      "defaultMaterial": "marbles:luminance_15"
+    },
+    "retained_light=1,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_1"
+    },
+    "retained_light=2,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_2"
+    },
+    "retained_light=3,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_3"
+    },
+    "retained_light=4,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_4"
+    },
+    "retained_light=5,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_5"
+    },
+    "retained_light=6,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_6"
+    },
+    "retained_light=7,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_7"
+    },
+    "retained_light=8,waterloggedtruee": {
+      "defaultMaterial": "marbles:luminance_8"
+    },
+    "retained_light=9,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_9"
+    },
+    "retained_light=10,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_10"
+    },
+    "retained_light=11,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_11"
+    },
+    "retained_light=12,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_12"
+    },
+    "retained_light=13,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_13"
+    },
+    "retained_light=14,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_14"
+    },
+    "retained_light=15,waterlogged=true": {
+      "defaultMaterial": "marbles:luminance_15"
+    }
+  }
+}
