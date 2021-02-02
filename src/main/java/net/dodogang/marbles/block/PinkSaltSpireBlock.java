@@ -7,7 +7,6 @@ import net.dodogang.marbles.state.property.MarblesProperties;
 import net.dodogang.marbles.util.Utils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.loader.util.sat4j.core.Vec;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.FallingBlockEntity;
@@ -210,7 +209,7 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
             return pos;
         } else {
             Direction direction = blockState.get(VERTICAL_DIRECTION);
-            Predicate<BlockState> predicate = (blockStatex) -> blockStatex.isOf(MarblesBlocks.PINK_SALT_SPIRE) && blockStatex.get(VERTICAL_DIRECTION) == direction;
+            Predicate<BlockState> predicate = blockStatex -> blockStatex.isOf(MarblesBlocks.PINK_SALT_SPIRE) && blockStatex.get(VERTICAL_DIRECTION) == direction;
             return loopUntilPredicate(world, pos, direction.getDirection(), predicate, PinkSaltSpireBlock::isTip, i).orElse(null);
         }
     }

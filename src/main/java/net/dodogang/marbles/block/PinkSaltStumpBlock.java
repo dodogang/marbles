@@ -1,5 +1,6 @@
 package net.dodogang.marbles.block;
 
+import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.util.math.BlockPos;
@@ -43,6 +44,8 @@ public class PinkSaltStumpBlock extends AbstractLightRetainingBlock {
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return Block.sideCoversSmallSquare(world, pos.offset(Direction.DOWN), Direction.UP);
+        BlockPos down = pos.down();
+        return Block.sideCoversSmallSquare(world, down, Direction.UP)
+                   || world.getBlockState(down).isOf(MarblesBlocks.PINK_SALT_SPIRE);
     }
 }
