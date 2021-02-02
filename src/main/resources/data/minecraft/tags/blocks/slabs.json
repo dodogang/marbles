@@ -21,6 +21,14 @@
     "marbles:capped_tangerine_travertine_slab",
     "marbles:polished_tangerine_travertine_slab",
 
-    "marbles:lapis_shingles_slab"
+    "marbles:lapis_shingles_slab",
+
+    "marbles:dawn_sandstone_slab",
+    "marbles:cut_dawn_sandstone_slab",
+    "marbles:smooth_dawn_sandstone_slab",
+
+    "marbles:dusk_sandstone_slab",
+    "marbles:cut_dusk_sandstone_slab",
+    "marbles:smooth_dusk_sandstone_slab"
   ]
 }

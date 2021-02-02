@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "marbles:block/dusk_sandstone_top"
+  }
+}

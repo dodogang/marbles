@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "marbles:block/dawn_sandstone_top",
+    "side": "marbles:block/chiseled_dawn_sandstone"
+  }
+}

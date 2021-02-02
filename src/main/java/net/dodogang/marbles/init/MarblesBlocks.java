@@ -15,6 +15,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -48,7 +49,7 @@ public class MarblesBlocks {
     );
     public static final Block TRAVERTINE_BRICKS = createPillarBricks(TRAVERTINE);
     public static final Block CAPPED_TRAVERTINE = register("capped_" + travertine, new MarblesFacingBlock(FabricBlockSettings.copy(TRAVERTINE)));
-    public static final Block POLISHED_TRAVERTINE = register("polished_" + travertine, new Block(FabricBlockSettings.copy(TRAVERTINE)));
+    public static final Block POLISHED_TRAVERTINE = copy("polished_" + travertine, TRAVERTINE);
     public static final Block TRAVERTINE_SLAB = createSlab(TRAVERTINE);
     public static final Block TRAVERTINE_BRICK_SLAB = createSlab(travertineBrick, TRAVERTINE_BRICKS);
     public static final Block CAPPED_TRAVERTINE_SLAB = createSlab(CAPPED_TRAVERTINE);
@@ -65,7 +66,7 @@ public class MarblesBlocks {
     public static final Block LEMON_TRAVERTINE = register(lemonTravertine, new PillarBlock(FabricBlockSettings.copy(TRAVERTINE)));
     public static final Block LEMON_TRAVERTINE_BRICKS = createPillarBricks(LEMON_TRAVERTINE);
     public static final Block CAPPED_LEMON_TRAVERTINE = register("capped_" + lemonTravertine, new MarblesFacingBlock(FabricBlockSettings.copy(LEMON_TRAVERTINE)));
-    public static final Block POLISHED_LEMON_TRAVERTINE = register("polished_" + lemonTravertine, new Block(FabricBlockSettings.copy(LEMON_TRAVERTINE)));
+    public static final Block POLISHED_LEMON_TRAVERTINE = copy("polished_" + lemonTravertine, LEMON_TRAVERTINE);
     public static final Block LEMON_TRAVERTINE_SLAB = createSlab(LEMON_TRAVERTINE);
     public static final Block LEMON_TRAVERTINE_BRICK_SLAB = createSlab(lemonTravertineBrick, LEMON_TRAVERTINE_BRICKS);
     public static final Block CAPPED_LEMON_TRAVERTINE_SLAB = createSlab(CAPPED_LEMON_TRAVERTINE);
@@ -82,7 +83,7 @@ public class MarblesBlocks {
     public static final Block PEACH_TRAVERTINE = register(peachTravertine, new PillarBlock(FabricBlockSettings.copy(TRAVERTINE)));
     public static final Block PEACH_TRAVERTINE_BRICKS = createPillarBricks(PEACH_TRAVERTINE);
     public static final Block CAPPED_PEACH_TRAVERTINE = register("capped_" + peachTravertine, new MarblesFacingBlock(FabricBlockSettings.copy(PEACH_TRAVERTINE)));
-    public static final Block POLISHED_PEACH_TRAVERTINE = register("polished_" + peachTravertine, new Block(FabricBlockSettings.copy(PEACH_TRAVERTINE)));
+    public static final Block POLISHED_PEACH_TRAVERTINE = copy("polished_" + peachTravertine, PEACH_TRAVERTINE);
     public static final Block PEACH_TRAVERTINE_SLAB = createSlab(PEACH_TRAVERTINE);
     public static final Block PEACH_TRAVERTINE_BRICK_SLAB = createSlab(peachTravertineBrick, PEACH_TRAVERTINE_BRICKS);
     public static final Block CAPPED_PEACH_TRAVERTINE_SLAB = createSlab(CAPPED_PEACH_TRAVERTINE);
@@ -99,7 +100,7 @@ public class MarblesBlocks {
     public static final Block TANGERINE_TRAVERTINE = register(tangerineTravertine, new PillarBlock(FabricBlockSettings.copy(TRAVERTINE)));
     public static final Block TANGERINE_TRAVERTINE_BRICKS = createPillarBricks(TANGERINE_TRAVERTINE);
     public static final Block CAPPED_TANGERINE_TRAVERTINE = register("capped_" + tangerineTravertine, new MarblesFacingBlock(FabricBlockSettings.copy(TANGERINE_TRAVERTINE)));
-    public static final Block POLISHED_TANGERINE_TRAVERTINE = register("polished_" + tangerineTravertine, new Block(FabricBlockSettings.copy(TANGERINE_TRAVERTINE)));
+    public static final Block POLISHED_TANGERINE_TRAVERTINE = copy("polished_" + tangerineTravertine, TANGERINE_TRAVERTINE);
     public static final Block TANGERINE_TRAVERTINE_SLAB = createSlab(TANGERINE_TRAVERTINE);
     public static final Block TANGERINE_TRAVERTINE_BRICK_SLAB = createSlab(tangerineTravertineBrick, TANGERINE_TRAVERTINE_BRICKS);
     public static final Block CAPPED_TANGERINE_TRAVERTINE_SLAB = createSlab(CAPPED_TANGERINE_TRAVERTINE);
@@ -130,7 +131,7 @@ public class MarblesBlocks {
     //
 
     public static final Block PINK_SALT = register("pink_salt", new Block(FabricBlockSettings.copy(Blocks.STONE)));
-    public static final Block CRUMBLED_PINK_SALT = register("crumbled_pink_salt", new Block(FabricBlockSettings.copy(PINK_SALT)));
+    public static final Block CRUMBLED_PINK_SALT = copy("crumbled_pink_salt", PINK_SALT);
     public static final Block PINK_SALT_SPIRE = register(PinkSaltSpireBlock.id, new PinkSaltSpireBlock(
         FabricBlockSettings.copy(PINK_SALT)
             .luminance(
@@ -175,6 +176,55 @@ public class MarblesBlocks {
 
     public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copy(Blocks.SCAFFOLDING)), false);
 
+    //
+    // SANDS
+    //
+
+    private static final String sandstone = "sandstone";
+
+    private static final String dawn = "dawn_";
+    private static final String dawnSandstone = dawn + sandstone;
+    public static final Block DAWN_SAND = register(dawn + "sand", new SandBlock(11098145, FabricBlockSettings.copy(Blocks.RED_SAND)));
+    public static final Block DAWN_SANDSTONE = register(dawnSandstone, new Block(FabricBlockSettings.copy(Blocks.RED_SANDSTONE)));
+    public static final Block CHISELED_DAWN_SANDSTONE = copy("chiseled_" + dawnSandstone, DAWN_SANDSTONE);
+    public static final Block CUT_DAWN_SANDSTONE = copy("cut_" + dawnSandstone, DAWN_SANDSTONE);
+    public static final Block SMOOTH_DAWN_SANDSTONE = copy("smooth_" + dawnSandstone, DAWN_SANDSTONE);
+    public static final Block DAWN_SANDSTONE_SLAB = createSlab(DAWN_SANDSTONE);
+    public static final Block CUT_DAWN_SANDSTONE_SLAB = createSlab(CUT_DAWN_SANDSTONE);
+    public static final Block SMOOTH_DAWN_SANDSTONE_SLAB = createSlab(SMOOTH_DAWN_SANDSTONE);
+    public static final Block DAWN_SANDSTONE_STAIRS = createStairs(DAWN_SANDSTONE);
+    public static final Block CUT_DAWN_SANDSTONE_STAIRS = createStairs(CUT_DAWN_SANDSTONE);
+    public static final Block SMOOTH_DAWN_SANDSTONE_STAIRS = createStairs(SMOOTH_DAWN_SANDSTONE);
+    public static final Block DAWN_SANDSTONE_WALL = createWall(DAWN_SANDSTONE);
+    public static final Block CUT_DAWN_SANDSTONE_WALL = createWall(CUT_DAWN_SANDSTONE);
+    public static final Block SMOOTH_DAWN_SANDSTONE_WALL = createWall(SMOOTH_DAWN_SANDSTONE);
+
+    private static final String dusk = "dusk_";
+    private static final String duskSandstone = dusk + sandstone;
+    public static final Block DUSK_SAND = register(dusk + "sand", new SandBlock(
+        4658453,
+        FabricBlockSettings.of(Material.AGGREGATE, MaterialColor.RED)
+            .strength(0.5F).sounds(BlockSoundGroup.SAND)
+        )
+    );
+    public static final Block DUSK_SANDSTONE = register(duskSandstone, new Block(
+        FabricBlockSettings.of(Material.STONE, MaterialColor.RED)
+            .requiresTool().strength(0.8F)
+        )
+    );
+    public static final Block CHISELED_DUSK_SANDSTONE = copy("chiseled_" + duskSandstone, DUSK_SANDSTONE);
+    public static final Block CUT_DUSK_SANDSTONE = copy("cut_" + duskSandstone, DUSK_SANDSTONE);
+    public static final Block SMOOTH_DUSK_SANDSTONE = copy("smooth_" + duskSandstone, DUSK_SANDSTONE);
+    public static final Block DUSK_SANDSTONE_SLAB = createSlab(DUSK_SANDSTONE);
+    public static final Block CUT_DUSK_SANDSTONE_SLAB = createSlab(CUT_DUSK_SANDSTONE);
+    public static final Block SMOOTH_DUSK_SANDSTONE_SLAB = createSlab(SMOOTH_DUSK_SANDSTONE);
+    public static final Block DUSK_SANDSTONE_STAIRS = createStairs(DUSK_SANDSTONE);
+    public static final Block CUT_DUSK_SANDSTONE_STAIRS = createStairs(CUT_DUSK_SANDSTONE);
+    public static final Block SMOOTH_DUSK_SANDSTONE_STAIRS = createStairs(SMOOTH_DUSK_SANDSTONE);
+    public static final Block DUSK_SANDSTONE_WALL = createWall(DUSK_SANDSTONE);
+    public static final Block CUT_DUSK_SANDSTONE_WALL = createWall(CUT_DUSK_SANDSTONE);
+    public static final Block SMOOTH_DUSK_SANDSTONE_WALL = createWall(SMOOTH_DUSK_SANDSTONE);
+
     public MarblesBlocks() {}
 
     public static Block register(String id, Block block, boolean registerItem) {
@@ -218,6 +268,9 @@ public class MarblesBlocks {
                 .luminance((state) -> 15)
             )
         );
+    }
+    private static Block copy(String id, Block block) {
+        return register(id, new Block(FabricBlockSettings.copy(block)));
     }
 
     private static String getBlockId(Block block) {
