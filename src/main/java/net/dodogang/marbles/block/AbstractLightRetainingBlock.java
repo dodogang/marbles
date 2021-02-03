@@ -20,6 +20,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -28,7 +29,7 @@ import java.util.Objects;
 import java.util.Random;
 
 @SuppressWarnings("deprecation")
-public class AbstractLightRetainingBlock extends Block implements Waterloggable {
+public abstract class AbstractLightRetainingBlock extends Block implements Waterloggable {
     protected static final IntProperty RETAINED_LIGHT = MarblesProperties.RETAINED_LIGHT;
     protected static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
@@ -64,12 +65,6 @@ public class AbstractLightRetainingBlock extends Block implements Waterloggable 
         int oldRetainedLight = state.get(RETAINED_LIGHT);
         int retainedLight = Math.max(0, Math.max(world.getLightLevel(LightType.BLOCK, pos), oldRetainedLight) - 1);
 
-        if (world.isClient && retainedLight != 0) {
-            spawnParticles(world, pos);
-        } else {
-            this.light(state, world, pos, retainedLight);
-        }
-
         ItemStack itemStack = player.getStackInHand(hand);
         ActionResult actionResult = oldRetainedLight == retainedLight
             ? (itemStack.getItem() instanceof BlockItem && new ItemPlacementContext(player, hand, itemStack, hit).canPlace())
@@ -78,7 +73,7 @@ public class AbstractLightRetainingBlock extends Block implements Waterloggable 
             : ActionResult.SUCCESS;
 
         if (world.isClient && oldRetainedLight != 0) {
-            spawnParticles(world, pos);
+            this.spawnParticles(world, pos);
             return ActionResult.SUCCESS;
         } else {
             this.light(state, world, pos, retainedLight);
@@ -88,23 +83,31 @@ public class AbstractLightRetainingBlock extends Block implements Waterloggable 
     }
 
     protected void light(BlockState state, World world, BlockPos pos, int light) {
-        if (light != 0) AbstractLightRetainingBlock.spawnParticles(world, pos);
+        if (light != 0) this.spawnParticles(world, pos);
         world.setBlockState(pos, state.with(RETAINED_LIGHT, light), 3);
     }
 
-    private static void spawnParticles(World world, BlockPos pos) {
-        Random random = world.random;
-        Direction[] directions = Direction.values();
+    protected final void spawnParticles(World world, BlockPos pos) {
+        BlockState state = world.getBlockState(pos);
+        int retainedLight = state.get(RETAINED_LIGHT);
+        for (int i = 0; i < ((retainedLight == 0 ? 15 : retainedLight) * getBonusParticleMultiplier()); i++) {
+            Random random = world.random;
+            double horizontalOffsetRange = this.getHorizontalParticleOffsetRange();
+            double randX = random.nextFloat() * horizontalOffsetRange;
+            double randZ = random.nextFloat() * horizontalOffsetRange;
 
-        for (Direction direction : directions) {
-            BlockPos blockPos = pos.offset(direction);
-            if (!world.getBlockState(blockPos).isOpaqueFullCube(world, blockPos)) {
-                Direction.Axis axis = direction.getAxis();
-                double x = axis == Direction.Axis.X ? 0.5D + 0.12D * (double) direction.getOffsetX() : (double) random.nextFloat();
-                double y = axis == Direction.Axis.Y ? 0.5D + 0.12D * (double) direction.getOffsetY() : (double) random.nextFloat();
-                double z = axis == Direction.Axis.Z ? 0.5D + 0.12D * (double) direction.getOffsetZ() : (double) random.nextFloat();
-                world.addParticle(MarblesParticles.PINK_SALT, (double) pos.getX() + x, (double) pos.getY() + y, (double) pos.getZ() + z, 0.0D, 0.0D, 0.0D);
-            }
+            Vec3d offsetPos = Vec3d.ofBottomCenter(pos).add(state.getModelOffset(world, pos));
+            double x = offsetPos.getX() + (random.nextBoolean() ? randX : -randX);
+            double y = offsetPos.getY() + this.getVerticalParticleOffset() + (double)random.nextFloat() * 0.3D;
+            double z = offsetPos.getZ() + (random.nextBoolean() ? randZ : -randZ);
+
+            world.addParticle(MarblesParticles.PINK_SALT, x, y, z, 0.0D, 0.0D, 0.0D);
         }
+    }
+
+    protected abstract double getHorizontalParticleOffsetRange();
+    protected abstract double getVerticalParticleOffset();
+    protected double getBonusParticleMultiplier() {
+        return 1.2D;
     }
 }

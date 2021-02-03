@@ -45,7 +45,15 @@ public class PinkSaltStackBlock extends AbstractLightRetainingBlock {
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos down = pos.down();
-        return Block.sideCoversSmallSquare(world, down, Direction.UP)
-                   || world.getBlockState(down).isOf(MarblesBlocks.PINK_SALT_SPIRE);
+        return Block.sideCoversSmallSquare(world, down, Direction.UP) || world.getBlockState(down).isOf(MarblesBlocks.PINK_SALT_SPIRE);
+    }
+
+    @Override
+    protected double getHorizontalParticleOffsetRange() {
+        return 0.4D;
+    }
+    @Override
+    protected double getVerticalParticleOffset() {
+        return 0.7D;
     }
 }
