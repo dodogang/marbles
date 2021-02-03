@@ -65,18 +65,20 @@ public class AbstractLightRetainingBlock extends Block implements Waterloggable 
         int oldRetainedLight = state.get(RETAINED_LIGHT);
         int retainedLight = Math.max(0, Math.max(world.getLightLevel(LightType.BLOCK, pos), oldRetainedLight) - 1);
 
-        if (world.isClient && retainedLight != 0) {
-            spawnParticles(world, pos);
-        } else {
-            this.light(state, world, pos, retainedLight);
-        }
-
         ItemStack itemStack = player.getStackInHand(hand);
-        return oldRetainedLight == retainedLight
+        ActionResult actionResult = oldRetainedLight == retainedLight
             ? itemStack.getItem() instanceof BlockItem && new ItemPlacementContext(player, hand, itemStack, hit).canPlace()
                 ? ActionResult.PASS
                 : ActionResult.CONSUME
             : ActionResult.SUCCESS;
+
+        if (world.isClient && retainedLight != 0) {
+            if (actionResult == ActionResult.SUCCESS) spawnParticles(world, pos);
+        } else {
+            this.light(state, world, pos, retainedLight);
+        }
+
+        return actionResult;
     }
 
     protected void light(BlockState state, World world, BlockPos pos, int light) {
