@@ -135,7 +135,7 @@ public class MarblesBlocks {
     public static final Block PINK_SALT_SPIRE = register(PinkSaltSpireBlock.id, new PinkSaltSpireBlock(
         FabricBlockSettings.copy(PINK_SALT)
             .luminance(
-                (state) -> {
+                state -> {
                     SpirePart spirePart = state.get(MarblesProperties.SPIRE_PART);
                     return spirePart == SpirePart.TIP || spirePart == SpirePart.TIP_MERGE ? 4 : 1;
                 }
@@ -145,7 +145,7 @@ public class MarblesBlocks {
     public static final Block PINK_SALT_STACK = register(PinkSaltStackBlock.id, new PinkSaltStackBlock(
         FabricBlockSettings.copy(PINK_SALT)
             .luminance(
-                (state) -> state.get(MarblesProperties.RETAINED_LIGHT)
+                state -> state.get(MarblesProperties.RETAINED_LIGHT)
             )
             .breakInstantly()
         )
@@ -153,10 +153,10 @@ public class MarblesBlocks {
     public static final Block PINK_SALT_STUMP = register(PinkSaltStumpBlock.id, new PinkSaltStumpBlock(
         FabricBlockSettings.copy(PINK_SALT)
             .luminance(
-                (state) -> state.get(MarblesProperties.RETAINED_LIGHT) / 3
+                state -> state.get(MarblesProperties.RETAINED_LIGHT) / 3
             )
             .breakInstantly()
-        )
+                                                         )
     );
 
     //
@@ -166,13 +166,25 @@ public class MarblesBlocks {
     public static final Block LAPIS_SHINGLES = register("lapis_shingles", new Block(FabricBlockSettings.copy(Blocks.LAPIS_BLOCK)));
     public static final Block LAPIS_SHINGLES_SLAB = createSlab(LAPIS_SHINGLES);
     public static final Block LAPIS_SHINGLES_STAIRS = createStairs(LAPIS_SHINGLES);
+    public static final Block LAPIS_SPOTLIGHT = register("lapis_spotlight", new SpotlightBlock(FabricBlockSettings.copy(Blocks.LAPIS_BLOCK)));
+    public static final Block SPOTLIGHT_AIR = register("spotlight_air", new SpotlightAirBlock(
+        FabricBlockSettings.of(Material.AIR, MaterialColor.CLEAR)
+                           .blockVision((state, world, pos) -> true)
+                           .suffocates((state, world, pos) -> false)
+                           .allowsSpawning((state, world, pos, type) -> true)
+                           .air()
+                           .luminance(state -> {
+                               int dist = 31 - state.get(MarblesProperties.DISTANCE_0_31);
+                               return Math.min(15, dist / 5 + 10);
+                           })
+    ), false);
 
     //
     // YELLOW BAMBOO
     //
 
-    public static final CBambooBlock YELLOW_BAMBOO = (CBambooBlock)register("yellow_bamboo", new CBambooBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copy(Blocks.BAMBOO)));
-    public static final CBambooSaplingBlock YELLOW_BAMBOO_SAPLING = (CBambooSaplingBlock)register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copy(Blocks.BAMBOO_SAPLING)), false);
+    public static final CBambooBlock YELLOW_BAMBOO = (CBambooBlock) register("yellow_bamboo", new CBambooBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copy(Blocks.BAMBOO)));
+    public static final CBambooSaplingBlock YELLOW_BAMBOO_SAPLING = (CBambooSaplingBlock) register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copy(Blocks.BAMBOO_SAPLING)), false);
 
     public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copy(Blocks.SCAFFOLDING)), false);
 
@@ -264,8 +276,8 @@ public class MarblesBlocks {
     private static Block createSaltLamp(Block block) {
         return register(getBlockId(block) + "_salt_lamp", new Block(
             FabricBlockSettings.copy(block)
-                .strength(0.75F, 3.0F)
-                .luminance((state) -> 15)
+                               .strength(0.75F, 3.0F)
+                               .luminance(state -> 15)
             )
         );
     }

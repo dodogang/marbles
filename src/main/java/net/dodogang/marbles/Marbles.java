@@ -2,7 +2,6 @@ package net.dodogang.marbles;
 
 import net.dodogang.marbles.init.*;
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -26,6 +25,8 @@ public class Marbles implements ModInitializer {
 
         new MarblesBlocks();
         new MarblesItems();
+
+        new MarblesBlockEntities();
 
         new MarblesFeatures();
         new MarblesConfiguredFeatures();
