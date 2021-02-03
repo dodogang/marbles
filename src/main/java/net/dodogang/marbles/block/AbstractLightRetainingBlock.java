@@ -11,7 +11,6 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
@@ -65,18 +64,21 @@ public class AbstractLightRetainingBlock extends Block implements Waterloggable 
         int oldRetainedLight = state.get(RETAINED_LIGHT);
         int retainedLight = Math.max(0, Math.max(world.getLightLevel(LightType.BLOCK, pos), oldRetainedLight) - 1);
 
-        if (world.isClient && retainedLight != 0) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        ActionResult actionResult = oldRetainedLight == retainedLight
+            ? (itemStack.getItem() instanceof BlockItem && new ItemPlacementContext(player, hand, itemStack, hit).canPlace())
+                ? ActionResult.PASS
+                : ActionResult.CONSUME
+            : ActionResult.SUCCESS;
+
+        if (world.isClient && oldRetainedLight != 0) {
             spawnParticles(world, pos);
+            return ActionResult.SUCCESS;
         } else {
             this.light(state, world, pos, retainedLight);
         }
 
-        ItemStack itemStack = player.getStackInHand(hand);
-        return oldRetainedLight == retainedLight
-            ? itemStack.getItem() instanceof BlockItem && new ItemPlacementContext(player, hand, itemStack, hit).canPlace()
-                ? ActionResult.PASS
-                : ActionResult.CONSUME
-            : ActionResult.SUCCESS;
+        return actionResult;
     }
 
     protected void light(BlockState state, World world, BlockPos pos, int light) {
