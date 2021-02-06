@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "marbles:block/lapis_spotlight_top",
+    "east": "marbles:block/lapis_spotlight_side",
+    "south": "marbles:block/lapis_spotlight_top",
+    "west": "marbles:block/lapis_spotlight_side",
+    "up": "marbles:block/lapis_spotlight_front",
+    "down": "marbles:block/lapis_spotlight_back",
+    "particle": "marbles:block/lapis_spotlight_back"
+  }
+}

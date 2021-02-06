@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "marbles:block/tangerine_travertine_bricks_top",
-    "top": "marbles:block/tangerine_travertine_bricks_top",
-    "side": "marbles:block/tangerine_travertine_bricks"
-  }
-}

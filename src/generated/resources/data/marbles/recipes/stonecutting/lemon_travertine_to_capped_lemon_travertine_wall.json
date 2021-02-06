@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:lemon_travertine"
+  },
+  "result": "marbles:capped_lemon_travertine_wall",
+  "count": 1
+}

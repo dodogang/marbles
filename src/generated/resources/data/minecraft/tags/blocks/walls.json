@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#marbles:travertine_walls",
+    "marbles:dawn_sandstone_wall",
+    "marbles:cut_dawn_sandstone_wall",
+    "marbles:smooth_dawn_sandstone_wall",
+    "marbles:dusk_sandstone_wall",
+    "marbles:cut_dusk_sandstone_wall",
+    "marbles:smooth_dusk_sandstone_wall"
+  ]
+}

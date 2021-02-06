@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:stonecutting/travertine_to_travertine_brick_stairs"
+    ]
+  },
+  "criteria": {
+    "has_travertine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:travertine"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:stonecutting/travertine_to_travertine_brick_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_travertine",
+      "has_the_recipe"
+    ]
+  ]
+}

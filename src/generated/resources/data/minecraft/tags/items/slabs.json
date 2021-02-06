@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#marbles:travertine_slabs",
+    "marbles:lapis_shingles_slab",
+    "marbles:dawn_sandstone_slab",
+    "marbles:cut_dawn_sandstone_slab",
+    "marbles:smooth_dawn_sandstone_slab",
+    "marbles:dusk_sandstone_slab",
+    "marbles:cut_dusk_sandstone_slab",
+    "marbles:smooth_dusk_sandstone_slab"
+  ]
+}

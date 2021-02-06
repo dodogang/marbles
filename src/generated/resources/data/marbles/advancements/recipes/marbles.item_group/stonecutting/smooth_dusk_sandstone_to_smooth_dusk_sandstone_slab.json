@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:stonecutting/smooth_dusk_sandstone_to_smooth_dusk_sandstone_slab"
+    ]
+  },
+  "criteria": {
+    "has_smooth_dusk_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:smooth_dusk_sandstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:stonecutting/smooth_dusk_sandstone_to_smooth_dusk_sandstone_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_dusk_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

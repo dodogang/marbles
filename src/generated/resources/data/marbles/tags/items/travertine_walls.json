@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "marbles:travertine_wall",
+    "marbles:travertine_brick_wall",
+    "marbles:capped_travertine_wall",
+    "marbles:polished_travertine_wall",
+    "marbles:lemon_travertine_wall",
+    "marbles:lemon_travertine_brick_wall",
+    "marbles:capped_lemon_travertine_wall",
+    "marbles:polished_lemon_travertine_wall",
+    "marbles:peach_travertine_wall",
+    "marbles:peach_travertine_brick_wall",
+    "marbles:capped_peach_travertine_wall",
+    "marbles:polished_peach_travertine_wall",
+    "marbles:tangerine_travertine_wall",
+    "marbles:tangerine_travertine_brick_wall",
+    "marbles:capped_tangerine_travertine_wall",
+    "marbles:polished_tangerine_travertine_wall"
+  ]
+}

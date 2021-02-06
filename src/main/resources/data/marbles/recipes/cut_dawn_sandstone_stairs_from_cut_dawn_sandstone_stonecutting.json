@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "marbles:cut_dawn_sandstone"
-  },
-  "result": "marbles:cut_dawn_sandstone_stairs",
-  "count": 1
-}

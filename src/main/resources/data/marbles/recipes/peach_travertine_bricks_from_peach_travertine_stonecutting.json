@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "tag": "marbles:craftable_peach_travertine"
-  },
-  "result": "marbles:peach_travertine_bricks",
-  "count": 1
-}

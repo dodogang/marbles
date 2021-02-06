@@ -17,21 +17,27 @@ public class Marbles implements ModInitializer {
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "item_group"), () -> new ItemStack(MarblesBlocks.TRAVERTINE));
     public static Logger LOGGER = LogManager.getLogger(MOD_ID);
 
+    private static boolean initialized = false;
+
     @Override
     public void onInitialize() {
-        log("Initializing");
+        if (!initialized) { // We need this because data gen may do an early initialization call
+            log("Initializing");
 
-        new MarblesParticles();
+            new MarblesParticles();
 
-        new MarblesBlocks();
-        new MarblesItems();
+            new MarblesBlocks();
+            new MarblesItems();
 
-        new MarblesFeatures();
-        new MarblesConfiguredFeatures();
+            new MarblesFeatures();
+            new MarblesConfiguredFeatures();
 
-        new MarblesBiomes();
+            new MarblesBiomes();
 
-        log("Initialized");
+            log("Initialized");
+
+            initialized = true;
+        }
     }
 
     public static void log(Level level, String message) {

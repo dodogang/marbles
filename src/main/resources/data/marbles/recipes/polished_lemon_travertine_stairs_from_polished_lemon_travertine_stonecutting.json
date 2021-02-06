@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "marbles:polished_lemon_travertine"
-  },
-  "result": "marbles:polished_lemon_travertine_stairs",
-  "count": 1
-}

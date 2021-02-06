@@ -1,0 +1,8 @@
+{
+  "parent": "marbles:block/template_wall_sided_post",
+  "textures": {
+    "bottom": "marbles:block/peach_travertine_top",
+    "top": "marbles:block/peach_travertine_top",
+    "side": "marbles:block/peach_travertine"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "marbles:stripped_hoopsi_spruce_log"
+    }
+  ],
+  "result": {
+    "item": "marbles:stripped_hoopsi_spruce_wood",
+    "count": 3
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "marbles:travertine_stairs",
+    "marbles:travertine_brick_stairs",
+    "marbles:capped_travertine_stairs",
+    "marbles:polished_travertine_stairs",
+    "marbles:lemon_travertine_stairs",
+    "marbles:lemon_travertine_brick_stairs",
+    "marbles:capped_lemon_travertine_stairs",
+    "marbles:polished_lemon_travertine_stairs",
+    "marbles:peach_travertine_stairs",
+    "marbles:peach_travertine_brick_stairs",
+    "marbles:capped_peach_travertine_stairs",
+    "marbles:polished_peach_travertine_stairs",
+    "marbles:tangerine_travertine_stairs",
+    "marbles:tangerine_travertine_brick_stairs",
+    "marbles:capped_tangerine_travertine_stairs",
+    "marbles:polished_tangerine_travertine_stairs"
+  ]
+}

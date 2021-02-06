@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "marbles:aspen_planks"
+    }
+  ],
+  "result": {
+    "item": "marbles:aspen_button"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "marbles:block/dawn_sandstone_top",
-    "top": "marbles:block/dawn_sandstone_top",
-    "side": "marbles:block/cut_dawn_sandstone"
-  }
-}

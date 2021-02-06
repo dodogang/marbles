@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:polished_peach_travertine"
+  },
+  "result": "marbles:polished_peach_travertine_wall",
+  "count": 1
+}

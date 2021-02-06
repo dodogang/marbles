@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.4-SNAPSHOT'
+    id 'fabric-loom' version '0.6-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -120,4 +120,23 @@ publishing {
             }
         }
     }
+}
+
+loom {
+    runs {
+        data {
+            server()
+
+            vmArg "-Dmarbles.datagen=true"
+            vmArg "-Dmarbles.datagen.path=${project.file("src/generated/resources")};${project.file("$buildDir/resources/main")}"
+        }
+    }
+}
+
+processResources {
+    finalizedBy runData
+}
+
+sourceSets.main.resources {
+    srcDirs += "$projectDir/src/generated/resources"
 }

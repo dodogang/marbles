@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "marbles:block/smooth_dusk_sandstone_slab"
+    },
+    "type=double": {
+      "model": "marbles:block/dusk_sandstone"
+    },
+    "type=top": {
+      "model": "marbles:block/smooth_dusk_sandstone_slab_top"
+    }
+  }
+}

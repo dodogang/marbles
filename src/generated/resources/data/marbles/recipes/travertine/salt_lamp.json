@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#S#",
+    "SLS",
+    "#S#"
+  ],
+  "key": {
+    "#": {
+      "tag": "marbles:travertine"
+    },
+    "L": {
+      "tag": "marbles:high_light_blocks"
+    },
+    "S": {
+      "item": "marbles:pink_salt_shard"
+    }
+  },
+  "result": {
+    "item": "marbles:travertine_salt_lamp",
+    "count": 4
+  }
+}

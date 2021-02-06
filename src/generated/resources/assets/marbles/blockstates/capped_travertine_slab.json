@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "marbles:block/capped_travertine_slab"
+    },
+    "type=double": {
+      "model": "marbles:block/capped_travertine"
+    },
+    "type=top": {
+      "model": "marbles:block/capped_travertine_slab_top"
+    }
+  }
+}

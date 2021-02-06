@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#marbles:travertine_stairs",
+    "marbles:lapis_shingles_stairs",
+    "marbles:dawn_sandstone_stairs",
+    "marbles:cut_dawn_sandstone_stairs",
+    "marbles:smooth_dawn_sandstone_stairs",
+    "marbles:dusk_sandstone_stairs",
+    "marbles:cut_dusk_sandstone_stairs",
+    "marbles:smooth_dusk_sandstone_stairs"
+  ]
+}

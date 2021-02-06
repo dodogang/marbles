@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "marbles:block/dusk_sandstone_top",
-    "bottom": "marbles:block/dusk_sandstone_bottom",
-    "side": "marbles:block/dusk_sandstone"
-  }
-}

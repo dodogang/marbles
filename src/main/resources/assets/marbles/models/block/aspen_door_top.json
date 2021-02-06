@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top",
-  "textures": {
-    "top": "marbles:block/aspen_door_top",
-    "bottom": "marbles:block/aspen_door_bottom"
-  }
-}

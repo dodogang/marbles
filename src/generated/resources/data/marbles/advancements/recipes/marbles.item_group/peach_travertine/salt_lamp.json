@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:peach_travertine/salt_lamp"
+    ]
+  },
+  "criteria": {
+    "has_travertine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "marbles:peach_travertine"
+          }
+        ]
+      }
+    },
+    "has_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:pink_salt_shard"
+          }
+        ]
+      }
+    },
+    "has_light": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "marbles:high_light_blocks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:peach_travertine/salt_lamp"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_travertine",
+      "has_shard",
+      "has_light",
+      "has_the_recipe"
+    ]
+  ]
+}

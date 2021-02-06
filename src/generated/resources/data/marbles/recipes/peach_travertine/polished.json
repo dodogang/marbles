@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "marbles:peach_travertine"
+    }
+  ],
+  "result": {
+    "item": "marbles:polished_peach_travertine"
+  }
+}

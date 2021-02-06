@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "marbles:aspen_log"
+    }
+  ],
+  "result": {
+    "item": "marbles:aspen_wood",
+    "count": 3
+  }
+}

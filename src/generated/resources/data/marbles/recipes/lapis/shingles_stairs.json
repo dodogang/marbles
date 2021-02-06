@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:lapis_shingles"
+    }
+  },
+  "result": {
+    "item": "marbles:lapis_shingles_stairs",
+    "count": 4
+  }
+}

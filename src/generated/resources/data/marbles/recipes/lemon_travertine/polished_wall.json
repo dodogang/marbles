@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:polished_lemon_travertine"
+    }
+  },
+  "result": {
+    "item": "marbles:polished_lemon_travertine_wall",
+    "count": 6
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "marbles:block/template_wall_sided_side",
+  "textures": {
+    "bottom": "marbles:block/tangerine_travertine_top",
+    "top": "marbles:block/tangerine_travertine_top",
+    "side": "marbles:block/tangerine_travertine"
+  }
+}

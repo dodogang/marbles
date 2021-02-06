@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    " / "
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:hoopsi_spruce_planks"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "marbles:hoopsi_spruce_sign",
+    "count": 3
+  }
+}

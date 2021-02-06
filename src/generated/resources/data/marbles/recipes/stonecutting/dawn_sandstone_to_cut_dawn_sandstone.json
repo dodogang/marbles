@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:dawn_sandstone"
+  },
+  "result": "marbles:cut_dawn_sandstone",
+  "count": 1
+}

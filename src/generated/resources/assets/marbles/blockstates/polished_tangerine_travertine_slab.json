@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "marbles:block/polished_tangerine_travertine_slab"
+    },
+    "type=double": {
+      "model": "marbles:block/polished_tangerine_travertine"
+    },
+    "type=top": {
+      "model": "marbles:block/polished_tangerine_travertine_slab_top"
+    }
+  }
+}

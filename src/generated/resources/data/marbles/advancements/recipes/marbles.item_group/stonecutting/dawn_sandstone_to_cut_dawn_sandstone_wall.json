@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:stonecutting/dawn_sandstone_to_cut_dawn_sandstone_wall"
+    ]
+  },
+  "criteria": {
+    "has_dawn_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:dawn_sandstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:stonecutting/dawn_sandstone_to_cut_dawn_sandstone_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dawn_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

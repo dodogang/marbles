@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:aspen_planks"
+    }
+  },
+  "result": {
+    "item": "marbles:aspen_door",
+    "count": 3
+  }
+}

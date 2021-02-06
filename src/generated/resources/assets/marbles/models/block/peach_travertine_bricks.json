@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "marbles:block/peach_travertine_bricks_top",
+    "side": "marbles:block/peach_travertine_bricks"
+  }
+}

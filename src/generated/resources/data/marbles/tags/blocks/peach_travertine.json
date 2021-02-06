@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "marbles:peach_travertine",
+    "marbles:peach_travertine_bricks",
+    "marbles:capped_peach_travertine",
+    "marbles:polished_peach_travertine"
+  ]
+}

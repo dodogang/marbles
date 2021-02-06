@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "marbles:block/hoopsi_spruce_sapling"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:smooth_dusk_sandstone"
+  },
+  "result": "marbles:smooth_dusk_sandstone_slab",
+  "count": 2
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:hoopsi_spruce_planks"
+    }
+  },
+  "result": {
+    "item": "marbles:hoopsi_spruce_pressure_plate"
+  }
+}

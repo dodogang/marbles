@@ -1,0 +1,8 @@
+{
+  "parent": "marbles:block/wall_sided_inventory",
+  "textures": {
+    "bottom": "marbles:block/travertine_top",
+    "top": "marbles:block/travertine_top",
+    "side": "marbles:block/travertine"
+  }
+}

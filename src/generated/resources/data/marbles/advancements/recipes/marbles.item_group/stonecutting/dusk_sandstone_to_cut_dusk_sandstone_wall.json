@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:stonecutting/dusk_sandstone_to_cut_dusk_sandstone_wall"
+    ]
+  },
+  "criteria": {
+    "has_dusk_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:dusk_sandstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:stonecutting/dusk_sandstone_to_cut_dusk_sandstone_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dusk_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

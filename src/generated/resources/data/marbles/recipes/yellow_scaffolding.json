@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "/s/",
+    "/ /",
+    "/ /"
+  ],
+  "key": {
+    "/": {
+      "item": "marbles:yellow_bamboo"
+    },
+    "s": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "marbles:yellow_scaffolding",
+    "count": 6
+  }
+}

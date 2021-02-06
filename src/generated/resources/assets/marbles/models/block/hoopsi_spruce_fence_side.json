@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "marbles:block/hoopsi_spruce_planks"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "marbles:block/lapis_spotlight",
+      "x": 90,
+      "y": 90
+    },
+    "facing=south": {
+      "model": "marbles:block/lapis_spotlight",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down": {
+      "model": "marbles:block/lapis_spotlight",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "marbles:block/lapis_spotlight",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "marbles:block/lapis_spotlight"
+    },
+    "facing=west": {
+      "model": "marbles:block/lapis_spotlight",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

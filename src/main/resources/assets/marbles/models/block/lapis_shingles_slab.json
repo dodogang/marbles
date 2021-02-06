@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "marbles:block/lapis_shingles",
-    "top": "marbles:block/lapis_shingles",
-    "side": "marbles:block/lapis_shingles"
-  }
-}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:stonecutting/tangerine_travertine_to_capped_tangerine_travertine"
+    ]
+  },
+  "criteria": {
+    "has_tangerine_travertine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:tangerine_travertine"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:stonecutting/tangerine_travertine_to_capped_tangerine_travertine"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tangerine_travertine",
+      "has_the_recipe"
+    ]
+  ]
+}

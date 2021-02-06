@@ -55,7 +55,8 @@ public class SpotlightAirBlock extends AirBlock {
     }
 
     public static void addMoreAir(WorldAccess world, BlockPos pos, Direction facing) {
-        if (world.getBlockState(pos).isAir() && !World.isOutOfBuildLimitVertically(pos)) {
+        BlockState state = world.getBlockState(pos);
+        if (state.isAir() && !(state.getBlock() instanceof SpotlightAirBlock) && !World.isOutOfBuildLimitVertically(pos)) {
             BlockPos srcPos = pos.offset(facing, -1);
             BlockState source = world.getBlockState(srcPos);
             Block srcBlock = source.getBlock();
@@ -63,12 +64,12 @@ public class SpotlightAirBlock extends AirBlock {
             if (srcBlock instanceof SpotlightAirBlock) {
                 int dist = source.get(DISTANCE) + 1;
                 if (dist <= 31) {
-                    world.setBlockState(pos, MarblesBlocks.SPOTLIGHT_AIR.getDefaultState().with(DISTANCE, dist).with(FACING, facing), 2);
+                    world.setBlockState(pos, MarblesBlocks.SPOTLIGHT_AIR.getDefaultState().with(DISTANCE, dist).with(FACING, facing), 2 | 16);
                 } else {
                     return;
                 }
             } else if (srcBlock instanceof SpotlightBlock) {
-                world.setBlockState(pos, MarblesBlocks.SPOTLIGHT_AIR.getDefaultState().with(DISTANCE, 0).with(FACING, facing), 2);
+                world.setBlockState(pos, MarblesBlocks.SPOTLIGHT_AIR.getDefaultState().with(DISTANCE, 0).with(FACING, facing), 2 | 16);
             }
 
             addMoreAir(world, pos.offset(facing), facing);

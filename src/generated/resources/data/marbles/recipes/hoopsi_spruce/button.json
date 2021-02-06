@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "marbles:hoopsi_spruce_planks"
+    }
+  ],
+  "result": {
+    "item": "marbles:hoopsi_spruce_button"
+  }
+}

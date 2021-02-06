@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:stonecutting/peach_travertine_to_peach_travertine_wall"
+    ]
+  },
+  "criteria": {
+    "has_peach_travertine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:peach_travertine"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:stonecutting/peach_travertine_to_peach_travertine_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_peach_travertine",
+      "has_the_recipe"
+    ]
+  ]
+}

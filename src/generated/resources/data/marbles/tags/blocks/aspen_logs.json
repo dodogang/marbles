@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "marbles:aspen_log",
+    "marbles:stripped_aspen_log",
+    "marbles:aspen_wood",
+    "marbles:stripped_aspen_wood"
+  ]
+}
