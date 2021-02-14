@@ -136,7 +136,7 @@ loom {
 processResources {
     // Specify auto_datagen in your local gradle properties (~/.gradle/gradle.properties) if you want datagen to run
     // automatically
-    if (Boolean.parseBoolean(project.auto_datagen + "")) {
+    if (project.getProperties().containsKey("auto_datagen")) {
         finalizedBy runData
     }
 }
