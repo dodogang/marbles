@@ -30,6 +30,11 @@ public class MarblesBlockTagsProvider extends AbstractTagProvider<Block> {
 
         getOrCreateTagBuilder(BlockTags.CLIMBABLE)
             .add(MarblesBlocks.YELLOW_SCAFFOLDING);
+
+        getOrCreateTagBuilder(BlockTags.ENDERMAN_HOLDABLE)
+            .add(MarblesBlocks.DAWN_SAND)
+            .add(MarblesBlocks.DUSK_SAND)
+            .add(MarblesBlocks.GRISP_DIRT);
     }
 
     protected void addWoodSet(WoodBlocks blocks) {

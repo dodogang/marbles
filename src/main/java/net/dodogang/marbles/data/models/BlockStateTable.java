@@ -12,7 +12,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import static net.dodogang.marbles.data.models.modelgen.InheritingModelGen.*;
-import static net.dodogang.marbles.data.models.modelgen.ParticleOnlyModelGen.particles;
+import static net.dodogang.marbles.data.models.modelgen.ParticleOnlyModelGen.*;
 import static net.dodogang.marbles.data.models.stategen.BuildingBlocks.slabAll;
 import static net.dodogang.marbles.data.models.stategen.BuildingBlocks.stairsAll;
 import static net.dodogang.marbles.data.models.stategen.BuildingBlocks.*;
@@ -147,6 +147,8 @@ public final class BlockStateTable {
         register(MarblesBlocks.DUSK_SANDSTONE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallSided(name(block, "block/%s"), n + "_bottom", n + "_top", n)));
         register(MarblesBlocks.CUT_DUSK_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_wall"))));
         register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
+
+        register(MarblesBlocks.GRISP_DIRT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
     }
 
     private static void registerWoodBlocks(WoodBlocks blocks) {

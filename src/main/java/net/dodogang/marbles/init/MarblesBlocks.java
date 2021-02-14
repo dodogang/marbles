@@ -239,13 +239,18 @@ public class MarblesBlocks {
     public static final Block CUT_DUSK_SANDSTONE_WALL = createWall(CUT_DUSK_SANDSTONE);
     public static final Block SMOOTH_DUSK_SANDSTONE_WALL = createWall(SMOOTH_DUSK_SANDSTONE);
 
-    public MarblesBlocks() {}
+    private static final String grisp = "grisp_";
+    public static final Block GRISP_DIRT = register(grisp + "dirt", new Block(FabricBlockSettings.copy(Blocks.DIRT)));
+
+    public MarblesBlocks() {
+    }
 
     public static Block register(String id, Block block, boolean registerItem) {
         Identifier identifier = new Identifier(Marbles.MOD_ID, id);
 
         Block registeredBlock = Registry.register(Registry.BLOCK, identifier, block);
-        if (registerItem) Registry.register(Registry.ITEM, identifier, new BlockItem(registeredBlock, new Item.Settings().maxCount(64).group(Marbles.ITEM_GROUP)));
+        if (registerItem)
+            Registry.register(Registry.ITEM, identifier, new BlockItem(registeredBlock, new Item.Settings().maxCount(64).group(Marbles.ITEM_GROUP)));
 
         return registeredBlock;
     }

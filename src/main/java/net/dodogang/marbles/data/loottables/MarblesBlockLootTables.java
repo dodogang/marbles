@@ -211,6 +211,8 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
         addDrop(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL);
 
+        addDrop(MarblesBlocks.GRISP_DIRT);
+
         Set<Identifier> set = Sets.newHashSet();
         Iterable<Block> blocks = Registry.BLOCK
                                      .stream()

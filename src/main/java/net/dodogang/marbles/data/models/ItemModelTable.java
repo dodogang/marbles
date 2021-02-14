@@ -141,6 +141,8 @@ public final class ItemModelTable {
 
         register(MarblesBlocks.YELLOW_BAMBOO, item -> generated(name(item, "item/%s")));
 
+        register(MarblesBlocks.GRISP_DIRT, item -> inherit(name(item, "block/%s")));
+
         register(MarblesItems.YELLOW_SCAFFOLDING, item -> inherit("marbles:block/yellow_scaffolding_stable"));
         register(MarblesItems.PINK_SALT_SHARD, item -> generated(name(item, "item/%s")));
     }
