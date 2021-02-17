@@ -36,5 +36,6 @@
     "fabric": ">=0.30.0",
     "minecraft": ">=1.16.2",
     "chord": ">=1.4.5"
-  }
+  },
+  "accessWidener": "marbles.accesswidener"
 }

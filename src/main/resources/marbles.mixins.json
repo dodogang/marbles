@@ -5,7 +5,10 @@
   "plugin": "net.dodogang.marbles.mixin.hooks.MarblesMixinPlugin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "FluidBlockMixin"
+    "FluidBlockMixin",
+    "hooks.worldgen.ChunkGenSettingsAccessor",
+    "hooks.worldgen.GeneratorTypeAccessor",
+    "hooks.worldgen.NoiseChunkGeneratorMixin"
   ],
   "injectors": {
     "defaultRequire": 1

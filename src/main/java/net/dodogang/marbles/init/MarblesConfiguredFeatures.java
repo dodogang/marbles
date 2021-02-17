@@ -2,16 +2,17 @@ package net.dodogang.marbles.init;
 
 import com.google.common.collect.ImmutableList;
 import net.dodogang.marbles.Marbles;
+import net.dodogang.marbles.world.gen.feature.SaltSpireFeature;
+import net.dodogang.marbles.world.gen.feature.SaltStumpFeature;
 import net.dodogang.marbles.world.gen.feature.YellowBambooFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.UniformIntDistribution;
-import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
-import net.minecraft.world.gen.decorator.CountNoiseBiasedDecoratorConfig;
-import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.MegaPineFoliagePlacer;
@@ -102,18 +103,36 @@ public class MarblesConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> YELLOW_BAMBOO = register(
         YellowBambooFeature.id,
         MarblesFeatures.YELLOW_BAMBOO.configure(new ProbabilityConfig(0.2F))
-            .decorate(ConfiguredFeatures.Decorators.HEIGHTMAP_WORLD_SURFACE)
-            .spreadHorizontally()
-            .decorate(Decorator.COUNT_NOISE_BIASED.configure(new CountNoiseBiasedDecoratorConfig(160, 80.0D, 0.3D)))
+                                     .decorate(ConfiguredFeatures.Decorators.HEIGHTMAP_WORLD_SURFACE)
+                                     .spreadHorizontally()
+                                     .decorate(Decorator.COUNT_NOISE_BIASED.configure(new CountNoiseBiasedDecoratorConfig(160, 80.0D, 0.3D)))
     );
     public static final ConfiguredFeature<?, ?> YELLOW_BAMBOO_LIGHT = register(
         YellowBambooFeature.id + "_light",
         MarblesFeatures.YELLOW_BAMBOO.configure(new ProbabilityConfig(0.0F))
-            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
-            .repeat(16)
+                                     .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
+                                     .repeat(16)
     );
 
-    public MarblesConfiguredFeatures() {}
+    public static final ConfiguredFeature<?, ?> SALT_STUMP = register(
+        SaltStumpFeature.id,
+        MarblesFeatures.SALT_STUMP.configure(FeatureConfig.DEFAULT)
+                                  .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(20, 0, 32)))
+                                  .spreadHorizontally()
+                                  .decorate(Decorator.COUNT.configure(new CountConfig(3)))
+    );
+
+    public static final ConfiguredFeature<?, ?> SALT_SPIRE = register(
+        SaltSpireFeature.id,
+        MarblesFeatures.SALT_SPIRE.configure(FeatureConfig.DEFAULT)
+                                  .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(20, 0, 32)))
+                                  .spreadHorizontally()
+                                  .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(2)))
+                                  .decorate(Decorator.COUNT.configure(new CountConfig(2)))
+    );
+
+    public MarblesConfiguredFeatures() {
+    }
 
     private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) {
         return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Marbles.MOD_ID, id), configuredFeature);

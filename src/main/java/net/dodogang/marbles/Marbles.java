@@ -1,11 +1,13 @@
 package net.dodogang.marbles;
 
 import net.dodogang.marbles.init.*;
+import net.dodogang.marbles.world.gen.level.MarblesNoiseChunkGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,6 +33,7 @@ public class Marbles implements ModInitializer {
 
             new MarblesFeatures();
             new MarblesConfiguredFeatures();
+            Registry.register(Registry.CHUNK_GENERATOR, "marbles:noise", MarblesNoiseChunkGenerator.CODEC);
 
             new MarblesBiomes();
 
