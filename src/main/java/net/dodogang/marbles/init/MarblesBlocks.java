@@ -6,7 +6,6 @@ import me.andante.chord.block.helper.WoodBlocks;
 import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.*;
-import net.dodogang.marbles.block.enums.SpirePart;
 import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
 import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.dodogang.marbles.state.property.MarblesProperties;
@@ -134,15 +133,14 @@ public class MarblesBlocks {
 
     public static final Block PINK_SALT = register("pink_salt", new Block(FabricBlockSettings.copy(Blocks.STONE)));
     public static final Block CRUMBLED_PINK_SALT = copy("crumbled_pink_salt", PINK_SALT);
-    public static final Block PINK_SALT_SPIRE = register(PinkSaltSpireBlock.id, new PinkSaltSpireBlock(
-        FabricBlockSettings.copy(PINK_SALT)
-            .luminance(
-                state -> {
-                    SpirePart spirePart = state.get(MarblesProperties.SPIRE_PART);
-                    return spirePart == SpirePart.TIP || spirePart == SpirePart.TIP_MERGE ? 4 : 1;
-                }
-            )
-        )
+    public static final Block PINK_SALT_SPIRE = register(PinkSaltSpireBlock.id, new PinkSaltSpireBlockOld(
+                                                             FabricBlockSettings.copy(PINK_SALT)
+                                                                                .luminance(
+                                                                                    state -> {
+                                                                                        return 4;
+                                                                                    }
+                                                                                )
+                                                         )
     );
     public static final Block PINK_SALT_STACK = register(PinkSaltStackBlock.id, new PinkSaltStackBlock(
         FabricBlockSettings.copy(PINK_SALT)
