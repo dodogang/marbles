@@ -8,6 +8,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
@@ -52,12 +53,19 @@ public class PinkSaltStumpBlock extends AbstractLightRetainingBlock {
     protected double getHorizontalParticleOffsetRange() {
         return 0.2D;
     }
+
     @Override
     protected double getVerticalParticleOffset() {
         return 0.175D;
     }
+
     @Override
     protected double getBonusParticleMultiplier() {
         return 0.75D;
+    }
+
+    @Override
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        return super.getComparatorOutput(state, world, pos) / 4;
     }
 }
