@@ -11,6 +11,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
@@ -100,8 +101,10 @@ public abstract class AbstractLightRetainingBlock extends Block implements Water
 
         if (world.isClient && oldRetainedLight != 0) {
             this.spawnParticles(world, pos);
-            return ActionResult.SUCCESS;
+            return actionResult;
         } else {
+            if (actionResult.shouldSwingHand())
+                world.playSound(null, pos, MarblesSoundGroups.PINK_SALT.getHitSound(), SoundCategory.BLOCKS, 1, 1);
             this.light(state, world, pos, retainedLight);
         }
 
@@ -152,6 +155,7 @@ public abstract class AbstractLightRetainingBlock extends Block implements Water
 
     protected abstract double getHorizontalParticleOffsetRange();
     protected abstract double getVerticalParticleOffset();
+
     protected double getBonusParticleMultiplier() {
         return 1.2D;
     }

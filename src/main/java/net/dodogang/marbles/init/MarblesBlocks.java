@@ -131,7 +131,8 @@ public class MarblesBlocks {
     // PINK SALT
     //
 
-    public static final Block PINK_SALT = register("pink_salt", new Block(FabricBlockSettings.copy(Blocks.STONE)));
+    public static final Block PINK_SALT = register("pink_salt", new Block(FabricBlockSettings.copy(Blocks.STONE)
+                                                                                             .sounds(MarblesSoundGroups.PINK_SALT)));
     public static final Block CRUMBLED_PINK_SALT = copy("crumbled_pink_salt", PINK_SALT);
     public static final Block PINK_SALT_SPIRE = register(PinkSaltSpireBlock.id, new PinkSaltSpireBlockOld(
                                                              FabricBlockSettings.copy(PINK_SALT)

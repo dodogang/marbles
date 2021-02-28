@@ -32,6 +32,8 @@ public class Marbles implements ModInitializer {
             new MarblesFeatures();
             new MarblesConfiguredFeatures();
 
+            new MarblesSoundEvents();
+
             new MarblesBiomes();
 
             log("Initialized");
