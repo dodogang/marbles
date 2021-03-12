@@ -66,17 +66,8 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
         BlockState above = world.getBlockState(up);
         BlockState below = world.getBlockState(down);
 
-        // Check if below is feasible surface
-        if (isValidSurface(above, world, up, Direction.DOWN) || isSelfFacing(above, Direction.DOWN)) {
-            return true;
-        }
-
-        // Check if above is feasible surface
-        if (isValidSurface(below, world, down, Direction.UP) || isSelfFacing(below, Direction.UP)) {
-            return true;
-        }
-
-        return false;
+        // Check if above or below is feasible surface
+        return (isValidSurface(below, world, down, Direction.UP) || isSelfFacing(below, Direction.UP)) || (isValidSurface(above, world, up, Direction.DOWN) || isSelfFacing(above, Direction.DOWN));
     }
 
     @Override

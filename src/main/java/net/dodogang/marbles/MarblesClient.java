@@ -7,7 +7,6 @@ import net.dodogang.marbles.init.MarblesParticles;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.minecraft.client.particle.AshParticle;
 import net.minecraft.client.render.RenderLayer;
 
 public class MarblesClient implements ClientModInitializer {

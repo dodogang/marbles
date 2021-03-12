@@ -137,9 +137,7 @@ public class MarblesBlocks {
     public static final Block PINK_SALT_SPIRE = register(PinkSaltSpireBlock.id, new PinkSaltSpireBlockOld(
                                                              FabricBlockSettings.copy(PINK_SALT)
                                                                                 .luminance(
-                                                                                    state -> {
-                                                                                        return 4;
-                                                                                    }
+                                                                                    state -> 4
                                                                                 )
                                                          )
     );
