@@ -7,6 +7,7 @@ import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
+@SuppressWarnings("unused")
 public class MarblesBlockTags {
     public static final Tag.Identified<Block> ASPEN_LOGS = register("aspen_logs");
     public static final Tag.Identified<Block> HOOPSI_SPRUCE_LOGS = register("hoopsi_spruce_logs");

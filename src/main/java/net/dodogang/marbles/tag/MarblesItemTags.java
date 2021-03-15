@@ -7,6 +7,7 @@ import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
+@SuppressWarnings("unused")
 public class MarblesItemTags {
     public static final Tag.Identified<Item> ASPEN_LOGS = register("aspen_logs");
     public static final Tag.Identified<Item> HOOPSI_SPRUCE_LOGS = register("hoopsi_spruce_logs");
@@ -24,8 +25,17 @@ public class MarblesItemTags {
 
     public static final Tag.Identified<Item> HIGH_LIGHT_BLOCKS = register("high_light_blocks");
 
-
     private static Tag.Identified<Item> register(String id) {
         return TagRegistry.create(new Identifier(Marbles.MOD_ID, id), ItemTags::getTagGroup);
+    }
+
+    public static class CreativeTabs {
+        public static final Tag.Identified<Item> TRAVERTINE = register("travertine");
+        public static final Tag.Identified<Item> WOOD = register("wood");
+        public static final Tag.Identified<Item> SAND = register("sand");
+
+        private static Tag.Identified<Item> register(String id) {
+            return MarblesItemTags.register("creative_tabs/" + id);
+        }
     }
 }

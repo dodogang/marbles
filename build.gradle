@@ -22,15 +22,12 @@ if (System.env.CI == "true") {
 minecraft {}
 
 repositories {
-    maven {
-        name = "Jitpack"
-        url = "https://jitpack.io"
-    }
+    maven { url "https://jitpack.io/" }
     maven { url "https://maven.dblsaiko.net/" }
-    maven { url "http://server.bbkr.space:8081/artifactory/libs-release/" }
-    maven { url 'https://maven.blamejared.com' }
+    maven { url "https://server.bbkr.space/artifactory/libs-release/" }
+    maven { url 'https://maven.blamejared.com/' }
     maven { url "https://maven.fabricmc.net/" }
-    jcenter()
+    maven { url "https://maven.shedaniel.me/" }
 }
 
 dependencies {
@@ -57,6 +54,10 @@ dependencies {
         exclude group: "net.fabricmc.fabric-api"
         exclude group: "me.shedaniel"
     }
+}
+
+loom {
+    accessWidener "src/main/resources/${project.archives_base_name}.accesswidener"
 }
 
 processResources {

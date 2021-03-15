@@ -3,11 +3,9 @@
   "license": "MIT",
   "id": "marbles",
   "version": "${version}",
-
   "name": "Marbles",
   "description": "Description",
-  "icon": "pack.png",
-
+  "icon": "assets/marbles/textures/gui/logo.png",
   "authors": [
     "Dodo Gang"
   ],
@@ -31,6 +29,7 @@
   "mixins": [
     "marbles.mixins.json"
   ],
+  "accessWidener": "marbles.accesswidener",
   "depends": {
     "fabricloader": ">=0.11.0",
     "fabric": ">=0.30.0",

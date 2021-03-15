@@ -1,8 +1,6 @@
 package net.dodogang.marbles.world.gen.feature;
 
 import com.mojang.serialization.Codec;
-import java.util.Random;
-
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.BlockState;
@@ -15,6 +13,8 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+
+import java.util.Random;
 
 public class YellowBambooFeature extends Feature<ProbabilityConfig> {
     public static final String id = "yellow_bamboo";
@@ -39,8 +39,8 @@ public class YellowBambooFeature extends Feature<ProbabilityConfig> {
                 if (random.nextFloat() < config.probability) {
                     height = random.nextInt(4) + 1;
 
-                    for(int x = pos.getX() - height; x <= pos.getX() + height; ++x) {
-                        for(int z = pos.getZ() - height; z <= pos.getZ() + height; ++z) {
+                    for (int x = pos.getX() - height; x <= pos.getX() + height; ++x) {
+                        for (int z = pos.getZ() - height; z <= pos.getZ() + height; ++z) {
                             int n = x - pos.getX();
                             int o = z - pos.getZ();
                             if (n * n + o * o <= height * height) {
