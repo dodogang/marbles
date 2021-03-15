@@ -1,30 +1,37 @@
 package net.dodogang.marbles.client.gui.itemgroup;
 
 import com.google.common.collect.ImmutableList;
+import me.andante.chord.client.gui.itemgroup.AbstractTabbedItemGroup;
+import me.andante.chord.client.gui.itemgroup.ItemGroupTab;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.init.MarblesBlocks;
-import net.dodogang.marbles.tag.MarblesItemTags;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 import java.util.List;
 
 public class MarblesItemGroup extends AbstractTabbedItemGroup {
-    public MarblesItemGroup(Identifier id) {
-        super(id);
+    public static final Item LOGO = Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, "logo"), new Item(new FabricItemSettings().food(new FoodComponent.Builder().alwaysEdible().hunger(20).build())));
+
+    public MarblesItemGroup() {
+        super(Marbles.MOD_ID);
     }
 
     @Override
     public List<ItemGroupTab> initTabs() {
         return ImmutableList.of(
-            createTab(MarblesBlocks.TRAVERTINE, "travertine", MarblesItemTags.CreativeTabs.TRAVERTINE),
-            createTab(MarblesBlocks.ASPEN.LOG, "wood", MarblesItemTags.CreativeTabs.WOOD),
-            createTab(MarblesBlocks.DAWN_SAND, "sand", MarblesItemTags.CreativeTabs.SAND)
+            createTab(MarblesBlocks.TRAVERTINE, "travertine"),
+            createTab(MarblesBlocks.ASPEN.LOG, "wood"),
+            createTab(MarblesBlocks.DAWN_SAND, "sand")
         );
     }
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(Marbles.LOGO);
+        return new ItemStack(LOGO);
     }
 }

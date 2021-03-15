@@ -2,7 +2,7 @@
   "mod.marbles.name": "Marbles",
   "mod.marbles.description": "Description",
   "itemGroup.marbles": "Marbles (%s)",
-  "itemGroup.marbles.item_group": "Marbles",
+  "itemGroup.marbles.title": "Marbles",
   "itemGroup.tab.marbles:all": "All",
   "itemGroup.tab.marbles:travertine": "Travertine",
   "itemGroup.tab.marbles:wood": "Wood",

@@ -28,14 +28,4 @@ public class MarblesItemTags {
     private static Tag.Identified<Item> register(String id) {
         return TagRegistry.create(new Identifier(Marbles.MOD_ID, id), ItemTags::getTagGroup);
     }
-
-    public static class CreativeTabs {
-        public static final Tag.Identified<Item> TRAVERTINE = register("travertine");
-        public static final Tag.Identified<Item> WOOD = register("wood");
-        public static final Tag.Identified<Item> SAND = register("sand");
-
-        private static Tag.Identified<Item> register(String id) {
-            return MarblesItemTags.register("creative_tabs/" + id);
-        }
-    }
 }

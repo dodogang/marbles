@@ -7,9 +7,7 @@
   "mixins": [
     "FluidBlockMixin"
   ],
-  "client": [
-    "client.CreativeInventoryScreenMixin"
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }

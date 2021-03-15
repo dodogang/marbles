@@ -56,10 +56,6 @@ dependencies {
     }
 }
 
-loom {
-    accessWidener "src/main/resources/${project.archives_base_name}.accesswidener"
-}
-
 processResources {
     inputs.property "version", project.version
 
