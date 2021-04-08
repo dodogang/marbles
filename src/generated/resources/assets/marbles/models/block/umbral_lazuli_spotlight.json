@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "marbles:block/umbral_lazuli_spotlight_top",
+    "east": "marbles:block/umbral_lazuli_spotlight_side",
+    "south": "marbles:block/umbral_lazuli_spotlight_top",
+    "west": "marbles:block/umbral_lazuli_spotlight_side",
+    "up": "marbles:block/umbral_lazuli_spotlight_front",
+    "down": "marbles:block/umbral_lazuli_spotlight_back",
+    "particle": "marbles:block/umbral_lazuli_spotlight_back"
+  }
+}

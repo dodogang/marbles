@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "marbles:block/pink_salt_pillar",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "marbles:block/pink_salt_pillar",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "marbles:block/pink_salt_pillar"
+    }
+  }
+}

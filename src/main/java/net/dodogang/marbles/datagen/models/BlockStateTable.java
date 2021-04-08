@@ -22,6 +22,7 @@ import static net.dodogang.marbles.datagen.models.stategen.InteractiveBlocks.pre
 import static net.dodogang.marbles.datagen.models.stategen.InteractiveBlocks.*;
 import static net.dodogang.marbles.datagen.models.stategen.SimpleBlocks.*;
 
+@SuppressWarnings("unused")
 public final class BlockStateTable {
     private static BiConsumer<Block, StateGen> consumer;
 
@@ -107,7 +108,13 @@ public final class BlockStateTable {
         register(MarblesBlocks.TANGERINE_TRAVERTINE_SALT_LAMP, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
 
         register(MarblesBlocks.PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.PINK_SALT_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
+        register(MarblesBlocks.PINK_SALT_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
         register(MarblesBlocks.CRUMBLED_PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.PINK_SALT_BRICKS, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
+        register(MarblesBlocks.PINK_SALT_BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
+        register(MarblesBlocks.PINK_SALT_BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
+        register(MarblesBlocks.PINK_SALT_PILLAR, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(MarblesBlocks.PINK_SALT_SPIRE, block -> predefined(name(block, "block/%s")));
         register(MarblesBlocks.PINK_SALT_STACK, block -> predefined(name(block, "block/%s")));
         register(MarblesBlocks.PINK_SALT_STUMP, block -> predefined(name(block, "block/%s")));
@@ -117,6 +124,11 @@ public final class BlockStateTable {
         register(MarblesBlocks.LAPIS_SHINGLES_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
         register(MarblesBlocks.LAPIS_SPOTLIGHT, block -> facingRotated(name(block, "block/%s"), cubeSeparateSided(name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_front"), name(block, "block/%s_back"))));
         register(MarblesBlocks.SPOTLIGHT_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
+        register(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
+        register(MarblesBlocks.UMBRAL_LAZULI_SPOTLIGHT, block -> facingRotated(name(block, "block/%s"), cubeSeparateSided(name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_front"), name(block, "block/%s_back"))));
 
         register(MarblesBlocks.DAWN_SAND, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(MarblesBlocks.DAWN_SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));

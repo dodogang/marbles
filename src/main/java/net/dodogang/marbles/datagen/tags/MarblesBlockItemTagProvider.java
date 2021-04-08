@@ -163,6 +163,8 @@ public class MarblesBlockItemTagProvider implements DataProvider {
 
         add(BlockTags.SLABS, ItemTags.SLABS, LAPIS_SHINGLES_SLAB);
         add(BlockTags.STAIRS, ItemTags.STAIRS, LAPIS_SHINGLES_STAIRS);
+        add(BlockTags.SLABS, ItemTags.SLABS, UMBRAL_LAZULI_SHINGLES_SLAB);
+        add(BlockTags.STAIRS, ItemTags.STAIRS, UMBRAL_LAZULI_SHINGLES_STAIRS);
 
         add(
             MarblesItemTags.HIGH_LIGHT_BLOCKS,
@@ -183,7 +185,10 @@ public class MarblesBlockItemTagProvider implements DataProvider {
 
             DUSK_SANDSTONE_SLAB,
             CUT_DUSK_SANDSTONE_SLAB,
-            SMOOTH_DUSK_SANDSTONE_SLAB
+            SMOOTH_DUSK_SANDSTONE_SLAB,
+
+            PINK_SALT_SLAB,
+            PINK_SALT_BRICK_SLAB
         );
 
         add(BlockTags.STAIRS, ItemTags.STAIRS,
@@ -193,7 +198,10 @@ public class MarblesBlockItemTagProvider implements DataProvider {
 
             DUSK_SANDSTONE_STAIRS,
             CUT_DUSK_SANDSTONE_STAIRS,
-            SMOOTH_DUSK_SANDSTONE_STAIRS
+            SMOOTH_DUSK_SANDSTONE_STAIRS,
+
+            PINK_SALT_STAIRS,
+            PINK_SALT_BRICK_STAIRS
         );
 
         add(BlockTags.WALLS, ItemTags.WALLS,

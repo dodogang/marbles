@@ -131,9 +131,15 @@ public class MarblesBlocks {
     // PINK SALT
     //
 
-    public static final Block PINK_SALT = register("pink_salt", new Block(FabricBlockSettings.copy(Blocks.STONE)
-                                                                                             .sounds(MarblesSoundGroups.PINK_SALT)));
-    public static final Block CRUMBLED_PINK_SALT = copy("crumbled_pink_salt", PINK_SALT);
+    public static final Block PINK_SALT = register("pink_salt", new Block(FabricBlockSettings.copy(Blocks.STONE).sounds(MarblesSoundGroups.PINK_SALT)));
+    public static final Block PINK_SALT_SLAB = createSlab(PINK_SALT);
+    public static final Block PINK_SALT_STAIRS = createStairs(PINK_SALT);
+    public static final Block CRUMBLED_PINK_SALT = register("crumbled_pink_salt", new FallingBlock(FabricBlockSettings.copy(PINK_SALT)));
+    public static final Block PINK_SALT_BRICKS = copy("pink_salt_bricks", PINK_SALT);
+    private static final String pinkSaltBrick = "pink_salt_brick";
+    public static final Block PINK_SALT_BRICK_SLAB = createSlab(pinkSaltBrick, PINK_SALT_BRICKS);
+    public static final Block PINK_SALT_BRICK_STAIRS = createStairs(pinkSaltBrick, PINK_SALT_BRICKS);
+    public static final Block PINK_SALT_PILLAR = register("pink_salt_pillar", new PillarBlock(FabricBlockSettings.copy(PINK_SALT)));
     public static final Block PINK_SALT_SPIRE = register(PinkSaltSpireBlock.id, new PinkSaltSpireBlockOld(
                                                              FabricBlockSettings.copy(PINK_SALT)
                                                                                 .luminance(
@@ -159,7 +165,7 @@ public class MarblesBlocks {
     );
 
     //
-    // LAPIS SET
+    // LAPIS SETS
     //
 
     public static final Block LAPIS_SHINGLES = register("lapis_shingles", new Block(FabricBlockSettings.copy(Blocks.LAPIS_BLOCK)));
@@ -177,6 +183,12 @@ public class MarblesBlocks {
                                return Math.min(15, dist / 5 + 10);
                            })
     ), false);
+
+    public static final Block UMBRAL_LAZULI_ORE = register("umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copy(Blocks.LAPIS_ORE)));
+    public static final Block UMBRAL_LAZULI_SHINGLES = copy("umbral_lazuli_shingles", LAPIS_SHINGLES);
+    public static final Block UMBRAL_LAZULI_SHINGLES_SLAB = createSlab(UMBRAL_LAZULI_SHINGLES);
+    public static final Block UMBRAL_LAZULI_SHINGLES_STAIRS = createStairs(UMBRAL_LAZULI_SHINGLES);
+    public static final Block UMBRAL_LAZULI_SPOTLIGHT = register("umbral_lazuli_spotlight", new SpotlightBlock(FabricBlockSettings.copy(LAPIS_SPOTLIGHT)));
 
     //
     // YELLOW BAMBOO

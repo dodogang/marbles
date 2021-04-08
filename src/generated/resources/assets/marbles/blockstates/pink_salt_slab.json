@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "marbles:block/pink_salt_slab"
+    },
+    "type=double": {
+      "model": "marbles:block/pink_salt"
+    },
+    "type=top": {
+      "model": "marbles:block/pink_salt_slab_top"
+    }
+  }
+}

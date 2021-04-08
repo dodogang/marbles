@@ -108,6 +108,9 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         register(Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES);
         register(MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLES_SLAB, 2);
         register(MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLES_STAIRS);
+        /*register(Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES); TODO */
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLES_SLAB, 2);
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLES_STAIRS);
 
         register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE);
         register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CHISELED_DAWN_SANDSTONE);

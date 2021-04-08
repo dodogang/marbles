@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "marbles:block/umbral_lazuli_shingles_slab"
+    },
+    "type=double": {
+      "model": "marbles:block/umbral_lazuli_shingles"
+    },
+    "type=top": {
+      "model": "marbles:block/umbral_lazuli_shingles_slab_top"
+    }
+  }
+}

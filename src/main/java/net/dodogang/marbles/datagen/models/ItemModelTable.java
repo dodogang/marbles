@@ -14,6 +14,7 @@ import java.util.function.Function;
 
 import static net.dodogang.marbles.datagen.models.modelgen.InheritingModelGen.*;
 
+@SuppressWarnings("unused")
 public final class ItemModelTable {
     private static BiConsumer<Item, ModelGen> consumer;
 
@@ -99,7 +100,13 @@ public final class ItemModelTable {
         register(MarblesBlocks.TANGERINE_TRAVERTINE_SALT_LAMP, item -> inherit(name(item, "block/%s")));
 
         register(MarblesBlocks.PINK_SALT, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_SLAB, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_STAIRS, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.CRUMBLED_PINK_SALT, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_BRICKS, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_BRICK_SLAB, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_BRICK_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_PILLAR, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.PINK_SALT_SPIRE, item -> generated(name(item, "item/%s")));
         register(MarblesBlocks.PINK_SALT_STACK, item -> generated(name(item, "item/%s")));
         register(MarblesBlocks.PINK_SALT_STUMP, item -> generated(name(item, "item/%s")));
@@ -108,6 +115,11 @@ public final class ItemModelTable {
         register(MarblesBlocks.LAPIS_SHINGLES_SLAB, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.LAPIS_SHINGLES_STAIRS, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.LAPIS_SPOTLIGHT, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.UMBRAL_LAZULI_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES_SLAB, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.UMBRAL_LAZULI_SPOTLIGHT, item -> inherit(name(item, "block/%s")));
 
         register(MarblesBlocks.DAWN_SAND, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.DAWN_SANDSTONE, item -> inherit(name(item, "block/%s")));
@@ -145,6 +157,7 @@ public final class ItemModelTable {
 
         register(MarblesItems.YELLOW_SCAFFOLDING, item -> inherit("marbles:block/yellow_scaffolding_stable"));
         register(MarblesItems.PINK_SALT_SHARD, item -> generated(name(item, "item/%s")));
+        register(MarblesItems.UMBRAL_LAZULI, item -> generated(name(item, "item/%s")));
     }
 
 

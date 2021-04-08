@@ -38,6 +38,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+@SuppressWarnings("unused")
 public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, LootTable.Builder>> {
     protected static final LootCondition.Builder WITH_SILK_TOUCH = MatchToolLootCondition.builder(
         ItemPredicate.Builder.create().enchantment(
@@ -51,6 +52,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
     protected static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.or(WITH_SILK_TOUCH);
     protected static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.invert();
 
+    @SuppressWarnings("all")
     private static final Set<Item> EXPLOSION_IMMUNE = Stream.of(
         Blocks.DRAGON_EGG,
         Blocks.BEACON,
@@ -166,7 +168,13 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.TANGERINE_TRAVERTINE_SALT_LAMP);
 
         addDrop(MarblesBlocks.PINK_SALT);
+        addDrop(MarblesBlocks.PINK_SALT_SLAB);
+        addDrop(MarblesBlocks.PINK_SALT_STAIRS);
         addDrop(MarblesBlocks.CRUMBLED_PINK_SALT);
+        addDrop(MarblesBlocks.PINK_SALT_BRICKS);
+        addDrop(MarblesBlocks.PINK_SALT_BRICK_SLAB);
+        addDrop(MarblesBlocks.PINK_SALT_BRICK_STAIRS);
+        addDrop(MarblesBlocks.PINK_SALT_PILLAR);
         addDrop(MarblesBlocks.PINK_SALT_SPIRE);
         addDrop(MarblesBlocks.PINK_SALT_STACK, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countBiased(1, 4)));
         addDrop(MarblesBlocks.PINK_SALT_STUMP, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countBiased(1, 2)));
@@ -176,6 +184,11 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.LAPIS_SHINGLES_STAIRS);
         addDrop(MarblesBlocks.LAPIS_SPOTLIGHT);
         addDrop(MarblesBlocks.SPOTLIGHT_AIR, dropsNothing());
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> dropsWithSilkTouch(block, MarblesItems.UMBRAL_LAZULI, countRandom(4, 9)));
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLES);
+        addSlabDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLES_SLAB);
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLES_STAIRS);
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_SPOTLIGHT);
 
         addDrop(MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_BAMBOO);
         addDrop(MarblesBlocks.YELLOW_BAMBOO_SAPLING, MarblesBlocks.YELLOW_BAMBOO);
