@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "end": "marbles:block/pink_salt_bricks_top",
-    "side": "marbles:block/pink_salt_bricks"
+    "all": "marbles:block/pink_salt_bricks"
   }
 }

@@ -142,6 +142,12 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS);
         register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
 
+        register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_BRICKS);
+        register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_SLAB, 2);
+        register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_STAIRS);
+        register(MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_SLAB, 2);
+        register(MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_STAIRS);
+
         compile();
         flush();
     }

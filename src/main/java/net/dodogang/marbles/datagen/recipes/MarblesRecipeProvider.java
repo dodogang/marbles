@@ -103,10 +103,10 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         generic3x2("tangerine_travertine/polished_wall", MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_WALL, 6);
         saltLamp("tangerine_travertine/salt_lamp", MarblesItemTags.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_SALT_LAMP, 4);
 
-        generic2x2("lapis/shingles", Blocks.LAPIS_BLOCK, MarblesBlocks.TANGERINE_TRAVERTINE, 4);
+        generic2x2("lapis/shingles", Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES, 4);
         generic3x1("lapis/shingles_slab", MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLES_SLAB, 6);
         stairs("lapis/shingles_stairs", MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLES_STAIRS, 4);
-        /*generic2x2("umbral_lazuli/shingles", Blocks.LAPIS_BLOCK, MarblesBlocks.TANGERINE_TRAVERTINE, 4); TODO */
+        /*generic2x2("umbral_lazuli/shingles", Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES, 4); TODO */
         generic3x1("umbral_lazuli/shingles_slab", MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLES_SLAB, 6);
         stairs("umbral_lazuli/shingles_stairs", MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLES_STAIRS, 4);
 
@@ -139,6 +139,12 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         generic3x2("dusk_sand/sandstone_wall", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.DUSK_SANDSTONE_WALL, 6);
         generic3x2("dusk_sand/cut_sandstone_wall", MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_WALL, 6);
         generic3x2("dusk_sand/smooth_sandstone_wall", MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, 6);
+
+        generic2x2("pink_salt/bricks", MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_BRICKS, 4);
+        generic3x1("pink_salt/slab", MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_SLAB, 6);
+        stairs("pink_salt/stairs", MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_STAIRS, 4);
+        generic3x1("pink_salt/brick_slab", MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_SLAB, 6);
+        stairs("pink_salt/brick_stairs", MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_STAIRS, 4);
     }
 
     private void woodSet(WoodBlocks blocks) {

@@ -184,7 +184,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.LAPIS_SHINGLES_STAIRS);
         addDrop(MarblesBlocks.LAPIS_SPOTLIGHT);
         addDrop(MarblesBlocks.SPOTLIGHT_AIR, dropsNothing());
-        addDrop(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> dropsWithSilkTouch(block, MarblesItems.UMBRAL_LAZULI, countRandom(4, 9)));
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> dropsWithSilkTouch(block, MarblesItems.UMBRAL_LAZULI, countBiased(4, 9)));
         addDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLES);
         addSlabDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLES_SLAB);
         addDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLES_STAIRS);

@@ -6,11 +6,11 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:lapis_block"
+      "item": "marbles:pink_salt"
     }
   },
   "result": {
-    "item": "marbles:lapis_shingles",
+    "item": "marbles:pink_salt_bricks",
     "count": 4
   }
 }

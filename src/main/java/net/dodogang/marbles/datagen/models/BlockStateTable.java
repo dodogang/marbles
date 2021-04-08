@@ -12,7 +12,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import static net.dodogang.marbles.datagen.models.modelgen.InheritingModelGen.*;
-import static net.dodogang.marbles.datagen.models.modelgen.ParticleOnlyModelGen.particles;
+import static net.dodogang.marbles.datagen.models.modelgen.ParticleOnlyModelGen.*;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.slabAll;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.stairsAll;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.*;
@@ -111,9 +111,9 @@ public final class BlockStateTable {
         register(MarblesBlocks.PINK_SALT_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
         register(MarblesBlocks.PINK_SALT_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
         register(MarblesBlocks.CRUMBLED_PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MarblesBlocks.PINK_SALT_BRICKS, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.PINK_SALT_BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.PINK_SALT_BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
+        register(MarblesBlocks.PINK_SALT_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.PINK_SALT_BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
+        register(MarblesBlocks.PINK_SALT_BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
         register(MarblesBlocks.PINK_SALT_PILLAR, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(MarblesBlocks.PINK_SALT_SPIRE, block -> predefined(name(block, "block/%s")));
         register(MarblesBlocks.PINK_SALT_STACK, block -> predefined(name(block, "block/%s")));
