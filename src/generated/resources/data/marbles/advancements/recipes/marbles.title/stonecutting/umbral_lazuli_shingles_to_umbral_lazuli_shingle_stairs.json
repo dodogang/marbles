@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "marbles:stonecutting/lapis_shingles_to_lapis_shingles_stairs"
+      "marbles:stonecutting/umbral_lazuli_shingles_to_umbral_lazuli_shingle_stairs"
     ]
   },
   "criteria": {
-    "has_lapis_shingles": {
+    "has_umbral_lazuli_shingles": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "marbles:lapis_shingles"
+            "item": "marbles:umbral_lazuli_shingles"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "marbles:stonecutting/lapis_shingles_to_lapis_shingles_stairs"
+        "recipe": "marbles:stonecutting/umbral_lazuli_shingles_to_umbral_lazuli_shingle_stairs"
       }
     }
   },
   "requirements": [
     [
-      "has_lapis_shingles",
+      "has_umbral_lazuli_shingles",
       "has_the_recipe"
     ]
   ]

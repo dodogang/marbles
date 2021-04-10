@@ -161,10 +161,10 @@ public class MarblesBlockItemTagProvider implements DataProvider {
             TANGERINE_TRAVERTINE_SALT_LAMP
         );
 
-        add(BlockTags.SLABS, ItemTags.SLABS, LAPIS_SHINGLES_SLAB);
-        add(BlockTags.STAIRS, ItemTags.STAIRS, LAPIS_SHINGLES_STAIRS);
-        add(BlockTags.SLABS, ItemTags.SLABS, UMBRAL_LAZULI_SHINGLES_SLAB);
-        add(BlockTags.STAIRS, ItemTags.STAIRS, UMBRAL_LAZULI_SHINGLES_STAIRS);
+        add(BlockTags.SLABS, ItemTags.SLABS, LAPIS_SHINGLE_SLAB);
+        add(BlockTags.STAIRS, ItemTags.STAIRS, LAPIS_SHINGLE_STAIRS);
+        add(BlockTags.SLABS, ItemTags.SLABS, UMBRAL_LAZULI_SHINGLE_SLAB);
+        add(BlockTags.STAIRS, ItemTags.STAIRS, UMBRAL_LAZULI_SHINGLE_STAIRS);
 
         add(
             MarblesItemTags.HIGH_LIGHT_BLOCKS,

@@ -3,6 +3,6 @@
   "ingredient": {
     "item": "minecraft:lapis_block"
   },
-  "result": "marbles:lapis_shingles_slab",
+  "result": "marbles:lapis_shingle_slab",
   "count": 2
 }

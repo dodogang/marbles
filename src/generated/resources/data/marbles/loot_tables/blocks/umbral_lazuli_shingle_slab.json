@@ -12,7 +12,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "marbles:umbral_lazuli_shingles_slab",
+                  "block": "marbles:umbral_lazuli_shingle_slab",
                   "properties": {
                     "type": "double"
                   }
@@ -24,7 +24,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "marbles:umbral_lazuli_shingles_slab"
+          "name": "marbles:umbral_lazuli_shingle_slab"
         }
       ]
     }

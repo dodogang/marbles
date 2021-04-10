@@ -2,8 +2,8 @@
   "replace": false,
   "values": [
     "#marbles:travertine_slabs",
-    "marbles:lapis_shingles_slab",
-    "marbles:umbral_lazuli_shingles_slab",
+    "marbles:lapis_shingle_slab",
+    "marbles:umbral_lazuli_shingle_slab",
     "marbles:dawn_sandstone_slab",
     "marbles:cut_dawn_sandstone_slab",
     "marbles:smooth_dawn_sandstone_slab",

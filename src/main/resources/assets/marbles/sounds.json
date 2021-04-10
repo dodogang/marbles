@@ -47,5 +47,57 @@
       "marbles:block/pink_salt/step3",
       "marbles:block/pink_salt/step4"
     ]
+  },
+
+
+
+  "block.pink_salt_bricks.break": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "marbles:block/pink_salt_bricks/break1",
+      "marbles:block/pink_salt_bricks/break2",
+      "marbles:block/pink_salt_bricks/break3",
+      "marbles:block/pink_salt_bricks/break4"
+    ]
+  },
+  "block.pink_salt_bricks.step": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "marbles:block/pink_salt_bricks/step1",
+      "marbles:block/pink_salt_bricks/step2",
+      "marbles:block/pink_salt_bricks/step3",
+      "marbles:block/pink_salt_bricks/step4"
+    ]
+  },
+  "block.pink_salt_bricks.hit": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "marbles:block/pink_salt_bricks/step1",
+      "marbles:block/pink_salt_bricks/step2",
+      "marbles:block/pink_salt_bricks/step3",
+      "marbles:block/pink_salt_bricks/step4"
+    ]
+  },
+  "block.pink_salt_bricks.place": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "marbles:block/pink_salt_bricks/break1",
+      "marbles:block/pink_salt_bricks/break2",
+      "marbles:block/pink_salt_bricks/break3",
+      "marbles:block/pink_salt_bricks/break4"
+    ]
+  },
+  "block.pink_salt_bricks.fall": {
+    "category": "block",
+    "sounds": [
+      "marbles:block/pink_salt_bricks/step1",
+      "marbles:block/pink_salt_bricks/step2",
+      "marbles:block/pink_salt_bricks/step3",
+      "marbles:block/pink_salt_bricks/step4"
+    ]
   }
 }

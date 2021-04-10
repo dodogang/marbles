@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "marbles:stonecutting/lapis_block_to_lapis_shingles_stairs"
+      "marbles:stonecutting/lapis_shingles_to_lapis_shingle_slab"
     ]
   },
   "criteria": {
-    "has_lapis_block": {
+    "has_lapis_shingles": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:lapis_block"
+            "item": "marbles:lapis_shingles"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "marbles:stonecutting/lapis_block_to_lapis_shingles_stairs"
+        "recipe": "marbles:stonecutting/lapis_shingles_to_lapis_shingle_slab"
       }
     }
   },
   "requirements": [
     [
-      "has_lapis_block",
+      "has_lapis_shingles",
       "has_the_recipe"
     ]
   ]

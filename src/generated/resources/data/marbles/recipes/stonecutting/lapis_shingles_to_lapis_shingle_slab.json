@@ -3,6 +3,6 @@
   "ingredient": {
     "item": "marbles:lapis_shingles"
   },
-  "result": "marbles:lapis_shingles_stairs",
-  "count": 1
+  "result": "marbles:lapis_shingle_slab",
+  "count": 2
 }

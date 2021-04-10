@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "marbles:lapis_shingles_stairs"
+          "name": "marbles:lapis_shingle_stairs"
         }
       ],
       "conditions": [
