@@ -4,6 +4,7 @@ import me.andante.chord.util.CClientUtils;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesParticles;
+import net.dodogang.marbles.net.MarblesNetwork;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -17,5 +18,7 @@ public class MarblesClient implements ClientModInitializer {
 
         BlockRenderLayerMap brlmInstance = BlockRenderLayerMap.INSTANCE;
         brlmInstance.putBlocks(RenderLayer.getCutout(), MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_BAMBOO_SAPLING, MarblesBlocks.YELLOW_SCAFFOLDING);
+
+        MarblesNetwork.initClient();
     }
 }

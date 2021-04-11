@@ -1,11 +1,16 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.dodogang.marbles.mixin",
-  "plugin": "net.dodogang.marbles.mixin.hooks.MarblesMixinPlugin",
+  "package": "net.dodogang.marbles.mixin.hooks",
+  "plugin": "net.dodogang.marbles.mixin.MarblesMixinPlugin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "FluidBlockMixin"
+    "BlockViewMixin",
+    "ChunkSectionMixin",
+    "ChunkSerializerMixin",
+    "FluidBlockMixin",
+    "ProtoWorldChunkMixin",
+    "WorldMixin"
   ],
   "client": [],
   "injectors": {

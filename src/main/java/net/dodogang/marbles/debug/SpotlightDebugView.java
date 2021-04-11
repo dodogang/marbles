@@ -3,6 +3,7 @@ package net.dodogang.marbles.debug;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.dodogang.marbles.block.SpotlightAirBlock;
 import net.dodogang.marbles.block.SpotlightBlock;
+import net.dodogang.marbles.util.SpotlightUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
@@ -15,7 +16,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Matrix4f;
-import net.minecraft.world.WorldView;
+import net.minecraft.world.World;
 
 import net.shadew.debug.api.render.DebugView;
 
@@ -34,7 +35,7 @@ public class SpotlightDebugView implements DebugView {
         assert client.player != null;
 
         BlockPos playerPos = client.player.getBlockPos();
-        WorldView world = client.player.world;
+        World world = client.player.world;
 
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
@@ -92,6 +93,31 @@ public class SpotlightDebugView implements DebugView {
                 buff.vertex(matrix, x1, y1, z1).color(color, color, 0f, 1f).next();
                 buff.vertex(matrix, x2, y2, z2).color(color, color, 0f, 1f).next();
             }
+
+            int spotlight = SpotlightUtil.getSpotlightData(world, pos);
+            for (Direction direction : Direction.values()) {
+                int level = SpotlightUtil.getSpotlightValue(spotlight, direction);
+
+                if (level > 0) {
+                    float color = level / 31f * 0.8f + 0.2f;
+
+                    float x1 = pos.getX() + 0.5f;
+                    float y1 = pos.getY() + 0.5f;
+                    float z1 = pos.getZ() + 0.5f;
+                    float x2 = direction.getOffsetX() * 0.4f + x1;
+                    float y2 = direction.getOffsetY() * 0.4f + y1;
+                    float z2 = direction.getOffsetZ() * 0.4f + z1;
+
+                    buff.vertex(matrix, x1, y1, z1).color(color, color, 0f, 1f).next();
+                    buff.vertex(matrix, x2, y2, z2).color(color, color, 0f, 1f).next();
+
+                    DebugRenderer.drawString(
+                        String.valueOf(level),
+                        x2, y2, z2,
+                        0xFFFFFF00
+                    );
+                }
+            }
         }
 
         matrices.pop();
@@ -99,11 +125,6 @@ public class SpotlightDebugView implements DebugView {
         for (BlockPos pos : BlockPos.iterate(playerPos.add(-8, -8, -8), playerPos.add(8, 8, 8))) {
             FluidState fluid = world.getFluidState(pos);
             if (fluid.getLevel() <= 0) continue;
-            DebugRenderer.drawString(
-                String.valueOf(fluid.getLevel()),
-                pos.getX() + 0.5, pos.getY() + fluid.getHeight(world, pos), pos.getZ() + 0.5,
-                0xFF000000
-            );
         }
 
         RenderSystem.enableTexture();

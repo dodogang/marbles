@@ -1,4 +1,4 @@
-package net.dodogang.marbles.mixin;
+package net.dodogang.marbles.mixin.hooks;
 
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.tag.MarblesBlockTags;

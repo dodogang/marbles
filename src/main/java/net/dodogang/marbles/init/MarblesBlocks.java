@@ -199,19 +199,6 @@ public class MarblesBlocks {
     public static final Block UMBRAL_LAZULI_SHINGLE_STAIRS = createStairs("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
     public static final Block UMBRAL_LAZULI_SPOTLIGHT = register("umbral_lazuli_spotlight", new SpotlightBlock(FabricBlockSettings.copyOf(LAPIS_SPOTLIGHT)));
 
-    // TODO Replace this with a better implementation, i.e. light engine hacks
-    public static final Block SPOTLIGHT_AIR = register("spotlight_air", new SpotlightAirBlock(
-        FabricBlockSettings.of(Material.AIR, MaterialColor.CLEAR)
-                           .blockVision((state, world, pos) -> true)
-                           .suffocates((state, world, pos) -> false)
-                           .allowsSpawning((state, world, pos, type) -> true)
-                           .air()
-                           .luminance(state -> {
-                               int dist = 31 - state.get(MarblesProperties.DISTANCE_0_31);
-                               return Math.min(15, dist / 5 + 10);
-                           })
-    ), false);
-
 
     //
     // YELLOW BAMBOO

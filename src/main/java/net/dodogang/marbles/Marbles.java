@@ -1,8 +1,10 @@
 package net.dodogang.marbles;
 
 import net.dodogang.marbles.client.gui.itemgroup.MarblesItemGroup;
+import net.dodogang.marbles.debug.MarblesDebugCommand;
 import net.dodogang.marbles.init.*;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.item.ItemGroup;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -34,6 +36,10 @@ public class Marbles implements ModInitializer {
 
             new MarblesBiomes();
 
+            CommandRegistrationCallback.EVENT.register(
+                (dispatcher, dedicated) -> MarblesDebugCommand.register(dispatcher)
+            );
+
             log("Initialized");
 
             initialized = true;
@@ -43,6 +49,7 @@ public class Marbles implements ModInitializer {
     public static void log(Level level, String message) {
         LOGGER.log(level, "[" + MOD_NAME + "] " + message);
     }
+
     public static void log(String message) {
         log(Level.INFO, message);
     }

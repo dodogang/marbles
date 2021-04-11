@@ -1,7 +1,6 @@
 package net.dodogang.marbles.datagen.models;
 
 import me.andante.chord.block.helper.WoodBlocks;
-import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 import net.dodogang.marbles.datagen.models.stategen.StateGen;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.Block;
@@ -123,7 +122,6 @@ public final class BlockStateTable {
         register(MarblesBlocks.LAPIS_SHINGLE_SLAB, block -> using(name(block, "block/%s_shingles", "_shingle_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
         register(MarblesBlocks.LAPIS_SHINGLE_STAIRS, block -> using(name(block, "block/%s_shingles", "_shingle_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
         register(MarblesBlocks.LAPIS_SPOTLIGHT, block -> facingRotated(name(block, "block/%s"), cubeSeparateSided(name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_front"), name(block, "block/%s_back"))));
-        register(MarblesBlocks.SPOTLIGHT_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
         register(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, block -> using(name(block, "block/%s_shingles", "_shingle_slab"), n -> slabAll(name(block, "block/%s"), n, n)));

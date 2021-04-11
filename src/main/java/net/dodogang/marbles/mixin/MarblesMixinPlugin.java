@@ -1,4 +1,4 @@
-package net.dodogang.marbles.mixin.hooks;
+package net.dodogang.marbles.mixin;
 
 import com.google.common.collect.Lists;
 import org.objectweb.asm.tree.ClassNode;
