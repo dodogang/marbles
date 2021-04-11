@@ -24,7 +24,13 @@
     "client": [
       "net.dodogang.marbles.MarblesClient"
     ],
-    "server": []
+    "server": [],
+    "debug:client": [
+      "net.dodogang.marbles.debug.MarblesDebugClient"
+    ],
+    "debug:menu": [
+      "net.dodogang.marbles.debug.MarblesDebugMenu"
+    ]
   },
   "mixins": [
     "marbles.mixins.json"

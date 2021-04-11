@@ -178,5 +178,7 @@
   "biome.marbles.yellow_bamboo_jungle_hills": "Yellow Bamboo Jungle Hills",
   "biome.marbles.aspen_forest": "Aspen Forest",
   "biome.marbles.hoopsi_spruce_forest": "Hoopsi Spruce Forest",
-  "death.fell.accident.marbles:yellow_scaffolding": "%1$s fell off yellow scaffolding"
+  "death.fell.accident.marbles:yellow_scaffolding": "%1$s fell off yellow scaffolding",
+
+  "debug.option.marbles.spotlight": "Spotlights"
 }
