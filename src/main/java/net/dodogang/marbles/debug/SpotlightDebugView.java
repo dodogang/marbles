@@ -1,7 +1,6 @@
 package net.dodogang.marbles.debug;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.dodogang.marbles.block.SpotlightAirBlock;
 import net.dodogang.marbles.block.SpotlightBlock;
 import net.dodogang.marbles.util.SpotlightUtil;
 import net.minecraft.block.BlockState;
@@ -70,28 +69,6 @@ public class SpotlightDebugView implements DebugView {
 
                 buff.vertex(matrix, x1, y1, z1).color(0f, 1f, 1f, 1f).next();
                 buff.vertex(matrix, x2, y2, z2).color(0f, 1f, 1f, 1f).next();
-            }
-
-            if (state.getBlock() instanceof SpotlightAirBlock) {
-                float color = 1 - state.get(SpotlightAirBlock.DISTANCE) / 31f;
-                WorldRenderer.drawBox(
-                    matrices, buff,
-                    pos.getX(), pos.getY(), pos.getZ(),
-                    pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1,
-                    color, color, 0, 1
-                );
-
-                Direction dir = state.get(SpotlightAirBlock.FACING);
-
-                float x1 = pos.getX() + 0.5f;
-                float y1 = pos.getY() + 0.5f;
-                float z1 = pos.getZ() + 0.5f;
-                float x2 = dir.getOffsetX() * 0.4f + x1;
-                float y2 = dir.getOffsetY() * 0.4f + y1;
-                float z2 = dir.getOffsetZ() * 0.4f + z1;
-
-                buff.vertex(matrix, x1, y1, z1).color(color, color, 0f, 1f).next();
-                buff.vertex(matrix, x2, y2, z2).color(color, color, 0f, 1f).next();
             }
 
             int spotlight = SpotlightUtil.getSpotlightData(world, pos);
