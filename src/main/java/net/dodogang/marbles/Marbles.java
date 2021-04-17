@@ -1,8 +1,8 @@
 package net.dodogang.marbles;
 
-import net.dodogang.marbles.client.gui.itemgroup.MarblesItemGroup;
 import net.dodogang.marbles.debug.MarblesDebugCommand;
 import net.dodogang.marbles.init.*;
+import net.dodogang.marbles.item.MarblesItemGroup;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.item.ItemGroup;

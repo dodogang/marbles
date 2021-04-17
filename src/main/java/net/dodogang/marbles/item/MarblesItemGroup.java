@@ -1,4 +1,4 @@
-package net.dodogang.marbles.client.gui.itemgroup;
+package net.dodogang.marbles.item;
 
 import com.google.common.collect.ImmutableList;
 import me.andante.chord.item.item_group.AbstractTabbedItemGroup;
