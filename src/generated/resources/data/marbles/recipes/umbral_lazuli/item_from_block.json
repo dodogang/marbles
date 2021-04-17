@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "marbles:umbral_lazuli_block"
+    }
+  ],
+  "result": {
+    "item": "marbles:umbral_lazuli",
+    "count": 9
+  }
+}

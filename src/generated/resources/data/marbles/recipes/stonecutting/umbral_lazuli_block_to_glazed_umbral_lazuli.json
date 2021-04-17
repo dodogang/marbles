@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:umbral_lazuli_block"
+  },
+  "result": "marbles:glazed_umbral_lazuli",
+  "count": 1
+}

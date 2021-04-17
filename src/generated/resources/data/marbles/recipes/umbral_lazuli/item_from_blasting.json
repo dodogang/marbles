@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "marbles:umbral_lazuli_ore"
+  },
+  "result": "marbles:umbral_lazuli",
+  "experience": 0.2,
+  "cookingtime": 100
+}

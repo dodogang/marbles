@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "marbles:block/glazed_umbral_lazuli",
+    "east": "marbles:block/glazed_umbral_lazuli_right",
+    "south": "marbles:block/glazed_umbral_lazuli",
+    "west": "marbles:block/glazed_umbral_lazuli_left",
+    "up": "marbles:block/glazed_umbral_lazuli_top",
+    "down": "marbles:block/glazed_umbral_lazuli_bottom",
+    "particle": "marbles:block/glazed_umbral_lazuli_bottom"
+  }
+}

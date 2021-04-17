@@ -48,11 +48,14 @@ public final class ItemModelTable {
         register(MarblesBlocks.LAPIS_SHINGLE_SLAB, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.LAPIS_SHINGLE_STAIRS, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.LAPIS_SPOTLIGHT, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.GLAZED_LAPIS, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.UMBRAL_LAZULI_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.UMBRAL_LAZULI_BLOCK, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.UMBRAL_LAZULI_SPOTLIGHT, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.GLAZED_UMBRAL_LAZULI, item -> inherit(name(item, "block/%s")));
 
         register(MarblesBlocks.DAWN_SAND, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.DAWN_SANDSTONE, item -> inherit(name(item, "block/%s")));

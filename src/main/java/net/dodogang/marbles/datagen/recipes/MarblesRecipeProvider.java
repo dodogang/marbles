@@ -44,9 +44,15 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         generic2x2("lapis/shingles", Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES, 4);
         generic3x1("lapis/shingles_slab", MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLE_SLAB, 6);
         stairs("lapis/shingles_stairs", MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLE_STAIRS, 4);
-        /*generic2x2("umbral_lazuli/shingles", Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES, 4); TODO */
+        generic3x2("lapis/glazed", Blocks.LAPIS_BLOCK, MarblesBlocks.GLAZED_LAPIS, 6);
+        generic3x3("umbral_lazuli/block", MarblesItems.UMBRAL_LAZULI, MarblesBlocks.UMBRAL_LAZULI_BLOCK, 1);
+        shapeless("umbral_lazuli/item_from_block", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesItems.UMBRAL_LAZULI, 9);
+        smelting("umbral_lazuli/item_from_smelting", MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2);
+        blasting("umbral_lazuli/item_from_blasting", MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2);
+        generic2x2("umbral_lazuli/shingles", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesBlocks.UMBRAL_LAZULI_SHINGLES, 4);
         generic3x1("umbral_lazuli/shingles_slab", MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, 6);
         stairs("umbral_lazuli/shingles_stairs", MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS, 4);
+        generic3x2("umbral_lazuli/glazed", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesBlocks.GLAZED_UMBRAL_LAZULI, 6);
 
         scaffolding("yellow_scaffolding", MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_SCAFFOLDING, 6);
 
@@ -124,6 +130,16 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         fenceGate(baseFolder + "fence_gate", blocks.PLANKS, blocks.FENCE_GATE, 1);
         sign(baseFolder + "sign", blocks.PLANKS, blocks.SIGN, 3);
         boat(baseFolder + "boat", blocks.PLANKS, blocks.BOAT_ITEM, 1);
+    }
+
+    private void generic3x3(String id, ItemConvertible from, ItemConvertible to, int count) {
+        ShapedRecipeJsonFactory.create(to, count)
+                               .input('#', from)
+                               .pattern("###")
+                               .pattern("###")
+                               .pattern("###")
+                               .criterion("has_ingredient", hasItem(from))
+                               .offerTo(consumer, id(id));
     }
 
     private void generic2x2(String id, ItemConvertible from, ItemConvertible to, int count) {
@@ -294,6 +310,12 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
 
     private void smelting(String id, ItemConvertible from, ItemConvertible to, double xp) {
         CookingRecipeJsonFactory.createSmelting(Ingredient.ofItems(from), to, (float) xp, 200)
+                                .criterion("has_ingredient", hasItem(from))
+                                .offerTo(consumer, id(id));
+    }
+
+    private void blasting(String id, ItemConvertible from, ItemConvertible to, double xp) {
+        CookingRecipeJsonFactory.createBlasting(Ingredient.ofItems(from), to, (float) xp, 100)
                                 .criterion("has_ingredient", hasItem(from))
                                 .offerTo(consumer, id(id));
     }
