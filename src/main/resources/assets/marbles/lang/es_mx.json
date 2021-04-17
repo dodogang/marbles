@@ -1,7 +1,13 @@
 {
   "mod.marbles.name": "Marbles",
   "mod.marbles.description": "Descripción",
-  "itemGroup.marbles.item_group": "Marbles",
+
+  "itemGroup.marbles": "Marbles (%s)",
+  "itemGroup.marbles.title": "Marbles",
+  "itemGroup.tab.marbles:all": "Todo",
+  "itemGroup.tab.marbles:travertine": "Travertino",
+  "itemGroup.tab.marbles:wood": "Madera",
+  "itemGroup.tab.marbles:sand": "Arena",
 
   "block.marbles.yellow_bamboo": "Bambú amarillo",
   "block.marbles.yellow_bamboo_sapling": "Brote de bambú amarillo",
@@ -117,11 +123,17 @@
   "block.marbles.potted_hoopsi_spruce_sapling": "Maceta con retoño de abeto azul",
   "item.marbles.hoopsi_spruce_boat": "Bote de abeto azul",
   "entity.marbles.hoopsi_spruce_boat": "Bote de abeto azul",
-
+  "block.marbles.grisp_dirt": "Tierra firme",
   "block.marbles.lapis_shingles": "Tejas de lapislázuli",
   "block.marbles.lapis_shingles_slab": "Losa de tejas de lapislázuli",
   "block.marbles.lapis_shingles_stairs": "Escaleras de tejas de lapislázuli",
-
+  "block.marbles.lapis_spotlight": "Faro de lapislázuli",
+  "item.marbles.umbral_lazuli": "Umbralázuli",
+  "block.marbles.umbral_lazuli_ore": "Mineral de umbralázuli",
+  "block.marbles.umbral_lazuli_shingles": "Tejas de umbralázuli",
+  "block.marbles.umbral_lazuli_shingles_slab": "Losa de tejas de umbralázuli",
+  "block.marbles.umbral_lazuli_shingles_stairs": "Escaleras de tejas de umbralázuli",
+  "block.marbles.umbral_lazuli_spotlight": "Faro de umbralázuli",
   "block.marbles.dawn_sand": "Arena alba",
   "block.marbles.dawn_sandstone": "Arenisca alba",
   "block.marbles.chiseled_dawn_sandstone": "Arenisca alba cincelada",
@@ -150,18 +162,23 @@
   "block.marbles.smooth_dusk_sandstone_wall": "Pared de arenisca crepuscular lisa",
   "block.marbles.smooth_dusk_sandstone_slab": "Losa de arenisca crepuscular lisa",
   "block.marbles.smooth_dusk_sandstone_stairs": "Escaleras de arenisca crepuscular lisa",
-
   "item.marbles.pink_salt_shard": "Fragmento de sal rosa",
   "block.marbles.pink_salt": "Sal rosa",
+  "block.marbles.pink_salt_slab": "Losa de sal rosa",
+  "block.marbles.pink_salt_stairs": "Escaleras de sal rosa",
   "block.marbles.crumbled_pink_salt": "Sal rosa desmenuzada",
-  "block.marbles.pink_salt_spire": "Columna de sal rosa",
+  "block.marbles.pink_salt_bricks": "Ladrillos de sal rosa",
+  "block.marbles.pink_salt_brick_slab": "Losa de ladrillos de sal rosa",
+  "block.marbles.pink_salt_brick_stairs": "Escaleras de ladrillos de sal rosa",
+  "block.marbles.pink_salt_pillar": "Pilar de sal rosa",
+  "block.marbles.pink_salt_spire": "Aguja de sal rosa",
   "block.marbles.pink_salt_stack": "Montón de sal rosa",
   "block.marbles.pink_salt_stump": "Poste de sal rosa",
-
   "biome.marbles.yellow_bamboo_jungle": "Jungla de bambú amarillo",
   "biome.marbles.yellow_bamboo_jungle_hills": "Colinas de jungla de bambú amarillo",
   "biome.marbles.aspen_forest": "Bosque de álamos",
   "biome.marbles.hoopsi_spruce_forest": "Bosque de abetos azules",
 
-  "death.fell.accident.marbles:yellow_scaffolding": "%1$s se cayó de un andamio amarillo"
+  "death.fell.accident.marbles:yellow_scaffolding": "%1$s se cayó de un andamio amarillo",
+  "debug.option.marbles.spotlight": "Faros"
 }
