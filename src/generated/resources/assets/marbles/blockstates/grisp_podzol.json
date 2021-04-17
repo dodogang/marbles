@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "snowy=false": {
+      "model": "marbles:block/grisp_podzol"
+    },
+    "snowy=true": {
+      "model": "marbles:block/grisp_podzol_snowy"
+    }
+  }
+}

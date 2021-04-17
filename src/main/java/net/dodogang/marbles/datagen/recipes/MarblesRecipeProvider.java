@@ -2,6 +2,7 @@ package net.dodogang.marbles.datagen.recipes;
 
 import me.andante.chord.block.helper.WoodBlocks;
 import net.dodogang.marbles.Marbles;
+import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesItems;
 import net.dodogang.marbles.tag.MarblesItemTags;
@@ -35,73 +36,10 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         woodSet(MarblesBlocks.ASPEN);
         woodSet(MarblesBlocks.HOOPSI_SPRUCE);
 
-        generic2x2("travertine/bricks", MarblesBlocks.TRAVERTINE, MarblesBlocks.TRAVERTINE_BRICKS, 4);
-        shapeless("travertine/polished", MarblesBlocks.TRAVERTINE, MarblesBlocks.POLISHED_TRAVERTINE, 1);
-        generic1x2("travertine/capped", MarblesBlocks.TRAVERTINE_SLAB, MarblesBlocks.CAPPED_TRAVERTINE, 1);
-        generic3x1("travertine/slab", MarblesBlocks.TRAVERTINE, MarblesBlocks.TRAVERTINE_SLAB, 6);
-        generic3x1("travertine/brick_slab", MarblesBlocks.TRAVERTINE_BRICKS, MarblesBlocks.TRAVERTINE_BRICK_SLAB, 6);
-        generic3x1("travertine/capped_slab", MarblesBlocks.CAPPED_TRAVERTINE, MarblesBlocks.CAPPED_TRAVERTINE_SLAB, 6);
-        generic3x1("travertine/polished_slab", MarblesBlocks.POLISHED_TRAVERTINE, MarblesBlocks.POLISHED_TRAVERTINE_SLAB, 6);
-        stairs("travertine/stairs", MarblesBlocks.TRAVERTINE, MarblesBlocks.TRAVERTINE_STAIRS, 4);
-        stairs("travertine/brick_stairs", MarblesBlocks.TRAVERTINE_BRICKS, MarblesBlocks.TRAVERTINE_BRICK_STAIRS, 4);
-        stairs("travertine/capped_stairs", MarblesBlocks.CAPPED_TRAVERTINE, MarblesBlocks.CAPPED_TRAVERTINE_STAIRS, 4);
-        stairs("travertine/polished_stairs", MarblesBlocks.POLISHED_TRAVERTINE, MarblesBlocks.POLISHED_TRAVERTINE_STAIRS, 4);
-        generic3x2("travertine/wall", MarblesBlocks.TRAVERTINE, MarblesBlocks.TRAVERTINE_WALL, 6);
-        generic3x2("travertine/brick_wall", MarblesBlocks.TRAVERTINE_BRICKS, MarblesBlocks.TRAVERTINE_BRICK_WALL, 6);
-        generic3x2("travertine/capped_wall", MarblesBlocks.CAPPED_TRAVERTINE, MarblesBlocks.CAPPED_TRAVERTINE_WALL, 6);
-        generic3x2("travertine/polished_wall", MarblesBlocks.POLISHED_TRAVERTINE, MarblesBlocks.POLISHED_TRAVERTINE_WALL, 6);
-        saltLamp("travertine/salt_lamp", MarblesItemTags.TRAVERTINE, MarblesBlocks.TRAVERTINE_SALT_LAMP, 4);
-
-        generic2x2("lemon_travertine/bricks", MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.LEMON_TRAVERTINE_BRICKS, 4);
-        shapeless("lemon_travertine/polished", MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.POLISHED_LEMON_TRAVERTINE, 1);
-        generic1x2("lemon_travertine/capped", MarblesBlocks.LEMON_TRAVERTINE_SLAB, MarblesBlocks.CAPPED_LEMON_TRAVERTINE, 1);
-        generic3x1("lemon_travertine/slab", MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.LEMON_TRAVERTINE_SLAB, 6);
-        generic3x1("lemon_travertine/brick_slab", MarblesBlocks.LEMON_TRAVERTINE_BRICKS, MarblesBlocks.LEMON_TRAVERTINE_BRICK_SLAB, 6);
-        generic3x1("lemon_travertine/capped_slab", MarblesBlocks.CAPPED_LEMON_TRAVERTINE, MarblesBlocks.CAPPED_LEMON_TRAVERTINE_SLAB, 6);
-        generic3x1("lemon_travertine/polished_slab", MarblesBlocks.POLISHED_LEMON_TRAVERTINE, MarblesBlocks.POLISHED_LEMON_TRAVERTINE_SLAB, 6);
-        stairs("lemon_travertine/stairs", MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.LEMON_TRAVERTINE_STAIRS, 4);
-        stairs("lemon_travertine/brick_stairs", MarblesBlocks.LEMON_TRAVERTINE_BRICKS, MarblesBlocks.LEMON_TRAVERTINE_BRICK_STAIRS, 4);
-        stairs("lemon_travertine/capped_stairs", MarblesBlocks.CAPPED_LEMON_TRAVERTINE, MarblesBlocks.CAPPED_LEMON_TRAVERTINE_STAIRS, 4);
-        stairs("lemon_travertine/polished_stairs", MarblesBlocks.POLISHED_LEMON_TRAVERTINE, MarblesBlocks.POLISHED_LEMON_TRAVERTINE_STAIRS, 4);
-        generic3x2("lemon_travertine/wall", MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.LEMON_TRAVERTINE_WALL, 6);
-        generic3x2("lemon_travertine/brick_wall", MarblesBlocks.LEMON_TRAVERTINE_BRICKS, MarblesBlocks.LEMON_TRAVERTINE_BRICK_WALL, 6);
-        generic3x2("lemon_travertine/capped_wall", MarblesBlocks.CAPPED_LEMON_TRAVERTINE, MarblesBlocks.CAPPED_LEMON_TRAVERTINE_WALL, 6);
-        generic3x2("lemon_travertine/polished_wall", MarblesBlocks.POLISHED_LEMON_TRAVERTINE, MarblesBlocks.POLISHED_LEMON_TRAVERTINE_WALL, 6);
-        saltLamp("lemon_travertine/salt_lamp", MarblesItemTags.LEMON_TRAVERTINE, MarblesBlocks.LEMON_TRAVERTINE_SALT_LAMP, 4);
-
-        generic2x2("peach_travertine/bricks", MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.PEACH_TRAVERTINE_BRICKS, 4);
-        shapeless("peach_travertine/polished", MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.POLISHED_PEACH_TRAVERTINE, 1);
-        generic1x2("peach_travertine/capped", MarblesBlocks.PEACH_TRAVERTINE_SLAB, MarblesBlocks.CAPPED_PEACH_TRAVERTINE, 1);
-        generic3x1("peach_travertine/slab", MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.PEACH_TRAVERTINE_SLAB, 6);
-        generic3x1("peach_travertine/brick_slab", MarblesBlocks.PEACH_TRAVERTINE_BRICKS, MarblesBlocks.PEACH_TRAVERTINE_BRICK_SLAB, 6);
-        generic3x1("peach_travertine/capped_slab", MarblesBlocks.CAPPED_PEACH_TRAVERTINE, MarblesBlocks.CAPPED_PEACH_TRAVERTINE_SLAB, 6);
-        generic3x1("peach_travertine/polished_slab", MarblesBlocks.POLISHED_PEACH_TRAVERTINE, MarblesBlocks.POLISHED_PEACH_TRAVERTINE_SLAB, 6);
-        stairs("peach_travertine/stairs", MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.PEACH_TRAVERTINE_STAIRS, 4);
-        stairs("peach_travertine/brick_stairs", MarblesBlocks.PEACH_TRAVERTINE_BRICKS, MarblesBlocks.PEACH_TRAVERTINE_BRICK_STAIRS, 4);
-        stairs("peach_travertine/capped_stairs", MarblesBlocks.CAPPED_PEACH_TRAVERTINE, MarblesBlocks.CAPPED_PEACH_TRAVERTINE_STAIRS, 4);
-        stairs("peach_travertine/polished_stairs", MarblesBlocks.POLISHED_PEACH_TRAVERTINE, MarblesBlocks.POLISHED_PEACH_TRAVERTINE_STAIRS, 4);
-        generic3x2("peach_travertine/wall", MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.PEACH_TRAVERTINE_WALL, 6);
-        generic3x2("peach_travertine/brick_wall", MarblesBlocks.PEACH_TRAVERTINE_BRICKS, MarblesBlocks.PEACH_TRAVERTINE_BRICK_WALL, 6);
-        generic3x2("peach_travertine/capped_wall", MarblesBlocks.CAPPED_PEACH_TRAVERTINE, MarblesBlocks.CAPPED_PEACH_TRAVERTINE_WALL, 6);
-        generic3x2("peach_travertine/polished_wall", MarblesBlocks.POLISHED_PEACH_TRAVERTINE, MarblesBlocks.POLISHED_PEACH_TRAVERTINE_WALL, 6);
-        saltLamp("peach_travertine/salt_lamp", MarblesItemTags.PEACH_TRAVERTINE, MarblesBlocks.PEACH_TRAVERTINE_SALT_LAMP, 4);
-
-        generic2x2("tangerine_travertine/bricks", MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS, 4);
-        shapeless("tangerine_travertine/polished", MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, 1);
-        generic1x2("tangerine_travertine/capped", MarblesBlocks.TANGERINE_TRAVERTINE_SLAB, MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE, 1);
-        generic3x1("tangerine_travertine/slab", MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_SLAB, 6);
-        generic3x1("tangerine_travertine/brick_slab", MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS, MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_SLAB, 6);
-        generic3x1("tangerine_travertine/capped_slab", MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE, MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_SLAB, 6);
-        generic3x1("tangerine_travertine/polished_slab", MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_SLAB, 6);
-        stairs("tangerine_travertine/stairs", MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_STAIRS, 4);
-        stairs("tangerine_travertine/brick_stairs", MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS, MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_STAIRS, 4);
-        stairs("tangerine_travertine/capped_stairs", MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE, MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_STAIRS, 4);
-        stairs("tangerine_travertine/polished_stairs", MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_STAIRS, 4);
-        generic3x2("tangerine_travertine/wall", MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_WALL, 6);
-        generic3x2("tangerine_travertine/brick_wall", MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS, MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_WALL, 6);
-        generic3x2("tangerine_travertine/capped_wall", MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE, MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_WALL, 6);
-        generic3x2("tangerine_travertine/polished_wall", MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_WALL, 6);
-        saltLamp("tangerine_travertine/salt_lamp", MarblesItemTags.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_SALT_LAMP, 4);
+        travertineSet(MarblesBlocks.TRAVERTINE_BLOCKS, MarblesItemTags.TRAVERTINE);
+        travertineSet(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS, MarblesItemTags.LEMON_TRAVERTINE);
+        travertineSet(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS, MarblesItemTags.PEACH_TRAVERTINE);
+        travertineSet(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS, MarblesItemTags.TANGERINE_TRAVERTINE);
 
         generic2x2("lapis/shingles", Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES, 4);
         generic3x1("lapis/shingles_slab", MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLE_SLAB, 6);
@@ -145,6 +83,27 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         stairs("pink_salt/stairs", MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_STAIRS, 4);
         generic3x1("pink_salt/brick_slab", MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_SLAB, 6);
         stairs("pink_salt/brick_stairs", MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_STAIRS, 4);
+    }
+
+    private void travertineSet(TravertineBlocks blocks, Tag<Item> tag) {
+        String id = blocks.getId();
+
+        generic2x2(id + "/bricks", blocks.RAW, blocks.BRICKS, 4);
+        shapeless(id + "/polished", blocks.RAW, blocks.POLISHED, 1);
+        generic1x2(id + "/capped", blocks.SLAB, blocks.CAPPED, 1);
+        generic3x1(id + "/slab", blocks.RAW, blocks.SLAB, 6);
+        generic3x1(id + "/brick_slab", blocks.BRICKS, blocks.BRICK_SLAB, 6);
+        generic3x1(id + "/capped_slab", blocks.CAPPED, blocks.CAPPED_SLAB, 6);
+        generic3x1(id + "/polished_slab", blocks.POLISHED, blocks.POLISHED_SLAB, 6);
+        stairs(id + "/stairs", blocks.RAW, blocks.STAIRS, 4);
+        stairs(id + "/brick_stairs", blocks.BRICKS, blocks.BRICK_STAIRS, 4);
+        stairs(id + "/capped_stairs", blocks.CAPPED, blocks.CAPPED_STAIRS, 4);
+        stairs(id + "/polished_stairs", blocks.POLISHED, blocks.POLISHED_STAIRS, 4);
+        generic3x2(id + "/wall", blocks.RAW, blocks.WALL, 6);
+        generic3x2(id + "/brick_wall", blocks.BRICKS, blocks.BRICK_WALL, 6);
+        generic3x2(id + "/capped_wall", blocks.CAPPED, blocks.CAPPED_WALL, 6);
+        generic3x2(id + "/polished_wall", blocks.POLISHED, blocks.POLISHED_WALL, 6);
+        saltLamp(id + "/salt_lamp", tag, blocks.SALT_LAMP, 4);
     }
 
     private void woodSet(WoodBlocks blocks) {

@@ -12,7 +12,7 @@
     "ProtoWorldChunkMixin",
     "WorldMixin"
   ],
-  "client": [],
+  "client": ["BiomeColorsMixin", "BlockDustParticleMixin", "ClientWorldMixin"],
   "injectors": {
     "defaultRequire": 1
   }

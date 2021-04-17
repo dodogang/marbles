@@ -1,6 +1,7 @@
 package net.dodogang.marbles.datagen.models;
 
 import me.andante.chord.block.helper.WoodBlocks;
+import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesItems;
@@ -24,80 +25,12 @@ public final class ItemModelTable {
         registerWoodBlocks(MarblesBlocks.ASPEN);
         registerWoodBlocks(MarblesBlocks.HOOPSI_SPRUCE);
 
-        register(MarblesBlocks.TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TRAVERTINE_BRICKS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TRAVERTINE_BRICK_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TRAVERTINE_BRICK_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TRAVERTINE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.TRAVERTINE_BRICK_WALL, item -> using(name(item, "block/%s_bricks", "_brick_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.CAPPED_TRAVERTINE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.POLISHED_TRAVERTINE_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
-
-        register(MarblesBlocks.LEMON_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICKS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LEMON_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICK_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LEMON_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICK_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LEMON_TRAVERTINE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICK_WALL, item -> using(name(item, "block/%s_bricks", "_brick_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
-
-        register(MarblesBlocks.PEACH_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICKS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PEACH_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICK_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PEACH_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICK_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PEACH_TRAVERTINE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICK_WALL, item -> using(name(item, "block/%s_bricks", "_brick_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
-
-        register(MarblesBlocks.TANGERINE_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_WALL, item -> using(name(item, "block/%s_bricks", "_brick_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
+        registerTravertineBlocks(MarblesBlocks.TRAVERTINE_BLOCKS);
+        registerTravertineBlocks(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);
+        registerTravertineBlocks(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
+        registerTravertineBlocks(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
 
         register(MarblesBlocks.TRAVERTINE_OBSIDIAN, item -> inherit(name(item, "block/%s")));
-
-        register(MarblesBlocks.TRAVERTINE_SALT_LAMP, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LEMON_TRAVERTINE_SALT_LAMP, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PEACH_TRAVERTINE_SALT_LAMP, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_SALT_LAMP, item -> inherit(name(item, "block/%s")));
 
         register(MarblesBlocks.PINK_SALT, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.PINK_SALT_SLAB, item -> inherit(name(item, "block/%s")));
@@ -154,12 +87,36 @@ public final class ItemModelTable {
         register(MarblesBlocks.YELLOW_BAMBOO, item -> generated(name(item, "item/%s")));
 
         register(MarblesBlocks.GRISP_DIRT, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.COARSE_GRISP_DIRT, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.GRISP_GRASS_BLOCK, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.GRISP_PODZOL, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.GRISP_MYCELIUM, item -> inherit(name(item, "block/%s")));
 
         register(MarblesItems.YELLOW_SCAFFOLDING, item -> inherit("marbles:block/yellow_scaffolding_stable"));
         register(MarblesItems.PINK_SALT_SHARD, item -> generated(name(item, "item/%s")));
         register(MarblesItems.UMBRAL_LAZULI, item -> generated(name(item, "item/%s")));
     }
 
+
+    private static void registerTravertineBlocks(TravertineBlocks blocks) {
+        register(blocks.RAW, item -> inherit(name(item, "block/%s")));
+        register(blocks.BRICKS, item -> inherit(name(item, "block/%s")));
+        register(blocks.CAPPED, item -> inherit(name(item, "block/%s")));
+        register(blocks.POLISHED, item -> inherit(name(item, "block/%s")));
+        register(blocks.SLAB, item -> inherit(name(item, "block/%s")));
+        register(blocks.BRICK_SLAB, item -> inherit(name(item, "block/%s")));
+        register(blocks.CAPPED_SLAB, item -> inherit(name(item, "block/%s")));
+        register(blocks.POLISHED_SLAB, item -> inherit(name(item, "block/%s")));
+        register(blocks.STAIRS, item -> inherit(name(item, "block/%s")));
+        register(blocks.BRICK_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(blocks.CAPPED_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(blocks.POLISHED_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(blocks.WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
+        register(blocks.BRICK_WALL, item -> using(name(item, "block/%s_bricks", "_brick_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
+        register(blocks.CAPPED_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
+        register(blocks.POLISHED_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
+        register(blocks.SALT_LAMP, item -> inherit(name(item, "block/%s")));
+    }
 
     private static void registerWoodBlocks(WoodBlocks blocks) {
         register(blocks.PLANKS, item -> inherit(name(item, "block/%s")));

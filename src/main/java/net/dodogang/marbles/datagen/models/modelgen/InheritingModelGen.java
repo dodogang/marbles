@@ -151,6 +151,14 @@ public class InheritingModelGen implements ModelGen {
                    .texture("side", side);
     }
 
+    public static InheritingModelGen grassBlock(String bottom, String top, String side, String overlay) {
+        return new InheritingModelGen("marbles:block/layered_grass_block")
+                   .texture("bottom", bottom)
+                   .texture("top", top)
+                   .texture("side", side)
+                   .texture("overlay", overlay);
+    }
+
     public static InheritingModelGen cube(String north, String east, String south, String west, String up, String down) {
         return new InheritingModelGen("block/cube")
                    .texture("north", north)

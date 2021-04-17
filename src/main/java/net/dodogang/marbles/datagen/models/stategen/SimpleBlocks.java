@@ -35,6 +35,16 @@ public abstract class SimpleBlocks {
         );
     }
 
+    public static StateGen snowyBlock(String name, ModelGen model, ModelGen snowy) {
+        return VariantsBlockStateGen.variants(
+            "snowy=false",
+            ModelInfo.create(name, model)
+        ).variant(
+            "snowy=true",
+            ModelInfo.create(name + "_snowy", snowy)
+        );
+    }
+
     public static StateGen randomRotationXY(String name, ModelGen model) {
         return VariantsBlockStateGen.variants(
             ModelInfo.create(name, model).rotate(0, 0),

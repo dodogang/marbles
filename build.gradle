@@ -29,6 +29,7 @@ repositories {
     maven { url "https://maven.fabricmc.net/" }
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.shadew.net/" }
+    maven { url "https://maven.enginehub.org/repo/" }
 }
 
 dependencies {
@@ -59,6 +60,12 @@ dependencies {
         exclude group: "net.fabricmc"
         exclude group: "net.fabricmc.fabric-api"
     }
+
+    include ("net.shadew:shwutil:${project.shwutil_version}")
+    implementation ("net.shadew:shwutil:${project.shwutil_version}") // not a mod, no need for modImplementation
+
+    include ("net.shadew:ptg:${project.ptg_version}")
+    implementation ("net.shadew:ptg:${project.ptg_version}") // neither a mod
 }
 
 processResources {

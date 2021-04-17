@@ -32,9 +32,9 @@ public class MarblesMixinPlugin implements IMixinConfigPlugin {
         // We need these here just to have them under a system property
         if (Boolean.parseBoolean(System.getProperty("marbles.datagen"))) {
             return Lists.newArrayList(
-                "hooks.datagen.DataGenMixin",
-                "hooks.datagen.DataCacheMixin",
-                "hooks.datagen.DataGeneratorMixin"
+                "datagen.DataGenMixin",
+                "datagen.DataCacheMixin",
+                "datagen.DataGeneratorMixin"
             );
         }
         return null;

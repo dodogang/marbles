@@ -1,7 +1,6 @@
 package net.dodogang.marbles.mixin.hooks.datagen;
 
 import net.dodogang.marbles.datagen.DataMain;
-import net.minecraft.server.Main;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -11,7 +10,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Mixin(Main.class)
+@Mixin({
+    net.minecraft.client.main.Main.class,
+    net.minecraft.server.Main.class
+})
 public class DataGenMixin {
     @Inject(method = "main", at = @At("HEAD"), cancellable = true)
     private static void onDataMain(CallbackInfo info) {

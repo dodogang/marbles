@@ -1,6 +1,8 @@
 package net.dodogang.marbles.datagen.tags;
 
 import me.andante.chord.block.helper.WoodBlocks;
+import me.andante.chord.tag.CBlockTags;
+import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.datagen.tags.factory.TagFactory;
 import net.dodogang.marbles.datagen.tags.factory.TagStore;
 import net.dodogang.marbles.tag.MarblesBlockTags;
@@ -35,136 +37,34 @@ public class MarblesBlockItemTagProvider implements DataProvider {
         addWoodSet(ASPEN, MarblesBlockTags.ASPEN_LOGS, MarblesItemTags.ASPEN_LOGS);
         addWoodSet(HOOPSI_SPRUCE, MarblesBlockTags.HOOPSI_SPRUCE_LOGS, MarblesItemTags.HOOPSI_SPRUCE_LOGS);
 
+        addTravertineSet(TRAVERTINE_BLOCKS, MarblesBlockTags.TRAVERTINE, MarblesItemTags.TRAVERTINE);
+        addTravertineSet(LEMON_TRAVERTINE_BLOCKS, MarblesBlockTags.LEMON_TRAVERTINE, MarblesItemTags.LEMON_TRAVERTINE);
+        addTravertineSet(PEACH_TRAVERTINE_BLOCKS, MarblesBlockTags.PEACH_TRAVERTINE, MarblesItemTags.PEACH_TRAVERTINE);
+        addTravertineSet(TANGERINE_TRAVERTINE_BLOCKS, MarblesBlockTags.TANGERINE_TRAVERTINE, MarblesItemTags.TANGERINE_TRAVERTINE);
 
-
-        add(MarblesBlockTags.RAW_TRAVERTINE, MarblesItemTags.RAW_TRAVERTINE,
-            TRAVERTINE,
-            LEMON_TRAVERTINE,
-            PEACH_TRAVERTINE,
-            TANGERINE_TRAVERTINE
-        );
-
-        add(MarblesBlockTags.TRAVERTINE, MarblesItemTags.TRAVERTINE,
-            TRAVERTINE,
-            TRAVERTINE_BRICKS,
-            CAPPED_TRAVERTINE,
-            POLISHED_TRAVERTINE
-        );
-
-        add(MarblesBlockTags.LEMON_TRAVERTINE, MarblesItemTags.LEMON_TRAVERTINE,
-            LEMON_TRAVERTINE,
-            LEMON_TRAVERTINE_BRICKS,
-            CAPPED_LEMON_TRAVERTINE,
-            POLISHED_LEMON_TRAVERTINE
-        );
-
-        add(MarblesBlockTags.PEACH_TRAVERTINE, MarblesItemTags.PEACH_TRAVERTINE,
-            PEACH_TRAVERTINE,
-            PEACH_TRAVERTINE_BRICKS,
-            CAPPED_PEACH_TRAVERTINE,
-            POLISHED_PEACH_TRAVERTINE
-        );
-
-        add(MarblesBlockTags.TANGERINE_TRAVERTINE, MarblesItemTags.TANGERINE_TRAVERTINE,
-            TANGERINE_TRAVERTINE,
-            TANGERINE_TRAVERTINE_BRICKS,
-            CAPPED_TANGERINE_TRAVERTINE,
-            POLISHED_TANGERINE_TRAVERTINE
-        );
-
-        add(MarblesBlockTags.TRAVERTINE_BLOCKS, MarblesItemTags.TRAVERTINE_BLOCKS,
-            TRAVERTINE,
-            TRAVERTINE_BRICKS,
-            CAPPED_TRAVERTINE,
-            POLISHED_TRAVERTINE,
-            LEMON_TRAVERTINE,
-            LEMON_TRAVERTINE_BRICKS,
-            CAPPED_LEMON_TRAVERTINE,
-            POLISHED_LEMON_TRAVERTINE,
-            PEACH_TRAVERTINE,
-            PEACH_TRAVERTINE_BRICKS,
-            CAPPED_PEACH_TRAVERTINE,
-            POLISHED_PEACH_TRAVERTINE,
-            TANGERINE_TRAVERTINE,
-            TANGERINE_TRAVERTINE_BRICKS,
-            CAPPED_TANGERINE_TRAVERTINE,
-            POLISHED_TANGERINE_TRAVERTINE
-        );
-
-        add(MarblesBlockTags.TRAVERTINE_SLABS, MarblesItemTags.TRAVERTINE_SLABS,
-            TRAVERTINE_SLAB,
-            TRAVERTINE_BRICK_SLAB,
-            CAPPED_TRAVERTINE_SLAB,
-            POLISHED_TRAVERTINE_SLAB,
-            LEMON_TRAVERTINE_SLAB,
-            LEMON_TRAVERTINE_BRICK_SLAB,
-            CAPPED_LEMON_TRAVERTINE_SLAB,
-            POLISHED_LEMON_TRAVERTINE_SLAB,
-            PEACH_TRAVERTINE_SLAB,
-            PEACH_TRAVERTINE_BRICK_SLAB,
-            CAPPED_PEACH_TRAVERTINE_SLAB,
-            POLISHED_PEACH_TRAVERTINE_SLAB,
-            TANGERINE_TRAVERTINE_SLAB,
-            TANGERINE_TRAVERTINE_BRICK_SLAB,
-            CAPPED_TANGERINE_TRAVERTINE_SLAB,
-            POLISHED_TANGERINE_TRAVERTINE_SLAB
-        );
         blocks.factory(BlockTags.SLABS).add(MarblesBlockTags.TRAVERTINE_SLABS);
         items.factory(ItemTags.SLABS).add(MarblesItemTags.TRAVERTINE_SLABS);
-
-        add(MarblesBlockTags.TRAVERTINE_STAIRS, MarblesItemTags.TRAVERTINE_STAIRS,
-            TRAVERTINE_STAIRS,
-            TRAVERTINE_BRICK_STAIRS,
-            CAPPED_TRAVERTINE_STAIRS,
-            POLISHED_TRAVERTINE_STAIRS,
-            LEMON_TRAVERTINE_STAIRS,
-            LEMON_TRAVERTINE_BRICK_STAIRS,
-            CAPPED_LEMON_TRAVERTINE_STAIRS,
-            POLISHED_LEMON_TRAVERTINE_STAIRS,
-            PEACH_TRAVERTINE_STAIRS,
-            PEACH_TRAVERTINE_BRICK_STAIRS,
-            CAPPED_PEACH_TRAVERTINE_STAIRS,
-            POLISHED_PEACH_TRAVERTINE_STAIRS,
-            TANGERINE_TRAVERTINE_STAIRS,
-            TANGERINE_TRAVERTINE_BRICK_STAIRS,
-            CAPPED_TANGERINE_TRAVERTINE_STAIRS,
-            POLISHED_TANGERINE_TRAVERTINE_STAIRS
-        );
         blocks.factory(BlockTags.STAIRS).add(MarblesBlockTags.TRAVERTINE_STAIRS);
         items.factory(ItemTags.STAIRS).add(MarblesItemTags.TRAVERTINE_STAIRS);
-
-        add(MarblesBlockTags.TRAVERTINE_WALLS, MarblesItemTags.TRAVERTINE_WALLS,
-            TRAVERTINE_WALL,
-            TRAVERTINE_BRICK_WALL,
-            CAPPED_TRAVERTINE_WALL,
-            POLISHED_TRAVERTINE_WALL,
-            LEMON_TRAVERTINE_WALL,
-            LEMON_TRAVERTINE_BRICK_WALL,
-            CAPPED_LEMON_TRAVERTINE_WALL,
-            POLISHED_LEMON_TRAVERTINE_WALL,
-            PEACH_TRAVERTINE_WALL,
-            PEACH_TRAVERTINE_BRICK_WALL,
-            CAPPED_PEACH_TRAVERTINE_WALL,
-            POLISHED_PEACH_TRAVERTINE_WALL,
-            TANGERINE_TRAVERTINE_WALL,
-            TANGERINE_TRAVERTINE_BRICK_WALL,
-            CAPPED_TANGERINE_TRAVERTINE_WALL,
-            POLISHED_TANGERINE_TRAVERTINE_WALL
-        );
         blocks.factory(BlockTags.WALLS).add(MarblesBlockTags.TRAVERTINE_WALLS);
         items.factory(ItemTags.WALLS).add(MarblesItemTags.TRAVERTINE_WALLS);
 
-        add(MarblesBlockTags.TRAVERTINE_LAMPS, MarblesItemTags.TRAVERTINE_LAMPS,
-            TRAVERTINE_SALT_LAMP,
-            LEMON_TRAVERTINE_SALT_LAMP,
-            PEACH_TRAVERTINE_SALT_LAMP,
-            TANGERINE_TRAVERTINE_SALT_LAMP
+        add(
+            BlockTags.SLABS, ItemTags.SLABS,
+            LAPIS_SHINGLE_SLAB
         );
-
-        add(BlockTags.SLABS, ItemTags.SLABS, LAPIS_SHINGLE_SLAB);
-        add(BlockTags.STAIRS, ItemTags.STAIRS, LAPIS_SHINGLE_STAIRS);
-        add(BlockTags.SLABS, ItemTags.SLABS, UMBRAL_LAZULI_SHINGLE_SLAB);
-        add(BlockTags.STAIRS, ItemTags.STAIRS, UMBRAL_LAZULI_SHINGLE_STAIRS);
+        add(
+            BlockTags.STAIRS, ItemTags.STAIRS,
+            LAPIS_SHINGLE_STAIRS
+        );
+        add(
+            BlockTags.SLABS, ItemTags.SLABS,
+            UMBRAL_LAZULI_SHINGLE_SLAB
+        );
+        add(
+            BlockTags.STAIRS, ItemTags.STAIRS,
+            UMBRAL_LAZULI_SHINGLE_STAIRS
+        );
 
         add(
             MarblesItemTags.HIGH_LIGHT_BLOCKS,
@@ -178,7 +78,8 @@ public class MarblesBlockItemTagProvider implements DataProvider {
             Blocks.JACK_O_LANTERN
         );
 
-        add(BlockTags.SLABS, ItemTags.SLABS,
+        add(
+            BlockTags.SLABS, ItemTags.SLABS,
             DAWN_SANDSTONE_SLAB,
             CUT_DAWN_SANDSTONE_SLAB,
             SMOOTH_DAWN_SANDSTONE_SLAB,
@@ -191,7 +92,8 @@ public class MarblesBlockItemTagProvider implements DataProvider {
             PINK_SALT_BRICK_SLAB
         );
 
-        add(BlockTags.STAIRS, ItemTags.STAIRS,
+        add(
+            BlockTags.STAIRS, ItemTags.STAIRS,
             DAWN_SANDSTONE_STAIRS,
             CUT_DAWN_SANDSTONE_STAIRS,
             SMOOTH_DAWN_SANDSTONE_STAIRS,
@@ -204,7 +106,8 @@ public class MarblesBlockItemTagProvider implements DataProvider {
             PINK_SALT_BRICK_STAIRS
         );
 
-        add(BlockTags.WALLS, ItemTags.WALLS,
+        add(
+            BlockTags.WALLS, ItemTags.WALLS,
             DAWN_SANDSTONE_WALL,
             CUT_DAWN_SANDSTONE_WALL,
             SMOOTH_DAWN_SANDSTONE_WALL,
@@ -214,15 +117,117 @@ public class MarblesBlockItemTagProvider implements DataProvider {
             SMOOTH_DUSK_SANDSTONE_WALL
         );
 
-        add(BlockTags.CLIMBABLE, YELLOW_SCAFFOLDING);
-        add(BlockTags.BAMBOO_PLANTABLE_ON, YELLOW_BAMBOO, YELLOW_BAMBOO_SAPLING);
+        add(
+            BlockTags.CLIMBABLE,
+            YELLOW_SCAFFOLDING
+        );
+
+        add(
+            BlockTags.BAMBOO_PLANTABLE_ON,
+            YELLOW_BAMBOO,
+            YELLOW_BAMBOO_SAPLING
+        );
+
+        add(
+            BlockTags.ENDERMAN_HOLDABLE,
+            DAWN_SAND,
+            DUSK_SAND
+        );
+
+        add(
+            CBlockTags.DEAD_BUSH_SUPPORTERS,
+            DAWN_SAND,
+            DUSK_SAND
+        );
+
+        addGrispDirtBlockTag(BlockTags.ENDERMAN_HOLDABLE);
+        addGrispDirtBlockTag(CBlockTags.PLANT_SUPPORTERS);
+        addGrispDirtBlockTag(CBlockTags.WITHER_ROSE_SUPPORTERS);
+        addGrispDirtBlockTag(CBlockTags.FEATURE_SUPPORTERS_SOIL);
+        addGrispDirtBlockTag(CBlockTags.DEAD_BUSH_SUPPORTERS);
+        addGrispDirtBlockTag(MarblesBlockTags.GRISP_COLOR_SOURCE);
+        addGrispDirtBlockTag(BlockTags.MUSHROOM_GROW_BLOCK);
 
 
         blocks.write(cache);
         items.write(cache);
     }
 
-    public void addWoodSet(WoodBlocks set, Tag.Identified<Block> logsBlockTag, Tag.Identified<Item> logsItemTag) {
+    private void addGrispDirtBlockTag(Tag.Identified<Block> tag) {
+        add(
+            tag,
+            GRISP_DIRT,
+            COARSE_GRISP_DIRT,
+            GRISP_GRASS_BLOCK,
+            GRISP_PODZOL,
+            GRISP_MYCELIUM
+        );
+    }
+
+    private void addGrispDirtItemTag(Tag.Identified<Item> tag) {
+        add(
+            tag,
+            GRISP_DIRT,
+            COARSE_GRISP_DIRT,
+            GRISP_GRASS_BLOCK,
+            GRISP_PODZOL,
+            GRISP_MYCELIUM
+        );
+    }
+
+    private void addTravertineSet(TravertineBlocks set, Tag.Identified<Block> blockTag, Tag.Identified<Item> itemTag) {
+        add(
+            MarblesBlockTags.RAW_TRAVERTINE, MarblesItemTags.RAW_TRAVERTINE,
+            set.RAW
+        );
+
+        add(
+            blockTag, itemTag,
+            set.RAW,
+            set.BRICKS,
+            set.CAPPED,
+            set.POLISHED
+        );
+
+        add(
+            MarblesBlockTags.TRAVERTINE_BLOCKS, MarblesItemTags.TRAVERTINE_BLOCKS,
+            set.RAW,
+            set.BRICKS,
+            set.CAPPED,
+            set.POLISHED
+        );
+
+        add(
+            MarblesBlockTags.TRAVERTINE_SLABS, MarblesItemTags.TRAVERTINE_SLABS,
+            set.SLAB,
+            set.BRICK_SLAB,
+            set.CAPPED_SLAB,
+            set.POLISHED_SLAB
+        );
+
+        add(
+            MarblesBlockTags.TRAVERTINE_STAIRS, MarblesItemTags.TRAVERTINE_STAIRS,
+            set.STAIRS,
+            set.BRICK_STAIRS,
+            set.CAPPED_STAIRS,
+            set.POLISHED_STAIRS
+        );
+
+        add(
+            MarblesBlockTags.TRAVERTINE_WALLS, MarblesItemTags.TRAVERTINE_WALLS,
+            set.WALL,
+            set.BRICK_WALL,
+            set.CAPPED_WALL,
+            set.POLISHED_WALL
+        );
+
+        add(
+            MarblesBlockTags.TRAVERTINE_LAMPS, MarblesItemTags.TRAVERTINE_LAMPS,
+            set.SALT_LAMP
+        );
+    }
+
+    private void addWoodSet(WoodBlocks set, Tag.Identified<Block> logsBlockTag, Tag.Identified<Item> logsItemTag) {
         add(BlockTags.PLANKS, ItemTags.PLANKS, set.PLANKS);
         add(BlockTags.SAPLINGS, ItemTags.SAPLINGS, set.SAPLING);
         add(logsBlockTag, logsItemTag, set.LOG, set.STRIPPED_LOG, set.WOOD, set.STRIPPED_WOOD);
@@ -252,22 +257,35 @@ public class MarblesBlockItemTagProvider implements DataProvider {
         add(ItemTags.BOATS, set.BOAT_ITEM);
     }
 
+    @SafeVarargs
+    private final void add(Block block, Tag<Block>... tags) {
+        for (Tag<Block> tag : tags) {
+            add(tag, block);
+        }
+    }
 
-    private void add(Tag.Identified<Block> blockTag, Block... vals) {
+    @SafeVarargs
+    private final void add(ItemConvertible item, Tag<Item>... tags) {
+        for (Tag<Item> tag : tags) {
+            add(tag, item);
+        }
+    }
+
+    private void add(Tag<Block> blockTag, Block... vals) {
         TagFactory<Block> factory = blocks.factory(blockTag);
         for (Block val : vals) {
             factory.add(val);
         }
     }
 
-    private void add(Tag.Identified<Item> itemTag, ItemConvertible... vals) {
+    private void add(Tag<Item> itemTag, ItemConvertible... vals) {
         TagFactory<Item> factory = items.factory(itemTag);
         for (ItemConvertible val : vals) {
             factory.add(val.asItem());
         }
     }
 
-    private void add(Tag.Identified<Block> blockTag, Tag.Identified<Item> itemTag, Block... vals) {
+    private void add(Tag<Block> blockTag, Tag<Item> itemTag, Block... vals) {
         TagFactory<Block> blockFac = blocks.factory(blockTag);
         TagFactory<Item> itemFac = items.factory(itemTag);
         for (Block val : vals) {
