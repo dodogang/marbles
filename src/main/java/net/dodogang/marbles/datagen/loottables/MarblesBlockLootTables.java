@@ -162,6 +162,11 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.GRISP_GRASS_BLOCK, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
         addDrop(MarblesBlocks.GRISP_PODZOL, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
         addDrop(MarblesBlocks.GRISP_MYCELIUM, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
+        addDrop(MarblesBlocks.GRISP_DIRT_PATH, MarblesBlocks.GRISP_DIRT);
+        addDrop(MarblesBlocks.GRISP_GRASS_PATH, MarblesBlocks.GRISP_DIRT);
+        addDrop(MarblesBlocks.GRISP_PODZOL_PATH, MarblesBlocks.GRISP_DIRT);
+        addDrop(MarblesBlocks.GRISP_MYCELIUM_PATH, MarblesBlocks.GRISP_DIRT);
+        addDrop(MarblesBlocks.GRISP_FARMLAND, MarblesBlocks.GRISP_DIRT);
 
         Set<Identifier> set = Sets.newHashSet();
         Iterable<Block> blocks = Registry.BLOCK

@@ -1,4 +1,4 @@
-package net.dodogang.marbles.net;
+package net.dodogang.marbles.network;
 
 import com.mojang.datafixers.util.Pair;
 import net.dodogang.marbles.util.SpotlightUtil;

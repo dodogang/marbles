@@ -1,6 +1,7 @@
 package net.dodogang.marbles;
 
 import net.dodogang.marbles.debug.MarblesDebugCommand;
+import net.dodogang.marbles.handler.ToolClickHandlers;
 import net.dodogang.marbles.init.*;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.fabricmc.api.ModInitializer;
@@ -39,6 +40,8 @@ public class Marbles implements ModInitializer {
             CommandRegistrationCallback.EVENT.register(
                 (dispatcher, dedicated) -> MarblesDebugCommand.register(dispatcher)
             );
+
+            ToolClickHandlers.init();
 
             log("Initialized");
 

@@ -8,11 +8,16 @@
     "BlockViewMixin",
     "ChunkSectionMixin",
     "ChunkSerializerMixin",
+    "CropBlockMixin",
     "FluidBlockMixin",
     "ProtoWorldChunkMixin",
     "WorldMixin"
   ],
-  "client": ["BiomeColorsMixin", "BlockDustParticleMixin", "ClientWorldMixin"],
+  "client": [
+    "BiomeColorsMixin",
+    "BlockDustParticleMixin",
+    "ClientWorldMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

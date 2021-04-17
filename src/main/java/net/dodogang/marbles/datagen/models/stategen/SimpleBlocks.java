@@ -11,6 +11,17 @@ public abstract class SimpleBlocks {
         return VariantsBlockStateGen.variants(ModelInfo.create(name, model));
     }
 
+    public static StateGen farmland(String name, ModelGen model, ModelGen moist) {
+        return VariantsBlockStateGen.variants("moisture=0", ModelInfo.create(name, model))
+                                    .variant("moisture=1", ModelInfo.create(name, model))
+                                    .variant("moisture=2", ModelInfo.create(name, model))
+                                    .variant("moisture=3", ModelInfo.create(name, model))
+                                    .variant("moisture=4", ModelInfo.create(name, model))
+                                    .variant("moisture=5", ModelInfo.create(name, model))
+                                    .variant("moisture=6", ModelInfo.create(name, model))
+                                    .variant("moisture=7", ModelInfo.create(name + "_moist", moist));
+    }
+
     public static StateGen axisRotated(String name, ModelGen model) {
         return VariantsBlockStateGen.variants("axis=y", ModelInfo.create(name, model).rotate(0, 0))
                                     .variant("axis=z", ModelInfo.create(name, model).rotate(90, 0))

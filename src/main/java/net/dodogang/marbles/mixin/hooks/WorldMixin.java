@@ -1,7 +1,7 @@
 package net.dodogang.marbles.mixin.hooks;
 
 import com.mojang.datafixers.util.Pair;
-import net.dodogang.marbles.net.MarblesNetwork;
+import net.dodogang.marbles.network.MarblesNetwork;
 import net.dodogang.marbles.util.SpotlightUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;

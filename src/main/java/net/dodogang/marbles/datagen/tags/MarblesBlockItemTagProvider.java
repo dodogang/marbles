@@ -146,7 +146,17 @@ public class MarblesBlockItemTagProvider implements DataProvider {
         addGrispDirtBlockTag(CBlockTags.FEATURE_SUPPORTERS_SOIL);
         addGrispDirtBlockTag(CBlockTags.DEAD_BUSH_SUPPORTERS);
         addGrispDirtBlockTag(MarblesBlockTags.GRISP_COLOR_SOURCE);
-        addGrispDirtBlockTag(BlockTags.MUSHROOM_GROW_BLOCK);
+        add(
+            BlockTags.MUSHROOM_GROW_BLOCK,
+            GRISP_MYCELIUM,
+            GRISP_PODZOL
+        );
+        add(
+            GRISP_FARMLAND,
+            CBlockTags.CROP_SUPPORTERS,
+            CBlockTags.STEM_SUPPORTERS,
+            CBlockTags.ATTACHED_STEM_SUPPORTERS
+        );
 
 
         blocks.write(cache);

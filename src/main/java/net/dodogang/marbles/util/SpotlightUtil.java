@@ -2,7 +2,7 @@ package net.dodogang.marbles.util;
 
 import com.mojang.datafixers.util.Pair;
 import net.dodogang.marbles.block.SpotlightBlock;
-import net.dodogang.marbles.net.MarblesNetwork;
+import net.dodogang.marbles.network.MarblesNetwork;
 import net.dodogang.marbles.world.chunk.MarblesChunkSection;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;
