@@ -15,9 +15,9 @@
     "PointOfInterestTypeMixin",
     "ProtoWorldChunkMixin",
     "WorldMixin",
-    "hooks.worldgen.ChunkGenSettingsAccessor",
-    "hooks.worldgen.GeneratorTypeAccessor",
-    "hooks.worldgen.NoiseChunkGeneratorMixin"
+    "worldgen.ChunkGenSettingsAccessor",
+    "worldgen.GeneratorTypeAccessor",
+    "worldgen.NoiseChunkGeneratorMixin"
   ],
   "client": [
     "BiomeColorsMixin",
