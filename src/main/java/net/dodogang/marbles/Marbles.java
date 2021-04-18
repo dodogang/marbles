@@ -1,9 +1,12 @@
 package net.dodogang.marbles;
 
+import net.dodogang.marbles.debug.MarblesDebugCommand;
+import net.dodogang.marbles.handler.ToolClickHandlers;
 import net.dodogang.marbles.init.*;
 import net.dodogang.marbles.world.gen.level.MarblesNoiseChunkGenerator;
+import net.dodogang.marbles.item.MarblesItemGroup;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -16,8 +19,8 @@ public class Marbles implements ModInitializer {
     public static final String MOD_ID = "marbles";
     public static final String MOD_NAME = "Marbles";
 
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "item_group"), () -> new ItemStack(MarblesBlocks.TRAVERTINE));
-    public static Logger LOGGER = LogManager.getLogger(MOD_ID);
+    public static final ItemGroup ITEM_GROUP = new MarblesItemGroup();
+    public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     private static boolean initialized = false;
 
@@ -35,7 +38,17 @@ public class Marbles implements ModInitializer {
             new MarblesConfiguredFeatures();
             Registry.register(Registry.CHUNK_GENERATOR, "marbles:noise", MarblesNoiseChunkGenerator.CODEC);
 
+            new MarblesSoundEvents();
+
             new MarblesBiomes();
+
+            new MarblesPointOfInterestTypes();
+
+            CommandRegistrationCallback.EVENT.register(
+                (dispatcher, dedicated) -> MarblesDebugCommand.register(dispatcher)
+            );
+
+            ToolClickHandlers.init();
 
             log("Initialized");
 
@@ -46,6 +59,7 @@ public class Marbles implements ModInitializer {
     public static void log(Level level, String message) {
         LOGGER.log(level, "[" + MOD_NAME + "] " + message);
     }
+
     public static void log(String message) {
         log(Level.INFO, message);
     }

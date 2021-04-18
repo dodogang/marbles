@@ -11,6 +11,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
@@ -32,21 +33,47 @@ import java.util.Random;
 public abstract class AbstractLightRetainingBlock extends Block implements Waterloggable {
     protected static final IntProperty RETAINED_LIGHT = MarblesProperties.RETAINED_LIGHT;
     protected static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+    protected static final BooleanProperty POWERED = Properties.POWERED;
 
     public AbstractLightRetainingBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(RETAINED_LIGHT, 0).with(WATERLOGGED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(RETAINED_LIGHT, 0).with(WATERLOGGED, false).with(POWERED, false));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
-        builder.add(RETAINED_LIGHT, WATERLOGGED);
+        builder.add(RETAINED_LIGHT, WATERLOGGED, POWERED);
+    }
+
+    @Override
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+        if (!world.isClient) {
+            if (world.isReceivingRedstonePower(pos) && !state.get(POWERED)) {
+                int oldRetainedLight = state.get(RETAINED_LIGHT);
+                int retainedLight = Math.max(0, Math.max(world.getLightLevel(LightType.BLOCK, pos), oldRetainedLight) - 1);
+                light(state.with(POWERED, true), world, pos, retainedLight);
+            } else if (!world.isReceivingRedstonePower(pos) && state.get(POWERED)) {
+                world.setBlockState(pos, state.with(POWERED, false));
+            }
+        }
+        super.neighborUpdate(state, world, pos, block, fromPos, notify);
+    }
+
+    @Override
+    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+        if (!world.isClient && world.isReceivingRedstonePower(pos)) {
+            int oldRetainedLight = state.get(RETAINED_LIGHT);
+            int retainedLight = Math.max(0, Math.max(world.getLightLevel(LightType.BLOCK, pos), oldRetainedLight) - 1);
+            light(state.with(POWERED, true), world, pos, retainedLight);
+        }
+        super.onBlockAdded(state, world, pos, oldState, notify);
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        if (state.get(WATERLOGGED)) world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        if (state.get(WATERLOGGED))
+            world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
 
@@ -67,15 +94,17 @@ public abstract class AbstractLightRetainingBlock extends Block implements Water
 
         ItemStack itemStack = player.getStackInHand(hand);
         ActionResult actionResult = oldRetainedLight == retainedLight
-            ? (itemStack.getItem() instanceof BlockItem && new ItemPlacementContext(player, hand, itemStack, hit).canPlace())
-                ? ActionResult.PASS
-                : ActionResult.CONSUME
-            : ActionResult.SUCCESS;
+                                    ? itemStack.getItem() instanceof BlockItem && new ItemPlacementContext(player, hand, itemStack, hit).canPlace()
+                                      ? ActionResult.PASS
+                                      : ActionResult.CONSUME
+                                    : ActionResult.SUCCESS;
 
         if (world.isClient && oldRetainedLight != 0) {
             this.spawnParticles(world, pos);
-            return ActionResult.SUCCESS;
+            return actionResult;
         } else {
+            if (actionResult.shouldSwingHand())
+                world.playSound(null, pos, MarblesSoundGroups.PINK_SALT.getHitSound(), SoundCategory.BLOCKS, 1, 1);
             this.light(state, world, pos, retainedLight);
         }
 
@@ -83,14 +112,33 @@ public abstract class AbstractLightRetainingBlock extends Block implements Water
     }
 
     protected void light(BlockState state, World world, BlockPos pos, int light) {
-        if (light != 0) this.spawnParticles(world, pos);
+        if (light != 0) world.addSyncedBlockEvent(pos, state.getBlock(), 0, 0);
         world.setBlockState(pos, state.with(RETAINED_LIGHT, light), 3);
+        world.updateComparators(pos, state.getBlock());
+    }
+
+    @Override
+    public boolean onSyncedBlockEvent(BlockState state, World world, BlockPos pos, int type, int data) {
+        if (world.isClient) {
+            spawnParticles(world, pos);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean hasComparatorOutput(BlockState state) {
+        return true;
+    }
+
+    @Override
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        return state.get(RETAINED_LIGHT);
     }
 
     protected final void spawnParticles(World world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
         int retainedLight = state.get(RETAINED_LIGHT);
-        for (int i = 0; i < ((retainedLight == 0 ? 15 : retainedLight) * getBonusParticleMultiplier()); i++) {
+        for (int i = 0; i < (retainedLight == 0 ? 15 : retainedLight) * getBonusParticleMultiplier(); i++) {
             Random random = world.random;
             double horizontalOffsetRange = this.getHorizontalParticleOffsetRange();
             double randX = random.nextFloat() * horizontalOffsetRange;
@@ -98,7 +146,7 @@ public abstract class AbstractLightRetainingBlock extends Block implements Water
 
             Vec3d offsetPos = Vec3d.ofBottomCenter(pos).add(state.getModelOffset(world, pos));
             double x = offsetPos.getX() + (random.nextBoolean() ? randX : -randX);
-            double y = offsetPos.getY() + this.getVerticalParticleOffset() + (double)random.nextFloat() * 0.3D;
+            double y = offsetPos.getY() + this.getVerticalParticleOffset() + (double) random.nextFloat() * 0.3D;
             double z = offsetPos.getZ() + (random.nextBoolean() ? randZ : -randZ);
 
             world.addParticle(MarblesParticles.PINK_SALT, x, y, z, 0.0D, 0.0D, 0.0D);
@@ -107,6 +155,7 @@ public abstract class AbstractLightRetainingBlock extends Block implements Water
 
     protected abstract double getHorizontalParticleOffsetRange();
     protected abstract double getVerticalParticleOffset();
+
     protected double getBonusParticleMultiplier() {
         return 1.2D;
     }

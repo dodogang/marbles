@@ -30,6 +30,13 @@ public class TagStore<T> {
         this.tagType = tagType;
     }
 
+    public TagFactory<T> factory(Tag<T> tag) {
+        if (!(tag instanceof Tag.Identified)) {
+            throw new RuntimeException("Cannot identify tag " + tag);
+        }
+        return factory((Tag.Identified<T>) tag);
+    }
+
     public TagFactory<T> factory(Tag.Identified<T> tag) {
         return tagFactoryMap.computeIfAbsent(tag.getId(), t -> new TagFactory<>(registry::getId));
     }

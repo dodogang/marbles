@@ -1,7 +1,13 @@
 {
   "mod.marbles.name": "Marbles",
   "mod.marbles.description": "Description",
-  "itemGroup.marbles.item_group": "Marbles",
+
+  "itemGroup.marbles": "Marbles (%s)",
+  "itemGroup.marbles.title": "Marbles",
+  "itemGroup.tab.marbles:all": "All",
+  "itemGroup.tab.marbles:travertine": "Travertine",
+  "itemGroup.tab.marbles:wood": "Wood",
+  "itemGroup.tab.marbles:sand": "Sand",
 
   "block.marbles.yellow_bamboo": "Yellow Bamboo",
   "block.marbles.yellow_bamboo_sapling": "Yellow Bamboo Sapling",
@@ -117,11 +123,17 @@
   "block.marbles.potted_hoopsi_spruce_sapling": "Potted Hoopsi Spruce Sapling",
   "item.marbles.hoopsi_spruce_boat": "Hoopsi Spruce Boat",
   "entity.marbles.hoopsi_spruce_boat": "Hoopsi Spruce Boat",
-
+  "block.marbles.grisp_dirt": "Grisp Dirt",
   "block.marbles.lapis_shingles": "Lapis Shingles",
   "block.marbles.lapis_shingles_slab": "Lapis Shingles Slab",
   "block.marbles.lapis_shingles_stairs": "Lapis Shingles Stairs",
-
+  "block.marbles.lapis_spotlight": "Lapis Spotlight",
+  "item.marbles.umbral_lazuli": "Umbral Lazuli",
+  "block.marbles.umbral_lazuli_ore": "Umbral Lazuli Ore",
+  "block.marbles.umbral_lazuli_shingles": "Umbral Lazuli Shingles",
+  "block.marbles.umbral_lazuli_shingles_slab": "Umbral Lazuli Shingles Slab",
+  "block.marbles.umbral_lazuli_shingles_stairs": "Umbral Lazuli Shingles Stairs",
+  "block.marbles.umbral_lazuli_spotlight": "Umbral Lazuli Spotlight",
   "block.marbles.dawn_sand": "Dawn Sand",
   "block.marbles.dawn_sandstone": "Dawn Sandstone",
   "block.marbles.chiseled_dawn_sandstone": "Chiseled Dawn Sandstone",
@@ -150,18 +162,23 @@
   "block.marbles.smooth_dusk_sandstone_wall": "Smooth Dusk Sandstone Wall",
   "block.marbles.smooth_dusk_sandstone_slab": "Smooth Dusk Sandstone Slab",
   "block.marbles.smooth_dusk_sandstone_stairs": "Smooth Dusk Sandstone Stairs",
-
   "item.marbles.pink_salt_shard": "Pink Salt Shard",
   "block.marbles.pink_salt": "Pink Salt",
+  "block.marbles.pink_salt_slab": "Pink Salt Slab",
+  "block.marbles.pink_salt_stairs": "Pink Salt Stairs",
   "block.marbles.crumbled_pink_salt": "Crumbled Pink Salt",
+  "block.marbles.pink_salt_bricks": "Pink Salt Bricks",
+  "block.marbles.pink_salt_brick_slab": "Pink Salt Brick Slab",
+  "block.marbles.pink_salt_brick_stairs": "Pink Salt Brick Stairs",
+  "block.marbles.pink_salt_pillar": "Pink Salt Pillar",
   "block.marbles.pink_salt_spire": "Pink Salt Spire",
   "block.marbles.pink_salt_stack": "Pink Salt Stack",
   "block.marbles.pink_salt_stump": "Pink Salt Stump",
-
   "biome.marbles.yellow_bamboo_jungle": "Yellow Bamboo Jungle",
   "biome.marbles.yellow_bamboo_jungle_hills": "Yellow Bamboo Jungle Hills",
   "biome.marbles.aspen_forest": "Aspen Forest",
   "biome.marbles.hoopsi_spruce_forest": "Hoopsi Spruce Forest",
+  "death.fell.accident.marbles:yellow_scaffolding": "%1$s fell off yellow scaffolding",
 
-  "death.fell.accident.marbles:yellow_scaffolding": "%1$s fell off yellow scaffolding"
+  "debug.option.marbles.spotlight": "Spotlights"
 }

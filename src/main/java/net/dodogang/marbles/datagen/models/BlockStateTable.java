@@ -1,7 +1,7 @@
 package net.dodogang.marbles.datagen.models;
 
 import me.andante.chord.block.helper.WoodBlocks;
-import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
+import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.datagen.models.stategen.StateGen;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.Block;
@@ -12,7 +12,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import static net.dodogang.marbles.datagen.models.modelgen.InheritingModelGen.*;
-import static net.dodogang.marbles.datagen.models.modelgen.ParticleOnlyModelGen.particles;
+import static net.dodogang.marbles.datagen.models.modelgen.ParticleOnlyModelGen.*;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.slabAll;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.stairsAll;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.*;
@@ -22,6 +22,7 @@ import static net.dodogang.marbles.datagen.models.stategen.InteractiveBlocks.pre
 import static net.dodogang.marbles.datagen.models.stategen.InteractiveBlocks.*;
 import static net.dodogang.marbles.datagen.models.stategen.SimpleBlocks.*;
 
+@SuppressWarnings("unused")
 public final class BlockStateTable {
     private static BiConsumer<Block, StateGen> consumer;
 
@@ -31,92 +32,37 @@ public final class BlockStateTable {
         registerWoodBlocks(MarblesBlocks.ASPEN);
         registerWoodBlocks(MarblesBlocks.HOOPSI_SPRUCE);
 
-        register(MarblesBlocks.TRAVERTINE, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.TRAVERTINE_BRICKS, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.CAPPED_TRAVERTINE, block -> facingRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.POLISHED_TRAVERTINE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MarblesBlocks.TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.TRAVERTINE_BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.CAPPED_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.POLISHED_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
-        register(MarblesBlocks.TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.TRAVERTINE_BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.CAPPED_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.POLISHED_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
-        register(MarblesBlocks.TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.TRAVERTINE_BRICK_WALL, block -> using(name(block, "block/%s_bricks", "_brick_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.CAPPED_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.POLISHED_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallAll(name(block, "block/%s"), n)));
-
-        register(MarblesBlocks.LEMON_TRAVERTINE, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICKS, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE, block -> facingRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MarblesBlocks.LEMON_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
-        register(MarblesBlocks.LEMON_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
-        register(MarblesBlocks.LEMON_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICK_WALL, block -> using(name(block, "block/%s_bricks", "_brick_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallAll(name(block, "block/%s"), n)));
-
-        register(MarblesBlocks.PEACH_TRAVERTINE, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICKS, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE, block -> facingRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MarblesBlocks.PEACH_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
-        register(MarblesBlocks.PEACH_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
-        register(MarblesBlocks.PEACH_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICK_WALL, block -> using(name(block, "block/%s_bricks", "_brick_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallAll(name(block, "block/%s"), n)));
-
-        register(MarblesBlocks.TANGERINE_TRAVERTINE, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE, block -> facingRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_WALL, block -> using(name(block, "block/%s_bricks", "_brick_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallAll(name(block, "block/%s"), n)));
+        registerTravertineBlocks(MarblesBlocks.TRAVERTINE_BLOCKS);
+        registerTravertineBlocks(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);
+        registerTravertineBlocks(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
+        registerTravertineBlocks(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
 
         register(MarblesBlocks.TRAVERTINE_OBSIDIAN, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
 
-        register(MarblesBlocks.TRAVERTINE_SALT_LAMP, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MarblesBlocks.LEMON_TRAVERTINE_SALT_LAMP, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MarblesBlocks.PEACH_TRAVERTINE_SALT_LAMP, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_SALT_LAMP, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-
         register(MarblesBlocks.PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.PINK_SALT_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
+        register(MarblesBlocks.PINK_SALT_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
         register(MarblesBlocks.CRUMBLED_PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.PINK_SALT_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.PINK_SALT_BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
+        register(MarblesBlocks.PINK_SALT_BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
+        register(MarblesBlocks.PINK_SALT_PILLAR, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(MarblesBlocks.PINK_SALT_SPIRE, block -> predefined(name(block, "block/%s")));
         register(MarblesBlocks.PINK_SALT_STACK, block -> predefined(name(block, "block/%s")));
         register(MarblesBlocks.PINK_SALT_STUMP, block -> predefined(name(block, "block/%s")));
 
         register(MarblesBlocks.LAPIS_SHINGLES, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MarblesBlocks.LAPIS_SHINGLES_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
-        register(MarblesBlocks.LAPIS_SHINGLES_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
+        register(MarblesBlocks.LAPIS_SHINGLE_SLAB, block -> using(name(block, "block/%s_shingles", "_shingle_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
+        register(MarblesBlocks.LAPIS_SHINGLE_STAIRS, block -> using(name(block, "block/%s_shingles", "_shingle_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
         register(MarblesBlocks.LAPIS_SPOTLIGHT, block -> facingRotated(name(block, "block/%s"), cubeSeparateSided(name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_front"), name(block, "block/%s_back"))));
-        register(MarblesBlocks.SPOTLIGHT_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
+        register(MarblesBlocks.GLAZED_LAPIS, block -> dualConnecting(name(block, "block/%s")));
+        register(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.UMBRAL_LAZULI_BLOCK, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, block -> using(name(block, "block/%s_shingles", "_shingle_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS, block -> using(name(block, "block/%s_shingles", "_shingle_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
+        register(MarblesBlocks.UMBRAL_LAZULI_SPOTLIGHT, block -> facingRotated(name(block, "block/%s"), cubeSeparateSided(name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_front"), name(block, "block/%s_back"))));
+        register(MarblesBlocks.GLAZED_UMBRAL_LAZULI, block -> dualConnecting(name(block, "block/%s")));
 
         register(MarblesBlocks.DAWN_SAND, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(MarblesBlocks.DAWN_SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));
@@ -149,6 +95,35 @@ public final class BlockStateTable {
         register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
 
         register(MarblesBlocks.GRISP_DIRT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.COARSE_GRISP_DIRT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.GRISP_GRASS_BLOCK, block -> snowyBlock(name(block, "block/%s"), grassBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_side_overlay")), cubeBottomTop(name(block, "block/grisp_dirt"), "block/snow", name(block, "block/%s_side_snowy"))));
+        register(MarblesBlocks.GRISP_PODZOL, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(block, "block/grisp_dirt"), "block/snow", name(block, "block/%s_side_snowy"))));
+        register(MarblesBlocks.GRISP_MYCELIUM, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(block, "block/grisp_dirt"), "block/snow", name(block, "block/%s_side_snowy"))));
+        register(MarblesBlocks.GRISP_DIRT_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(MarblesBlocks.GRISP_GRASS_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(MarblesBlocks.GRISP_PODZOL_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(MarblesBlocks.GRISP_MYCELIUM_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(MarblesBlocks.GRISP_FARMLAND, block -> farmland(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s"), name(block, "block/grisp_dirt")), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_moist"), name(block, "block/grisp_dirt"))));
+    }
+
+    private static void registerTravertineBlocks(TravertineBlocks blocks) {
+        register(blocks.RAW, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
+        register(blocks.BRICKS, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
+        register(blocks.CAPPED, block -> facingRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
+        register(blocks.POLISHED, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(blocks.SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
+        register(blocks.BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
+        register(blocks.CAPPED_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
+        register(blocks.POLISHED_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
+        register(blocks.STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
+        register(blocks.BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
+        register(blocks.CAPPED_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
+        register(blocks.POLISHED_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
+        register(blocks.WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
+        register(blocks.BRICK_WALL, block -> using(name(block, "block/%s_bricks", "_brick_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
+        register(blocks.CAPPED_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
+        register(blocks.POLISHED_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallAll(name(block, "block/%s"), n)));
+        register(blocks.SALT_LAMP, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
     }
 
     private static void registerWoodBlocks(WoodBlocks blocks) {

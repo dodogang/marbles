@@ -66,17 +66,8 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
         BlockState above = world.getBlockState(up);
         BlockState below = world.getBlockState(down);
 
-        // Check if below is feasible surface
-        if (isValidSurface(above, world, up, Direction.DOWN) || isSelfFacing(above, Direction.DOWN)) {
-            return true;
-        }
-
-        // Check if above is feasible surface
-        if (isValidSurface(below, world, down, Direction.UP) || isSelfFacing(below, Direction.UP)) {
-            return true;
-        }
-
-        return false;
+        // Check if above or below is feasible surface
+        return isValidSurface(below, world, down, Direction.UP) || isSelfFacing(below, Direction.UP) || isValidSurface(above, world, up, Direction.DOWN) || isSelfFacing(above, Direction.DOWN);
     }
 
     @Override
@@ -168,10 +159,10 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
         return state.isOf(this) && state.get(VERTICAL_DIRECTION) == facing;
     }
 
-    private static void generateParticle(World world, BlockPos pos, Random rng) {
-        double x = pos.getX() + (rng.nextBoolean() ? 0.26 : -0.26) + rng.nextDouble() * 0.05;
+    private static void generateParticle(World world, BlockPos pos, Random rng, Vec3d offset) {
+        double x = pos.getX() + (rng.nextBoolean() ? 0.26 : -0.26) + rng.nextDouble() * 0.05 + 0.5 + offset.x;
         double y = pos.getY() + rng.nextDouble();
-        double z = pos.getZ() + (rng.nextBoolean() ? 0.26 : -0.26) + rng.nextDouble() * 0.05;
+        double z = pos.getZ() + (rng.nextBoolean() ? 0.26 : -0.26) + rng.nextDouble() * 0.05 + 0.5 + offset.z;
 
         world.addParticle(MarblesParticles.PINK_SALT, x, y, z, 0, 0, 0);
     }
@@ -180,7 +171,7 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
     @Environment(EnvType.CLIENT)
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random rng) {
         if (rng.nextDouble() <= 0.3) {
-            generateParticle(world, pos, rng);
+            generateParticle(world, pos, rng, state.getModelOffset(world, pos));
         }
     }
 
@@ -197,7 +188,7 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
 
             Random random = world.random;
             for (int i = 0; i < 40; i++) {
-                generateParticle(world, pos, random);
+                generateParticle(world, pos, random, state.getModelOffset(world, pos));
             }
         }
     }

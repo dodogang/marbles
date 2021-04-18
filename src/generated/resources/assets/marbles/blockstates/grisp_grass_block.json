@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "snowy=false": {
+      "model": "marbles:block/grisp_grass_block"
+    },
+    "snowy=true": {
+      "model": "marbles:block/grisp_grass_block_snowy"
+    }
+  }
+}

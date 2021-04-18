@@ -28,6 +28,13 @@ public class TagFactory<T> {
         return this;
     }
 
+    public TagFactory<T> add(Tag<T> object) {
+        if (!(object instanceof Tag.Identified)) {
+            throw new RuntimeException("Cannot identify tag " + object);
+        }
+        return add((Tag.Identified<T>) object);
+    }
+
     public TagFactory<T> add(Tag.Identified<T> object) {
         entries.add("#" + object.getId());
         return this;

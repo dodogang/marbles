@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Pair;
+import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
@@ -41,73 +42,19 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
     protected void generate(Consumer<RecipeJsonProvider> consumer) {
         this.consumer = consumer;
 
-        register(MarblesBlocks.TRAVERTINE, MarblesBlocks.TRAVERTINE_BRICKS);
-        register(MarblesBlocks.TRAVERTINE, MarblesBlocks.CAPPED_TRAVERTINE);
-        register(MarblesBlocks.TRAVERTINE, MarblesBlocks.POLISHED_TRAVERTINE);
-        register(MarblesBlocks.TRAVERTINE, MarblesBlocks.TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.TRAVERTINE, MarblesBlocks.TRAVERTINE_STAIRS);
-        register(MarblesBlocks.TRAVERTINE, MarblesBlocks.TRAVERTINE_WALL);
-        register(MarblesBlocks.TRAVERTINE_BRICKS, MarblesBlocks.TRAVERTINE_BRICK_SLAB, 2);
-        register(MarblesBlocks.TRAVERTINE_BRICKS, MarblesBlocks.TRAVERTINE_BRICK_STAIRS);
-        register(MarblesBlocks.TRAVERTINE_BRICKS, MarblesBlocks.TRAVERTINE_BRICK_WALL);
-        register(MarblesBlocks.CAPPED_TRAVERTINE, MarblesBlocks.CAPPED_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.CAPPED_TRAVERTINE, MarblesBlocks.CAPPED_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.CAPPED_TRAVERTINE, MarblesBlocks.CAPPED_TRAVERTINE_WALL);
-        register(MarblesBlocks.POLISHED_TRAVERTINE, MarblesBlocks.POLISHED_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.POLISHED_TRAVERTINE, MarblesBlocks.POLISHED_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.POLISHED_TRAVERTINE, MarblesBlocks.POLISHED_TRAVERTINE_WALL);
-
-        register(MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.LEMON_TRAVERTINE_BRICKS);
-        register(MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.CAPPED_LEMON_TRAVERTINE);
-        register(MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.POLISHED_LEMON_TRAVERTINE);
-        register(MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.LEMON_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.LEMON_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.LEMON_TRAVERTINE, MarblesBlocks.LEMON_TRAVERTINE_WALL);
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICKS, MarblesBlocks.LEMON_TRAVERTINE_BRICK_SLAB, 2);
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICKS, MarblesBlocks.LEMON_TRAVERTINE_BRICK_STAIRS);
-        register(MarblesBlocks.LEMON_TRAVERTINE_BRICKS, MarblesBlocks.LEMON_TRAVERTINE_BRICK_WALL);
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE, MarblesBlocks.CAPPED_LEMON_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE, MarblesBlocks.CAPPED_LEMON_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.CAPPED_LEMON_TRAVERTINE, MarblesBlocks.CAPPED_LEMON_TRAVERTINE_WALL);
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE, MarblesBlocks.POLISHED_LEMON_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE, MarblesBlocks.POLISHED_LEMON_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.POLISHED_LEMON_TRAVERTINE, MarblesBlocks.POLISHED_LEMON_TRAVERTINE_WALL);
-
-        register(MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.PEACH_TRAVERTINE_BRICKS);
-        register(MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.CAPPED_PEACH_TRAVERTINE);
-        register(MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.POLISHED_PEACH_TRAVERTINE);
-        register(MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.PEACH_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.PEACH_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.PEACH_TRAVERTINE, MarblesBlocks.PEACH_TRAVERTINE_WALL);
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICKS, MarblesBlocks.PEACH_TRAVERTINE_BRICK_SLAB, 2);
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICKS, MarblesBlocks.PEACH_TRAVERTINE_BRICK_STAIRS);
-        register(MarblesBlocks.PEACH_TRAVERTINE_BRICKS, MarblesBlocks.PEACH_TRAVERTINE_BRICK_WALL);
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE, MarblesBlocks.CAPPED_PEACH_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE, MarblesBlocks.CAPPED_PEACH_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.CAPPED_PEACH_TRAVERTINE, MarblesBlocks.CAPPED_PEACH_TRAVERTINE_WALL);
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE, MarblesBlocks.POLISHED_PEACH_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE, MarblesBlocks.POLISHED_PEACH_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.POLISHED_PEACH_TRAVERTINE, MarblesBlocks.POLISHED_PEACH_TRAVERTINE_WALL);
-
-        register(MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS);
-        register(MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE);
-        register(MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE);
-        register(MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.TANGERINE_TRAVERTINE, MarblesBlocks.TANGERINE_TRAVERTINE_WALL);
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS, MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_SLAB, 2);
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS, MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_STAIRS);
-        register(MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS, MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_WALL);
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE, MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE, MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE, MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_WALL);
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_SLAB, 2);
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_STAIRS);
-        register(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE, MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_WALL);
+        registerTravertine(MarblesBlocks.TRAVERTINE_BLOCKS);
+        registerTravertine(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);
+        registerTravertine(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
+        registerTravertine(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
 
         register(Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES);
-        register(MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLES_SLAB, 2);
-        register(MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLES_STAIRS);
+        register(MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLE_SLAB, 2);
+        register(MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLE_STAIRS);
+        register(Blocks.LAPIS_BLOCK, MarblesBlocks.GLAZED_LAPIS);
+        register(MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesBlocks.UMBRAL_LAZULI_SHINGLES);
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, 2);
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS);
+        register(MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesBlocks.GLAZED_UMBRAL_LAZULI);
 
         register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE);
         register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CHISELED_DAWN_SANDSTONE);
@@ -139,8 +86,32 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS);
         register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
 
+        register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_BRICKS);
+        register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_SLAB, 2);
+        register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_STAIRS);
+        register(MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_SLAB, 2);
+        register(MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_STAIRS);
+
         compile();
         flush();
+    }
+
+    private void registerTravertine(TravertineBlocks blocks) {
+        register(blocks.RAW, blocks.BRICKS);
+        register(blocks.RAW, blocks.CAPPED);
+        register(blocks.RAW, blocks.POLISHED);
+        register(blocks.RAW, blocks.SLAB, 2);
+        register(blocks.RAW, blocks.STAIRS);
+        register(blocks.RAW, blocks.WALL);
+        register(blocks.BRICKS, blocks.BRICK_SLAB, 2);
+        register(blocks.BRICKS, blocks.BRICK_STAIRS);
+        register(blocks.BRICKS, blocks.BRICK_WALL);
+        register(blocks.CAPPED, blocks.CAPPED_SLAB, 2);
+        register(blocks.CAPPED, blocks.CAPPED_STAIRS);
+        register(blocks.CAPPED, blocks.CAPPED_WALL);
+        register(blocks.POLISHED, blocks.POLISHED_SLAB, 2);
+        register(blocks.POLISHED, blocks.POLISHED_STAIRS);
+        register(blocks.POLISHED, blocks.POLISHED_WALL);
     }
 
     private void register(ItemConvertible from, ItemConvertible to) {

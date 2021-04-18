@@ -1,0 +1,14 @@
+{
+  "defaultMap": {
+    "spriteMap": [
+      {
+        "sprite": "marbles:block/umbral_lazuli_spotlight_front",
+        "material": "marbles:spotlight"
+      },
+      {
+        "sprite": "marbles:block/umbral_lazuli_spotlight_side",
+        "material": "marbles:spotlight_side"
+      }
+    ]
+  }
+}

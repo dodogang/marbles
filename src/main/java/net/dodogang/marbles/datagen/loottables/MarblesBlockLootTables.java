@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import me.andante.chord.block.helper.WoodBlocks;
+import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesItems;
 import net.minecraft.block.*;
@@ -38,6 +39,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+@SuppressWarnings("unused")
 public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, LootTable.Builder>> {
     protected static final LootCondition.Builder WITH_SILK_TOUCH = MatchToolLootCondition.builder(
         ItemPredicate.Builder.create().enchantment(
@@ -51,6 +53,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
     protected static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.or(WITH_SILK_TOUCH);
     protected static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.invert();
 
+    @SuppressWarnings("all")
     private static final Set<Item> EXPLOSION_IMMUNE = Stream.of(
         Blocks.DRAGON_EGG,
         Blocks.BEACON,
@@ -91,91 +94,37 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addWoodDrops(MarblesBlocks.ASPEN);
         addWoodDrops(MarblesBlocks.HOOPSI_SPRUCE);
 
-        addDrop(MarblesBlocks.TRAVERTINE);
-        addDrop(MarblesBlocks.TRAVERTINE_BRICKS);
-        addDrop(MarblesBlocks.CAPPED_TRAVERTINE);
-        addDrop(MarblesBlocks.POLISHED_TRAVERTINE);
-        addSlabDrop(MarblesBlocks.TRAVERTINE_SLAB);
-        addSlabDrop(MarblesBlocks.TRAVERTINE_BRICK_SLAB);
-        addSlabDrop(MarblesBlocks.CAPPED_TRAVERTINE_SLAB);
-        addSlabDrop(MarblesBlocks.POLISHED_TRAVERTINE_SLAB);
-        addDrop(MarblesBlocks.TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.TRAVERTINE_BRICK_STAIRS);
-        addDrop(MarblesBlocks.CAPPED_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.POLISHED_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.TRAVERTINE_WALL);
-        addDrop(MarblesBlocks.TRAVERTINE_BRICK_WALL);
-        addDrop(MarblesBlocks.CAPPED_TRAVERTINE_WALL);
-        addDrop(MarblesBlocks.POLISHED_TRAVERTINE_WALL);
-
-        addDrop(MarblesBlocks.LEMON_TRAVERTINE);
-        addDrop(MarblesBlocks.LEMON_TRAVERTINE_BRICKS);
-        addDrop(MarblesBlocks.CAPPED_LEMON_TRAVERTINE);
-        addDrop(MarblesBlocks.POLISHED_LEMON_TRAVERTINE);
-        addSlabDrop(MarblesBlocks.LEMON_TRAVERTINE_SLAB);
-        addSlabDrop(MarblesBlocks.LEMON_TRAVERTINE_BRICK_SLAB);
-        addSlabDrop(MarblesBlocks.CAPPED_LEMON_TRAVERTINE_SLAB);
-        addSlabDrop(MarblesBlocks.POLISHED_LEMON_TRAVERTINE_SLAB);
-        addDrop(MarblesBlocks.LEMON_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.LEMON_TRAVERTINE_BRICK_STAIRS);
-        addDrop(MarblesBlocks.CAPPED_LEMON_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.POLISHED_LEMON_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.LEMON_TRAVERTINE_WALL);
-        addDrop(MarblesBlocks.LEMON_TRAVERTINE_BRICK_WALL);
-        addDrop(MarblesBlocks.CAPPED_LEMON_TRAVERTINE_WALL);
-        addDrop(MarblesBlocks.POLISHED_LEMON_TRAVERTINE_WALL);
-
-        addDrop(MarblesBlocks.PEACH_TRAVERTINE);
-        addDrop(MarblesBlocks.PEACH_TRAVERTINE_BRICKS);
-        addDrop(MarblesBlocks.CAPPED_PEACH_TRAVERTINE);
-        addDrop(MarblesBlocks.POLISHED_PEACH_TRAVERTINE);
-        addSlabDrop(MarblesBlocks.PEACH_TRAVERTINE_SLAB);
-        addSlabDrop(MarblesBlocks.PEACH_TRAVERTINE_BRICK_SLAB);
-        addSlabDrop(MarblesBlocks.CAPPED_PEACH_TRAVERTINE_SLAB);
-        addSlabDrop(MarblesBlocks.POLISHED_PEACH_TRAVERTINE_SLAB);
-        addDrop(MarblesBlocks.PEACH_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.PEACH_TRAVERTINE_BRICK_STAIRS);
-        addDrop(MarblesBlocks.CAPPED_PEACH_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.POLISHED_PEACH_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.PEACH_TRAVERTINE_WALL);
-        addDrop(MarblesBlocks.PEACH_TRAVERTINE_BRICK_WALL);
-        addDrop(MarblesBlocks.CAPPED_PEACH_TRAVERTINE_WALL);
-        addDrop(MarblesBlocks.POLISHED_PEACH_TRAVERTINE_WALL);
-
-        addDrop(MarblesBlocks.TANGERINE_TRAVERTINE);
-        addDrop(MarblesBlocks.TANGERINE_TRAVERTINE_BRICKS);
-        addDrop(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE);
-        addDrop(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE);
-        addSlabDrop(MarblesBlocks.TANGERINE_TRAVERTINE_SLAB);
-        addSlabDrop(MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_SLAB);
-        addSlabDrop(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_SLAB);
-        addSlabDrop(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_SLAB);
-        addDrop(MarblesBlocks.TANGERINE_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_STAIRS);
-        addDrop(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_STAIRS);
-        addDrop(MarblesBlocks.TANGERINE_TRAVERTINE_WALL);
-        addDrop(MarblesBlocks.TANGERINE_TRAVERTINE_BRICK_WALL);
-        addDrop(MarblesBlocks.CAPPED_TANGERINE_TRAVERTINE_WALL);
-        addDrop(MarblesBlocks.POLISHED_TANGERINE_TRAVERTINE_WALL);
+        addTravertineDrops(MarblesBlocks.TRAVERTINE_BLOCKS);
+        addTravertineDrops(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);
+        addTravertineDrops(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
+        addTravertineDrops(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
 
         addDrop(MarblesBlocks.TRAVERTINE_OBSIDIAN);
-        addDrop(MarblesBlocks.TRAVERTINE_SALT_LAMP);
-        addDrop(MarblesBlocks.LEMON_TRAVERTINE_SALT_LAMP);
-        addDrop(MarblesBlocks.PEACH_TRAVERTINE_SALT_LAMP);
-        addDrop(MarblesBlocks.TANGERINE_TRAVERTINE_SALT_LAMP);
 
         addDrop(MarblesBlocks.PINK_SALT);
+        addDrop(MarblesBlocks.PINK_SALT_SLAB);
+        addDrop(MarblesBlocks.PINK_SALT_STAIRS);
         addDrop(MarblesBlocks.CRUMBLED_PINK_SALT);
+        addDrop(MarblesBlocks.PINK_SALT_BRICKS);
+        addDrop(MarblesBlocks.PINK_SALT_BRICK_SLAB);
+        addDrop(MarblesBlocks.PINK_SALT_BRICK_STAIRS);
+        addDrop(MarblesBlocks.PINK_SALT_PILLAR);
         addDrop(MarblesBlocks.PINK_SALT_SPIRE);
         addDrop(MarblesBlocks.PINK_SALT_STACK, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countBiased(1, 4)));
         addDrop(MarblesBlocks.PINK_SALT_STUMP, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countBiased(1, 2)));
 
         addDrop(MarblesBlocks.LAPIS_SHINGLES);
-        addSlabDrop(MarblesBlocks.LAPIS_SHINGLES_SLAB);
-        addDrop(MarblesBlocks.LAPIS_SHINGLES_STAIRS);
+        addSlabDrop(MarblesBlocks.LAPIS_SHINGLE_SLAB);
+        addDrop(MarblesBlocks.LAPIS_SHINGLE_STAIRS);
         addDrop(MarblesBlocks.LAPIS_SPOTLIGHT);
-        addDrop(MarblesBlocks.SPOTLIGHT_AIR, dropsNothing());
+        addDrop(MarblesBlocks.GLAZED_LAPIS);
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> dropsWithSilkTouch(block, MarblesItems.UMBRAL_LAZULI, countBiased(4, 9)));
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_BLOCK);
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLES);
+        addSlabDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB);
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS);
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_SPOTLIGHT);
+        addDrop(MarblesBlocks.GLAZED_UMBRAL_LAZULI);
 
         addDrop(MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_BAMBOO);
         addDrop(MarblesBlocks.YELLOW_BAMBOO_SAPLING, MarblesBlocks.YELLOW_BAMBOO);
@@ -212,13 +161,22 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL);
 
         addDrop(MarblesBlocks.GRISP_DIRT);
+        addDrop(MarblesBlocks.COARSE_GRISP_DIRT);
+        addDrop(MarblesBlocks.GRISP_GRASS_BLOCK, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
+        addDrop(MarblesBlocks.GRISP_PODZOL, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
+        addDrop(MarblesBlocks.GRISP_MYCELIUM, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
+        addDrop(MarblesBlocks.GRISP_DIRT_PATH, MarblesBlocks.GRISP_DIRT);
+        addDrop(MarblesBlocks.GRISP_GRASS_PATH, MarblesBlocks.GRISP_DIRT);
+        addDrop(MarblesBlocks.GRISP_PODZOL_PATH, MarblesBlocks.GRISP_DIRT);
+        addDrop(MarblesBlocks.GRISP_MYCELIUM_PATH, MarblesBlocks.GRISP_DIRT);
+        addDrop(MarblesBlocks.GRISP_FARMLAND, MarblesBlocks.GRISP_DIRT);
+
+        addDrop(MarblesBlocks.TRAVERTINE_PORTAL, block -> dropsNothing());
 
         Set<Identifier> set = Sets.newHashSet();
         Iterable<Block> blocks = Registry.BLOCK
                                      .stream()
-                                     .filter(block -> Registry.BLOCK.getId(block)
-                                                                    .getNamespace()
-                                                                    .equals("marbles"))
+                                     .filter(block -> Registry.BLOCK.getId(block).getNamespace().equals("marbles"))
                                      ::iterator;
 
         for (Block block : blocks) {
@@ -241,6 +199,26 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         if (!lootTables.isEmpty()) {
             throw new IllegalStateException("Created block loot tables for non-blocks: " + lootTables.keySet());
         }
+    }
+
+    private void addTravertineDrops(TravertineBlocks blocks) {
+        addDrop(blocks.RAW);
+        addDrop(blocks.BRICKS);
+        addDrop(blocks.CAPPED);
+        addDrop(blocks.POLISHED);
+        addSlabDrop(blocks.SLAB);
+        addSlabDrop(blocks.BRICK_SLAB);
+        addSlabDrop(blocks.CAPPED_SLAB);
+        addSlabDrop(blocks.POLISHED_SLAB);
+        addDrop(blocks.STAIRS);
+        addDrop(blocks.BRICK_STAIRS);
+        addDrop(blocks.CAPPED_STAIRS);
+        addDrop(blocks.POLISHED_STAIRS);
+        addDrop(blocks.WALL);
+        addDrop(blocks.BRICK_WALL);
+        addDrop(blocks.CAPPED_WALL);
+        addDrop(blocks.POLISHED_WALL);
+        addDrop(blocks.SALT_LAMP);
     }
 
     private void addWoodDrops(WoodBlocks blocks) {

@@ -5,7 +5,7 @@ import net.minecraft.util.math.Direction;
 
 public class Utils {
     public static Direction getLookDirectionForAxis(Entity entity, Direction.Axis axis) {
-        switch(axis) {
+        switch (axis) {
             case X:
                 return Direction.EAST.method_30928(entity.getYaw(1.0F)) ? Direction.EAST : Direction.WEST;
             case Z:
@@ -15,4 +15,5 @@ public class Utils {
                 return entity.getPitch(1.0F) < 0.0F ? Direction.UP : Direction.DOWN;
         }
     }
+
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:umbral_lazuli_shingles"
+    }
+  },
+  "result": {
+    "item": "marbles:umbral_lazuli_shingle_stairs",
+    "count": 4
+  }
+}

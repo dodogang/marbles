@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "marbles:block/glazed_lapis",
+    "east": "marbles:block/glazed_lapis_left",
+    "south": "marbles:block/glazed_lapis",
+    "west": "marbles:block/glazed_lapis_right",
+    "up": "marbles:block/glazed_lapis_bottom",
+    "down": "marbles:block/glazed_lapis_top",
+    "particle": "marbles:block/glazed_lapis_top"
+  }
+}

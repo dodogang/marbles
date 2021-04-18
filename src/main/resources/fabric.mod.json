@@ -3,11 +3,9 @@
   "license": "MIT",
   "id": "marbles",
   "version": "${version}",
-
   "name": "Marbles",
   "description": "Description",
-  "icon": "pack.png",
-
+  "icon": "assets/marbles/textures/gui/logo.png",
   "authors": [
     "Dodo Gang"
   ],
@@ -26,16 +24,22 @@
     "client": [
       "net.dodogang.marbles.MarblesClient"
     ],
-    "server": []
+    "server": [],
+    "debug:client": [
+      "net.dodogang.marbles.debug.MarblesDebugClient"
+    ],
+    "debug:menu": [
+      "net.dodogang.marbles.debug.MarblesDebugMenu"
+    ]
   },
   "mixins": [
     "marbles.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.11.0",
-    "fabric": ">=0.30.0",
+    "fabric": ">=0.32.0",
     "minecraft": ">=1.16.2",
-    "chord": ">=1.4.5"
+    "chord": ">=1.5.1"
   },
   "accessWidener": "marbles.accesswidener"
 }

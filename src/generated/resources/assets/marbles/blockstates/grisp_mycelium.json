@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "snowy=false": {
+      "model": "marbles:block/grisp_mycelium"
+    },
+    "snowy=true": {
+      "model": "marbles:block/grisp_mycelium_snowy"
+    }
+  }
+}

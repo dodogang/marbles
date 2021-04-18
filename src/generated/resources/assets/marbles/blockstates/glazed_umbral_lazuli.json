@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "connection=up": {
+      "model": "marbles:block/glazed_umbral_lazuli_up"
+    },
+    "connection=east": {
+      "model": "marbles:block/glazed_umbral_lazuli_west"
+    },
+    "connection=down": {
+      "model": "marbles:block/glazed_umbral_lazuli_down"
+    },
+    "connection=north": {
+      "model": "marbles:block/glazed_umbral_lazuli_north"
+    },
+    "connection=none": {
+      "model": "marbles:block/glazed_umbral_lazuli"
+    },
+    "connection=south": {
+      "model": "marbles:block/glazed_umbral_lazuli_south"
+    },
+    "connection=west": {
+      "model": "marbles:block/glazed_umbral_lazuli_east"
+    }
+  }
+}
