@@ -63,6 +63,12 @@ public class MarblesBlocks {
                                .requiresTool()
         )
     );
+    public static final Block TRAVERTINE_PORTAL = register(
+        "travertine_portal", new TravertinePortalBlock(
+            FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL)
+        ),
+        false
+    );
 
 
 

@@ -1,0 +1,16 @@
+{
+  "textures": {
+    "particle": "marbles:block/travertine_portal",
+    "portal": "marbles:block/travertine_portal"
+  },
+  "elements": [
+    {
+      "from": [6, 0, 0],
+      "to": [10, 16, 16],
+      "faces": {
+        "east": { "uv": [0, 0, 16, 16], "texture": "#portal" },
+        "west": { "uv": [0, 0, 16, 16], "texture": "#portal" }
+      }
+    }
+  ]
+}

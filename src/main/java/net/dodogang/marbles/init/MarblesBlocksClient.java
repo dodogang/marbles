@@ -27,6 +27,11 @@ public class MarblesBlocksClient {
             MarblesBlocks.GRISP_GRASS_BLOCK
         );
 
+        brlm.putBlocks(
+            RenderLayer.getTranslucent(),
+            MarblesBlocks.TRAVERTINE_PORTAL
+        );
+
         ColorProviderRegistry<Block, BlockColorProvider> blockColors = ColorProviderRegistry.BLOCK;
         ColorProviderRegistry<ItemConvertible, ItemColorProvider> itemColors = ColorProviderRegistry.ITEM;
 

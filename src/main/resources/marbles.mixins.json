@@ -5,11 +5,14 @@
   "plugin": "net.dodogang.marbles.mixin.MarblesMixinPlugin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AbstractFireBlockMixin",
     "BlockViewMixin",
     "ChunkSectionMixin",
     "ChunkSerializerMixin",
     "CropBlockMixin",
+    "EntityMixin",
     "FluidBlockMixin",
+    "PointOfInterestTypeMixin",
     "ProtoWorldChunkMixin",
     "WorldMixin"
   ],

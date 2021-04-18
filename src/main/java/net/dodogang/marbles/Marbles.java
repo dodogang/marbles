@@ -37,6 +37,8 @@ public class Marbles implements ModInitializer {
 
             new MarblesBiomes();
 
+            new MarblesPointOfInterestTypes();
+
             CommandRegistrationCallback.EVENT.register(
                 (dispatcher, dedicated) -> MarblesDebugCommand.register(dispatcher)
             );
