@@ -1,5 +1,6 @@
 package net.dodogang.marbles.mixin.hooks;
 
+import net.dodogang.marbles.util.ImmersivePortalsCompatHelper;
 import net.dodogang.marbles.util.TravertinePortalHelper;
 import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.BlockState;
@@ -24,10 +25,13 @@ public class AbstractFireBlockMixin {
         cancellable = true
     )
     private void onOnBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify, CallbackInfo cb) {
-        Optional<TravertinePortalHelper> optional = TravertinePortalHelper.tryFindPortal(world, pos, Direction.Axis.X);
-        if (optional.isPresent()) {
-            optional.get().createPortal();
-            cb.cancel();
+        String ipNetherPortalMode = ImmersivePortalsCompatHelper.getNetherPortalMode();
+        if (ipNetherPortalMode.isEmpty() || ipNetherPortalMode.equals("vanilla")) {
+            Optional<TravertinePortalHelper> optional = TravertinePortalHelper.tryFindPortal(world, pos, Direction.Axis.X);
+            if (optional.isPresent()) {
+                optional.get().createPortal();
+                cb.cancel();
+            }
         }
     }
 }

@@ -1,0 +1,10 @@
+{
+  "schema_version": "imm_ptl:v1",
+  "from": ["minecraft:overworld"], "to": "minecraft:the_nether",
+  "space_ratio_from": 8, "space_ratio_to": 1,
+  "form": {
+    "type": "imm_ptl:heterogeneous", "frame_block": "marbles:travertine_obsidian",
+    "area_block": "air", "generate_frame_if_not_found": true
+  },
+  "trigger": { "type": "imm_ptl:use_item", "item": "minecraft:flint_and_steel" }
+}
