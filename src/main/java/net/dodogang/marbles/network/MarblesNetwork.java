@@ -11,7 +11,6 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.server.world.ThreadedAnvilChunkStorage;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 
@@ -21,8 +20,6 @@ import java.util.List;
 import java.util.Set;
 
 public class MarblesNetwork {
-    public static final Identifier UPDATE_SPOTLIGHT_DATA = new Identifier("marbles:update_spotlight_data");
-
     public static void sendSpotlightUpdate(ServerWorld world, BlockPos pos, int value) {
         int cx = pos.getX() / 16;
         int cz = pos.getZ() / 16;
@@ -55,7 +52,7 @@ public class MarblesNetwork {
         buf.writeInt(pos.getY());
         buf.writeInt(pos.getZ());
         buf.writeInt(value);
-        ServerPlayNetworking.send(playerEntity, UPDATE_SPOTLIGHT_DATA, buf);
+        ServerPlayNetworking.send(playerEntity, MarblesNetworkingConstants.UPDATE_SPOTLIGHT_DATA, buf);
     }
 
     public static void sendSpotlightUpdate(List<Pair<BlockPos, Integer>> data, ServerPlayerEntity playerEntity) {
@@ -67,12 +64,12 @@ public class MarblesNetwork {
             buf.writeInt(pair.getFirst().getZ());
             buf.writeInt(pair.getSecond());
         }
-        ServerPlayNetworking.send(playerEntity, UPDATE_SPOTLIGHT_DATA, buf);
+        ServerPlayNetworking.send(playerEntity, MarblesNetworkingConstants.UPDATE_SPOTLIGHT_DATA, buf);
     }
 
     @Environment(EnvType.CLIENT)
     public static void initClient() {
-        ClientPlayNetworking.registerGlobalReceiver(UPDATE_SPOTLIGHT_DATA, (client, handler, buf, responseSender) -> {
+        ClientPlayNetworking.registerGlobalReceiver(MarblesNetworkingConstants.UPDATE_SPOTLIGHT_DATA, (client, handler, buf, responseSender) -> {
             List<Pair<BlockPos, Integer>> list = new ArrayList<>();
             int i = buf.readInt();
             while (i > 0) {

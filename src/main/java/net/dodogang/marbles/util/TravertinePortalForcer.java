@@ -5,7 +5,6 @@ import net.dodogang.marbles.init.MarblesPointOfInterestTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.NetherPortalBlock;
-import net.minecraft.class_5459;
 import net.minecraft.server.world.ChunkTicketType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
@@ -14,6 +13,7 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Heightmap;
+import net.minecraft.world.PortalUtil;
 import net.minecraft.world.border.WorldBorder;
 import net.minecraft.world.poi.PointOfInterest;
 import net.minecraft.world.poi.PointOfInterestStorage;
@@ -22,7 +22,7 @@ import java.util.Comparator;
 import java.util.Optional;
 
 public class TravertinePortalForcer {
-    public static Optional<class_5459.class_5460> findPortal(ServerWorld world, BlockPos source, boolean isNether) {
+    public static Optional<PortalUtil.Rectangle> findPortal(ServerWorld world, BlockPos source, boolean isNether) {
         PointOfInterestStorage pois = world.getPointOfInterestStorage();
         int searchRange = isNether ? 16 : 128;
         pois.preloadChunks(world, source, searchRange);
@@ -46,7 +46,7 @@ public class TravertinePortalForcer {
             BlockPos pos = poi.getPos();
             world.getChunkManager().addTicket(ChunkTicketType.PORTAL, new ChunkPos(pos), 3, pos);
             BlockState portalState = world.getBlockState(pos);
-            return class_5459.method_30574(
+            return PortalUtil.getLargestRectangle(
                 pos,
                 portalState.get(Properties.HORIZONTAL_AXIS),
                 TravertinePortalHelper.MAX_WIDTH,
@@ -57,7 +57,7 @@ public class TravertinePortalForcer {
         });
     }
 
-    public static Optional<class_5459.class_5460> createNewPortal(ServerWorld world, BlockPos pos, Direction.Axis axis) {
+    public static Optional<PortalUtil.Rectangle> createNewPortal(ServerWorld world, BlockPos pos, Direction.Axis axis) {
         Direction tangent = Direction.get(Direction.AxisDirection.POSITIVE, axis);
 
         double optimalDsq = -1;
@@ -175,7 +175,7 @@ public class TravertinePortalForcer {
             }
         }
 
-        return Optional.of(new class_5459.class_5460(portalPos.toImmutable(), 2, 3));
+        return Optional.of(new PortalUtil.Rectangle(portalPos.toImmutable(), 2, 3));
     }
 
     private static boolean checkPortalSpaceLayer(ServerWorld world, BlockPos pos, BlockPos.Mutable mutable, Direction tangent, int nrmOff) {

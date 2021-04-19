@@ -5,7 +5,6 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.NetherPortalBlock;
-import net.minecraft.class_5459;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
@@ -14,6 +13,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.PortalUtil;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
@@ -21,6 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 import java.util.function.Predicate;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class TravertinePortalHelper {
     public static final int MIN_WIDTH = 2;
     public static final int MIN_HEIGHT = 3;
@@ -181,10 +182,10 @@ public class TravertinePortalHelper {
         return isValid() && foundPortalBlocks == width * height;
     }
 
-    public static Vec3d computeInterpolator(class_5459.class_5460 arg, Direction.Axis axis, Vec3d vec3d, EntityDimensions entityDimensions) {
-        double d = (double) arg.field_25937 - (double) entityDimensions.width;
-        double e = (double) arg.field_25938 - (double) entityDimensions.height;
-        BlockPos blockPos = arg.field_25936;
+    public static Vec3d computeInterpolator(PortalUtil.Rectangle arg, Direction.Axis axis, Vec3d vec3d, EntityDimensions entityDimensions) {
+        double d = (double) arg.width - (double) entityDimensions.width;
+        double e = (double) arg.height - (double) entityDimensions.height;
+        BlockPos blockPos = arg.lowerLeft;
         double h;
         if (d > 0.0D) {
             float f = (float) blockPos.getComponentAlongAxis(axis) + entityDimensions.width / 2.0F;
@@ -207,13 +208,13 @@ public class TravertinePortalHelper {
         return new Vec3d(h, j, k);
     }
 
-    public static TeleportTarget computeTeleportTarget(ServerWorld world, class_5459.class_5460 portal, Direction.Axis axis, Vec3d posInterpolator, EntityDimensions size, Vec3d velocity, float f, float g) {
-        BlockPos portalPos = portal.field_25936;
+    public static TeleportTarget computeTeleportTarget(ServerWorld world, PortalUtil.Rectangle portal, Direction.Axis axis, Vec3d posInterpolator, EntityDimensions size, Vec3d velocity, float f, float g) {
+        BlockPos portalPos = portal.lowerLeft;
         BlockState portalBlock = world.getBlockState(portalPos);
         Direction.Axis portalAxis = portalBlock.get(Properties.HORIZONTAL_AXIS);
 
-        double width = portal.field_25937;
-        double height = portal.field_25938;
+        double width = portal.width;
+        double height = portal.height;
         int rotationDelta = axis == portalAxis ? 0 : 90;
 
         Vec3d portalOffset = axis == portalAxis

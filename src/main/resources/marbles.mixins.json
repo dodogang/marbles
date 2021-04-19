@@ -14,7 +14,8 @@
     "FluidBlockMixin",
     "PointOfInterestTypeMixin",
     "ProtoWorldChunkMixin",
-    "WorldMixin"
+    "WorldMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
     "BiomeColorsMixin",

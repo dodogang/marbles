@@ -1,4 +1,49 @@
 {
+  "entity.bouncer.throw": {
+    "sounds": [
+      "marbles:entity/bouncer/throw1",
+      "marbles:entity/bouncer/throw2",
+      "marbles:entity/bouncer/throw3"
+    ],
+    "subtitle": "subtitles.entity.marbles.bouncer.throw"
+  },
+  "entity.bouncer.ambient": {
+    "sounds": [
+      "marbles:entity/bouncer/ambient1",
+      "marbles:entity/bouncer/ambient2",
+      "marbles:entity/bouncer/ambient3"
+    ],
+    "subtitle": "subtitles.entity.marbles.bouncer.ambient"
+  },
+  "entity.bouncer.waiting": {
+    "sounds": [
+      "marbles:entity/bouncer/waiting1",
+      "marbles:entity/bouncer/waiting2",
+      "marbles:entity/bouncer/waiting3"
+    ],
+    "subtitle": "subtitles.entity.marbles.bouncer.waiting"
+  },
+  "entity.bouncer.death": {
+    "sounds": [
+      "marbles:entity/bouncer/death"
+    ],
+    "subtitle": "subtitles.entity.marbles.bouncer.death"
+  },
+  "entity.bouncer.hurt": {
+    "sounds": [
+      "marbles:entity/bouncer/hurt1",
+      "marbles:entity/bouncer/hurt2",
+      "marbles:entity/bouncer/hurt3"
+    ],
+    "subtitle": "subtitles.entity.marbles.bouncer.hurt"
+  },
+  "entity.bouncer.step": {
+    "sounds": [
+      "marbles:entity/bouncer/step"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+
   "block.pink_salt.break": {
     "category": "block",
     "subtitle": "subtitles.block.generic.break",

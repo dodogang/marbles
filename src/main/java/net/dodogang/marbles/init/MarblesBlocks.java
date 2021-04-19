@@ -200,16 +200,15 @@ public class MarblesBlocks {
     //
 
     public static final Block GRISP_DIRT = register("grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block COARSE_GRISP_DIRT = register("coarse_grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.COARSE_DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_GRASS_BLOCK = register("grisp_grass_block", new GrispGrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_PODZOL = register("grisp_podzol", new GrispPodzolBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).materialColor(MaterialColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
-
     public static final Block GRISP_DIRT_PATH = register("grisp_dirt_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().materialColor(MaterialColor.DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_GRASS_PATH = register("grisp_grass_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).nonOpaque().materialColor(MaterialColor.GRASS).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_PODZOL_PATH = register("grisp_podzol_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().materialColor(MaterialColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).nonOpaque().materialColor(MaterialColor.PURPLE_TERRACOTTA).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block COARSE_GRISP_DIRT = register("coarse_grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.COARSE_DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_FARMLAND = register("grisp_farmland", new MarblesFarmlandBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND).nonOpaque().breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_GRASS_BLOCK = register("grisp_grass_block", new GrispGrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_GRASS_PATH = register("grisp_grass_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).nonOpaque().materialColor(MaterialColor.GRASS).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_PODZOL = register("grisp_podzol", new GrispPodzolBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).materialColor(MaterialColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_PODZOL_PATH = register("grisp_podzol_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().materialColor(MaterialColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).nonOpaque().materialColor(MaterialColor.PURPLE_TERRACOTTA).breakByTool(FabricToolTags.SHOVELS, 0)));
 
 
 

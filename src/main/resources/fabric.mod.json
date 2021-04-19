@@ -35,10 +35,15 @@
   "mixins": [
     "marbles.mixins.json"
   ],
+  "accessWidener": "marbles.accesswidener",
+
   "depends": {
     "fabricloader": ">=0.11.0",
     "fabric": ">=0.32.0",
     "minecraft": ">=1.16.2",
-    "chord": ">=1.5.1"
+    "chord": ">=1.6.0"
+  },
+  "recommends": {
+    "canvas": "*"
   }
 }

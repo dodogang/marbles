@@ -15,7 +15,6 @@ import net.minecraft.util.registry.Registry;
 import java.util.List;
 
 public class MarblesItemGroup extends AbstractTabbedItemGroup {
-    // TODO Why is this here and not in the MarblesItems class?
     public static final Item LOGO = Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, "logo"), new Item(new FabricItemSettings().food(new FoodComponent.Builder().alwaysEdible().hunger(20).build())));
 
     public MarblesItemGroup() {
