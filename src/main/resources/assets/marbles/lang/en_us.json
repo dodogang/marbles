@@ -203,5 +203,8 @@
   "subtitles.entity.marbles.bouncer.death": "Bouncer dies",
   "subtitles.entity.marbles.bouncer.hurt": "Bouncer hurts",
 
+  "entity.marbles.pink_salt_cube": "Pink Salt Cube",
+  "item.marbles.pink_salt_cube_spawn_egg": "Pink Salt Cube Spawn Egg",
+
   "debug.option.marbles.spotlight": "Spotlights"
 }
