@@ -53,7 +53,7 @@ public class SaltSpikesFeature extends Feature<DefaultFeatureConfig> {
     }
 
     private static boolean canPlaceIn(BlockState state) {
-        return state.isOf(MarblesBlocks.SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER;
+        return state.isOf(MarblesBlocks.SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER && state.isOf(Blocks.WATER);
     }
 
     private static boolean canPlaceUpon(BlockState state) {

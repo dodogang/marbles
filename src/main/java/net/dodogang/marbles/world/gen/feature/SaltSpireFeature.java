@@ -147,7 +147,7 @@ public class SaltSpireFeature extends Feature<DefaultFeatureConfig> {
     }
 
     private static boolean isAirOrWater(BlockState state) {
-        return state.isOf(MarblesBlocks.SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER;
+        return state.isOf(MarblesBlocks.SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER && state.isOf(Blocks.WATER);
     }
 
     private void placeCorrectBlock(StructureWorldAccess world, BlockState state, BlockPos pos) {
