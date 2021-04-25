@@ -25,8 +25,12 @@ import net.shadew.ptg.noise.opensimplex.OpenSimplex2D;
 import net.shadew.ptg.noise.opensimplex.OpenSimplex3D;
 import net.shadew.ptg.noise.perlin.FractalPerlin3D;
 import net.shadew.ptg.noise.perlin.Perlin3D;
+import net.shadew.util.misc.MathUtil;
 
 public class SaltCaveGenerator {
+    //
+    // Sampling factors: affect performance and quality of the caves
+    //
     private static final int VERTICAL_SPACE = 96;
     private static final int HORIZONTAL_SPACE = 16;
 
@@ -40,18 +44,26 @@ public class SaltCaveGenerator {
     private static final int RESOLUTION_H = HORIZONTAL_SPACE / CELL_SIZE;
     private static final int RESOLUTION_V = VERTICAL_SPACE / CELL_SIZE;
 
-    private static final double FIELD_SCALE = 228;
-    private static final double LEVEL_SCALE = 104.46;
-    private static final double CAVE_RARITY = 32;
-    private static final double NOISE_SIZE = 40;
-    private static final double NOISE_SCALE = 3;
-    private static final double OFFSET_SIZE = 48;
-    private static final double OFFSET_SCALE = 6;
-    private static final double BRIDGE_SIZE_H = 15;
-    private static final double BRIDGE_SIZE_V = 7.5;
-    private static final double BRIDGE_SCALE = 12;
-    private static final double BRIDGE_ADD = 6;
-    private static final int WATER_LEVEL = 12;
+    //
+    // Cave factors: affect cave shapes
+    //
+    private static final double FIELD_SIZE = 228;    // Salt cave field noise size, determines where more and less caves generate
+    private static final double LEVEL_SIZE = 104.46; // Salt cave level (height) noise size
+    private static final double NOISE_SIZE = 40;     // Size of random cave noise
+    private static final double NOISE_SCALE = 3;     // Multiplier of random cave noise
+    private static final double OFFSET_SIZE = 48;    // Size of vertical offset noise
+    private static final double OFFSET_SCALE = 6;    // Multiplier of vertical offset scale
+    private static final double BRIDGE_SIZE_H = 15;  // Horizontal size of noise field that generates bridges and pillars
+    private static final double BRIDGE_SIZE_V = 7.5; // Vertical size of noise field that generates bridges and pillars
+    private static final double BRIDGE_SCALE = 12;   // Multiplier of bridge noise
+    private static final double BRIDGE_ADD = 6;      // Addend of bridge noise
+    private static final double CAVE_RARITY = 32;    // Overall rarity of caves
+    private static final double CAVE_SIZE = 2.5;     // Overall scaling of caves
+    private static final double MIN_RADIUS = 10;     // Minimum horizontal cave radius (gets scaled by CAVE_SIZE)
+    private static final double MAX_RADIUS = 17;     // Maximum horizontal cave radius (gets scaled by CAVE_SIZE)
+    private static final double MIN_LAYER_SIZE = 5;  // Minimum layer height (gets scaled by CAVE_SIZE)
+    private static final double MAX_LAYER_SIZE = 7;  // Maximum layer height (gets scaled by CAVE_SIZE)
+    private static final int WATER_LEVEL = 12;       // Any block below this Y value will turn into water instead of air
 
 
     private final Noise2D fieldNoise;
@@ -71,8 +83,8 @@ public class SaltCaveGenerator {
 
         Random rand = new Random(seed);
 
-        fieldNoise = new OpenSimplex2D(rand.nextInt(), FIELD_SCALE);
-        levelNoise = new OpenSimplex2D(rand.nextInt(), LEVEL_SCALE).lerp(10, 40);
+        fieldNoise = new OpenSimplex2D(rand.nextInt(), FIELD_SIZE);
+        levelNoise = new OpenSimplex2D(rand.nextInt(), LEVEL_SIZE).lerp(10, 40);
 
         caveNoise = new FractalPerlin3D(rand.nextInt(), NOISE_SIZE, 4).multiply(NOISE_SCALE);
         offsetNoiseX = new Perlin3D(rand.nextInt(), OFFSET_SIZE).multiply(OFFSET_SCALE);
@@ -249,8 +261,8 @@ public class SaltCaveGenerator {
                     cave.smallNoise = bridgeNoise;
 
                     cave.layers = random.nextInt(3) + 2;
-                    cave.layerRadius = (random.nextDouble() * 7 + 10) * 2.5;
-                    cave.layerSize = (random.nextDouble() * 2 + 5) * 2.5;
+                    cave.layerRadius = MathUtil.lerp(MIN_RADIUS, MAX_RADIUS, random.nextDouble()) * CAVE_SIZE;
+                    cave.layerSize = MathUtil.lerp(MIN_LAYER_SIZE, MAX_LAYER_SIZE, random.nextDouble()) * CAVE_SIZE;
 
                     double level = levelNoise.generate(bx * 16, bz * 16) / CELL_SIZE_D;
                     cave.sourceX = random.nextInt(16) + bx * 16;
