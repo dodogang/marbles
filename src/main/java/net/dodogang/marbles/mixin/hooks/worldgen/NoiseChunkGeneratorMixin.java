@@ -1,6 +1,6 @@
 package net.dodogang.marbles.mixin.hooks.worldgen;
 
-import net.dodogang.marbles.world.gen.level.SaltCaveGenerator;
+import net.dodogang.marbles.world.gen.level.saltcave.SaltCaveGenerator;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.biome.source.BiomeAccess;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -42,7 +42,7 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
     public void carve(long seed, BiomeAccess access, Chunk chunk, GenerationStep.Carver carver) {
         super.carve(seed, access, chunk, carver);
 
-        if (carver == GenerationStep.Carver.AIR) {
+        if (carver == GenerationStep.Carver.LIQUID) {
             getSaltCaveGenerator().generateSaltCaves(seed, access, chunk);
         }
     }

@@ -18,13 +18,13 @@ import net.minecraft.world.gen.feature.ConfiguredStructureFeatures;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilders;
 
-@SuppressWarnings({"unused","deprecation"})
+@SuppressWarnings({"unused", "deprecation"})
 public class MarblesBiomes {
     public static final RegistryKey<Biome> YELLOW_BAMBOO_JUNGLE = register(YellowBambooFeature.id + "_jungle", createNormalYellowBambooJungle());
     public static final RegistryKey<Biome> YELLOW_BAMBOO_JUNGLE_HILLS = register(YellowBambooFeature.id + "_jungle_hills", createYellowBambooJungleHills());
 
-    public static final RegistryKey<Biome> ASPEN_FOREST = register(MarblesBlocks.ASPEN.getId() + "_forest", createAspenForest());
-    public static final RegistryKey<Biome> HOOPSI_SPRUCE_FOREST = register(MarblesBlocks.HOOPSI_SPRUCE.getId() + "_forest", createHoopsiSpruceForest());
+    public static final RegistryKey<Biome> ASPEN_FOREST = register("aspen_forest", createAspenForest());
+    public static final RegistryKey<Biome> HOOPSI_SPRUCE_FOREST = register("hoopsi_spruce_forest", createHoopsiSpruceForest());
 
     public MarblesBiomes() {
         OverworldBiomes.addBiomeVariant(BiomeKeys.BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE, 0.5F, OverworldClimate.TEMPERATE);
@@ -36,7 +36,7 @@ public class MarblesBiomes {
         DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
         DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
 
-        GenerationSettings.Builder generationSettings = (new GenerationSettings.Builder()).surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
+        GenerationSettings.Builder generationSettings = new GenerationSettings.Builder().surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
         generationSettings.structureFeature(ConfiguredStructureFeatures.RUINED_PORTAL);
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
@@ -54,7 +54,7 @@ public class MarblesBiomes {
         DefaultBiomeFeatures.addSprings(generationSettings);
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
 
-        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.6F).downfall(0.6F).effects((new BiomeEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.6F)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.6F).downfall(0.6F).effects(new BiomeEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.6F)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     protected static Biome createHoopsiSpruceForest() {
@@ -64,7 +64,7 @@ public class MarblesBiomes {
         DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
         spawnSettings.playerSpawnFriendly();
 
-        GenerationSettings.Builder generationSettings = (new GenerationSettings.Builder()).surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
+        GenerationSettings.Builder generationSettings = new GenerationSettings.Builder().surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
         generationSettings.structureFeature(ConfiguredStructureFeatures.VILLAGE_TAIGA);
         generationSettings.structureFeature(ConfiguredStructureFeatures.PILLAGER_OUTPOST);
         generationSettings.structureFeature(ConfiguredStructureFeatures.IGLOO);
@@ -118,7 +118,7 @@ public class MarblesBiomes {
      * Modified version of DefaultBiomeCreator#createJungleFeatures for yellow bamboo.
      */
     protected static Biome createJungleFeatures(float depth, float scale, float downfall, boolean yellowBambooJungle, boolean edge, boolean noStructures, SpawnSettings.Builder spawnSettings) {
-        GenerationSettings.Builder generationSettings = (new GenerationSettings.Builder()).surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
+        GenerationSettings.Builder generationSettings = new GenerationSettings.Builder().surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
         if (!edge && !noStructures) {
             generationSettings.structureFeature(ConfiguredStructureFeatures.JUNGLE_PYRAMID);
         }
@@ -153,7 +153,7 @@ public class MarblesBiomes {
         DefaultBiomeFeatures.addJungleVegetation(generationSettings);
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
 
-        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.JUNGLE).depth(depth).scale(scale).temperature(0.95F).downfall(downfall).effects((new BiomeEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.95F)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.JUNGLE).depth(depth).scale(scale).temperature(0.95F).downfall(downfall).effects(new BiomeEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.95F)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     /*

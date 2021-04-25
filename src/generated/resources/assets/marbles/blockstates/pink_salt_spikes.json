@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "marbles:block/pink_salt_spikes_1"
+      },
+      {
+        "model": "marbles:block/pink_salt_spikes_2"
+      }
+    ]
+  }
+}

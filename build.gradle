@@ -53,7 +53,7 @@ dependencies {
     modRuntime("com.github.jellysquid3:phosphor-fabric:${project.phosphor_version}") { exclude(group: "net.fabricmc.fabric-api") }
 
     if (!Boolean.parseBoolean("${project.ip_enabled}")) { // Immersive Portals is incompatible with Canvas
-        modImplementation("grondag:canvas-mc116:1.0.+") {
+        modImplementation("grondag:canvas-mc116:1.0.1267") {
             exclude group: "net.fabricmc"
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel"

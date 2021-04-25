@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "marbles:pink_salt_stump"
+              "name": "marbles:pink_salt_spikes"
             },
             {
               "type": "minecraft:item",
@@ -32,9 +32,9 @@
                 {
                   "function": "minecraft:set_count",
                   "count": {
-                    "min": 1.0,
-                    "max": 2.0,
-                    "type": "minecraft:uniform"
+                    "n": 2,
+                    "p": 0.4,
+                    "type": "minecraft:binomial"
                   }
                 },
                 {

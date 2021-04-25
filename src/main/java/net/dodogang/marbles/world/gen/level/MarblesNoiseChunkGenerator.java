@@ -2,6 +2,7 @@ package net.dodogang.marbles.world.gen.level;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.dodogang.marbles.world.gen.level.saltcave.SaltCaveGenerator;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.world.ChunkRegion;

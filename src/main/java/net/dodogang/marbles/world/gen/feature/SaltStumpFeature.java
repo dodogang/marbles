@@ -4,6 +4,9 @@ import com.mojang.serialization.Codec;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.state.property.MarblesProperties;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -81,14 +84,16 @@ public class SaltStumpFeature extends Feature<DefaultFeatureConfig> {
             mpos.set(x, y1, z);
             if (canBuildAt(world, mpos)) {
                 mpos.set(x, y1, z);
-                world.setBlockState(mpos, state, 2);
+                BlockState waterlogged = state.with(Properties.WATERLOGGED, world.getFluidState(mpos).getFluid() == Fluids.WATER);
+                world.setBlockState(mpos, waterlogged, 2);
                 return true;
             }
 
             mpos.set(x, y2, z);
             if (canBuildAt(world, mpos)) {
                 mpos.set(x, y2, z);
-                world.setBlockState(mpos, state, 2);
+                BlockState waterlogged = state.with(Properties.WATERLOGGED, world.getFluidState(mpos).getFluid() == Fluids.WATER);
+                world.setBlockState(mpos, waterlogged, 2);
                 return true;
             }
         }
@@ -97,9 +102,14 @@ public class SaltStumpFeature extends Feature<DefaultFeatureConfig> {
     }
 
     private boolean canBuildAt(StructureWorldAccess world, BlockPos.Mutable pos) {
-        return world.getBlockState(pos).isAir() && (
+        return isAirOrWater(world.getBlockState(pos)) && (
             world.getBlockState(pos.down()).isOf(MarblesBlocks.PINK_SALT) ||
-                world.getBlockState(pos.down()).isOf(MarblesBlocks.CRUMBLED_PINK_SALT)
+                world.getBlockState(pos.down()).isOf(MarblesBlocks.CRUMBLED_PINK_SALT) ||
+                world.getBlockState(pos.down()).isOf(Blocks.GRANITE)
         );
+    }
+
+    private static boolean isAirOrWater(BlockState state) {
+        return state.isOf(MarblesBlocks.SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER;
     }
 }

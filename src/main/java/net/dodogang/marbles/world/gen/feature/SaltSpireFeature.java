@@ -4,6 +4,8 @@ import com.mojang.serialization.Codec;
 import net.dodogang.marbles.block.PinkSaltSpireBlock;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.StructureWorldAccess;
@@ -33,7 +35,7 @@ public class SaltSpireFeature extends Feature<DefaultFeatureConfig> {
         int y = pos.getY();
         int z = pos.getZ();
 
-        for (int proj = 0; proj < 40; proj++) {
+        for (int proj = 0; proj < 80; proj++) {
             int y1 = y - proj;
             int y2 = y + proj;
 
@@ -93,7 +95,7 @@ public class SaltSpireFeature extends Feature<DefaultFeatureConfig> {
                 mpos.set(x, y1, z);
                 int len = rand.nextInt(maxlen) + 1;
                 for (int i = 0; i < len; i++) {
-                    if (world.getBlockState(mpos).isAir()) {
+                    if (isAirOrWater(world.getBlockState(mpos))) {
                         placeCorrectBlock(world, state, mpos);
                     }
                     mpos.move(Direction.UP);
@@ -106,7 +108,7 @@ public class SaltSpireFeature extends Feature<DefaultFeatureConfig> {
                 mpos.set(x, y2, z);
                 int len = rand.nextInt(maxlen) + 1;
                 for (int i = 0; i < len; i++) {
-                    if (world.getBlockState(mpos).isAir()) {
+                    if (isAirOrWater(world.getBlockState(mpos))) {
                         placeCorrectBlock(world, state, mpos);
                     }
                     mpos.move(Direction.UP);
@@ -119,7 +121,7 @@ public class SaltSpireFeature extends Feature<DefaultFeatureConfig> {
                 mpos.set(x, y1, z);
                 int len = rand.nextInt(maxlen) + 1;
                 for (int i = 0; i < len; i++) {
-                    if (world.getBlockState(mpos).isAir()) {
+                    if (isAirOrWater(world.getBlockState(mpos))) {
                         placeCorrectBlock(world, state.with(PinkSaltSpireBlock.VERTICAL_DIRECTION, Direction.DOWN), mpos);
                     }
                     mpos.move(Direction.DOWN);
@@ -132,7 +134,7 @@ public class SaltSpireFeature extends Feature<DefaultFeatureConfig> {
                 mpos.set(x, y2, z);
                 int len = rand.nextInt(maxlen) + 1;
                 for (int i = 0; i < len; i++) {
-                    if (world.getBlockState(mpos).isAir()) {
+                    if (isAirOrWater(world.getBlockState(mpos))) {
                         placeCorrectBlock(world, state.with(PinkSaltSpireBlock.VERTICAL_DIRECTION, Direction.DOWN), mpos);
                     }
                     mpos.move(Direction.DOWN);
@@ -144,25 +146,34 @@ public class SaltSpireFeature extends Feature<DefaultFeatureConfig> {
         return false;
     }
 
+    private static boolean isAirOrWater(BlockState state) {
+        return state.isOf(MarblesBlocks.SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER;
+    }
+
     private void placeCorrectBlock(StructureWorldAccess world, BlockState state, BlockPos pos) {
         BlockPos up = pos.up();
         BlockPos down = pos.down();
         BlockState modified = state.getStateForNeighborUpdate(Direction.UP, world.getBlockState(up), world, pos, pos.up());
         modified = modified.getStateForNeighborUpdate(Direction.DOWN, world.getBlockState(down), world, pos, pos.down());
+        if (world.getFluidState(pos).getFluid() == Fluids.WATER) {
+            modified = modified.with(PinkSaltSpireBlock.WATERLOGGED, true);
+        }
         world.setBlockState(pos, modified, 2);
     }
 
     private boolean canBuildUpAt(StructureWorldAccess world, BlockPos.Mutable pos) {
-        return world.getBlockState(pos).isAir() && (
+        return isAirOrWater(world.getBlockState(pos)) && (
             world.getBlockState(pos.move(Direction.DOWN)).isOf(MarblesBlocks.PINK_SALT) ||
-                world.getBlockState(pos.move(Direction.DOWN)).isOf(MarblesBlocks.CRUMBLED_PINK_SALT)
+                world.getBlockState(pos).isOf(MarblesBlocks.CRUMBLED_PINK_SALT) ||
+                world.getBlockState(pos).isOf(Blocks.GRANITE)
         );
     }
 
     private boolean canBuildDownAt(StructureWorldAccess world, BlockPos.Mutable pos) {
-        return world.getBlockState(pos).isAir() && (
+        return isAirOrWater(world.getBlockState(pos)) && (
             world.getBlockState(pos.move(Direction.UP)).isOf(MarblesBlocks.PINK_SALT) ||
-                world.getBlockState(pos.move(Direction.UP)).isOf(MarblesBlocks.CRUMBLED_PINK_SALT)
+                world.getBlockState(pos).isOf(MarblesBlocks.CRUMBLED_PINK_SALT) ||
+                world.getBlockState(pos).isOf(Blocks.GRANITE)
         );
     }
 }

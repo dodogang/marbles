@@ -77,31 +77,32 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
 
         // Tick fluid because..mojang logic
         if (state.get(WATERLOGGED)) {
-            world.getFluidTickScheduler().schedule(pos, state.getFluidState().getFluid(), 0);
+            world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
 
-        // The block that supports us changed, decide what to do
+        // The block that supports me changed, decide what to do
         if (direction == nvdir) {
             if (neighbor.isOf(this)) {
                 // We're being supported by another salt spire
-                if (neighbor.get(VERTICAL_DIRECTION) != pvdir) {
-                    // If our supporter changed direction somehow, let's just change ourselves to
-                    return state.with(VERTICAL_DIRECTION, neighbor.get(VERTICAL_DIRECTION));
+                Direction adjdir = neighbor.get(VERTICAL_DIRECTION);
+                if (adjdir == nvdir) {
+                    // If my supporter changed direction somehow, let's just change myself too
+                    return state.with(VERTICAL_DIRECTION, nvdir);
                 } else {
                     return state;
                 }
             }
 
             if (!isValidSurface(neighbor, world, adj, direction.getOpposite())) {
-                // We aren't supported anymore, try connect to another spire by changing direction
+                // I'm not supported anymore, trying to connect to another spire by changing direction
 
                 BlockPos off = pos.offset(pvdir);
                 BlockState supportable = world.getBlockState(off);
                 if (isValidSurface(supportable, world, off, nvdir) || isSelfFacing(supportable, nvdir)) {
                     return state.with(VERTICAL_DIRECTION, nvdir);
                 } else {
-                    // If we failed connecting to something else: fall
-                    world.getBlockTickScheduler().schedule(pos, this, 0);
+                    // If I failed connecting to something else: fall
+                    scheduleFall(state, world, pos);
                 }
             }
         }
@@ -232,14 +233,34 @@ public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
             mpos.move(vdir);
         }
 
-        while (isSelfFacing(world.getBlockState(mpos), vdir)) {
-            world.getBlockTickScheduler().schedule(mpos, this, 2);
+        BlockState support = world.getBlockState(mpos);
+        boolean isSupportable = isValidSurface(support, world, mpos, vdir.getOpposite());
+
+        if (vdir == Direction.DOWN) {
             mpos.move(vdir, -1);
+            while (isSelfFacing(world.getBlockState(mpos), vdir)) {
+                if (isSupportable) {
+                    world.setBlockState(mpos, state.with(VERTICAL_DIRECTION, vdir.getOpposite()), 3);
+                } else {
+                    world.getBlockTickScheduler().schedule(mpos.toImmutable(), this, 0);
+                }
+                mpos.move(vdir, -1);
+            }
+        } else {
+            mpos.set(pos);
+            while (isSelfFacing(world.getBlockState(mpos), vdir)) {
+                if (isSupportable) {
+                    world.setBlockState(mpos, state.with(VERTICAL_DIRECTION, vdir.getOpposite()), 3);
+                } else {
+                    world.getBlockTickScheduler().schedule(mpos.toImmutable(), this, 0);
+                }
+                mpos.move(vdir);
+            }
         }
     }
 
     private static void spawnFallingBlock(BlockState state, ServerWorld world, BlockPos pos) {
-        Vec3d vec3d = Vec3d.ofBottomCenter(pos).add(state.getModelOffset(world, pos));
+        Vec3d vec3d = Vec3d.ofBottomCenter(pos);
         FallingBlockEntity fallingBlock = new FallingBlockEntity(world, vec3d.x, vec3d.y, vec3d.z, state.with(VERTICAL_DIRECTION, Direction.UP));
 
         world.spawnEntity(fallingBlock);

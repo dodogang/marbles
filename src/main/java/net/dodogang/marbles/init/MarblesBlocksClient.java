@@ -19,7 +19,8 @@ public class MarblesBlocksClient {
             RenderLayer.getCutout(),
             MarblesBlocks.YELLOW_BAMBOO,
             MarblesBlocks.YELLOW_BAMBOO_SAPLING,
-            MarblesBlocks.YELLOW_SCAFFOLDING
+            MarblesBlocks.YELLOW_SCAFFOLDING,
+            MarblesBlocks.PINK_SALT_SPIKES
         );
 
         brlm.putBlocks(
