@@ -1,10 +1,7 @@
 package net.dodogang.marbles.network;
 
 import com.mojang.datafixers.util.Pair;
-import net.dodogang.marbles.util.SpotlightUtil;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.dodogang.marbles.Marbles;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
@@ -15,13 +12,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class MarblesNetwork {
-    public static final Identifier UPDATE_SPOTLIGHT_DATA = new Identifier("marbles:update_spotlight_data");
+    public static final Identifier UPDATE_SPOTLIGHT_DATA = new Identifier(Marbles.MOD_ID, "update_spotlight_data");
 
     public static void sendSpotlightUpdate(ServerWorld world, BlockPos pos, int value) {
         int cx = pos.getX() / 16;
@@ -34,7 +30,6 @@ public class MarblesNetwork {
     }
 
     public static void sendSpotlightUpdate(ServerWorld world, List<Pair<BlockPos, Integer>> data) {
-
         Set<ServerPlayerEntity> players = new HashSet<>();
 
         for (Pair<BlockPos, Integer> pair : data) {
@@ -55,6 +50,7 @@ public class MarblesNetwork {
         buf.writeInt(pos.getY());
         buf.writeInt(pos.getZ());
         buf.writeInt(value);
+
         ServerPlayNetworking.send(playerEntity, UPDATE_SPOTLIGHT_DATA, buf);
     }
 
@@ -67,28 +63,7 @@ public class MarblesNetwork {
             buf.writeInt(pair.getFirst().getZ());
             buf.writeInt(pair.getSecond());
         }
-        ServerPlayNetworking.send(playerEntity, UPDATE_SPOTLIGHT_DATA, buf);
-    }
 
-    @Environment(EnvType.CLIENT)
-    public static void initClient() {
-        ClientPlayNetworking.registerGlobalReceiver(UPDATE_SPOTLIGHT_DATA, (client, handler, buf, responseSender) -> {
-            List<Pair<BlockPos, Integer>> list = new ArrayList<>();
-            int i = buf.readInt();
-            while (i > 0) {
-                int x = buf.readInt();
-                int y = buf.readInt();
-                int z = buf.readInt();
-                int v = buf.readInt();
-                list.add(Pair.of(new BlockPos(x, y, z), v));
-                i--;
-            }
-            client.execute(() -> {
-                if (client.world != null) {
-                    for (Pair<BlockPos, Integer> pair : list)
-                        SpotlightUtil.setSpotlightData(client.world, pair.getFirst(), pair.getSecond(), false);
-                }
-            });
-        });
+        ServerPlayNetworking.send(playerEntity, UPDATE_SPOTLIGHT_DATA, buf);
     }
 }

@@ -20,9 +20,9 @@
     "worldgen.NoiseChunkGeneratorMixin"
   ],
   "client": [
-    "BiomeColorsMixin",
-    "BlockDustParticleMixin",
-    "ClientWorldMixin"
+    "client.BiomeColorsMixin",
+    "client.BlockDustParticleMixin",
+    "client.ClientWorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,14 +1,12 @@
 package net.dodogang.marbles;
 
+import net.dodogang.marbles.client.network.MarblesClientNetwork;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.init.MarblesBlocksClient;
-import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesGenTypes;
 import net.dodogang.marbles.init.MarblesParticles;
-import net.dodogang.marbles.network.MarblesNetwork;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.minecraft.client.render.RenderLayer;
 
 public class MarblesClient implements ClientModInitializer {
     @Override
@@ -19,6 +17,6 @@ public class MarblesClient implements ClientModInitializer {
 
         MarblesBlocksClient.init();
 
-        MarblesNetwork.initClient();
+        MarblesClientNetwork.initClient();
     }
 }

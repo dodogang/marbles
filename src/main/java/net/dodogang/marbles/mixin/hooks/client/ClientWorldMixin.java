@@ -1,8 +1,10 @@
-package net.dodogang.marbles.mixin.hooks;
+package net.dodogang.marbles.mixin.hooks.client;
 
 import net.dodogang.marbles.client.color.world.ColorGenerator;
 import net.dodogang.marbles.client.color.world.MarblesBiomeColors;
 import net.dodogang.marbles.client.color.world.MarblesColorWorld;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.world.BiomeColorCache;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.Util;
@@ -15,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.HashMap;
 import java.util.Map;
 
+@Environment(EnvType.CLIENT)
 @Mixin(ClientWorld.class)
 public class ClientWorldMixin implements MarblesColorWorld {
     private final Map<ColorGenerator, BiomeColorCache> marblesColorCache = Util.make(
