@@ -2,6 +2,8 @@ package net.dodogang.marbles.mixin.hooks;
 
 import net.dodogang.marbles.util.SpotlightUtil;
 import net.dodogang.marbles.world.chunk.MarblesChunkSection;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.world.chunk.ChunkSection;
@@ -46,6 +48,7 @@ public class ChunkSectionMixin implements MarblesChunkSection {
         tag.putIntArray("Spotlight", spotlightData);
     }
 
+    @Environment(EnvType.CLIENT)
     @Inject(method = "fromPacket", at = @At("RETURN"))
     private void onFromPacket(PacketByteBuf buf, CallbackInfo cb) {
         int[] arr = spotlightData;
