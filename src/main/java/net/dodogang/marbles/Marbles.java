@@ -31,6 +31,7 @@ public class Marbles implements ModInitializer {
 
             new MarblesBlocks();
             new MarblesItems();
+            new MarblesEntities();
 
             new MarblesFeatures();
             new MarblesConfiguredFeatures();
@@ -39,8 +40,6 @@ public class Marbles implements ModInitializer {
             new MarblesSoundEvents();
 
             new MarblesBiomes();
-
-            new MarblesPointOfInterestTypes();
 
             CommandRegistrationCallback.EVENT.register(
                 (dispatcher, dedicated) -> MarblesDebugCommand.register(dispatcher)
@@ -57,8 +56,8 @@ public class Marbles implements ModInitializer {
     public static void log(Level level, String message) {
         LOGGER.log(level, "[" + MOD_NAME + "] " + message);
     }
-
     public static void log(String message) {
         log(Level.INFO, message);
     }
+
 }

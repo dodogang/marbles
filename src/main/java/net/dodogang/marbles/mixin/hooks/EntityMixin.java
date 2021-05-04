@@ -24,6 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.PortalUtil;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 import net.minecraft.world.border.WorldBorder;
@@ -133,12 +134,12 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
             MathHelper.clamp(getZ() * coordScale, northBorder, southBorder)
         );
 
-        Optional<class_5459.class_5460> optPortal = TravertinePortalForcer.findPortal(destination, destPos, isNether);
+        Optional<PortalUtil.Rectangle> optPortal = TravertinePortalForcer.findPortal(destination, destPos, isNether);
 
         // If we're a player, try to create a portal if it's not present
         if (ServerPlayerEntity.class.isInstance(this) && !optPortal.isPresent()) {
             Direction.Axis axis = world.getBlockState(lastNetherPortalPosition).method_28500(NetherPortalBlock.AXIS).orElse(Direction.Axis.X);
-            Optional<class_5459.class_5460> createdPortal = TravertinePortalForcer.createNewPortal(destination, destPos, axis);
+            Optional<PortalUtil.Rectangle> createdPortal = TravertinePortalForcer.createNewPortal(destination, destPos, axis);
             if (!createdPortal.isPresent()) {
                 LOGGER.error("Unable to create a portal, likely target out of worldborder");
             }
@@ -154,7 +155,7 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
             if (portalState.contains(Properties.HORIZONTAL_AXIS)) {
                 portalAxis = portalState.get(Properties.HORIZONTAL_AXIS);
                 // Looks up the size of the portal in the world (this class holds a position and a size)
-                class_5459.class_5460 portal = class_5459.method_30574(
+                PortalUtil.Rectangle portal = PortalUtil.getLargestRectangle(
                     lastNetherPortalPosition,
                     portalAxis,
                     TravertinePortalHelper.MAX_WIDTH,
@@ -172,7 +173,7 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
         });
     }
 
-    private Vec3d computeInterpolator(Direction.Axis axis, class_5459.class_5460 portal) {
+    private Vec3d computeInterpolator(Direction.Axis axis, PortalUtil.Rectangle portal) {
         Vec3d ipl = TravertinePortalHelper.computeInterpolator(portal, axis, getPos(), getDimensions(getPose()));
         if (LivingEntity.class.isInstance(this)) {
             ipl = LivingEntity.method_31079(ipl);

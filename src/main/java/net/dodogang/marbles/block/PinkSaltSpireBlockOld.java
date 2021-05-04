@@ -3,7 +3,7 @@ package net.dodogang.marbles.block;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesParticles;
 import net.dodogang.marbles.state.property.MarblesProperties;
-import net.dodogang.marbles.util.Utils;
+import net.dodogang.marbles.util.Util;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
@@ -143,7 +143,7 @@ public class PinkSaltSpireBlockOld extends FallingBlock implements Waterloggable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         WorldAccess world = ctx.getWorld();
         BlockPos pos = ctx.getBlockPos();
-        Direction oppositeLookDirection = Utils.getLookDirectionForAxis(ctx.getPlayer(), Direction.Axis.Y);
+        Direction oppositeLookDirection = Util.getLookDirectionForAxis(ctx.getPlayer(), Direction.Axis.Y);
         Direction directionToPlaceAt = getDirectionToPlaceAt(world, pos, oppositeLookDirection);
         if (directionToPlaceAt != Direction.DOWN && directionToPlaceAt != Direction.UP) {
             return null;

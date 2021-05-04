@@ -1,5 +1,8 @@
 accessWidener v1 named
 
+# Entity
+accessible    field     net/minecraft/entity/ai/goal/MeleeAttackGoal        field_24667     I
+
 # World generation
 extendable method net/minecraft/client/world/GeneratorType <init> (Ljava/lang/String;)V
 extendable class  net/minecraft/world/gen/chunk/NoiseChunkGenerator
