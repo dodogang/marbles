@@ -145,4 +145,8 @@ public class TravertinePortalBlock extends Block {
                 return state;
         }
     }
+
+    public float getPortalTravelSpeedAdditional() {
+        return 2.0f;
+    }
 }

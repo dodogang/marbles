@@ -13,7 +13,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import static net.dodogang.marbles.datagen.models.modelgen.InheritingModelGen.*;
-import static net.dodogang.marbles.datagen.models.modelgen.ParticleOnlyModelGen.*;
+import static net.dodogang.marbles.datagen.models.modelgen.ParticleOnlyModelGen.particles;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.slabAll;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.stairsAll;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.*;

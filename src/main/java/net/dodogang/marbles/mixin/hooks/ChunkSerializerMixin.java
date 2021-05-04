@@ -1,6 +1,8 @@
 package net.dodogang.marbles.mixin.hooks;
 
 import net.dodogang.marbles.world.chunk.MarblesChunkSection;
+import net.minecraft.block.Block;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.world.ServerWorld;
@@ -41,8 +43,8 @@ public class ChunkSerializerMixin {
         CompoundTag compoundTag,
         BiomeArray biomeArray,
         UpgradeData upgradeData,
-        ChunkTickScheduler chunkTickScheduler,
-        ChunkTickScheduler chunkTickScheduler2,
+        ChunkTickScheduler<Block> chunkTickScheduler,
+        ChunkTickScheduler<Fluid> chunkTickScheduler2,
         boolean bl,
         ListTag listTag,
         int i,

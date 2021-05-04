@@ -4,11 +4,10 @@ import net.dodogang.marbles.init.MarblesConfiguredFeatures;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-
-import java.util.Random;
-
 import net.shadew.ptg.noise.Noise3D;
 import net.shadew.util.misc.MathUtil;
+
+import java.util.Random;
 
 public class SaltCave {
     public Noise3D noise = Noise3D.constant(0);

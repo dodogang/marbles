@@ -13,12 +13,6 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
-
-import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.List;
-import java.util.Random;
-
 import net.shadew.ptg.noise.Noise2D;
 import net.shadew.ptg.noise.Noise3D;
 import net.shadew.ptg.noise.opensimplex.OpenSimplex2D;
@@ -26,6 +20,11 @@ import net.shadew.ptg.noise.opensimplex.OpenSimplex3D;
 import net.shadew.ptg.noise.perlin.FractalPerlin3D;
 import net.shadew.ptg.noise.perlin.Perlin3D;
 import net.shadew.util.misc.MathUtil;
+
+import java.util.ArrayList;
+import java.util.BitSet;
+import java.util.List;
+import java.util.Random;
 
 public class SaltCaveGenerator {
     //

@@ -8,13 +8,12 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-
-import java.util.List;
-import java.util.Random;
-
 import net.shadew.ptg.noise.Noise3D;
 import net.shadew.ptg.noise.perlin.FractalPerlin3D;
 import net.shadew.ptg.noise.perlin.Perlin3D;
+
+import java.util.List;
+import java.util.Random;
 
 public class SaltCaveTerrain extends Terrain {
     private final int radius;

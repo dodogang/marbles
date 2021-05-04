@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
+@SuppressWarnings("deprecation")
 public class PinkSaltSpikeBlock extends PlantBlock implements Waterloggable {
     public static final String id = "pink_salt_spikes";
 

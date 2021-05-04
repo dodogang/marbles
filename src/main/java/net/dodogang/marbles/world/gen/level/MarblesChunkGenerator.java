@@ -34,6 +34,8 @@ import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.*;
 import net.minecraft.world.gen.feature.StructureFeature;
+import net.shadew.ptg.noise.Noise2D;
+import net.shadew.ptg.noise.opensimplex.OpenSimplex2D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +44,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
-import net.shadew.ptg.noise.Noise2D;
-import net.shadew.ptg.noise.opensimplex.OpenSimplex2D;
-
+@SuppressWarnings("deprecation")
 public final class MarblesChunkGenerator extends ChunkGenerator {
     public static final Codec<MarblesChunkGenerator> CODEC = RecordCodecBuilder.create(
         instance -> instance.group(

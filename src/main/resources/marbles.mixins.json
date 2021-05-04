@@ -22,7 +22,9 @@
   "client": [
     "client.BiomeColorsMixin",
     "client.BlockDustParticleMixin",
-    "client.ClientWorldMixin"
+    "client.ClientWorldMixin",
+    "client.InGameHudMixin",
+    "client.ClientPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
