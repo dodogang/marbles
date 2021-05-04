@@ -51,16 +51,14 @@ public class ChunkSectionMixin implements MarblesChunkSection {
     @Environment(EnvType.CLIENT)
     @Inject(method = "fromPacket", at = @At("RETURN"))
     private void onFromPacket(PacketByteBuf buf, CallbackInfo cb) {
-        int[] arr = spotlightData;
         for (int i = 0; i < SPOTLIGHT_BUFFER_SIZE; i++) {
-            arr[i] = buf.readInt();
+            spotlightData[i] = buf.readInt();
         }
     }
 
     @Inject(method = "toPacket", at = @At("RETURN"))
     private void onToPacket(PacketByteBuf buf, CallbackInfo cb) {
-        int[] arr = spotlightData;
-        for (int l : arr) {
+        for (int l : spotlightData) {
             buf.writeInt(l);
         }
     }

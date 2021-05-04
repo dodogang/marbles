@@ -2,6 +2,7 @@ package net.dodogang.marbles.datagen.models;
 
 import me.andante.chord.block.helper.WoodBlocks;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
+import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 import net.dodogang.marbles.datagen.models.stategen.StateGen;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.Block;
@@ -12,7 +13,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import static net.dodogang.marbles.datagen.models.modelgen.InheritingModelGen.*;
-import static net.dodogang.marbles.datagen.models.modelgen.ParticleOnlyModelGen.*;
+import static net.dodogang.marbles.datagen.models.modelgen.ParticleOnlyModelGen.particles;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.slabAll;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.stairsAll;
 import static net.dodogang.marbles.datagen.models.stategen.BuildingBlocks.*;
@@ -39,6 +40,7 @@ public final class BlockStateTable {
 
         register(MarblesBlocks.TRAVERTINE_OBSIDIAN, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
 
+        register(MarblesBlocks.SALT_CAVE_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
         register(MarblesBlocks.PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(MarblesBlocks.PINK_SALT_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
         register(MarblesBlocks.PINK_SALT_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
@@ -50,6 +52,7 @@ public final class BlockStateTable {
         register(MarblesBlocks.PINK_SALT_SPIRE, block -> predefined(name(block, "block/%s")));
         register(MarblesBlocks.PINK_SALT_STACK, block -> predefined(name(block, "block/%s")));
         register(MarblesBlocks.PINK_SALT_STUMP, block -> predefined(name(block, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_SPIKES, block -> using(name(block, "block/%s"), name -> alternate(name, doubleCross(name + "_1"), doubleCross(name + "_2"))));
 
         register(MarblesBlocks.LAPIS_SHINGLES, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(MarblesBlocks.LAPIS_SHINGLE_SLAB, block -> using(name(block, "block/%s_shingles", "_shingle_slab"), n -> slabAll(name(block, "block/%s"), n, n)));

@@ -101,6 +101,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
 
         addDrop(MarblesBlocks.TRAVERTINE_OBSIDIAN);
 
+        addDrop(MarblesBlocks.SALT_CAVE_AIR, block -> dropsNothing());
         addDrop(MarblesBlocks.PINK_SALT);
         addDrop(MarblesBlocks.PINK_SALT_SLAB);
         addDrop(MarblesBlocks.PINK_SALT_STAIRS);
@@ -110,15 +111,16 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.PINK_SALT_BRICK_STAIRS);
         addDrop(MarblesBlocks.PINK_SALT_PILLAR);
         addDrop(MarblesBlocks.PINK_SALT_SPIRE);
-        addDrop(MarblesBlocks.PINK_SALT_STACK, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countBiased(1, 4)));
-        addDrop(MarblesBlocks.PINK_SALT_STUMP, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countBiased(1, 2)));
+        addDrop(MarblesBlocks.PINK_SALT_STACK, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countRandom(1, 4)));
+        addDrop(MarblesBlocks.PINK_SALT_STUMP, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countRandom(1, 2)));
+        addDrop(MarblesBlocks.PINK_SALT_SPIKES, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countBiased(2, 0.4f)));
 
         addDrop(MarblesBlocks.LAPIS_SHINGLES);
         addSlabDrop(MarblesBlocks.LAPIS_SHINGLE_SLAB);
         addDrop(MarblesBlocks.LAPIS_SHINGLE_STAIRS);
         addDrop(MarblesBlocks.LAPIS_SPOTLIGHT);
         addDrop(MarblesBlocks.GLAZED_LAPIS);
-        addDrop(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> dropsWithSilkTouch(block, MarblesItems.UMBRAL_LAZULI, countBiased(4, 9)));
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> dropsWithSilkTouch(block, MarblesItems.UMBRAL_LAZULI, countBiased(4, 0.4f)));
         addDrop(MarblesBlocks.UMBRAL_LAZULI_BLOCK);
         addDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLES);
         addSlabDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB);

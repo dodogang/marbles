@@ -76,8 +76,30 @@ public class MarblesBlocks {
     // PINK SALT
     //
 
-    public static final Block PINK_SALT = register("pink_salt", new Block(FabricBlockSettings.copyOf(Blocks.STONE).sounds(MarblesSoundGroups.PINK_SALT)));
-    public static final Block CRUMBLED_PINK_SALT = register("crumbled_pink_salt", new FallingBlock(FabricBlockSettings.copyOf(PINK_SALT)));
+    // Used in salt cave features to check whether a position is in a salt cave
+    public static final Block SALT_CAVE_AIR = register("salt_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
+
+    public static final Block PINK_SALT = register(
+        "pink_salt",
+        new Block(
+            FabricBlockSettings.of(Material.STONE, MaterialColor.ORANGE)
+                               .strength(1.2f, 6f)
+                               .breakByTool(FabricToolTags.PICKAXES)
+                               .materialColor(MaterialColor.ORANGE)
+                               .requiresTool()
+                               .sounds(MarblesSoundGroups.PINK_SALT)
+        )
+    );
+    public static final Block CRUMBLED_PINK_SALT = register(
+        "crumbled_pink_salt",
+        new FallingBlock(
+            FabricBlockSettings.of(Material.STONE, MaterialColor.ORANGE)
+                               .strength(0.9f, 3f)
+                               .breakByTool(FabricToolTags.PICKAXES)
+                               .materialColor(MaterialColor.ORANGE)
+                               .sounds(MarblesSoundGroups.PINK_SALT)
+        )
+    );
     public static final Block PINK_SALT_SLAB = createSlab(PINK_SALT); // I mean, I hate these methods too but ok
     public static final Block PINK_SALT_STAIRS = createStairs(PINK_SALT);
 
@@ -89,22 +111,38 @@ public class MarblesBlocks {
 
     public static final Block PINK_SALT_SPIRE = register(
         PinkSaltSpireBlock.id, new PinkSaltSpireBlock(
-            FabricBlockSettings.copyOf(PINK_SALT)
+            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_SPIRE, MaterialColor.ORANGE)
+                               .sounds(MarblesSoundGroups.PINK_SALT)
+                               .strength(0.9f, 3f)
+                               .requiresTool()
+                               .breakByTool(FabricToolTags.PICKAXES)
                                .luminance(state -> 4)
         )
     );
     public static final Block PINK_SALT_STACK = register(
         PinkSaltStackBlock.id, new PinkSaltStackBlock(
-            FabricBlockSettings.copyOf(PINK_SALT)
+            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_SPIRE, MaterialColor.ORANGE)
+                               .sounds(MarblesSoundGroups.PINK_SALT)
+                               .strength(0.15f, 1f)
+                               .breakByTool(FabricToolTags.PICKAXES)
                                .luminance(state -> state.get(MarblesProperties.RETAINED_LIGHT))
-                               .breakInstantly()
         )
     );
     public static final Block PINK_SALT_STUMP = register(
         PinkSaltStumpBlock.id, new PinkSaltStumpBlock(
-            FabricBlockSettings.copyOf(PINK_SALT)
+            FabricBlockSettings.of(Material.PLANT, MaterialColor.ORANGE)
+                               .sounds(MarblesSoundGroups.PINK_SALT)
+                               .strength(0.05f, 1f)
+                               .breakByTool(FabricToolTags.PICKAXES)
                                .luminance(state -> state.get(MarblesProperties.RETAINED_LIGHT) / 3)
+        )
+    );
+    public static final Block PINK_SALT_SPIKES = register(
+        PinkSaltSpikeBlock.id, new PinkSaltSpikeBlock(
+            FabricBlockSettings.of(Material.PLANT, MaterialColor.ORANGE)
+                               .sounds(MarblesSoundGroups.PINK_SALT)
                                .breakInstantly()
+                               .nonOpaque()
         )
     );
 

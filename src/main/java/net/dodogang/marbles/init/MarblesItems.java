@@ -5,7 +5,6 @@ import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.YellowScaffoldingBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 

@@ -1,6 +1,8 @@
-package net.dodogang.marbles.mixin.hooks;
+package net.dodogang.marbles.mixin.hooks.client;
 
 import net.dodogang.marbles.init.MarblesBlocks;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.particle.BlockDustParticle;
@@ -14,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@Environment(EnvType.CLIENT)
 @Mixin(BlockDustParticle.class)
 public abstract class BlockDustParticleMixin extends SpriteBillboardParticle {
     @Shadow

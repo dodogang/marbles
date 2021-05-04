@@ -43,6 +43,7 @@ public final class ItemModelTable {
         register(MarblesBlocks.PINK_SALT_SPIRE, item -> generated(name(item, "item/%s")));
         register(MarblesBlocks.PINK_SALT_STACK, item -> generated(name(item, "item/%s")));
         register(MarblesBlocks.PINK_SALT_STUMP, item -> generated(name(item, "item/%s")));
+        register(MarblesBlocks.PINK_SALT_SPIKES, item -> generated(name(item, "item/%s")));
 
         register(MarblesBlocks.LAPIS_SHINGLES, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.LAPIS_SHINGLE_SLAB, item -> inherit(name(item, "block/%s")));

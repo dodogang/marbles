@@ -1,6 +1,8 @@
-package net.dodogang.marbles.mixin.hooks;
+package net.dodogang.marbles.mixin.hooks.client;
 
 import net.dodogang.marbles.tag.MarblesBlockTags;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.util.math.BlockPos;
@@ -11,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@Environment(EnvType.CLIENT)
 @Mixin(BiomeColors.class)
 public class BiomeColorsMixin {
     @Inject(method = "getGrassColor", at = @At("HEAD"), cancellable = true)

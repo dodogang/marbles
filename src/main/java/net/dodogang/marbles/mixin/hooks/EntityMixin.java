@@ -1,11 +1,17 @@
 package net.dodogang.marbles.mixin.hooks;
 
+import net.dodogang.marbles.MarblesClient;
+import net.dodogang.marbles.block.TravertinePortalBlock;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.mixin.TravertinePortalingEntity;
 import net.dodogang.marbles.util.TravertinePortalForcer;
 import net.dodogang.marbles.util.TravertinePortalHelper;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.NetherPortalBlock;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
@@ -49,7 +55,8 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
     @Shadow
     public abstract double getZ();
 
-    @Shadow protected BlockPos lastNetherPortalPosition;
+    @Shadow
+    protected BlockPos lastNetherPortalPosition;
 
     @Shadow
     public abstract EntityDimensions getDimensions(EntityPose pose);
@@ -77,8 +84,18 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
         )
     )
     private void onTickNetherPortal(CallbackInfo cb) {
-        if (world.getBlockState(lastNetherPortalPosition).isOf(MarblesBlocks.TRAVERTINE_PORTAL)) {
-            netherPortalTime += 2; // Speed up
+        Block block = this.world.getBlockState(lastNetherPortalPosition).getBlock();
+        if (block instanceof TravertinePortalBlock) {
+            this.netherPortalTime += ((TravertinePortalBlock) block).getPortalTravelSpeedAdditional(); // Speed up
+        }
+    }
+
+    @Environment(EnvType.CLIENT)
+    @Inject(method = "setInNetherPortal", at = @At("HEAD"))
+    private void catchNetherPortalState(BlockPos pos, CallbackInfo ci) {
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client != null && client.world != null) {
+            MarblesClient.lastNetherPortalState = client.world.getBlockState(pos);
         }
     }
 

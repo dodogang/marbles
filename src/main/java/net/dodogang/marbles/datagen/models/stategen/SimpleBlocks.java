@@ -13,6 +13,10 @@ public abstract class SimpleBlocks {
         return VariantsBlockStateGen.variants(ModelInfo.create(name, model));
     }
 
+    public static StateGen alternate(String name, ModelGen model1, ModelGen model2) {
+        return VariantsBlockStateGen.variants(ModelInfo.create(name + "_1", model1), ModelInfo.create(name + "_2", model2));
+    }
+
     public static StateGen farmland(String name, ModelGen model, ModelGen moist) {
         return VariantsBlockStateGen.variants("moisture=0", ModelInfo.create(name, model))
                                     .variant("moisture=1", ModelInfo.create(name, model))

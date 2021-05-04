@@ -3,13 +3,12 @@ package net.dodogang.marbles.client.color.world;
 import com.google.common.collect.Sets;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.math.BlockPos;
-
-import java.util.Set;
-
 import net.shadew.ptg.noise.Noise3D;
 import net.shadew.ptg.noise.opensimplex.FractalOpenSimplex3D;
 import net.shadew.util.misc.ColorUtil;
 import net.shadew.util.misc.MathUtil;
+
+import java.util.Set;
 
 public class MarblesBiomeColors {
     private static final MinecraftClient client = MinecraftClient.getInstance();

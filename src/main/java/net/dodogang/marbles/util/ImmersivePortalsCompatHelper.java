@@ -11,7 +11,7 @@ import java.lang.invoke.MethodHandles;
 public class ImmersivePortalsCompatHelper {
     private static final Logger LOGGER = LogManager.getLogger();
     private static boolean isPresent;
-    private static MethodHandles.Lookup lookup = MethodHandles.lookup();
+    private static final MethodHandles.Lookup lookup = MethodHandles.lookup();
     private static Class<?> global;
     private static Class<?> netherPortalMode;
     private static MethodHandle global_netherPortalMode;

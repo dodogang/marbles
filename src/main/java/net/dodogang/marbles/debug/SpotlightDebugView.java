@@ -16,7 +16,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Matrix4f;
 import net.minecraft.world.World;
-
 import net.shadew.debug.api.render.DebugView;
 
 public class SpotlightDebugView implements DebugView {

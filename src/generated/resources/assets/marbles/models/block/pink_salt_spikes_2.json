@@ -1,0 +1,6 @@
+{
+  "parent": "marbles:block/double_cross",
+  "textures": {
+    "cross": "marbles:block/pink_salt_spikes_2"
+  }
+}

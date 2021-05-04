@@ -15,12 +15,18 @@
     "PointOfInterestTypeMixin",
     "ProtoWorldChunkMixin",
     "WorldMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "WorldMixin",
+    "worldgen.ChunkGenSettingsAccessor",
+    "worldgen.GeneratorTypeAccessor",
+    "worldgen.NoiseChunkGeneratorMixin"
   ],
   "client": [
-    "BiomeColorsMixin",
-    "BlockDustParticleMixin",
-    "ClientWorldMixin"
+    "client.BiomeColorsMixin",
+    "client.BlockDustParticleMixin",
+    "client.ClientWorldMixin",
+    "client.InGameHudMixin",
+    "client.ClientPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
