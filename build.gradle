@@ -10,7 +10,7 @@ archivesBaseName = project.archives_base_name
 group = project.maven_group
 
 if (System.env.CI == "true") {
-    version = "${project.mod_version}+a${System.env.GITHUB_RUN_NUMBER}.${project.minecraft_version}-fabric"
+    version = "${project.mod_version}+a${System.env.GITHUB_RUN_NUMBER}.${System.env.GITHUB_REF.replaceAll("refs/heads/", "").replaceAll("/", "-")}"
 }
 else {
     version = "${project.mod_version}+${project.minecraft_version}-fabric"
@@ -38,25 +38,37 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
     // chord
-    include("com.github.andantedevs:chord:${project.chord_version}") { exclude(group: "net.fabricmc.fabric-api") }
-    modImplementation("com.github.andantedevs:chord:${project.chord_version}") { exclude(group: "net.fabricmc.fabric-api") }
+    include("com.github.andantedevs:chord:${project.chord_version}") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
+    modImplementation("com.github.andantedevs:chord:${project.chord_version}") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
 
     // runtime utils
-    modRuntime("com.terraformersmc:modmenu:${project.mod_menu_version}") { exclude(group: "net.fabricmc.fabric-api") }
+    modRuntime("com.terraformersmc:modmenu:${project.mod_menu_version}") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
     modRuntime("com.github.joaoh1:OkZoomer:${project.okzoomer_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-        exclude(group: "me.shedaniel.cloth")
+        exclude group: "net.fabricmc.fabric-api"
+        exclude group: "me.shedaniel.cloth"
+        exclude group: "io.github.prospector"
     }
 
     // modRuntime ("com.github.jellysquid3:sodium-fabric:${project.sodium_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
-    modRuntime("com.github.jellysquid3:lithium-fabric:${project.lithium_version}") { exclude(group: "net.fabricmc.fabric-api") }
-    modRuntime("com.github.jellysquid3:phosphor-fabric:${project.phosphor_version}") { exclude(group: "net.fabricmc.fabric-api") }
+    modRuntime("com.github.jellysquid3:lithium-fabric:${project.lithium_version}") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
+    modRuntime("com.github.jellysquid3:phosphor-fabric:${project.phosphor_version}") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
 
     if (!Boolean.parseBoolean("${project.ip_enabled}")) { // Immersive Portals is incompatible with Canvas
         modImplementation("grondag:canvas-mc116:1.0.1267") {
             exclude group: "net.fabricmc"
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel"
+            exclude group: "io.github.prospector"
         }
     }
     modImplementation("net.shadew:jedt:0.1") {
