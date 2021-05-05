@@ -10,11 +10,7 @@ archivesBaseName = project.archives_base_name
 group = project.maven_group
 
 if (System.env.CI == "true") {
-    def branch
-    branch = System.env.GITHUB_REF
-    branch = branch.substring(branch.lastIndexOf("/") + 1)
-
-    version = "${project.mod_version}+a${System.env.GITHUB_RUN_NUMBER}.${branch}-fabric"
+    version = "${project.mod_version}+a${System.env.GITHUB_RUN_NUMBER}.${project.minecraft_version}-fabric"
 }
 else {
     version = "${project.mod_version}+${project.minecraft_version}-fabric"
@@ -25,6 +21,7 @@ minecraft {}
 repositories {
     maven { url "https://jitpack.io/" }
     maven { url "https://maven.dblsaiko.net/" }
+    maven { url "https://maven.terraformersmc.com/releases/" }
     maven { url "https://server.bbkr.space/artifactory/libs-release/" }
     maven { url 'https://maven.blamejared.com/' }
     maven { url "https://maven.fabricmc.net/" }
@@ -45,8 +42,11 @@ dependencies {
     modImplementation("com.github.andantedevs:chord:${project.chord_version}") { exclude(group: "net.fabricmc.fabric-api") }
 
     // runtime utils
-    modRuntime("io.github.prospector:modmenu:${project.mod_menu_version}") { exclude(group: "net.fabricmc.fabric-api") }
-    modRuntime("com.github.joaoh1:OkZoomer:${project.okzoomer_version}") { exclude(group: "net.fabricmc.fabric-api") }
+    modRuntime("com.terraformersmc:modmenu:${project.mod_menu_version}") { exclude(group: "net.fabricmc.fabric-api") }
+    modRuntime("com.github.joaoh1:OkZoomer:${project.okzoomer_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+        exclude(group: "me.shedaniel.cloth")
+    }
 
     // modRuntime ("com.github.jellysquid3:sodium-fabric:${project.sodium_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
     modRuntime("com.github.jellysquid3:lithium-fabric:${project.lithium_version}") { exclude(group: "net.fabricmc.fabric-api") }
