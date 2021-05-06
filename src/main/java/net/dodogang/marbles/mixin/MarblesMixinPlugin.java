@@ -1,6 +1,7 @@
 package net.dodogang.marbles.mixin;
 
 import com.google.common.collect.Lists;
+import net.dodogang.marbles.Marbles;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -30,7 +31,7 @@ public class MarblesMixinPlugin implements IMixinConfigPlugin {
     @Override
     public List<String> getMixins() {
         // We need these here just to have them under a system property
-        if (Boolean.parseBoolean(System.getProperty("marbles.datagen"))) {
+        if (Boolean.parseBoolean(System.getProperty(Marbles.MOD_ID + ".datagen"))) {
             return Lists.newArrayList(
                 "datagen.DataGenMixin",
                 "datagen.DataCacheMixin",

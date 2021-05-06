@@ -18,7 +18,6 @@
     "PlayerEntityMixin",
     "WorldMixin",
     "worldgen.ChunkGenSettingsAccessor",
-    "worldgen.GeneratorTypeAccessor",
     "worldgen.NoiseChunkGeneratorMixin"
   ],
   "client": [

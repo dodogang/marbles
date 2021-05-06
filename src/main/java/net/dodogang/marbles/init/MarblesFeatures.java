@@ -17,9 +17,6 @@ public class MarblesFeatures {
     public static final Feature<DiskFeatureConfig> DISK = register("disk", new DiskFeature(DiskFeatureConfig.CODEC));
     public static final Feature<DefaultFeatureConfig> SALT_SPIKES = register(SaltSpikesFeature.id, new SaltSpikesFeature(DefaultFeatureConfig.CODEC));
 
-    public MarblesFeatures() {
-    }
-
     private static <C extends FeatureConfig, F extends Feature<C>> F register(String id, F feature) {
         return Registry.register(Registry.FEATURE, new Identifier(Marbles.MOD_ID, id), feature);
     }

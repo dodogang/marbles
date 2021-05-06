@@ -172,9 +172,6 @@ public class MarblesConfiguredFeatures {
             .decorate(Decorator.COUNT.configure(new CountConfig(24)))
     );
 
-    public MarblesConfiguredFeatures() {
-    }
-
     private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) {
         return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Marbles.MOD_ID, id), configuredFeature);
     }

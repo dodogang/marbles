@@ -13,8 +13,4 @@ public class MarblesProperties {
      * A property that specifies the vertical direction of a block.
      */
     public static final IntProperty RETAINED_LIGHT = IntProperty.of("retained_light", 0, 15);
-    /*
-     * A property that specifies the distance from a certain block
-     */
-    public static final IntProperty DISTANCE_0_31 = IntProperty.of("distance", 0, 31);
 }

@@ -1,12 +1,12 @@
 package net.dodogang.marbles;
 
+import com.google.common.reflect.Reflection;
 import net.dodogang.marbles.client.network.MarblesClientNetwork;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
 import net.dodogang.marbles.entity.BouncerEntity;
-import net.dodogang.marbles.init.MarblesBlocksClient;
+import net.dodogang.marbles.client.init.MarblesBlocksClient;
 import net.dodogang.marbles.init.MarblesEntities;
-import net.dodogang.marbles.init.MarblesGenTypes;
 import net.dodogang.marbles.init.MarblesParticles;
 import net.dodogang.marbles.network.MarblesNetworkingConstants;
 import net.fabricmc.api.ClientModInitializer;
@@ -24,6 +24,7 @@ import java.util.UUID;
 public class MarblesClient implements ClientModInitializer {
     public static BlockState lastNetherPortalState = Blocks.NETHER_PORTAL.getDefaultState();
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public void onInitializeClient() {
         ParticleFactoryRegistry pfrInstance = ParticleFactoryRegistry.getInstance();
@@ -48,9 +49,10 @@ public class MarblesClient implements ClientModInitializer {
             }
         });
 
-        new MarblesGenTypes();
-        MarblesBlocksClient.init();
-        MarblesClientNetwork.initClient();
+        Reflection.initialize(
+            MarblesBlocksClient.class,
+            MarblesClientNetwork.class
+        );
     }
 
     public static Identifier texture(String path) {

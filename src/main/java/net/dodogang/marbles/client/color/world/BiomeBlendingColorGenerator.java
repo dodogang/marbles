@@ -1,5 +1,7 @@
 package net.dodogang.marbles.client.color.world;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.CuboidBlockIterator;
@@ -7,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.shadew.util.misc.ColorUtil;
 
+@Environment(EnvType.CLIENT)
 public interface BiomeBlendingColorGenerator extends ColorGenerator {
     int getBiomeColor(ClientWorld world, BlockPos pos, Biome biome);
 

@@ -1,8 +1,10 @@
-package net.dodogang.marbles.debug;
+package net.dodogang.marbles.client.debug;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.dodogang.marbles.block.SpotlightBlock;
 import net.dodogang.marbles.util.SpotlightUtil;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
@@ -11,13 +13,13 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.render.debug.DebugRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Matrix4f;
 import net.minecraft.world.World;
 import net.shadew.debug.api.render.DebugView;
 
+@Environment(EnvType.CLIENT)
 public class SpotlightDebugView implements DebugView {
     public static boolean enabled = false;
 
@@ -97,11 +99,6 @@ public class SpotlightDebugView implements DebugView {
         }
 
         matrices.pop();
-
-        for (BlockPos pos : BlockPos.iterate(playerPos.add(-8, -8, -8), playerPos.add(8, 8, 8))) {
-            FluidState fluid = world.getFluidState(pos);
-            if (fluid.getLevel() <= 0) continue;
-        }
 
         RenderSystem.enableTexture();
         RenderSystem.disableBlend();

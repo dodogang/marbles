@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import me.andante.chord.block.helper.WoodBlocks;
+import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesItems;
@@ -178,7 +179,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         Set<Identifier> set = Sets.newHashSet();
         Iterable<Block> blocks = Registry.BLOCK
                                      .stream()
-                                     .filter(block -> Registry.BLOCK.getId(block).getNamespace().equals("marbles"))
+                                     .filter(block -> Registry.BLOCK.getId(block).getNamespace().equals(Marbles.MOD_ID))
                                      ::iterator;
 
         for (Block block : blocks) {

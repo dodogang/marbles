@@ -2,16 +2,20 @@ package net.dodogang.marbles.debug;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.util.SpotlightUtil;
 import net.minecraft.command.argument.BlockPosArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
 public class MarblesDebugCommand {
+    public static final Identifier ID = new Identifier(Marbles.MOD_ID, "debug");
+
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(
-            CommandManager.literal("marbles:debug").requires(src -> src.hasPermissionLevel(2)).then(
+            CommandManager.literal(MarblesDebugCommand.ID.toString()).requires(src -> src.hasPermissionLevel(2)).then(
                 CommandManager.literal("setspotlight").then(
                     CommandManager.argument("pos", BlockPosArgumentType.blockPos()).then(
                         CommandManager.argument("val", IntegerArgumentType.integer()).executes(

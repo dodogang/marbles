@@ -35,7 +35,7 @@ public class ToolClickHandlers {
         map.put(MarblesBlocks.GRISP_MYCELIUM, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
     });
 
-    public static void init() {
+    static {
         UseBlockCallback.EVENT.register(ToolClickHandlers::onItemUse);
     }
 
@@ -83,7 +83,6 @@ public class ToolClickHandlers {
     private static void playFlattenSound(World world, BlockPos pos, PlayerEntity player) {
         world.playSound(player, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1, 1);
     }
-
     private static void playTillSound(World world, BlockPos pos, PlayerEntity player) {
         world.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1, 1);
     }

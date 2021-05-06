@@ -9,6 +9,7 @@ import net.dodogang.marbles.block.*;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
 import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
+import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.state.property.MarblesProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -22,37 +23,37 @@ import net.minecraft.util.registry.Registry;
 
 @SuppressWarnings("unused")
 public class MarblesBlocks {
-    //
-    // WOOD
-    //
+    /*
+     * WOOD
+     */
 
     public static final WoodBlocks ASPEN = new WoodBlocks.Builder()
                                                .saplingGenerator(new AspenSaplingGenerator())
                                                .boatType(BoatEntity.Type.BIRCH)
-                                               .itemGroup(Marbles.ITEM_GROUP)
+                                               .itemGroup(MarblesItemGroup.INSTANCE)
                                                .build(Marbles.MOD_ID, "aspen");
 
     public static final WoodBlocks HOOPSI_SPRUCE = new WoodBlocks.Builder()
                                                        .saplingGenerator(new HoopsiSpruceSaplingGenerator())
                                                        .boatType(BoatEntity.Type.SPRUCE)
-                                                       .itemGroup(Marbles.ITEM_GROUP)
+                                                       .itemGroup(MarblesItemGroup.INSTANCE)
                                                        .build(Marbles.MOD_ID, "hoopsi_spruce");
 
-    //
-    // TRAVERTINE
-    //
+    /*
+     * TRAVERTINE
+     */
 
     public static final TravertineBlocks TRAVERTINE_BLOCKS = new TravertineBlocks(
-        Marbles.MOD_ID, "travertine", Marbles.ITEM_GROUP, MaterialColor.WHITE
+        Marbles.MOD_ID, "travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE
     );
     public static final TravertineBlocks LEMON_TRAVERTINE_BLOCKS = new TravertineBlocks(
-        Marbles.MOD_ID, "lemon_travertine", Marbles.ITEM_GROUP, MaterialColor.WHITE
+        Marbles.MOD_ID, "lemon_travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE
     );
     public static final TravertineBlocks PEACH_TRAVERTINE_BLOCKS = new TravertineBlocks(
-        Marbles.MOD_ID, "peach_travertine", Marbles.ITEM_GROUP, MaterialColor.WHITE_TERRACOTTA
+        Marbles.MOD_ID, "peach_travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE_TERRACOTTA
     );
     public static final TravertineBlocks TANGERINE_TRAVERTINE_BLOCKS = new TravertineBlocks(
-        Marbles.MOD_ID, "tangerine_travertine", Marbles.ITEM_GROUP, MaterialColor.ORANGE
+        Marbles.MOD_ID, "tangerine_travertine", MarblesItemGroup.INSTANCE, MaterialColor.ORANGE
     );
 
 
@@ -70,11 +71,9 @@ public class MarblesBlocks {
         false
     );
 
-
-
-    //
-    // PINK SALT
-    //
+    /*
+     * PINK SALT
+     */
 
     // Used in salt cave features to check whether a position is in a salt cave
     public static final Block SALT_CAVE_AIR = register("salt_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
@@ -146,10 +145,9 @@ public class MarblesBlocks {
         )
     );
 
-
-    //
-    // LAPIS SETS
-    //
+    /*
+     * LAPIS SETS
+     */
 
     public static final Block LAPIS_SHINGLES = register("lapis_shingles", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
     public static final Block LAPIS_SHINGLE_SLAB = createSlab("lapis_shingle", LAPIS_SHINGLES);
@@ -167,20 +165,18 @@ public class MarblesBlocks {
 
     public static final Block GLAZED_UMBRAL_LAZULI = register("glazed_umbral_lazuli", new DualConnectingBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
 
-
-    //
-    // YELLOW BAMBOO
-    //
+    /*
+     * YELLOW BAMBOO
+    */
 
     public static final CBambooBlock YELLOW_BAMBOO = (CBambooBlock) register("yellow_bamboo", new CBambooBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO)));
     public static final CBambooSaplingBlock YELLOW_BAMBOO_SAPLING = (CBambooSaplingBlock) register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO_SAPLING)), false);
 
     public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copyOf(Blocks.SCAFFOLDING)), false);
 
-
-    //
-    // SANDS
-    //
+    /*
+     * SANDS
+     */
 
     public static final Block DAWN_SAND = register("dawn_sand", new SandBlock(0xA95821, FabricBlockSettings.copyOf(Blocks.RED_SAND)));
 
@@ -200,7 +196,6 @@ public class MarblesBlocks {
     public static final Block DAWN_SANDSTONE_WALL = createWall(DAWN_SANDSTONE);
     public static final Block CUT_DAWN_SANDSTONE_WALL = createWall(CUT_DAWN_SANDSTONE);
     public static final Block SMOOTH_DAWN_SANDSTONE_WALL = createWall(SMOOTH_DAWN_SANDSTONE);
-
 
     public static final Block DUSK_SAND = register(
         "dusk_sand", new SandBlock(
@@ -232,10 +227,9 @@ public class MarblesBlocks {
     public static final Block CUT_DUSK_SANDSTONE_WALL = createWall(CUT_DUSK_SANDSTONE);
     public static final Block SMOOTH_DUSK_SANDSTONE_WALL = createWall(SMOOTH_DUSK_SANDSTONE);
 
-
-    //
-    // GRISP DIRT
-    //
+    /*
+     * GRISP DIRT
+     */
 
     public static final Block GRISP_DIRT = register("grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_DIRT_PATH = register("grisp_dirt_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().materialColor(MaterialColor.DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
@@ -248,19 +242,13 @@ public class MarblesBlocks {
     public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).nonOpaque().materialColor(MaterialColor.PURPLE_TERRACOTTA).breakByTool(FabricToolTags.SHOVELS, 0)));
 
-
-
-
-
-    public MarblesBlocks() {
-    }
-
     public static Block register(String id, Block block, boolean registerItem) {
         Identifier identifier = new Identifier(Marbles.MOD_ID, id);
 
         Block registeredBlock = Registry.register(Registry.BLOCK, identifier, block);
-        if (registerItem)
-            Registry.register(Registry.ITEM, identifier, new BlockItem(registeredBlock, new Item.Settings().maxCount(64).group(Marbles.ITEM_GROUP)));
+        if (registerItem) {
+            Registry.register(Registry.ITEM, identifier, new BlockItem(registeredBlock, new Item.Settings().maxCount(64).group(MarblesItemGroup.INSTANCE)));
+        }
 
         return registeredBlock;
     }
@@ -272,7 +260,6 @@ public class MarblesBlocks {
     private static Block createSlab(Block block) {
         return createSlab(getBlockId(block), block);
     }
-
     private static Block createSlab(String id, Block block) {
         return register(id + "_slab", new SlabBlock(FabricBlockSettings.copyOf(block)));
     }
@@ -280,7 +267,6 @@ public class MarblesBlocks {
     private static Block createWall(Block block) {
         return createWall(getBlockId(block), block);
     }
-
     private static Block createWall(String id, Block block) {
         return register(id + "_wall", new WallBlock(FabricBlockSettings.copyOf(block)));
     }
@@ -288,7 +274,6 @@ public class MarblesBlocks {
     private static Block createStairs(Block block) {
         return createStairs(getBlockId(block), block);
     }
-
     private static Block createStairs(String id, Block block) {
         return register(id + "_stairs", new PublicStairsBlock(block.getDefaultState(), FabricBlockSettings.copyOf(block)));
     }

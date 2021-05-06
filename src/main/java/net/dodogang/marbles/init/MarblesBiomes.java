@@ -26,7 +26,7 @@ public class MarblesBiomes {
     public static final RegistryKey<Biome> ASPEN_FOREST = register("aspen_forest", createAspenForest());
     public static final RegistryKey<Biome> HOOPSI_SPRUCE_FOREST = register("hoopsi_spruce_forest", createHoopsiSpruceForest());
 
-    public MarblesBiomes() {
+    static {
         OverworldBiomes.addBiomeVariant(BiomeKeys.BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE, 0.5F, OverworldClimate.TEMPERATE);
         OverworldBiomes.addHillsBiome(MarblesBiomes.YELLOW_BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE_HILLS, 1.0F);
     }

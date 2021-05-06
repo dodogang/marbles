@@ -1,7 +1,10 @@
-package net.dodogang.marbles.init;
+package net.dodogang.marbles.client.init;
 
 import me.andante.chord.util.CClientUtils;
 import net.dodogang.marbles.client.color.world.MarblesBiomeColors;
+import net.dodogang.marbles.init.MarblesBlocks;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.Block;
@@ -10,8 +13,9 @@ import net.minecraft.client.color.item.ItemColorProvider;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.ItemConvertible;
 
+@Environment(EnvType.CLIENT)
 public class MarblesBlocksClient {
-    public static void init() {
+    static {
         CClientUtils.registerWoodBlocks(MarblesBlocks.ASPEN, MarblesBlocks.HOOPSI_SPRUCE);
 
         BlockRenderLayerMap brlm = BlockRenderLayerMap.INSTANCE;

@@ -19,7 +19,7 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
     @Shadow
     @Final
     private long seed;
-    private SaltCaveGenerator saltCaveGenerator;
+    private SaltCaveGenerator marbles_saltCaveGenerator;
 
     @SuppressWarnings("unused")
     private NoiseChunkGeneratorMixin(BiomeSource biomeSource, StructuresConfig structuresConfig) {
@@ -31,11 +31,11 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
         super(populationSource, biomeSource, structuresConfig, worldSeed);
     }
 
-    private SaltCaveGenerator getSaltCaveGenerator() {
-        if (saltCaveGenerator == null) {
-            saltCaveGenerator = new SaltCaveGenerator(seed, this);
+    private SaltCaveGenerator marbles_getSaltCaveGenerator() {
+        if (marbles_saltCaveGenerator == null) {
+            marbles_saltCaveGenerator = new SaltCaveGenerator(seed, this);
         }
-        return saltCaveGenerator;
+        return marbles_saltCaveGenerator;
     }
 
     @Override
@@ -43,13 +43,13 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
         super.carve(seed, access, chunk, carver);
 
         if (carver == GenerationStep.Carver.LIQUID) {
-            getSaltCaveGenerator().generateSaltCaves(seed, access, chunk);
+            marbles_getSaltCaveGenerator().generateSaltCaves(seed, access, chunk);
         }
     }
 
     @Override
     public void generateFeatures(ChunkRegion region, StructureAccessor accessor) {
         super.generateFeatures(region, accessor);
-        getSaltCaveGenerator().decorate(region, accessor);
+        marbles_getSaltCaveGenerator().decorate(region, accessor);
     }
 }

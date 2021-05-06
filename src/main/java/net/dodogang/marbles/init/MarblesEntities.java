@@ -3,6 +3,9 @@ package net.dodogang.marbles.init;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.MarblesClient;
 import net.dodogang.marbles.entity.BouncerEntity;
+import net.dodogang.marbles.item.MarblesItemGroup;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
@@ -38,12 +41,13 @@ public class MarblesEntities {
         EntityType<T> builtEntityType = entityType.build();
 
         if (spawnEggColors != null) {
-            Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, id + "_spawn_egg"), new SpawnEggItem(builtEntityType, spawnEggColors[0], spawnEggColors[1], new Item.Settings().maxCount(64).group(Marbles.ITEM_GROUP)));
+            Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, id + "_spawn_egg"), new SpawnEggItem(builtEntityType, spawnEggColors[0], spawnEggColors[1], new Item.Settings().maxCount(64).group(MarblesItemGroup.INSTANCE)));
         }
 
         return Registry.register(Registry.ENTITY_TYPE, new Identifier(Marbles.MOD_ID, id), builtEntityType);
     }
 
+    @Environment(EnvType.CLIENT)
     public static Identifier texture(String path) {
         return MarblesClient.texture("entity/" + path);
     }

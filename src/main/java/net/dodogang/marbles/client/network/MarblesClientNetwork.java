@@ -1,7 +1,7 @@
 package net.dodogang.marbles.client.network;
 
 import com.mojang.datafixers.util.Pair;
-import net.dodogang.marbles.network.MarblesNetwork;
+import net.dodogang.marbles.network.MarblesNetworkingConstants;
 import net.dodogang.marbles.util.SpotlightUtil;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,9 +13,8 @@ import java.util.List;
 
 @Environment(EnvType.CLIENT)
 public class MarblesClientNetwork {
-    @Environment(EnvType.CLIENT)
-    public static void initClient() {
-        ClientPlayNetworking.registerGlobalReceiver(MarblesNetwork.UPDATE_SPOTLIGHT_DATA, (client, handler, buf, responseSender) -> {
+    static {
+        ClientPlayNetworking.registerGlobalReceiver(MarblesNetworkingConstants.UPDATE_SPOTLIGHT_DATA, (client, handler, buf, responseSender) -> {
             List<Pair<BlockPos, Integer>> list = new ArrayList<>();
             int i = buf.readInt();
             while (i > 0) {

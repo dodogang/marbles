@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
+@SuppressWarnings({"UnusedMixin","unused"})
 @Mixin(DataGenerator.class)
 public abstract class DataGeneratorMixin implements DataGenAccess {
     @Shadow
@@ -30,8 +31,8 @@ public abstract class DataGeneratorMixin implements DataGenAccess {
     @Final
     private static Logger LOGGER;
 
-    @Override
     @SuppressWarnings("ConstantConditions") // Mixin's powers are beyond that of IntelliJ
+    @Override
     public void run(Consumer<DataCacheAccess> configure) throws IOException {
         DataCache dataCache = new DataCache(getOutput(), "cache");
         configure.accept((DataCacheAccess) dataCache);

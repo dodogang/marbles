@@ -1,14 +1,11 @@
 package net.dodogang.marbles;
 
+import com.google.common.reflect.Reflection;
 import net.dodogang.marbles.debug.MarblesDebugCommand;
 import net.dodogang.marbles.handler.ToolClickHandlers;
 import net.dodogang.marbles.init.*;
-import net.dodogang.marbles.item.MarblesItemGroup;
-import net.dodogang.marbles.world.gen.level.MarblesNoiseChunkGenerator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,35 +14,34 @@ public class Marbles implements ModInitializer {
     public static final String MOD_ID = "marbles";
     public static final String MOD_NAME = "Marbles";
 
-    public static final ItemGroup ITEM_GROUP = new MarblesItemGroup();
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     private static boolean initialized = false;
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public void onInitialize() {
         if (!initialized) { // We need this because data gen may do an early initialization call
             log("Initializing");
 
-            new MarblesParticles();
+            Reflection.initialize(
+                MarblesBlocks.class,
+                MarblesItems.class,
+                MarblesEntities.class,
 
-            new MarblesBlocks();
-            new MarblesItems();
-            new MarblesEntities();
+                MarblesFeatures.class,
+                MarblesConfiguredFeatures.class,
+                MarblesBiomes.class,
 
-            new MarblesFeatures();
-            new MarblesConfiguredFeatures();
-            Registry.register(Registry.CHUNK_GENERATOR, "marbles:noise", MarblesNoiseChunkGenerator.CODEC);
+                MarblesParticles.class,
+                MarblesSoundEvents.class,
 
-            new MarblesSoundEvents();
-
-            new MarblesBiomes();
+                ToolClickHandlers.class
+            );
 
             CommandRegistrationCallback.EVENT.register(
                 (dispatcher, dedicated) -> MarblesDebugCommand.register(dispatcher)
             );
-
-            ToolClickHandlers.init();
 
             log("Initialized");
 

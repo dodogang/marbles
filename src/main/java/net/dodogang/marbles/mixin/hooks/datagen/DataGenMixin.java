@@ -1,5 +1,6 @@
 package net.dodogang.marbles.mixin.hooks.datagen;
 
+import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.datagen.DataMain;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -10,16 +11,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("UnusedMixin")
 @Mixin({
     net.minecraft.client.main.Main.class,
     net.minecraft.server.Main.class
 })
 public class DataGenMixin {
     @Inject(method = "main", at = @At("HEAD"), cancellable = true)
-    private static void onDataMain(CallbackInfo info) {
-        boolean data = Boolean.parseBoolean(System.getProperty("marbles.datagen"));
+    private static void onDataMain(CallbackInfo ci) {
+        boolean data = Boolean.parseBoolean(System.getProperty(Marbles.MOD_ID + ".datagen"));
         if (data) {
-            String path = System.getProperty("marbles.datagen.path");
+            String path = System.getProperty(Marbles.MOD_ID + ".datagen.path");
 
             String[] paths = path == null ? new String[0] : path.split(";");
 
@@ -38,7 +40,7 @@ public class DataGenMixin {
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                info.cancel();
+                ci.cancel();
             }
         }
     }

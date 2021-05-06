@@ -21,6 +21,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Stream;
 
+@SuppressWarnings({"UnusedMixin","MismatchedQueryAndUpdateOfCollection"})
 @Mixin(DataCache.class)
 public abstract class DataCacheMixin implements DataCacheAccess {
     @Shadow
@@ -40,26 +41,23 @@ public abstract class DataCacheMixin implements DataCacheAccess {
     @Final
     private Set<Path> ignores;
 
-    private final Set<Path> copyOutputs = Sets.newHashSet();
-    private final Set<Path> unchangedPaths = Sets.newHashSet();
-
-    @Shadow
-    public abstract boolean contains(Path path);
+    private final Set<Path> marbles_copyOutputs = Sets.newHashSet();
+    private final Set<Path> marbles_unchangedPaths = Sets.newHashSet();
 
     @Shadow
     protected abstract Stream<Path> files();
 
     @Inject(method = "write", at = @At("RETURN"))
-    private void onWrite(CallbackInfo info) {
-        for (Path out : copyOutputs) {
+    private void onWrite(CallbackInfo ci) {
+        for (Path out : marbles_copyOutputs) {
             copyAll(out);
         }
     }
 
     @Inject(method = "updateSha1", at = @At("HEAD"))
-    private void onUpdateSha1(Path path, String sha1, CallbackInfo info) {
+    private void onUpdateSha1(Path path, String sha1, CallbackInfo ci) {
         if (Objects.equals(oldSha1.get(path), sha1)) {
-            unchangedPaths.add(path);
+            marbles_unchangedPaths.add(path);
         }
     }
 
@@ -80,7 +78,7 @@ public abstract class DataCacheMixin implements DataCacheAccess {
 
     @Override
     public void addCopyPath(Path out) {
-        copyOutputs.add(out);
+        marbles_copyOutputs.add(out);
     }
 
     @Override

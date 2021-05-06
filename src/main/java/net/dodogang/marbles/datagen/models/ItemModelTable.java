@@ -1,6 +1,7 @@
 package net.dodogang.marbles.datagen.models;
 
 import me.andante.chord.block.helper.WoodBlocks;
+import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 import net.dodogang.marbles.init.MarblesBlocks;
@@ -101,7 +102,7 @@ public final class ItemModelTable {
         register(MarblesBlocks.GRISP_MYCELIUM_PATH, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.GRISP_FARMLAND, item -> inherit(name(item, "block/%s")));
 
-        register(MarblesItems.YELLOW_SCAFFOLDING, item -> inherit("marbles:block/yellow_scaffolding_stable"));
+        register(MarblesItems.YELLOW_SCAFFOLDING, item -> inherit(new Identifier(Marbles.MOD_ID, "block/yellow_scaffolding_stable")));
         register(MarblesItems.PINK_SALT_SHARD, item -> generated(name(item, "item/%s")));
         register(MarblesItems.UMBRAL_LAZULI, item -> generated(name(item, "item/%s")));
     }

@@ -2,6 +2,7 @@ package net.dodogang.marbles.datagen.models.modelgen;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import net.dodogang.marbles.Marbles;
 import net.minecraft.util.Identifier;
 
 import java.util.LinkedHashMap;
@@ -14,9 +15,8 @@ public class InheritingModelGen implements ModelGen {
     public InheritingModelGen(Identifier parent) {
         this.parent = parent;
     }
-
     public InheritingModelGen(String parent) {
-        this.parent = new Identifier(parent);
+        this(Identifier.tryParse(parent));
     }
 
     public InheritingModelGen texture(String reference, String newReference) {
@@ -45,6 +45,9 @@ public class InheritingModelGen implements ModelGen {
 
     public static InheritingModelGen inherit(String parent) {
         return new InheritingModelGen(parent);
+    }
+    public static InheritingModelGen inherit(Identifier parent) {
+        return inherit(parent.toString());
     }
 
     public static InheritingModelGen cubeAll(String texture) {
@@ -152,7 +155,7 @@ public class InheritingModelGen implements ModelGen {
     }
 
     public static InheritingModelGen grassBlock(String bottom, String top, String side, String overlay) {
-        return new InheritingModelGen("marbles:block/layered_grass_block")
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/layered_grass_block"))
                    .texture("bottom", bottom)
                    .texture("top", top)
                    .texture("side", side)
@@ -160,7 +163,7 @@ public class InheritingModelGen implements ModelGen {
     }
 
     public static InheritingModelGen flattenedBlock(String bottom, String top, String side) {
-        return new InheritingModelGen("marbles:block/flattened_block")
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/flattened_block"))
                    .texture("bottom", bottom)
                    .texture("top", top)
                    .texture("side", side);
@@ -240,7 +243,7 @@ public class InheritingModelGen implements ModelGen {
     }
 
     public static InheritingModelGen doubleCross(String texture) {
-        return new InheritingModelGen("marbles:block/double_cross")
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/double_cross"))
                    .texture("cross", texture);
     }
 
@@ -280,28 +283,28 @@ public class InheritingModelGen implements ModelGen {
     }
 
     public static InheritingModelGen wallSidedSide(String bottom, String top, String side) {
-        return new InheritingModelGen("marbles:block/template_wall_sided_side")
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_wall_sided_side"))
                    .texture("bottom", bottom)
                    .texture("top", top)
                    .texture("side", side);
     }
 
     public static InheritingModelGen wallSidedSideTall(String bottom, String top, String side) {
-        return new InheritingModelGen("marbles:block/template_wall_sided_side_tall")
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_wall_sided_side_tall"))
                    .texture("bottom", bottom)
                    .texture("top", top)
                    .texture("side", side);
     }
 
     public static InheritingModelGen wallSidedPost(String bottom, String top, String side) {
-        return new InheritingModelGen("marbles:block/template_wall_sided_post")
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_wall_sided_post"))
                    .texture("bottom", bottom)
                    .texture("top", top)
                    .texture("side", side);
     }
 
     public static InheritingModelGen wallSidedInventory(String bottom, String top, String side) {
-        return new InheritingModelGen("marbles:block/wall_sided_inventory")
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/wall_sided_inventory"))
                    .texture("bottom", bottom)
                    .texture("top", top)
                    .texture("side", side);
