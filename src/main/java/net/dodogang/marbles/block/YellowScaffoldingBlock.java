@@ -1,6 +1,6 @@
 package net.dodogang.marbles.block;
 
-import me.andante.chord.block.CScaffoldingBlock;
+import me.andante.chord.block.vanilla.CScaffoldingBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "marbles:gui/logo"
+    "layer0": "marbles:icon"
   }
 }

@@ -21,14 +21,8 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
     private long seed;
     private SaltCaveGenerator marbles_saltCaveGenerator;
 
-    @SuppressWarnings("unused")
     private NoiseChunkGeneratorMixin(BiomeSource biomeSource, StructuresConfig structuresConfig) {
         super(biomeSource, structuresConfig);
-    }
-
-    @SuppressWarnings("unused")
-    private NoiseChunkGeneratorMixin(BiomeSource populationSource, BiomeSource biomeSource, StructuresConfig structuresConfig, long worldSeed) {
-        super(populationSource, biomeSource, structuresConfig, worldSeed);
     }
 
     private SaltCaveGenerator marbles_getSaltCaveGenerator() {

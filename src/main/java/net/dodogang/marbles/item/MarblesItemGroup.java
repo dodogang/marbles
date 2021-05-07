@@ -1,8 +1,8 @@
 package net.dodogang.marbles.item;
 
 import com.google.common.collect.ImmutableList;
+import me.andante.chord.client.gui.item_group.ItemGroupTab;
 import me.andante.chord.item.item_group.AbstractTabbedItemGroup;
-import me.andante.chord.item.item_group.ItemGroupTab;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -18,7 +18,7 @@ import java.util.List;
 public class MarblesItemGroup extends AbstractTabbedItemGroup {
     public static final ItemGroup INSTANCE = new MarblesItemGroup(Marbles.MOD_ID);
 
-    public static final Item LOGO = Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, "logo"), new Item(new FabricItemSettings().food(new FoodComponent.Builder().alwaysEdible().hunger(20).build())));
+    public static final Item ICON = Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, "icon"), new Item(new FabricItemSettings().food(new FoodComponent.Builder().alwaysEdible().hunger(20).build())));
 
     protected MarblesItemGroup(String modId) {
         super(modId);
@@ -27,14 +27,15 @@ public class MarblesItemGroup extends AbstractTabbedItemGroup {
     @Override
     public List<ItemGroupTab> initTabs() {
         return ImmutableList.of(
-            createTab(MarblesBlocks.TRAVERTINE_BLOCKS.RAW, "travertine"),
-            createTab(MarblesBlocks.ASPEN.LOG, "wood"),
-            createTab(MarblesBlocks.DAWN_SAND, "sand")
+            createTab(MarblesBlocks.PINK_SALT, "pink_salt_and_travertine"),
+            createTab(MarblesBlocks.DAWN_SAND, "sunset_grotto"),
+            createTab(MarblesBlocks.GRISP_PODZOL, "aspen_forest"),
+            createTab(MarblesBlocks.YELLOW_BAMBOO, "bamboo_valley")
         );
     }
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(LOGO);
+        return new ItemStack(MarblesItemGroup.ICON);
     }
 }

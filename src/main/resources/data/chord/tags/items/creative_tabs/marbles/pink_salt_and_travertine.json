@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "#marbles:travertine_blocks",
+    "#marbles:travertine_lamps",
+    "#marbles:travertine_slabs",
+    "#marbles:travertine_stairs",
+    "#marbles:travertine_walls",
+    "marbles:travertine_obsidian",
+
+    "marbles:pink_salt",
+    "marbles:crumbled_pink_salt",
+    "marbles:pink_salt_slab",
+    "marbles:pink_salt_stairs",
+
+    "marbles:pink_salt_bricks",
+    "marbles:pink_salt_brick_slab",
+    "marbles:pink_salt_brick_stairs",
+    "marbles:pink_salt_pillar",
+
+    "marbles:pink_salt_spire",
+    "marbles:pink_salt_stack",
+    "marbles:pink_salt_stump",
+    "marbles:pink_salt_spikes",
+    "marbles:pink_salt_shard"
+  ]
+}

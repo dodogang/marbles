@@ -1,8 +1,8 @@
 package net.dodogang.marbles.init;
 
-import me.andante.chord.block.CBambooBlock;
-import me.andante.chord.block.CBambooSaplingBlock;
 import me.andante.chord.block.helper.WoodBlocks;
+import me.andante.chord.block.vanilla.CBambooBlock;
+import me.andante.chord.block.vanilla.CBambooSaplingBlock;
 import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.*;
@@ -24,52 +24,22 @@ import net.minecraft.util.registry.Registry;
 @SuppressWarnings("unused")
 public class MarblesBlocks {
     /*
-     * WOOD
-     */
-
-    public static final WoodBlocks ASPEN = new WoodBlocks.Builder()
-                                               .saplingGenerator(new AspenSaplingGenerator())
-                                               .boatType(BoatEntity.Type.BIRCH)
-                                               .itemGroup(MarblesItemGroup.INSTANCE)
-                                               .build(Marbles.MOD_ID, "aspen");
-
-    public static final WoodBlocks HOOPSI_SPRUCE = new WoodBlocks.Builder()
-                                                       .saplingGenerator(new HoopsiSpruceSaplingGenerator())
-                                                       .boatType(BoatEntity.Type.SPRUCE)
-                                                       .itemGroup(MarblesItemGroup.INSTANCE)
-                                                       .build(Marbles.MOD_ID, "hoopsi_spruce");
-
-    /*
      * TRAVERTINE
      */
 
-    public static final TravertineBlocks TRAVERTINE_BLOCKS = new TravertineBlocks(
-        Marbles.MOD_ID, "travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE
-    );
-    public static final TravertineBlocks LEMON_TRAVERTINE_BLOCKS = new TravertineBlocks(
-        Marbles.MOD_ID, "lemon_travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE
-    );
-    public static final TravertineBlocks PEACH_TRAVERTINE_BLOCKS = new TravertineBlocks(
-        Marbles.MOD_ID, "peach_travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE_TERRACOTTA
-    );
-    public static final TravertineBlocks TANGERINE_TRAVERTINE_BLOCKS = new TravertineBlocks(
-        Marbles.MOD_ID, "tangerine_travertine", MarblesItemGroup.INSTANCE, MaterialColor.ORANGE
-    );
-
+    public static final TravertineBlocks TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE);
+    public static final TravertineBlocks LEMON_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "lemon_travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE);
+    public static final TravertineBlocks PEACH_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "peach_travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE_TERRACOTTA);
+    public static final TravertineBlocks TANGERINE_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "tangerine_travertine", MarblesItemGroup.INSTANCE, MaterialColor.ORANGE);
 
     public static final Block TRAVERTINE_OBSIDIAN = register(
         "travertine_obsidian", new Block(
             FabricBlockSettings.of(Material.STONE, MaterialColor.BROWN)
-                               .strength(50f, 1200f)
-                               .requiresTool()
+                .strength(50.0f, 1200.0f)
+                .requiresTool()
         )
     );
-    public static final Block TRAVERTINE_PORTAL = register(
-        "travertine_portal", new TravertinePortalBlock(
-            FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL)
-        ),
-        false
-    );
+    public static final Block TRAVERTINE_PORTAL = register("travertine_portal", new TravertinePortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL)), false);
 
     /*
      * PINK SALT
@@ -82,21 +52,21 @@ public class MarblesBlocks {
         "pink_salt",
         new Block(
             FabricBlockSettings.of(Material.STONE, MaterialColor.ORANGE)
-                               .strength(1.2f, 6f)
-                               .breakByTool(FabricToolTags.PICKAXES)
-                               .materialColor(MaterialColor.ORANGE)
-                               .requiresTool()
-                               .sounds(MarblesSoundGroups.PINK_SALT)
+                .strength(1.2f, 6.0f)
+                .breakByTool(FabricToolTags.PICKAXES)
+                .materialColor(MaterialColor.ORANGE)
+                .requiresTool()
+                .sounds(MarblesSoundGroups.PINK_SALT)
         )
     );
     public static final Block CRUMBLED_PINK_SALT = register(
         "crumbled_pink_salt",
         new FallingBlock(
             FabricBlockSettings.of(Material.STONE, MaterialColor.ORANGE)
-                               .strength(0.9f, 3f)
-                               .breakByTool(FabricToolTags.PICKAXES)
-                               .materialColor(MaterialColor.ORANGE)
-                               .sounds(MarblesSoundGroups.PINK_SALT)
+                .strength(0.9f, 3.0f)
+                .breakByTool(FabricToolTags.PICKAXES)
+                .materialColor(MaterialColor.ORANGE)
+                .sounds(MarblesSoundGroups.PINK_SALT)
         )
     );
     public static final Block PINK_SALT_SLAB = createSlab(PINK_SALT); // I mean, I hate these methods too but ok
@@ -107,70 +77,49 @@ public class MarblesBlocks {
     public static final Block PINK_SALT_BRICK_STAIRS = createStairs("pink_salt_brick", PINK_SALT_BRICKS);
     public static final Block PINK_SALT_PILLAR = register("pink_salt_pillar", new PillarBlock(FabricBlockSettings.copyOf(PINK_SALT).sounds(MarblesSoundGroups.PINK_SALT_BRICKS)));
 
-
     public static final Block PINK_SALT_SPIRE = register(
         PinkSaltSpireBlock.id, new PinkSaltSpireBlock(
             FabricBlockSettings.of(MarblesMaterial.PINK_SALT_SPIRE, MaterialColor.ORANGE)
-                               .sounds(MarblesSoundGroups.PINK_SALT)
-                               .strength(0.9f, 3f)
-                               .requiresTool()
-                               .breakByTool(FabricToolTags.PICKAXES)
-                               .luminance(state -> 4)
+                .sounds(MarblesSoundGroups.PINK_SALT)
+                .strength(0.9f, 3.0f)
+                .requiresTool()
+                .breakByTool(FabricToolTags.PICKAXES)
+                .luminance(state -> 4)
         )
     );
     public static final Block PINK_SALT_STACK = register(
         PinkSaltStackBlock.id, new PinkSaltStackBlock(
             FabricBlockSettings.of(MarblesMaterial.PINK_SALT_SPIRE, MaterialColor.ORANGE)
-                               .sounds(MarblesSoundGroups.PINK_SALT)
-                               .strength(0.15f, 1f)
-                               .breakByTool(FabricToolTags.PICKAXES)
-                               .luminance(state -> state.get(MarblesProperties.RETAINED_LIGHT))
+                .sounds(MarblesSoundGroups.PINK_SALT)
+                .strength(0.15f, 1.0f)
+                .breakByTool(FabricToolTags.PICKAXES)
+                .luminance(state -> state.get(MarblesProperties.RETAINED_LIGHT))
         )
     );
     public static final Block PINK_SALT_STUMP = register(
         PinkSaltStumpBlock.id, new PinkSaltStumpBlock(
             FabricBlockSettings.of(Material.PLANT, MaterialColor.ORANGE)
-                               .sounds(MarblesSoundGroups.PINK_SALT)
-                               .strength(0.05f, 1f)
-                               .breakByTool(FabricToolTags.PICKAXES)
-                               .luminance(state -> state.get(MarblesProperties.RETAINED_LIGHT) / 3)
+                .sounds(MarblesSoundGroups.PINK_SALT)
+                .strength(0.05f, 1.0f)
+                .breakByTool(FabricToolTags.PICKAXES)
+                .luminance(state -> state.get(MarblesProperties.RETAINED_LIGHT) / 3)
         )
     );
     public static final Block PINK_SALT_SPIKES = register(
         PinkSaltSpikeBlock.id, new PinkSaltSpikeBlock(
             FabricBlockSettings.of(Material.PLANT, MaterialColor.ORANGE)
-                               .sounds(MarblesSoundGroups.PINK_SALT)
-                               .breakInstantly()
-                               .nonOpaque()
+                .sounds(MarblesSoundGroups.PINK_SALT)
+                .breakInstantly()
+                .nonOpaque()
         )
     );
 
     /*
-     * LAPIS SETS
+     * YELLOW BAMBOO
      */
 
-    public static final Block LAPIS_SHINGLES = register("lapis_shingles", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
-    public static final Block LAPIS_SHINGLE_SLAB = createSlab("lapis_shingle", LAPIS_SHINGLES);
-    public static final Block LAPIS_SHINGLE_STAIRS = createStairs("lapis_shingle", LAPIS_SHINGLES);
-    public static final Block LAPIS_SPOTLIGHT = register("lapis_spotlight", new SpotlightBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
-
-    public static final Block GLAZED_LAPIS = register("glazed_lapis", new DualConnectingBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
-
-    public static final Block UMBRAL_LAZULI_ORE = register("umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE).breakByTool(FabricToolTags.PICKAXES, 1)));
-    public static final Block UMBRAL_LAZULI_BLOCK = register("umbral_lazuli_block", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
-    public static final Block UMBRAL_LAZULI_SHINGLES = copy("umbral_lazuli_shingles", LAPIS_SHINGLES);
-    public static final Block UMBRAL_LAZULI_SHINGLE_SLAB = createSlab("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
-    public static final Block UMBRAL_LAZULI_SHINGLE_STAIRS = createStairs("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
-    public static final Block UMBRAL_LAZULI_SPOTLIGHT = register("umbral_lazuli_spotlight", new SpotlightBlock(FabricBlockSettings.copyOf(LAPIS_SPOTLIGHT)));
-
-    public static final Block GLAZED_UMBRAL_LAZULI = register("glazed_umbral_lazuli", new DualConnectingBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
-
-    /*
-     * YELLOW BAMBOO
-    */
-
-    public static final CBambooBlock YELLOW_BAMBOO = (CBambooBlock) register("yellow_bamboo", new CBambooBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO)));
-    public static final CBambooSaplingBlock YELLOW_BAMBOO_SAPLING = (CBambooSaplingBlock) register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> MarblesBlocks.YELLOW_BAMBOO, () -> MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO_SAPLING)), false);
+    public static final Block YELLOW_BAMBOO = register("yellow_bamboo", new CBambooBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO)));
+    public static final Block YELLOW_BAMBOO_SAPLING = register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO_SAPLING)), false);
 
     public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copyOf(Blocks.SCAFFOLDING)), false);
 
@@ -201,14 +150,14 @@ public class MarblesBlocks {
         "dusk_sand", new SandBlock(
             0x471515,
             FabricBlockSettings.of(Material.AGGREGATE, MaterialColor.RED)
-                               .strength(0.5f).sounds(BlockSoundGroup.SAND)
+                .strength(0.5f).sounds(BlockSoundGroup.SAND)
         )
     );
 
     public static final Block DUSK_SANDSTONE = register(
         "dusk_sandstone", new Block(
             FabricBlockSettings.of(Material.STONE, MaterialColor.RED)
-                               .requiresTool().strength(0.8F)
+                .requiresTool().strength(0.8f)
         )
     );
     public static final Block CHISELED_DUSK_SANDSTONE = copy("chiseled_dusk_sandstone", DUSK_SANDSTONE);
@@ -228,7 +177,27 @@ public class MarblesBlocks {
     public static final Block SMOOTH_DUSK_SANDSTONE_WALL = createWall(SMOOTH_DUSK_SANDSTONE);
 
     /*
-     * GRISP DIRT
+     * LAPIS SETS
+     */
+
+    public static final Block LAPIS_SHINGLES = register("lapis_shingles", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
+    public static final Block LAPIS_SHINGLE_SLAB = createSlab("lapis_shingle", LAPIS_SHINGLES);
+    public static final Block LAPIS_SHINGLE_STAIRS = createStairs("lapis_shingle", LAPIS_SHINGLES);
+    public static final Block LAPIS_SPOTLIGHT = register("lapis_spotlight", new SpotlightBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
+
+    public static final Block GLAZED_LAPIS = register("glazed_lapis", new DualConnectingBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
+
+    public static final Block UMBRAL_LAZULI_ORE = register("umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE).breakByTool(FabricToolTags.PICKAXES, 1)));
+    public static final Block UMBRAL_LAZULI_BLOCK = register("umbral_lazuli_block", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
+    public static final Block UMBRAL_LAZULI_SHINGLES = copy("umbral_lazuli_shingles", LAPIS_SHINGLES);
+    public static final Block UMBRAL_LAZULI_SHINGLE_SLAB = createSlab("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
+    public static final Block UMBRAL_LAZULI_SHINGLE_STAIRS = createStairs("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
+    public static final Block UMBRAL_LAZULI_SPOTLIGHT = register("umbral_lazuli_spotlight", new SpotlightBlock(FabricBlockSettings.copyOf(LAPIS_SPOTLIGHT)));
+
+    public static final Block GLAZED_UMBRAL_LAZULI = register("glazed_umbral_lazuli", new DualConnectingBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
+
+    /*
+     * GRISP SET
      */
 
     public static final Block GRISP_DIRT = register("grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
@@ -241,6 +210,22 @@ public class MarblesBlocks {
     public static final Block GRISP_PODZOL_PATH = register("grisp_podzol_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().materialColor(MaterialColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).nonOpaque().materialColor(MaterialColor.PURPLE_TERRACOTTA).breakByTool(FabricToolTags.SHOVELS, 0)));
+
+    /*
+     * WOOD
+     */
+
+    public static final WoodBlocks ASPEN = new WoodBlocks.Builder()
+        .saplingGenerator(new AspenSaplingGenerator())
+        .boatType(BoatEntity.Type.BIRCH)
+        .itemGroup(MarblesItemGroup.INSTANCE)
+        .build(Marbles.MOD_ID, "aspen");
+
+    public static final WoodBlocks HOOPSI_SPRUCE = new WoodBlocks.Builder()
+        .saplingGenerator(new HoopsiSpruceSaplingGenerator())
+        .boatType(BoatEntity.Type.SPRUCE)
+        .itemGroup(MarblesItemGroup.INSTANCE)
+        .build(Marbles.MOD_ID, "hoopsi_spruce");
 
     public static Block register(String id, Block block, boolean registerItem) {
         Identifier identifier = new Identifier(Marbles.MOD_ID, id);
@@ -284,10 +269,10 @@ public class MarblesBlocks {
 
     private static Block createSaltLamp(Block block) {
         return register(getBlockId(block) + "_salt_lamp", new Block(
-                            FabricBlockSettings.copyOf(block)
-                                               .strength(0.75F, 3.0F)
-                                               .luminance(state -> 15)
-                        )
+                FabricBlockSettings.copyOf(block)
+                    .strength(0.75F, 3.0F)
+                    .luminance(state -> 15)
+            )
         );
     }
 

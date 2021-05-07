@@ -17,8 +17,7 @@ public class DualConnectingBlock extends Block {
 
     public DualConnectingBlock(Settings settings) {
         super(settings);
-
-        setDefaultState(getStateManager().getDefaultState().with(CONNECTION, OptionalDirection.NONE));
+        this.setDefaultState(this.stateManager.getDefaultState().with(CONNECTION, OptionalDirection.NONE));
     }
 
     @Override
@@ -30,7 +29,7 @@ public class DualConnectingBlock extends Block {
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         if (ctx.shouldCancelInteraction()) {
-            return getDefaultState();
+            return this.getDefaultState();
         }
 
         BlockPos pos = ctx.getBlockPos();
@@ -41,15 +40,15 @@ public class DualConnectingBlock extends Block {
             BlockState nearState = world.getBlockState(near);
 
             if (nearState.isOf(this) && nearState.get(CONNECTION) == OptionalDirection.NONE) {
-                return getDefaultState().with(CONNECTION, OptionalDirection.fromDirection(direction));
+                return this.getDefaultState().with(CONNECTION, OptionalDirection.fromDirection(direction));
             }
         }
 
-        return getDefaultState();
+        return this.getDefaultState();
     }
 
-    @Override
     @SuppressWarnings("deprecation")
+    @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState adjState, WorldAccess world, BlockPos pos, BlockPos adjPos) {
         if (state.get(CONNECTION) == OptionalDirection.NONE && adjState.isOf(this)) {
             if (adjState.get(CONNECTION).getDirection() == direction.getOpposite()) {
