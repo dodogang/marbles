@@ -55,11 +55,11 @@ dependencies {
         exclude group: "io.github.prospector"
     }
 
-    // modRuntime ("com.github.jellysquid3:sodium-fabric:${project.sodium_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
-    modRuntime("com.github.jellysquid3:lithium-fabric:${project.lithium_version}") {
+    // modRuntime ("com.github.CaffeineMC:sodium-fabric:${project.sodium_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
+    modRuntime("com.github.CaffeineMC:lithium-fabric:${project.lithium_version}") {
         exclude group: "net.fabricmc.fabric-api"
     }
-    modRuntime("com.github.jellysquid3:phosphor-fabric:${project.phosphor_version}") {
+    modRuntime("com.github.CaffeineMC:phosphor-fabric:${project.phosphor_version}") {
         exclude group: "net.fabricmc.fabric-api"
     }
 

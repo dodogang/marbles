@@ -51,5 +51,8 @@
   },
   "conflicts": {
     "minecraft": "<1.16.4"
+  },
+  "breaks": {
+    "lithium": "0.6.1"
   }
 }
