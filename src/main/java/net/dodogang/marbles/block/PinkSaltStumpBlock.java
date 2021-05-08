@@ -3,6 +3,7 @@ package net.dodogang.marbles.block;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -25,7 +26,7 @@ public class PinkSaltStumpBlock extends AbstractLightRetainingBlock {
 
     @Override
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
-        return false;
+        return true;
     }
 
     @Override
@@ -53,6 +54,11 @@ public class PinkSaltStumpBlock extends AbstractLightRetainingBlock {
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos down = pos.down();
         return Block.sideCoversSmallSquare(world, down, Direction.UP) || world.getBlockState(down).isOf(MarblesBlocks.PINK_SALT_SPIRE);
+    }
+
+    @Override
+    public boolean canReplace(BlockState state, ItemPlacementContext ctx) {
+        return ctx.getPlayer() == null || super.canReplace(state, ctx);
     }
 
     @Override

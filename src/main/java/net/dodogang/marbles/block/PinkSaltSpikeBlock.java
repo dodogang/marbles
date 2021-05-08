@@ -87,14 +87,14 @@ public class PinkSaltSpikeBlock extends PlantBlock implements Waterloggable {
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         if (ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER) {
-            return getDefaultState().with(Properties.WATERLOGGED, true);
+            return this.getDefaultState().with(Properties.WATERLOGGED, true);
         }
-        return getDefaultState();
+        return this.getDefaultState();
     }
 
     @Override
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
-        return false;
+        return true;
     }
 
     @Override

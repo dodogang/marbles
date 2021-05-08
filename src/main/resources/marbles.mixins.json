@@ -11,6 +11,7 @@
     "ChunkSerializerMixin",
     "CropBlockMixin",
     "EntityMixin",
+    "EntityShapeContextMixin",
     "FluidBlockMixin",
     "PointOfInterestTypeMixin",
     "ProtoWorldChunkMixin",

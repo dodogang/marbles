@@ -33,8 +33,8 @@ public abstract class SpreadableGrispBlock extends SnowyBlock {
         return canSurvive(state, world, pos) && !world.getFluidState(pos.up()).isIn(FluidTags.WATER);
     }
 
-    @Override
     @SuppressWarnings("deprecation")
+    @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!canSurvive(state, world, pos)) {
             world.setBlockState(pos, MarblesBlocks.GRISP_DIRT.getDefaultState());

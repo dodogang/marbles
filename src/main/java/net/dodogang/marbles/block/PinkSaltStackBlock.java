@@ -1,12 +1,17 @@
 package net.dodogang.marbles.block;
 
 import net.dodogang.marbles.init.MarblesBlocks;
+import net.dodogang.marbles.mixin.EntityAccessShapeContext;
 import net.minecraft.block.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
@@ -32,6 +37,14 @@ public class PinkSaltStackBlock extends AbstractLightRetainingBlock {
     }
 
     @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext ctx) {
+        Entity entity = ((EntityAccessShapeContext) ctx).marbles_getEntity();
+        return entity instanceof FallingBlockEntity
+            ? VoxelShapes.empty()
+            : super.getCollisionShape(state, world, pos, ctx);
+    }
+
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         Vec3d vec3d = state.getModelOffset(world, pos);
         return SHAPE.offset(vec3d.x, 0.0D, vec3d.z);
@@ -46,6 +59,11 @@ public class PinkSaltStackBlock extends AbstractLightRetainingBlock {
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos down = pos.down();
         return Block.sideCoversSmallSquare(world, down, Direction.UP) || world.getBlockState(down).isOf(MarblesBlocks.PINK_SALT_SPIRE);
+    }
+
+    @Override
+    public boolean canReplace(BlockState state, ItemPlacementContext ctx) {
+        return ctx.getPlayer() == null || super.canReplace(state, ctx);
     }
 
     @Override
