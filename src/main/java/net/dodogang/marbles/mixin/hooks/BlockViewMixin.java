@@ -15,9 +15,9 @@ import org.spongepowered.asm.mixin.Shadow;
 public interface BlockViewMixin {
     @Shadow
     BlockState getBlockState(BlockPos pos);
+
     /**
-     * Because Mixin doesn't allow injections in interfaces
-     *
+     * @reason Mixin doesn't allow injections in interfaces
      * @author Shadew
      */
     @Overwrite

@@ -1,14 +1,14 @@
 package net.dodogang.marbles;
 
 import com.google.common.reflect.Reflection;
+import net.dodogang.marbles.client.init.MarblesBlocksClient;
 import net.dodogang.marbles.client.network.MarblesClientNetwork;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
 import net.dodogang.marbles.entity.BouncerEntity;
-import net.dodogang.marbles.client.init.MarblesBlocksClient;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesParticles;
-import net.dodogang.marbles.network.MarblesNetworkingConstants;
+import net.dodogang.marbles.network.MarblesNetwork;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -33,7 +33,7 @@ public class MarblesClient implements ClientModInitializer {
         EntityRendererRegistry errInstance = EntityRendererRegistry.INSTANCE;
         errInstance.register(MarblesEntities.BOUNCER, BouncerEntityRenderer::new);
 
-        ClientPlayNetworking.registerGlobalReceiver(MarblesNetworkingConstants.BOUNCER_HIT_PLAYER_SHIELD_PACKET_ID, (client, handler, buf, responseSender) -> {
+        ClientPlayNetworking.registerGlobalReceiver(MarblesNetwork.BOUNCER_HIT_PLAYER_SHIELD_PACKET_ID, (client, handler, buf, responseSender) -> {
             int attackerId = buf.readInt();
             UUID playerUUID = buf.readUuid();
 

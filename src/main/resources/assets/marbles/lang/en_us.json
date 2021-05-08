@@ -198,6 +198,8 @@
   "death.fell.accident.marbles:yellow_scaffolding": "%1$s fell off yellow scaffolding",
   "death.attack.marbles.bouncer": "%1$s was hit a bit too hard by %2$s",
   "death.attack.marbles.bouncer.item": "%1$s was hit a bit too hard by %2$s using %3$s",
+  "death.attack.marbles.pink_salt_spikes": "%s was impaled by pink salt spikes",
+  "death.attack.marbles.pink_salt_spikes.player": "%s was impaled by pink salt spikes whilst trying to escape %s",
 
   "entity.marbles.bouncer": "Bouncer",
   "item.marbles.bouncer_spawn_egg": "Bouncer Spawn Egg",

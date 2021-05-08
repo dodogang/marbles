@@ -2,7 +2,7 @@ package net.dodogang.marbles.entity;
 
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.init.MarblesSoundEvents;
-import net.dodogang.marbles.network.MarblesNetworkingConstants;
+import net.dodogang.marbles.network.MarblesNetwork;
 import net.dodogang.marbles.tag.MarblesEntityTypeTags;
 import net.dodogang.marbles.util.Util;
 import net.fabricmc.api.EnvType;
@@ -266,7 +266,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
             buf.writeInt(this.getEntityId());
             buf.writeUuid(target.getUuid());
 
-            ServerPlayNetworking.send((ServerPlayerEntity) target, MarblesNetworkingConstants.BOUNCER_HIT_PLAYER_SHIELD_PACKET_ID, buf);
+            ServerPlayNetworking.send((ServerPlayerEntity) target, MarblesNetwork.BOUNCER_HIT_PLAYER_SHIELD_PACKET_ID, buf);
         }
     }
 

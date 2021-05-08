@@ -7,7 +7,9 @@ import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.sound.BiomeAdditionsSound;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -25,6 +27,8 @@ public class MarblesBiomes {
 
     public static final RegistryKey<Biome> ASPEN_FOREST = register("aspen_forest", createAspenForest());
     public static final RegistryKey<Biome> HOOPSI_SPRUCE_FOREST = register("hoopsi_spruce_forest", createHoopsiSpruceForest());
+
+    public static final RegistryKey<Biome> PINK_SALT_CAVE = register("pink_salt_cave", createPinkSaltCave());
 
     static {
         OverworldBiomes.addBiomeVariant(BiomeKeys.BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE, 0.5F, OverworldClimate.TEMPERATE);
@@ -89,6 +93,36 @@ public class MarblesBiomes {
 
         float temperature = -0.5F;
         return new Biome.Builder().precipitation(Biome.Precipitation.SNOW).category(Biome.Category.TAIGA).depth(0.2F).scale(0.2F).temperature(temperature).downfall(0.4F).effects(new BiomeEffects.Builder().waterColor(4020182).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(temperature)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+    }
+
+    protected static Biome createPinkSaltCave() {
+        return new Biome.Builder() // mostly dummy configuration, apart from spawn settings and biome effects
+                    .precipitation(Biome.Precipitation.RAIN)
+                    .category(Biome.Category.NONE)
+                    .depth(0.0f)
+                    .scale(0.0f)
+                    .temperature(0.5f)
+                    .downfall(0.5f)
+                    .generationSettings(new GenerationSettings.Builder().surfaceBuilder(ConfiguredSurfaceBuilders.GRASS).build())
+
+                    .effects(
+                        new BiomeEffects.Builder()
+                            .particleConfig(new BiomeParticleConfig(MarblesParticles.PINK_SALT, 0.00923f))
+                            .waterColor(0x242356)
+                            .waterFogColor(0x344D6B)
+                            .fogColor(0x344D6B)
+                            .skyColor(0xBD6541)
+
+                            .loopSound(SoundEvents.AMBIENT_WARPED_FOREST_LOOP) // TODO implement biome sound ambience properly
+                            .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_WARPED_FOREST_ADDITIONS, 0.0111D))
+                        .build()
+                    )
+                    .spawnSettings(
+                        new SpawnSettings.Builder()
+                            .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 1, 1, 3))
+                        .build()
+                    )
+                .build();
     }
 
     /*

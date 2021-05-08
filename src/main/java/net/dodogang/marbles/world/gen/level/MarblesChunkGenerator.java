@@ -7,7 +7,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectList;
 import it.unimi.dsi.fastutil.objects.ObjectListIterator;
 import net.dodogang.marbles.mixin.hooks.worldgen.ChunkGenSettingsAccessor;
-import net.dodogang.marbles.world.gen.level.terrain.SaltCaveTerrain;
+import net.dodogang.marbles.world.gen.level.terrain.PinkSaltCaveTerrain;
 import net.dodogang.marbles.world.gen.level.terrain.Terrain;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -823,7 +823,7 @@ public final class MarblesChunkGenerator extends ChunkGenerator {
             int y = 20 + random.nextInt(15);
             int hr = 64 + random.nextInt(32);
             int vr = 10 + random.nextInt(30);
-            terrains.add(new SaltCaveTerrain(x, y, z, hr, vr, random.nextLong()));
+            terrains.add(new PinkSaltCaveTerrain(x, y, z, hr, vr, random.nextLong()));
         }
     }
 

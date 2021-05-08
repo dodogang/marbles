@@ -6,15 +6,20 @@ import net.dodogang.marbles.handler.ToolClickHandlers;
 import net.dodogang.marbles.init.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.minecraft.server.MinecraftServer;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.Nullable;
 
 public class Marbles implements ModInitializer {
     public static final String MOD_ID = "marbles";
     public static final String MOD_NAME = "Marbles";
 
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
+
+    @Nullable public static MinecraftServer SERVER_INSTANCE = null;
 
     private static boolean initialized = false;
 
@@ -42,6 +47,9 @@ public class Marbles implements ModInitializer {
             CommandRegistrationCallback.EVENT.register(
                 (dispatcher, dedicated) -> MarblesDebugCommand.register(dispatcher)
             );
+
+            ServerLifecycleEvents.SERVER_STARTING.register(server -> SERVER_INSTANCE = server);
+            ServerLifecycleEvents.SERVER_STOPPED.register(server -> SERVER_INSTANCE = null);
 
             log("Initialized");
 

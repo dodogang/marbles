@@ -1,6 +1,6 @@
-package net.dodogang.marbles.world.gen.level.saltcave;
+package net.dodogang.marbles.world.gen.level.pink_salt_cave;
 
-import net.dodogang.marbles.init.MarblesConfiguredFeatures;
+import net.dodogang.marbles.world.gen.feature.MarblesConfiguredFeatureLists;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -9,7 +9,7 @@ import net.shadew.util.misc.MathUtil;
 
 import java.util.Random;
 
-public class SaltCave {
+public class PinkSaltCaveDecorator {
     public Noise3D noise = Noise3D.constant(0);
     public Noise3D offsetNoiseX = Noise3D.constant(0);
     public Noise3D offsetNoiseZ = Noise3D.constant(0);
@@ -39,11 +39,7 @@ public class SaltCave {
             return;
         }
 
-        MarblesConfiguredFeatures.SALT_SPIRE.generate(world, gen, rng, pos);
-        MarblesConfiguredFeatures.SALT_STUMP.generate(world, gen, rng, pos);
-        MarblesConfiguredFeatures.SALT_CAVE_CRUMBLED_SALT_DISK.generate(world, gen, rng, pos);
-        MarblesConfiguredFeatures.SALT_CAVE_GRANITE_DISK.generate(world, gen, rng, pos);
-        MarblesConfiguredFeatures.SALT_SPIKE_PATCH.generate(world, gen, rng, pos);
+        MarblesConfiguredFeatureLists.PINK_SALT_CAVE.forEach(configuredFeature -> configuredFeature.generate(world, gen, rng, pos));
     }
 
     public double getValue(double x, double y, double z) {

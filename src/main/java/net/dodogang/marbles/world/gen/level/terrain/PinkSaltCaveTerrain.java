@@ -15,13 +15,13 @@ import net.shadew.ptg.noise.perlin.Perlin3D;
 import java.util.List;
 import java.util.Random;
 
-public class SaltCaveTerrain extends Terrain {
+public class PinkSaltCaveTerrain extends Terrain {
     private final int radius;
     private final int vradius;
     private final Noise3D noise;
     private final Noise3D caveNoise;
 
-    public SaltCaveTerrain(int x, int y, int z, int radius, int vradius, long seed) {
+    public PinkSaltCaveTerrain(int x, int y, int z, int radius, int vradius, long seed) {
         super(x, y, z);
         this.radius = radius;
         this.vradius = vradius;
@@ -79,8 +79,8 @@ public class SaltCaveTerrain extends Terrain {
     @Override
     public List<ConfiguredFeature<?, ?>> getFeatures(Chunk chunk) {
         return Lists.newArrayList(
-            MarblesConfiguredFeatures.SALT_STUMP,
-            MarblesConfiguredFeatures.SALT_SPIRE
+            MarblesConfiguredFeatures.PINK_SALT_STUMP_CLUSTER,
+            MarblesConfiguredFeatures.PINK_SALT_SPIRE
         );
     }
 }

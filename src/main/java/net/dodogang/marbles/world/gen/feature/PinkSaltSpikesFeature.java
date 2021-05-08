@@ -15,10 +15,10 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class SaltSpikesFeature extends Feature<DefaultFeatureConfig> {
-    public static final String id = "salt_spikes";
+public class PinkSaltSpikesFeature extends Feature<DefaultFeatureConfig> {
+    public static final String id = "pink_salt_spikes";
 
-    public SaltSpikesFeature(Codec<DefaultFeatureConfig> codec) {
+    public PinkSaltSpikesFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
 
@@ -53,7 +53,7 @@ public class SaltSpikesFeature extends Feature<DefaultFeatureConfig> {
     }
 
     private static boolean canPlaceIn(BlockState state) {
-        return state.isOf(MarblesBlocks.SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER && state.isOf(Blocks.WATER);
+        return state.isOf(MarblesBlocks.PINK_SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER && state.isOf(Blocks.WATER);
     }
 
     private static boolean canPlaceUpon(BlockState state) {

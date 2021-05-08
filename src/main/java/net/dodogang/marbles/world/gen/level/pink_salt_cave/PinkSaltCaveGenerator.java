@@ -1,6 +1,8 @@
-package net.dodogang.marbles.world.gen.level.saltcave;
+package net.dodogang.marbles.world.gen.level.pink_salt_cave;
 
+import net.dodogang.marbles.init.MarblesBiomes;
 import net.dodogang.marbles.init.MarblesBlocks;
+import net.dodogang.marbles.mixin.MutableBiomeArray;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -9,6 +11,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.source.BiomeAccess;
+import net.minecraft.world.biome.source.BiomeArray;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.StructureAccessor;
@@ -26,7 +29,7 @@ import java.util.BitSet;
 import java.util.List;
 import java.util.Random;
 
-public class SaltCaveGenerator {
+public class PinkSaltCaveGenerator {
     //
     // Sampling factors: affect performance and quality of the caves
     //
@@ -64,7 +67,6 @@ public class SaltCaveGenerator {
     private static final double MAX_LAYER_SIZE = 7;  // Maximum layer height (gets scaled by CAVE_SIZE)
     private static final int WATER_LEVEL = 12;       // Any block below this Y value will turn into water instead of air
 
-
     private final Noise2D fieldNoise;
     private final Noise2D levelNoise;
     private final Noise3D caveNoise;
@@ -75,7 +77,7 @@ public class SaltCaveGenerator {
     private final ChunkRandom random;
     private final ChunkGenerator generator;
 
-    public SaltCaveGenerator(long seed, ChunkGenerator generator) {
+    public PinkSaltCaveGenerator(long seed, ChunkGenerator generator) {
         this.seed = seed;
         this.random = new ChunkRandom(seed);
         this.generator = generator;
@@ -97,7 +99,7 @@ public class SaltCaveGenerator {
     }
 
 
-    public void generateSaltCaves(long seed, BiomeAccess biomes, Chunk chunk) {
+    public void generate(long seed, BiomeAccess biomes, Chunk chunk) {
         double[][][] buffers = new double[2][RESOLUTION_H + 1][RESOLUTION_V + 1];
 
         int cx = chunk.getPos().x;
@@ -111,7 +113,7 @@ public class SaltCaveGenerator {
         BitSet saltMaterial = new BitSet(16 * 16 * 256);
         BlockPos.Mutable mpos = new BlockPos.Mutable();
 
-        List<SaltCave> caves = getSaltCaves(cx, cz);
+        List<PinkSaltCaveDecorator> caves = getPinkSaltCaves(cx, cz);
 
         random.setCarverSeed(seed, cx, cz);
         random.consume(41);
@@ -173,9 +175,10 @@ public class SaltCaveGenerator {
                                         if (sy <= WATER_LEVEL)
                                             chunk.setBlockState(mpos, Blocks.WATER.getDefaultState(), false);
                                         else
-                                            chunk.setBlockState(mpos, MarblesBlocks.SALT_CAVE_AIR.getDefaultState(), false);
+                                            chunk.setBlockState(mpos, MarblesBlocks.PINK_SALT_CAVE_AIR.getDefaultState(), false);
                                         int si = (sx * 16 + sz) * 256 + sy;
                                         saltMaterial.set(si);
+                                        setPinkSaltCaveBiome(mpos, chunk);
                                     }
 
                                     for (int ry = -rad; ry <= rad; ry++) {
@@ -183,9 +186,10 @@ public class SaltCaveGenerator {
                                         if (vy >= 0 && vy < 256) {
                                             int si = (sx * 16 + sz) * 256 + vy;
                                             mpos.set(sx, vy, sz);
-                                            if (!saltMaterial.get(si) && isReplacableBlock(chunk.getBlockState(mpos), chunk, mpos)) {
+                                            if (!saltMaterial.get(si) && isReplaceableBlock(chunk.getBlockState(mpos), chunk, mpos)) {
                                                 chunk.setBlockState(mpos, MarblesBlocks.PINK_SALT.getDefaultState(), false);
                                                 saltMaterial.set(si);
+                                                setPinkSaltCaveBiome(mpos, chunk);
                                             }
                                         }
                                     }
@@ -202,16 +206,24 @@ public class SaltCaveGenerator {
         }
     }
 
-    private boolean isReplacableBlock(BlockState state, BlockView world, BlockPos pos) {
+    private static void setPinkSaltCaveBiome(BlockPos pos, Chunk chunk) {
+        BiomeArray biomeArray = chunk.getBiomeArray();
+        if (biomeArray != null) {
+            ((MutableBiomeArray) biomeArray).setBiome(pos.getX(), pos.getY(), pos.getZ(), MarblesBiomes.PINK_SALT_CAVE);
+            chunk.setShouldSave(true);
+        }
+    }
+
+    private boolean isReplaceableBlock(BlockState state, BlockView world, BlockPos pos) {
         return state.getHardness(world, pos) >= 0; // && chunk.getBlockState(mpos).isSolidBlock(chunk, mpos)
     }
 
-    protected void generateSaltCaveColumn(double[] col, int x, int z, int oceanFloorHeight, List<SaltCave> caves) {
+    protected void generateSaltCaveColumn(double[] col, int x, int z, int oceanFloorHeight, List<PinkSaltCaveDecorator> caves) {
         int lo = LIMIT_Y / CELL_SIZE;
         int hi = Math.min(MAX_Y, oceanFloorHeight - 4) / CELL_SIZE;
 
         for (int y = 0; y <= RESOLUTION_V; y++) {
-            double noise = -getSaltNoise(x, y, z, caves);
+            double noise = -getPinkSaltNoise(x, y, z, caves);
 
             int fy = y - lo;
             if (fy < 2) {
@@ -231,16 +243,16 @@ public class SaltCaveGenerator {
         }
     }
 
-    private double getSaltNoise(double x, double y, double z, List<SaltCave> caves) {
+    private double getPinkSaltNoise(double x, double y, double z, List<PinkSaltCaveDecorator> caves) {
         double n = Double.NEGATIVE_INFINITY;
-        for (SaltCave cave : caves) {
+        for (PinkSaltCaveDecorator cave : caves) {
             n = Math.max(n, cave.getValue(x * CELL_SIZE_D, y * CELL_SIZE_D, z * CELL_SIZE_D));
         }
         return n;
     }
 
-    private List<SaltCave> getSaltCaves(int cx, int cz) {
-        List<SaltCave> caves = new ArrayList<>();
+    private List<PinkSaltCaveDecorator> getPinkSaltCaves(int cx, int cz) {
+        List<PinkSaltCaveDecorator> caves = new ArrayList<>();
         for (int ix = -5; ix <= 5; ix++) {
             for (int iz = -5; iz <= 5; iz++) {
                 int bx = cx + ix;
@@ -253,7 +265,7 @@ public class SaltCaveGenerator {
                 double r = random.nextDouble() * CAVE_RARITY;
 
                 if (r < field) {
-                    SaltCave cave = new SaltCave();
+                    PinkSaltCaveDecorator cave = new PinkSaltCaveDecorator();
                     cave.noise = caveNoise;
                     cave.offsetNoiseX = offsetNoiseX;
                     cave.offsetNoiseZ = offsetNoiseZ;
@@ -286,7 +298,7 @@ public class SaltCaveGenerator {
         ChunkRandom rng = new ChunkRandom();
         rng.setPopulationSeed(region.getSeed(), sx, sz);
 
-        List<SaltCave> caves = getSaltCaves(cx, cz);
+        List<PinkSaltCaveDecorator> caves = getPinkSaltCaves(cx, cz);
         caves.forEach(cave -> cave.decorate(region, blockPos, generator, rng));
     }
 }

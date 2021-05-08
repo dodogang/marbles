@@ -1,6 +1,6 @@
 package net.dodogang.marbles.mixin.hooks.worldgen;
 
-import net.dodogang.marbles.world.gen.level.saltcave.SaltCaveGenerator;
+import net.dodogang.marbles.world.gen.level.pink_salt_cave.PinkSaltCaveGenerator;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.biome.source.BiomeAccess;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -16,20 +16,18 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(NoiseChunkGenerator.class)
 public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
-    @Shadow
-    @Final
-    private long seed;
-    private SaltCaveGenerator marbles_saltCaveGenerator;
+    @Shadow @Final private long seed;
+    private PinkSaltCaveGenerator marbles_pinkSaltCaveGenerator;
 
     private NoiseChunkGeneratorMixin(BiomeSource biomeSource, StructuresConfig structuresConfig) {
         super(biomeSource, structuresConfig);
     }
 
-    private SaltCaveGenerator marbles_getSaltCaveGenerator() {
-        if (marbles_saltCaveGenerator == null) {
-            marbles_saltCaveGenerator = new SaltCaveGenerator(seed, this);
+    private PinkSaltCaveGenerator marbles_getPinkSaltCaveGenerator() {
+        if (marbles_pinkSaltCaveGenerator == null) {
+            marbles_pinkSaltCaveGenerator = new PinkSaltCaveGenerator(seed, this);
         }
-        return marbles_saltCaveGenerator;
+        return marbles_pinkSaltCaveGenerator;
     }
 
     @Override
@@ -37,13 +35,13 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
         super.carve(seed, access, chunk, carver);
 
         if (carver == GenerationStep.Carver.LIQUID) {
-            marbles_getSaltCaveGenerator().generateSaltCaves(seed, access, chunk);
+            marbles_getPinkSaltCaveGenerator().generate(seed, access, chunk);
         }
     }
 
     @Override
     public void generateFeatures(ChunkRegion region, StructureAccessor accessor) {
         super.generateFeatures(region, accessor);
-        marbles_getSaltCaveGenerator().decorate(region, accessor);
+        marbles_getPinkSaltCaveGenerator().decorate(region, accessor);
     }
 }

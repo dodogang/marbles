@@ -40,7 +40,7 @@ public final class BlockStateTable {
 
         register(MarblesBlocks.TRAVERTINE_OBSIDIAN, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
 
-        register(MarblesBlocks.SALT_CAVE_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
+        register(MarblesBlocks.PINK_SALT_CAVE_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
         register(MarblesBlocks.PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(MarblesBlocks.PINK_SALT_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
         register(MarblesBlocks.PINK_SALT_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));

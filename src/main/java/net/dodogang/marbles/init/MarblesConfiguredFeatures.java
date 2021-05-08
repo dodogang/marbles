@@ -3,8 +3,8 @@ package net.dodogang.marbles.init;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.dodogang.marbles.Marbles;
-import net.dodogang.marbles.world.gen.feature.SaltSpireFeature;
-import net.dodogang.marbles.world.gen.feature.SaltStumpFeature;
+import net.dodogang.marbles.world.gen.feature.PinkSaltSpireFeature;
+import net.dodogang.marbles.world.gen.feature.PinkSaltStumpClusterFeature;
 import net.dodogang.marbles.world.gen.feature.YellowBambooFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -24,6 +24,7 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.GiantTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
+@SuppressWarnings("unused")
 public class MarblesConfiguredFeatures {
     public static final ConfiguredFeature<TreeFeatureConfig, ?> ASPEN = register(
         MarblesBlocks.ASPEN.getId(),
@@ -51,8 +52,8 @@ public class MarblesConfiguredFeatures {
                 ASPEN
             )
         )
-                               .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-                               .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(20, 0.1F, 1)))
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(20, 0.1F, 1)))
     );
 
     public static final ConfiguredFeature<TreeFeatureConfig, ?> HOOPSI_SPRUCE = register(
@@ -98,44 +99,52 @@ public class MarblesConfiguredFeatures {
                 HOOPSI_SPRUCE
             )
         )
-                               .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-                               .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
     );
+
+    /*
+     * YELLOW BAMBOO
+     */
 
     public static final ConfiguredFeature<?, ?> YELLOW_BAMBOO = register(
         YellowBambooFeature.id,
         MarblesFeatures.YELLOW_BAMBOO.configure(new ProbabilityConfig(0.2F))
-                                     .decorate(ConfiguredFeatures.Decorators.HEIGHTMAP_WORLD_SURFACE)
-                                     .spreadHorizontally()
-                                     .decorate(Decorator.COUNT_NOISE_BIASED.configure(new CountNoiseBiasedDecoratorConfig(160, 80.0D, 0.3D)))
+            .decorate(ConfiguredFeatures.Decorators.HEIGHTMAP_WORLD_SURFACE)
+            .spreadHorizontally()
+            .decorate(Decorator.COUNT_NOISE_BIASED.configure(new CountNoiseBiasedDecoratorConfig(160, 80.0D, 0.3D)))
     );
     public static final ConfiguredFeature<?, ?> YELLOW_BAMBOO_LIGHT = register(
         YellowBambooFeature.id + "_light",
         MarblesFeatures.YELLOW_BAMBOO.configure(new ProbabilityConfig(0.0F))
-                                     .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
-                                     .repeat(16)
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
+            .repeat(16)
     );
 
-    public static final ConfiguredFeature<?, ?> SALT_STUMP = register(
-        SaltStumpFeature.id,
-        MarblesFeatures.SALT_STUMP.configure(FeatureConfig.DEFAULT)
-                                  .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
-                                  .spreadHorizontally()
-                                  .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(2)))
-                                  .decorate(Decorator.COUNT.configure(new CountConfig(6)))
+    /*
+     * PINK SALT CAVES
+     */
+
+    public static final ConfiguredFeature<?, ?> PINK_SALT_STUMP_CLUSTER = register(
+        PinkSaltStumpClusterFeature.id,
+        MarblesFeatures.PINK_SALT_STUMP_CLUSTER.configure(FeatureConfig.DEFAULT)
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
+            .spreadHorizontally()
+            .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(2)))
+            .decorate(Decorator.COUNT.configure(new CountConfig(3)))
     );
 
-    public static final ConfiguredFeature<?, ?> SALT_SPIRE = register(
-        SaltSpireFeature.id,
-        MarblesFeatures.SALT_SPIRE.configure(FeatureConfig.DEFAULT)
-                                  .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
-                                  .spreadHorizontally()
-                                  .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(3)))
-                                  .decorate(Decorator.COUNT.configure(new CountConfig(4)))
+    public static final ConfiguredFeature<?, ?> PINK_SALT_SPIRE = register(
+        PinkSaltSpireFeature.id,
+        MarblesFeatures.PINK_SALT_SPIRE.configure(FeatureConfig.DEFAULT)
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
+            .spreadHorizontally()
+            .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(3)))
+            .decorate(Decorator.COUNT.configure(new CountConfig(4)))
     );
 
-    public static final ConfiguredFeature<?, ?> SALT_CAVE_GRANITE_DISK = register(
-        "salt_cave_granite_disk",
+    public static final ConfiguredFeature<?, ?> PINK_SALT_CAVE_GRANITE_DISK = register(
+        "pink_salt_cave_granite_disk",
         MarblesFeatures.DISK
             .configure(new DiskFeatureConfig(
                 States.GRANITE,
@@ -146,11 +155,11 @@ public class MarblesConfiguredFeatures {
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
             .spreadHorizontally()
             .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(2)))
-            .decorate(Decorator.COUNT.configure(new CountConfig(8)))
+            .decorate(Decorator.COUNT.configure(new CountConfig(4)))
     );
 
-    public static final ConfiguredFeature<?, ?> SALT_CAVE_CRUMBLED_SALT_DISK = register(
-        "salt_cave_crumbled_salt_disk",
+    public static final ConfiguredFeature<?, ?> PINK_SALT_CAVE_CRUMBLED_SALT_DISK = register(
+        "pink_salt_cave_crumbled_salt_disk",
         MarblesFeatures.DISK
             .configure(new DiskFeatureConfig(
                 States.CRUMBLED_PINK_SALT,
@@ -160,16 +169,16 @@ public class MarblesConfiguredFeatures {
             ))
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
             .spreadHorizontally()
-            .decorate(Decorator.COUNT.configure(new CountConfig(2)))
+            .decorate(Decorator.COUNT.configure(new CountConfig(6)))
     );
 
-    public static final ConfiguredFeature<?, ?> SALT_SPIKE_PATCH = register(
-        "salt_spike_patch",
-        MarblesFeatures.SALT_SPIKES
+    public static final ConfiguredFeature<?, ?> PINK_SALT_SPIKE_PATCH = register(
+        "pink_salt_spike_patch",
+        MarblesFeatures.PINK_SALT_SPIKES
             .configure(FeatureConfig.DEFAULT)
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
             .spreadHorizontally()
-            .decorate(Decorator.COUNT.configure(new CountConfig(24)))
+            .decorate(Decorator.COUNT.configure(new CountConfig(6)))
     );
 
     private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) {
@@ -184,6 +193,5 @@ public class MarblesConfiguredFeatures {
         private static final BlockState PINK_SALT = MarblesBlocks.PINK_SALT.getDefaultState();
         private static final BlockState CRUMBLED_PINK_SALT = MarblesBlocks.CRUMBLED_PINK_SALT.getDefaultState();
         private static final BlockState GRANITE = Blocks.GRANITE.getDefaultState();
-        private static final BlockState PINK_SALT_SPIKES = MarblesBlocks.PINK_SALT_SPIKES.getDefaultState();
     }
 }

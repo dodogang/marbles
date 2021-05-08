@@ -16,6 +16,8 @@ import net.minecraft.world.chunk.ChunkStatus;
 import java.util.List;
 
 public class SpotlightUtil {
+    public static final int SPOTLIGHT_BUFFER_SIZE = 16 * 16 * 16;
+
     public static int getSpotlightValue(int packed, Direction dir) {
         int shift = dir.getId() * 5;
         return packed >>> shift & 0b11111;

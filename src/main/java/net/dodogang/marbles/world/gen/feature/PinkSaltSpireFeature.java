@@ -15,12 +15,12 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class SaltSpireFeature extends Feature<DefaultFeatureConfig> {
-    public static final String id = "salt_spire";
+public class PinkSaltSpireFeature extends Feature<DefaultFeatureConfig> {
+    public static final String id = "pink_salt_spire";
 
     private static final BlockState SALT_SPIRE = MarblesBlocks.PINK_SALT_SPIRE.getDefaultState();
 
-    public SaltSpireFeature(Codec<DefaultFeatureConfig> codec) {
+    public PinkSaltSpireFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
 
@@ -147,7 +147,7 @@ public class SaltSpireFeature extends Feature<DefaultFeatureConfig> {
     }
 
     private static boolean isAirOrWater(BlockState state) {
-        return state.isOf(MarblesBlocks.SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER && state.isOf(Blocks.WATER);
+        return state.isOf(MarblesBlocks.PINK_SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER && state.isOf(Blocks.WATER);
     }
 
     private void placeCorrectBlock(StructureWorldAccess world, BlockState state, BlockPos pos) {

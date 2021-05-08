@@ -45,8 +45,10 @@ public class MarblesBlocks {
      * PINK SALT
      */
 
-    // Used in salt cave features to check whether a position is in a salt cave
-    public static final Block SALT_CAVE_AIR = register("salt_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
+    /**
+     * Used in the pink salt cave generator and various structures/features to check whether a position is in a pink salt cave.
+     */
+    public static final Block PINK_SALT_CAVE_AIR = register("pink_salt_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
 
     public static final Block PINK_SALT = register(
         "pink_salt",

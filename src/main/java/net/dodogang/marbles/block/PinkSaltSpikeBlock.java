@@ -45,7 +45,7 @@ public class PinkSaltSpikeBlock extends PlantBlock implements Waterloggable {
                 double zv = entity.getZ() - entity.lastRenderZ;
                 double yd = (entity.getY() - pos.getY()) * 16;
                 if (xv * xv + yv * yv + zv * zv > 0.03 * 0.03 && yd < 5)
-                    entity.damage(MarblesDamageSource.SALT_SPIKES, 1.5f);
+                    entity.damage(MarblesDamageSource.PINK_SALT_SPIKES, 1.5f);
             }
         }
     }

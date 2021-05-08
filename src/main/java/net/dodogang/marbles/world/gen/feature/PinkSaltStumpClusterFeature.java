@@ -15,13 +15,13 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-public class SaltStumpFeature extends Feature<DefaultFeatureConfig> {
-    public static final String id = "salt_stump";
+public class PinkSaltStumpClusterFeature extends Feature<DefaultFeatureConfig> {
+    public static final String id = "pink_salt_stump_cluster";
 
     private static final BlockState SALT_STUMP = MarblesBlocks.PINK_SALT_STUMP.getDefaultState();
     private static final BlockState SALT_STACK = MarblesBlocks.PINK_SALT_STACK.getDefaultState();
 
-    public SaltStumpFeature(Codec<DefaultFeatureConfig> codec) {
+    public PinkSaltStumpClusterFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
 
@@ -102,14 +102,14 @@ public class SaltStumpFeature extends Feature<DefaultFeatureConfig> {
     }
 
     private boolean canBuildAt(StructureWorldAccess world, BlockPos.Mutable pos) {
-        return isAirOrWater(world.getBlockState(pos)) && (
+        return isStateReplaceable(world.getBlockState(pos)) && (
             world.getBlockState(pos.down()).isOf(MarblesBlocks.PINK_SALT) ||
                 world.getBlockState(pos.down()).isOf(MarblesBlocks.CRUMBLED_PINK_SALT) ||
                 world.getBlockState(pos.down()).isOf(Blocks.GRANITE)
         );
     }
 
-    private static boolean isAirOrWater(BlockState state) {
-        return state.isOf(MarblesBlocks.SALT_CAVE_AIR) || state.getFluidState().getFluid() == Fluids.WATER && state.isOf(Blocks.WATER);
+    private static boolean isStateReplaceable(BlockState state) {
+        return state.isOf(MarblesBlocks.PINK_SALT_CAVE_AIR)/* || state.getFluidState().getFluid() == Fluids.WATER && state.isOf(Blocks.WATER)*/;
     }
 }

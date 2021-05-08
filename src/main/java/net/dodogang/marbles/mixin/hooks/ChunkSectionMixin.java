@@ -15,8 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ChunkSection.class)
 public class ChunkSectionMixin implements MarblesChunkSection {
-    private static final int marbles_SPOTLIGHT_BUFFER_SIZE = 16 * 16 * 16;
-    private final int[] marbles_spotlightData = new int[marbles_SPOTLIGHT_BUFFER_SIZE];
+    private final int[] marbles_spotlightData = new int[SpotlightUtil.SPOTLIGHT_BUFFER_SIZE];
     private int marbles_nonEmptySpotlightData = 0;
 
     @Override
@@ -40,7 +39,7 @@ public class ChunkSectionMixin implements MarblesChunkSection {
     @Override
     public void read(CompoundTag tag) {
         int[] arr = tag.getIntArray("Spotlight");
-        System.arraycopy(arr, 0, marbles_spotlightData, 0, Math.min(arr.length, marbles_SPOTLIGHT_BUFFER_SIZE));
+        System.arraycopy(arr, 0, marbles_spotlightData, 0, Math.min(arr.length, SpotlightUtil.SPOTLIGHT_BUFFER_SIZE));
     }
 
     @Override
@@ -51,7 +50,7 @@ public class ChunkSectionMixin implements MarblesChunkSection {
     @Environment(EnvType.CLIENT)
     @Inject(method = "fromPacket", at = @At("RETURN"))
     private void onFromPacket(PacketByteBuf buf, CallbackInfo cb) {
-        for (int i = 0; i < marbles_SPOTLIGHT_BUFFER_SIZE; i++) {
+        for (int i = 0; i < SpotlightUtil.SPOTLIGHT_BUFFER_SIZE; i++) {
             marbles_spotlightData[i] = buf.readInt();
         }
     }
@@ -66,13 +65,13 @@ public class ChunkSectionMixin implements MarblesChunkSection {
     @Inject(method = "getPacketSize", at = @At("RETURN"), cancellable = true)
     private void onGetPacketSize(CallbackInfoReturnable<Integer> cb) {
         int rv = cb.getReturnValueI();
-        cb.setReturnValue(rv + marbles_SPOTLIGHT_BUFFER_SIZE * 4);
+        cb.setReturnValue(rv + SpotlightUtil.SPOTLIGHT_BUFFER_SIZE * 4);
     }
 
     @Inject(method = "calculateCounts", at = @At("HEAD"))
     private void onCalculateCounts(CallbackInfo info) {
         marbles_nonEmptySpotlightData = 0;
-        for (int i = 0; i < marbles_SPOTLIGHT_BUFFER_SIZE; i++) {
+        for (int i = 0; i < SpotlightUtil.SPOTLIGHT_BUFFER_SIZE; i++) {
             int v = marbles_spotlightData[i];
             if (SpotlightUtil.hasSpotlightValue(v)) {
                 marbles_nonEmptySpotlightData++;

@@ -13,20 +13,21 @@
     "EntityMixin",
     "EntityShapeContextMixin",
     "FluidBlockMixin",
+    "PlayerEntityMixin",
     "PointOfInterestTypeMixin",
     "ProtoWorldChunkMixin",
     "WorldMixin",
-    "PlayerEntityMixin",
-    "WorldMixin",
+    "worldgen.BiomeArrayMixin",
     "worldgen.ChunkGenSettingsAccessor",
+    "worldgen.HorizontalVoronoiBiomeAccessTypeMixin",
     "worldgen.NoiseChunkGeneratorMixin"
   ],
   "client": [
     "client.BiomeColorsMixin",
     "client.BlockDustParticleMixin",
+    "client.ClientPlayerEntityMixin",
     "client.ClientWorldMixin",
-    "client.InGameHudMixin",
-    "client.ClientPlayerEntityMixin"
+    "client.InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1
