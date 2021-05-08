@@ -29,7 +29,7 @@ public class MarblesItemGroup extends AbstractTabbedItemGroup {
         return ImmutableList.of(
             createTab(MarblesBlocks.PINK_SALT, "pink_salt_and_travertine"),
             createTab(MarblesBlocks.DAWN_SAND, "sunset_grotto"),
-            createTab(MarblesBlocks.GRISP_PODZOL, "aspen_forest"),
+            createTab(MarblesBlocks.GRISP_PODZOL, "aspen_crevices"),
             createTab(MarblesBlocks.YELLOW_BAMBOO, "bamboo_valley")
         );
     }
