@@ -103,8 +103,9 @@ public abstract class AbstractLightRetainingBlock extends Block implements Water
             this.spawnParticles(world, pos);
             return actionResult;
         } else {
-            if (actionResult.shouldSwingHand())
-                world.playSound(null, pos, MarblesSoundGroups.PINK_SALT.getHitSound(), SoundCategory.BLOCKS, 1, 1);
+            if (actionResult.shouldSwingHand() && world.isClient) {
+                world.playSound(null, pos, MarblesSoundGroups.PINK_SALT.getHitSound(), SoundCategory.BLOCKS, 1.0f, 1.0f);
+            }
             this.light(state, world, pos, retainedLight);
         }
 
