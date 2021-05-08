@@ -247,6 +247,11 @@ public class InheritingModelGen implements ModelGen {
                    .texture("cross", texture);
     }
 
+    public static InheritingModelGen flowerPotCross(String texture) {
+        return new InheritingModelGen("block/flower_pot_cross")
+            .texture("plant", texture);
+    }
+
     public static InheritingModelGen fenceSide(String texture) {
         return new InheritingModelGen("block/fence_side")
                    .texture("texture", texture);

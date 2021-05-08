@@ -242,6 +242,7 @@ public class MarblesBlockItemTagProvider implements DataProvider {
     private void addWoodSet(WoodBlocks set, Tag.Identified<Block> logsBlockTag, Tag.Identified<Item> logsItemTag) {
         add(BlockTags.PLANKS, ItemTags.PLANKS, set.PLANKS);
         add(BlockTags.SAPLINGS, ItemTags.SAPLINGS, set.SAPLING);
+        add(BlockTags.FLOWER_POTS, set.POTTED_SAPLING);
         add(logsBlockTag, logsItemTag, set.LOG, set.STRIPPED_LOG, set.WOOD, set.STRIPPED_WOOD);
         if (set.isFlammable()) {
             blocks.factory(BlockTags.LOGS_THAT_BURN).add(logsBlockTag);

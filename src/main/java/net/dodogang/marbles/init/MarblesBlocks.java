@@ -229,6 +229,10 @@ public class MarblesBlocks {
         .itemGroup(MarblesItemGroup.INSTANCE)
         .build(Marbles.MOD_ID, "hoopsi_spruce");
 
+    /*
+     * REGISTRY
+     */
+
     public static Block register(String id, Block block, boolean registerItem) {
         Identifier identifier = new Identifier(Marbles.MOD_ID, id);
 

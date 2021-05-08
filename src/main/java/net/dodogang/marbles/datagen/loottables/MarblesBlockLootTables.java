@@ -227,6 +227,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
     private void addWoodDrops(WoodBlocks blocks) {
         addDrop(blocks.PLANKS);
         addDrop(blocks.SAPLING);
+        addPottedPlantDrop(blocks.POTTED_SAPLING);
         addDrop(blocks.LOG);
         addDrop(blocks.STRIPPED_LOG);
         addDrop(blocks.WOOD);

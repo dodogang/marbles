@@ -132,6 +132,7 @@ public final class BlockStateTable {
     private static void registerWoodBlocks(WoodBlocks blocks) {
         register(blocks.PLANKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(blocks.SAPLING, block -> simple(name(block, "block/%s"), cross(name(block, "block/%s"))));
+        register(blocks.POTTED_SAPLING, block -> simple(name(block, "block/%s"), flowerPotCross(name(blocks.SAPLING, "block/%s"))));
         register(blocks.LOG, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(blocks.STRIPPED_LOG, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(blocks.WOOD, block -> axisRotated(name(block, "block/%s"), cubeAll(name(block, "block/%s_log", "_wood"))));
