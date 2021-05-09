@@ -15,9 +15,6 @@ import org.spongepowered.asm.mixin.Shadow;
 public abstract class BiomeArrayMixin implements MutableBiomeArray {
     @Shadow @Final private Biome[] data;
 
-    /**
-     * TODO sync on servers :(
-     */
     @Override
     public void setBiome(int x, int y, int z, RegistryKey<Biome> biome) {
         if (Marbles.SERVER_INSTANCE != null) {
