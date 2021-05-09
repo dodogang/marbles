@@ -3,6 +3,7 @@ package net.dodogang.marbles.init;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.MarblesClient;
 import net.dodogang.marbles.entity.BouncerEntity;
+import net.dodogang.marbles.entity.PollenGracedSheepEntity;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,6 +14,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
@@ -35,6 +37,16 @@ public class MarblesEntities {
             .trackRangeBlocks(10)
             .spawnGroup(SpawnGroup.CREATURE)
         , createSpawnEggColors(0x555c50, 0x967543)
+    );
+    public static final EntityType<PollenGracedSheepEntity> POLLEN_GRACED_SHEEP = register(
+        PollenGracedSheepEntity.id,
+        FabricEntityTypeBuilder.createMob()
+            .entityFactory(PollenGracedSheepEntity::new)
+            .defaultAttributes(SheepEntity::createSheepAttributes)
+            .dimensions(EntityDimensions.changing(0.9F, 1.3F))
+            .trackRangeBlocks(10)
+            .spawnGroup(SpawnGroup.CREATURE)
+        , createSpawnEggColors(0xFFFBF0, 0xEACA15)
     );
 
     private static <T extends Entity> EntityType<T> register(String id, FabricEntityTypeBuilder<T> entityType, int[] spawnEggColors) {

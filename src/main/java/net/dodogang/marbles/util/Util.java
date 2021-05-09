@@ -1,11 +1,31 @@
 package net.dodogang.marbles.util;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.passive.LlamaEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 
 import java.util.Random;
 
 public class Util {
+    /*
+     * SHARED CONSTANTS
+     */
+    public static final TrackedData<ItemStack> LLAMA_SADDLE_ITEM_TRACKED_DATA = DataTracker.registerData(LlamaEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
+
+    @Environment(EnvType.CLIENT)
+    public static final Identifier POLLEN_GRACED_CARPET_LLAMA_DECOR_TEXTURE = new Identifier("textures/entity/llama/decor/marbles/pollen_graced_wool.png");
+
+    /*
+     * UTILITY METHODS
+     */
+
     public static Direction getLookDirectionForAxis(Entity entity, Direction.Axis axis) {
         switch (axis) {
             case X:

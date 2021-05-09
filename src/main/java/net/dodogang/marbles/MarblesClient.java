@@ -5,6 +5,7 @@ import net.dodogang.marbles.client.init.MarblesBlocksClient;
 import net.dodogang.marbles.client.network.MarblesClientNetwork;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
+import net.dodogang.marbles.client.render.entity.PollenGracedSheepEntityRenderer;
 import net.dodogang.marbles.entity.BouncerEntity;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesParticles;
@@ -32,6 +33,7 @@ public class MarblesClient implements ClientModInitializer {
 
         EntityRendererRegistry errInstance = EntityRendererRegistry.INSTANCE;
         errInstance.register(MarblesEntities.BOUNCER, BouncerEntityRenderer::new);
+        errInstance.register(MarblesEntities.POLLEN_GRACED_SHEEP, PollenGracedSheepEntityRenderer::new);
 
         ClientPlayNetworking.registerGlobalReceiver(MarblesNetwork.BOUNCER_HIT_PLAYER_SHIELD_PACKET_ID, (client, handler, buf, responseSender) -> {
             int attackerId = buf.readInt();

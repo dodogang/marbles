@@ -10,9 +10,6 @@
   "itemGroup.tab.marbles:aspen_crevices": "Aspen Crevices",
   "itemGroup.tab.marbles:bamboo_valley": "Bamboo Valley",
 
-  "block.marbles.yellow_bamboo": "Yellow Bamboo",
-  "block.marbles.yellow_bamboo_sapling": "Yellow Bamboo Sapling",
-  "block.marbles.yellow_scaffolding": "Yellow Scaffolding",
   "block.marbles.travertine": "Travertine",
   "block.marbles.travertine_wall": "Travertine Wall",
   "block.marbles.travertine_slab": "Travertine Slab",
@@ -125,6 +122,7 @@
   "block.marbles.potted_hoopsi_spruce_sapling": "Potted Hoopsi Spruce Sapling",
   "item.marbles.hoopsi_spruce_boat": "Hoopsi Spruce Boat",
   "entity.marbles.hoopsi_spruce_boat": "Hoopsi Spruce Boat",
+
   "block.marbles.grisp_dirt": "Grisp Dirt",
   "block.marbles.grisp_dirt_path": "Grisp Dirt Path",
   "block.marbles.coarse_grisp_dirt": "Coarse Grisp Dirt",
@@ -135,19 +133,26 @@
   "block.marbles.grisp_mycelium": "Grisp Mycelium",
   "block.marbles.grisp_mycelium_path": "Grisp Mycelium Path",
   "block.marbles.grisp_farmland": "Grisp Farmland",
+
+  "block.marbles.pollen_graced_wool": "Pollen-Graced Wool",
+  "block.marbles.pollen_graced_carpet": "Pollen-Graced Carpet",
+  "block.marbles.pollen_graced_bed": "Pollen-Graced Bed",
+
+  "block.marbles.glazed_lapis": "Glazed Lapis",
   "block.marbles.lapis_shingles": "Lapis Shingles",
   "block.marbles.lapis_shingle_slab": "Lapis Shingles Slab",
   "block.marbles.lapis_shingle_stairs": "Lapis Shingles Stairs",
   "block.marbles.lapis_spotlight": "Lapis Spotlight",
+
   "item.marbles.umbral_lazuli": "Umbral Lazuli",
+  "block.marbles.glazed_umbral_lazuli": "Glazed Umbral Lazuli",
   "block.marbles.umbral_lazuli_block": "Umbral Lazuli Block",
   "block.marbles.umbral_lazuli_ore": "Umbral Lazuli Ore",
   "block.marbles.umbral_lazuli_shingles": "Umbral Lazuli Shingles",
   "block.marbles.umbral_lazuli_shingle_slab": "Umbral Lazuli Shingles Slab",
   "block.marbles.umbral_lazuli_shingle_stairs": "Umbral Lazuli Shingles Stairs",
   "block.marbles.umbral_lazuli_spotlight": "Umbral Lazuli Spotlight",
-  "block.marbles.glazed_lapis": "Glazed Lapis",
-  "block.marbles.glazed_umbral_lazuli": "Glazed Umbral Lazuli",
+
   "block.marbles.dawn_sand": "Dawn Sand",
   "block.marbles.dawn_sandstone": "Dawn Sandstone",
   "block.marbles.chiseled_dawn_sandstone": "Chiseled Dawn Sandstone",
@@ -162,6 +167,7 @@
   "block.marbles.smooth_dawn_sandstone_wall": "Smooth Dawn Sandstone Wall",
   "block.marbles.smooth_dawn_sandstone_slab": "Smooth Dawn Sandstone Slab",
   "block.marbles.smooth_dawn_sandstone_stairs": "Smooth Dawn Sandstone Stairs",
+
   "block.marbles.dusk_sand": "Dusk Sand",
   "block.marbles.dusk_sandstone": "Dusk Sandstone",
   "block.marbles.chiseled_dusk_sandstone": "Chiseled Dusk Sandstone",
@@ -176,6 +182,7 @@
   "block.marbles.smooth_dusk_sandstone_wall": "Smooth Dusk Sandstone Wall",
   "block.marbles.smooth_dusk_sandstone_slab": "Smooth Dusk Sandstone Slab",
   "block.marbles.smooth_dusk_sandstone_stairs": "Smooth Dusk Sandstone Stairs",
+
   "item.marbles.pink_salt_shard": "Pink Salt Shard",
   "block.marbles.pink_salt_spikes": "Pink Salt Spikes",
   "block.marbles.pink_salt": "Pink Salt",
@@ -189,6 +196,10 @@
   "block.marbles.pink_salt_spire": "Pink Salt Spire",
   "block.marbles.pink_salt_stack": "Pink Salt Stack",
   "block.marbles.pink_salt_stump": "Pink Salt Stump",
+
+  "block.marbles.yellow_bamboo": "Yellow Bamboo",
+  "block.marbles.yellow_bamboo_sapling": "Yellow Bamboo Sapling",
+  "block.marbles.yellow_scaffolding": "Yellow Scaffolding",
 
   "biome.marbles.yellow_bamboo_jungle": "Yellow Bamboo Jungle",
   "biome.marbles.yellow_bamboo_jungle_hills": "Yellow Bamboo Jungle Hills",
@@ -208,6 +219,9 @@
   "subtitles.entity.marbles.bouncer.waiting": "Bouncer waits patiently",
   "subtitles.entity.marbles.bouncer.death": "Bouncer dies",
   "subtitles.entity.marbles.bouncer.hurt": "Bouncer hurts",
+
+  "entity.marbles.pollen_graced_sheep": "Pollen-Graced Sheep",
+  "item.marbles.pollen_graced_sheep_spawn_egg": "Pollen-Graced Sheep Spawn Egg",
 
   "debug.option.marbles.spotlight": "Spotlights"
 }

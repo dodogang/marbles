@@ -9,15 +9,18 @@ import net.dodogang.marbles.block.*;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
 import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
+import net.dodogang.marbles.block.vanilla.PublicCarpetBlock;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.state.property.MarblesProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.BedPart;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -212,6 +215,31 @@ public class MarblesBlocks {
     public static final Block GRISP_PODZOL_PATH = register("grisp_podzol_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().materialColor(MaterialColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).nonOpaque().materialColor(MaterialColor.PURPLE_TERRACOTTA).breakByTool(FabricToolTags.SHOVELS, 0)));
+
+    /*
+     * POLLEN-GRACED SHEEP
+     */
+
+    public static final Block POLLEN_GRACED_WOOL = register("pollen_graced_wool", new Block(
+        FabricBlockSettings.of(Material.WOOL, MaterialColor.YELLOW_TERRACOTTA)
+            .strength(0.8F)
+            .sounds(BlockSoundGroup.WOOL)
+        )
+    );
+    public static final Block POLLEN_GRACED_CARPET = register("pollen_graced_carpet", new PublicCarpetBlock(
+        DyeColor.YELLOW,
+        FabricBlockSettings.of(Material.CARPET, MaterialColor.YELLOW_TERRACOTTA)
+            .strength(0.1F)
+            .sounds(BlockSoundGroup.WOOL)
+        )
+    );
+    public static final Block POLLEN_GRACED_BED = register("pollen_graced_bed", new PollenGracedBedBlock(
+        FabricBlockSettings.of(Material.WOOL, (blockState) -> blockState.get(BedBlock.PART) == BedPart.FOOT ? MaterialColor.YELLOW_TERRACOTTA : MaterialColor.WEB)
+            .sounds(BlockSoundGroup.WOOD)
+            .strength(0.2F)
+            .nonOpaque()
+        )
+    );
 
     /*
      * WOOD

@@ -10,9 +10,11 @@
     "ChunkSectionMixin",
     "ChunkSerializerMixin",
     "CropBlockMixin",
+    "DyeItemMixin",
     "EntityMixin",
     "EntityShapeContextMixin",
     "FluidBlockMixin",
+    "LlamaEntityMixin",
     "PlayerEntityMixin",
     "PointOfInterestTypeMixin",
     "ProtoWorldChunkMixin",
@@ -27,7 +29,8 @@
     "client.BlockDustParticleMixin",
     "client.ClientPlayerEntityMixin",
     "client.ClientWorldMixin",
-    "client.InGameHudMixin"
+    "client.InGameHudMixin",
+    "client.LlamaDecorFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

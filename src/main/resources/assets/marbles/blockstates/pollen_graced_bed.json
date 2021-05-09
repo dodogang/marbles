@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "part=head,facing=east": {
+      "model": "marbles:block/pollen_graced_bed_head",
+      "y": 90
+    },
+    "part=head,facing=north": {
+      "model": "marbles:block/pollen_graced_bed_head"
+    },
+    "part=head,facing=south": {
+      "model": "marbles:block/pollen_graced_bed_head",
+      "y": 180
+    },
+    "part=head,facing=west": {
+      "model": "marbles:block/pollen_graced_bed_head",
+      "y": 270
+    },
+
+    "part=foot,facing=east": {
+      "model": "marbles:block/pollen_graced_bed_foot",
+      "y": 90
+    },
+    "part=foot,facing=north": {
+      "model": "marbles:block/pollen_graced_bed_foot"
+    },
+    "part=foot,facing=south": {
+      "model": "marbles:block/pollen_graced_bed_foot",
+      "y": 180
+    },
+    "part=foot,facing=west": {
+      "model": "marbles:block/pollen_graced_bed_foot",
+      "y": 270
+    }
+  }
+}

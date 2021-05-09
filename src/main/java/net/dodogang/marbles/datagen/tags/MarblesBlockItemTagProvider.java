@@ -137,6 +137,21 @@ public class MarblesBlockItemTagProvider implements DataProvider {
         );
 
         add(
+            BlockTags.CARPETS, ItemTags.CARPETS,
+            POLLEN_GRACED_CARPET
+        );
+
+        add(
+            BlockTags.WOOL, ItemTags.WOOL,
+            POLLEN_GRACED_WOOL
+        );
+
+        add(
+            BlockTags.BEDS, ItemTags.BEDS,
+            POLLEN_GRACED_BED
+        );
+
+        add(
             CBlockTags.DEAD_BUSH_SUPPORTERS,
             DAWN_SAND,
             DUSK_SAND

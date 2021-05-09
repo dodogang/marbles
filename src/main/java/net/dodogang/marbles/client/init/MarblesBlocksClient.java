@@ -24,7 +24,8 @@ public class MarblesBlocksClient {
             MarblesBlocks.YELLOW_BAMBOO,
             MarblesBlocks.YELLOW_BAMBOO_SAPLING,
             MarblesBlocks.YELLOW_SCAFFOLDING,
-            MarblesBlocks.PINK_SALT_SPIKES
+            MarblesBlocks.PINK_SALT_SPIKES,
+            MarblesBlocks.POLLEN_GRACED_WOOL
         );
 
         brlm.putBlocks(

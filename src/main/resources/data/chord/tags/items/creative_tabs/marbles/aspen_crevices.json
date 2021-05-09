@@ -28,6 +28,10 @@
     "marbles:grisp_podzol",
     "marbles:grisp_podzol_path",
     "marbles:grisp_mycelium",
-    "marbles:grisp_mycelium_path"
+    "marbles:grisp_mycelium_path",
+
+    "marbles:pollen_graced_sheep_spawn_egg",
+    "marbles:pollen_graced_wool",
+    "marbles:pollen_graced_carpet"
   ]
 }

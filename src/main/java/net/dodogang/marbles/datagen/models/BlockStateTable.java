@@ -107,6 +107,9 @@ public final class BlockStateTable {
         register(MarblesBlocks.GRISP_PODZOL_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
         register(MarblesBlocks.GRISP_MYCELIUM_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
         register(MarblesBlocks.GRISP_FARMLAND, block -> farmland(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s"), name(block, "block/grisp_dirt")), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_moist"), name(block, "block/grisp_dirt"))));
+
+        register(MarblesBlocks.POLLEN_GRACED_WOOL, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MarblesBlocks.POLLEN_GRACED_CARPET, block -> simple(name(block, "block/%s"), carpet(name(MarblesBlocks.POLLEN_GRACED_WOOL, "block/%s"))));
     }
 
     private static void registerTravertineBlocks(TravertineBlocks blocks) {

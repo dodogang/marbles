@@ -9,6 +9,7 @@ import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesItems;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.enchantment.Enchantments;
@@ -175,6 +176,10 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.GRISP_FARMLAND, MarblesBlocks.GRISP_DIRT);
 
         addDrop(MarblesBlocks.TRAVERTINE_PORTAL, block -> dropsNothing());
+
+        addDrop(MarblesBlocks.POLLEN_GRACED_WOOL);
+        addDrop(MarblesBlocks.POLLEN_GRACED_CARPET);
+        addDrop(MarblesBlocks.POLLEN_GRACED_BED, (blockx) -> dropsWithProperty(blockx, BedBlock.PART, BedPart.HEAD));
 
         Set<Identifier> set = Sets.newHashSet();
         Iterable<Block> blocks = Registry.BLOCK
