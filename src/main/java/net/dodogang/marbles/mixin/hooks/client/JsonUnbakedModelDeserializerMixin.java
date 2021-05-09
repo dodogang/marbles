@@ -5,6 +5,8 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.dodogang.marbles.Marbles;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.model.json.JsonUnbakedModel;
 import net.minecraft.client.render.model.json.ModelOverride;
 import net.minecraft.util.Identifier;
@@ -15,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 
+@Environment(EnvType.CLIENT)
 @Mixin(JsonUnbakedModel.Deserializer.class)
 public class JsonUnbakedModelDeserializerMixin {
     /**

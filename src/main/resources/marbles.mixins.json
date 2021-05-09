@@ -33,7 +33,8 @@
     "client.ClientWorldMixin",
     "client.InGameHudMixin",
     "client.JsonUnbakedModelDeserializerMixin",
-    "client.LlamaDecorFeatureRendererMixin"
+    "client.LlamaDecorFeatureRendererMixin",
+    "client.WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

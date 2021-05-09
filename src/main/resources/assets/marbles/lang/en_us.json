@@ -226,5 +226,11 @@
   "entity.marbles.pollen_graced_sheep": "Pollen-Graced Sheep",
   "item.marbles.pollen_graced_sheep_spawn_egg": "Pollen-Graced Sheep Spawn Egg",
 
-  "debug.option.marbles.spotlight": "Spotlights"
+  "debug.option.marbles.spotlight": "Spotlights",
+
+  "config.marbles.title": "Marbles",
+  "config.marbles.category.none_available": "§c(No options available)",
+  "config.marbles.category.render": "Render",
+  "config.marbles.category.render.additional_cloud_layers": "Additional Cloud Layers",
+  "config.marbles.category.render.additional_cloud_layers.tooltip": "Enable or disable any additional cloud layers."
 }

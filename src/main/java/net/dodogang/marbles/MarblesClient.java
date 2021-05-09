@@ -2,6 +2,7 @@ package net.dodogang.marbles;
 
 import com.google.common.reflect.Reflection;
 import net.dodogang.marbles.block.RopeBlock;
+import net.dodogang.marbles.client.config.MarblesConfigManager;
 import net.dodogang.marbles.client.init.MarblesBlocksClient;
 import net.dodogang.marbles.client.network.MarblesClientNetwork;
 import net.dodogang.marbles.client.particle.MarblesParticleFactories;
@@ -57,7 +58,9 @@ public class MarblesClient implements ClientModInitializer {
 
         Reflection.initialize(
             MarblesBlocksClient.class,
-            MarblesClientNetwork.class
+            MarblesClientNetwork.class,
+
+            MarblesConfigManager.class
         );
     }
 

@@ -28,6 +28,10 @@
     ],
     "server": [],
 
+    "modmenu": [
+      "net.dodogang.marbles.MarblesModMenu"
+    ],
+
     "debug:client": [
       "net.dodogang.marbles.client.debug.MarblesDebugClient"
     ],
