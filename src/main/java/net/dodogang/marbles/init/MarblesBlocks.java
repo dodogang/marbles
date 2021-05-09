@@ -120,6 +120,12 @@ public class MarblesBlocks {
     );
 
     /*
+     * MISC
+     */
+
+    public static final Block ROPE = register("rope", new RopeBlock(FabricBlockSettings.of(Material.WOOL, MaterialColor.WHITE).breakInstantly().sounds(BlockSoundGroup.WOOL)));
+
+    /*
      * YELLOW BAMBOO
      */
 

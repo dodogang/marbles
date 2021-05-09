@@ -90,6 +90,7 @@ public final class ItemModelTable {
         register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, item -> wallInventory(name(item, "block/%s_top", "(^smooth_)|(_wall$)", "")));
 
         register(MarblesBlocks.YELLOW_BAMBOO, item -> generated(name(item, "item/%s")));
+        register(MarblesBlocks.ROPE, item -> generated(name(item, "item/%s")));
 
         register(MarblesBlocks.GRISP_DIRT, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.COARSE_GRISP_DIRT, item -> inherit(name(item, "block/%s")));

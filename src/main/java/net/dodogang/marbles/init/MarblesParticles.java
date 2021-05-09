@@ -8,6 +8,7 @@ import net.minecraft.util.registry.Registry;
 
 public class MarblesParticles {
     public static final DefaultParticleType PINK_SALT = register("pink_salt");
+    public static final DefaultParticleType ITEM_ROPE = register("item_rope");
 
     private static DefaultParticleType register(String id, boolean alwaysShow) {
         return Registry.register(Registry.PARTICLE_TYPE, new Identifier(Marbles.MOD_ID, id), new PublicDefaultParticleType(alwaysShow));

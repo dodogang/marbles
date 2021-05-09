@@ -10,6 +10,7 @@
     "ChunkSectionMixin",
     "ChunkSerializerMixin",
     "CropBlockMixin",
+    "CrossbowItemMixin",
     "DyeItemMixin",
     "EntityMixin",
     "EntityShapeContextMixin",
@@ -28,8 +29,10 @@
     "client.BiomeColorsMixin",
     "client.BlockDustParticleMixin",
     "client.ClientPlayerEntityMixin",
+    "client.ClientPlayNetworkHandlerMixin",
     "client.ClientWorldMixin",
     "client.InGameHudMixin",
+    "client.JsonUnbakedModelDeserializerMixin",
     "client.LlamaDecorFeatureRendererMixin"
   ],
   "injectors": {

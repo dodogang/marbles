@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "marbles:yellow_scaffolding"
+    "marbles:yellow_scaffolding",
+    "marbles:rope"
   ]
 }

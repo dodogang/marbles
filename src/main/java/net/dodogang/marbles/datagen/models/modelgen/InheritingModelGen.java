@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public class InheritingModelGen implements ModelGen {
     private final Identifier parent;
     private final Map<String, String> textureRef = new LinkedHashMap<>();

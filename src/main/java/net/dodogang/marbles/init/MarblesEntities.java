@@ -4,6 +4,7 @@ import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.MarblesClient;
 import net.dodogang.marbles.entity.BouncerEntity;
 import net.dodogang.marbles.entity.PollenGracedSheepEntity;
+import net.dodogang.marbles.entity.ThrownRopeEntity;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -47,6 +48,13 @@ public class MarblesEntities {
             .trackRangeBlocks(10)
             .spawnGroup(SpawnGroup.CREATURE)
         , createSpawnEggColors(0xFFFBF0, 0xEACA15)
+    );
+    public static final EntityType<ThrownRopeEntity> THROWN_ROPE = register(
+        ThrownRopeEntity.id,
+        FabricEntityTypeBuilder.<ThrownRopeEntity>create(SpawnGroup.MISC, ThrownRopeEntity::new)
+            .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+            .trackRangeBlocks(4).trackedUpdateRate(10)
+        , null
     );
 
     private static <T extends Entity> EntityType<T> register(String id, FabricEntityTypeBuilder<T> entityType, int[] spawnEggColors) {

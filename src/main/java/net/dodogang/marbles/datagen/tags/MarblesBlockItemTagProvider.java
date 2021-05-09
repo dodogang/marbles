@@ -42,6 +42,8 @@ public class MarblesBlockItemTagProvider implements DataProvider {
         addTravertineSet(PEACH_TRAVERTINE_BLOCKS, MarblesBlockTags.PEACH_TRAVERTINE, MarblesItemTags.PEACH_TRAVERTINE);
         addTravertineSet(TANGERINE_TRAVERTINE_BLOCKS, MarblesBlockTags.TANGERINE_TRAVERTINE, MarblesItemTags.TANGERINE_TRAVERTINE);
 
+        blocks.factory(MarblesBlockTags.SPECIAL_ROPE_SUPPORTS).add(BlockTags.LEAVES);
+
         blocks.factory(BlockTags.PORTALS).add(TRAVERTINE_PORTAL);
 
         blocks.factory(BlockTags.SLABS).add(MarblesBlockTags.TRAVERTINE_SLABS);
@@ -121,7 +123,8 @@ public class MarblesBlockItemTagProvider implements DataProvider {
 
         add(
             BlockTags.CLIMBABLE,
-            YELLOW_SCAFFOLDING
+            YELLOW_SCAFFOLDING,
+            ROPE
         );
 
         add(
