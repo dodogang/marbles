@@ -132,6 +132,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
 
         addDrop(MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_BAMBOO);
         addDrop(MarblesBlocks.YELLOW_BAMBOO_SAPLING, MarblesBlocks.YELLOW_BAMBOO);
+        addPottedPlantDrop(MarblesBlocks.POTTED_YELLOW_BAMBOO);
         addDrop(MarblesBlocks.YELLOW_SCAFFOLDING);
 
         addDrop(MarblesBlocks.DAWN_SAND);
