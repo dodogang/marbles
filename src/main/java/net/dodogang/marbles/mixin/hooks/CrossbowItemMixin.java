@@ -2,6 +2,9 @@ package net.dodogang.marbles.mixin.hooks;
 
 import net.dodogang.marbles.block.RopeBlock;
 import net.dodogang.marbles.entity.ThrownRopeEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.entity.CrossbowUser;
 import net.minecraft.entity.LivingEntity;
@@ -12,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Quaternion;
 import net.minecraft.util.math.Vec3d;
@@ -23,15 +27,38 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 @Mixin(CrossbowItem.class)
-public abstract class CrossbowItemMixin {
+public class CrossbowItemMixin {
     @Shadow private static void putProjectile(ItemStack crossbow, ItemStack projectile) {}
-
     @Shadow
     private static boolean loadProjectile(LivingEntity shooter, ItemStack crossbow, ItemStack projectile, boolean simulated, boolean creative) {
         return false;
+    }
+    @Shadow
+    public static List<ItemStack> getProjectiles(ItemStack crossbow) {
+        return new ArrayList<>();
+    }
+    @Shadow
+    public static boolean isCharged(ItemStack stack) {
+        return false;
+    }
+
+    @Environment(EnvType.CLIENT)
+    @Inject(method = "appendTooltip", at = @At("HEAD"), cancellable = true)
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
+        List<ItemStack> list = getProjectiles(stack);
+        if (isCharged(stack) && !list.isEmpty()) {
+            ItemStack itemStack = list.get(0);
+            Item item = itemStack.getItem();
+            if (item instanceof BlockItem && ((BlockItem) item).getBlock() instanceof RopeBlock) {
+                item.appendTooltip(itemStack, world, tooltip, context);
+                ci.cancel();
+            }
+        }
     }
 
     @Inject(method = "shoot", at = @At(value = "FIELD", target = "Lnet/minecraft/world/World;isClient:Z", shift = At.Shift.AFTER), cancellable = true)
