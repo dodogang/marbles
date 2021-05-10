@@ -16,12 +16,12 @@ import net.minecraft.util.registry.Registry;
 import java.util.List;
 
 public class MarblesItemGroup extends AbstractTabbedItemGroup {
-    public static final ItemGroup INSTANCE = new MarblesItemGroup(Marbles.MOD_ID);
+    public static final ItemGroup INSTANCE = new MarblesItemGroup();
 
     public static final Item ICON = Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, "icon"), new Item(new FabricItemSettings().food(new FoodComponent.Builder().alwaysEdible().hunger(20).build())));
 
-    protected MarblesItemGroup(String modId) {
-        super(modId);
+    private MarblesItemGroup() {
+        super(Marbles.MOD_ID);
     }
 
     @Override
