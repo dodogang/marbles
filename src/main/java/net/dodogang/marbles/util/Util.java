@@ -19,6 +19,9 @@ public class Util {
      */
     public static final TrackedData<ItemStack> LLAMA_SADDLE_ITEM_TRACKED_DATA = DataTracker.registerData(LlamaEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
 
+    public static final int ADDITIONAL_CLOUD_COUNT = 2;
+    public static final double ADDITIONAL_CLOUD_OFFSET = 40.0d;
+
     @Environment(EnvType.CLIENT)
     public static final Identifier POLLEN_GRACED_CARPET_LLAMA_DECOR_TEXTURE = new Identifier("textures/entity/llama/decor/marbles/pollen_graced_wool.png");
 

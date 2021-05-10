@@ -1,6 +1,7 @@
 package net.dodogang.marbles.mixin.hooks.client;
 
 import net.dodogang.marbles.client.config.MarblesConfig;
+import net.dodogang.marbles.util.Util;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.Camera;
@@ -28,7 +29,10 @@ public abstract class WorldRendererMixin {
             double x = cameraPos.getX();
             double y = cameraPos.getY();
             double z = cameraPos.getZ();
-            this.renderClouds(matrices, tickDelta, x + 270, y - 23, z + 270);
+
+            for (int i = 1; i < Util.ADDITIONAL_CLOUD_COUNT + 1; i++) {
+                this.renderClouds(matrices, tickDelta, x + (270 * i), y - (Util.ADDITIONAL_CLOUD_OFFSET * i), z + (270 * i));
+            }
         }
     }
 }

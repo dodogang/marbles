@@ -40,7 +40,7 @@ dependencies {
      * COMPATIBILITY
      */
 
-    if (!Boolean.parseBoolean("${project.ip_enabled}")) { // Immersive Portals is incompatible with Canvas
+    if (!Boolean.parseBoolean("${project.ip_enabled}") && Boolean.parseBoolean("${project.canvas_enabled}")) { // Immersive Portals is incompatible with Canvas
         modImplementation("grondag:canvas-mc116:1.0.1267") {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
