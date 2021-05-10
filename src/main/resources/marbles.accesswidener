@@ -7,6 +7,8 @@ extendable method net/minecraft/world/gen/chunk/NoiseChunkGenerator <init> (Lnet
 
 # Entity
 accessible    field     net/minecraft/entity/ai/goal/MeleeAttackGoal        field_24667     I
+accessible    field     net/minecraft/entity/ai/goal/EatGrassGoal           timer           I
+accessible    field     net/minecraft/entity/passive/SheepEntity            eatGrassGoal    Lnet/minecraft/entity/ai/goal/EatGrassGoal;
 
 # Item
 accessible    method    net/minecraft/item/CrossbowItem                     getProjectiles  (Lnet/minecraft/item/ItemStack;)Ljava/util/List;
