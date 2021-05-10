@@ -16,6 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Quaternion;
 import net.minecraft.util.math.Vec3d;
@@ -52,10 +54,12 @@ public class CrossbowItemMixin {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
         List<ItemStack> list = getProjectiles(stack);
         if (isCharged(stack) && !list.isEmpty()) {
-            ItemStack itemStack = list.get(0);
-            Item item = itemStack.getItem();
+            ItemStack projectile = list.get(0);
+            Item item = projectile.getItem();
             if (item instanceof BlockItem && ((BlockItem) item).getBlock() instanceof RopeBlock) {
-                item.appendTooltip(itemStack, world, tooltip, context);
+                item.appendTooltip(projectile, world, tooltip, context);
+                tooltip.add(new TranslatableText(item.getTranslationKey() + ".crossbow", projectile.getCount()).formatted(Formatting.GRAY));
+
                 ci.cancel();
             }
         }
