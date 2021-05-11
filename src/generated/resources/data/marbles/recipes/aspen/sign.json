@@ -1,15 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "sign",
   "pattern": [
     "###",
     "###",
-    " / "
+    " X "
   ],
   "key": {
     "#": {
       "item": "marbles:aspen_planks"
     },
-    "/": {
+    "X": {
       "item": "minecraft:stick"
     }
   },

@@ -1,20 +1,10 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "group": "planks",
   "ingredients": [
-    [
-      {
-        "item": "marbles:aspen_log"
-      },
-      {
-        "item": "marbles:stripped_aspen_log"
-      },
-      {
-        "item": "marbles:aspen_wood"
-      },
-      {
-        "item": "marbles:stripped_aspen_wood"
-      }
-    ]
+    {
+      "tag": "marbles:aspen_logs"
+    }
   ],
   "result": {
     "item": "marbles:aspen_planks",

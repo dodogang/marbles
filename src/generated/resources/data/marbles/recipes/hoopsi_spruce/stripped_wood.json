@@ -1,10 +1,15 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
       "item": "marbles:stripped_hoopsi_spruce_log"
     }
-  ],
+  },
   "result": {
     "item": "marbles:stripped_hoopsi_spruce_wood",
     "count": 3

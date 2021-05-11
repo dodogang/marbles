@@ -38,4 +38,9 @@ public class MarblesItemGroup extends AbstractTabbedItemGroup {
     public ItemStack createIcon() {
         return new ItemStack(MarblesItemGroup.ICON);
     }
+
+    @Override
+    public String getName() {
+        return Marbles.MOD_ID;
+    }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:aspen/sign"
+    ]
+  },
+  "criteria": {
+    "has_aspen_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:aspen_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:aspen/sign"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_aspen_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

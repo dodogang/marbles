@@ -16,12 +16,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.function.Consumer;
 
+@SuppressWarnings("unused")
 public class MarblesRecipeProvider extends AbstractRecipesProvider {
     private Consumer<RecipeJsonProvider> consumer;
 
@@ -33,9 +35,9 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
     protected void generate(Consumer<RecipeJsonProvider> consumer) {
         this.consumer = consumer;
 
-        woodSet(MarblesBlocks.ASPEN);
-        woodSet(MarblesBlocks.HOOPSI_SPRUCE);
-        woodSet(MarblesBlocks.RED_BIRCH);
+        woodSet(MarblesBlocks.ASPEN, MarblesItemTags.ASPEN_LOGS);
+        woodSet(MarblesBlocks.HOOPSI_SPRUCE, MarblesItemTags.HOOPSI_SPRUCE_LOGS);
+        woodSet(MarblesBlocks.RED_BIRCH, MarblesItemTags.RED_BIRCH_LOGS);
 
         travertineSet(MarblesBlocks.TRAVERTINE_BLOCKS, MarblesItemTags.TRAVERTINE);
         travertineSet(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS, MarblesItemTags.LEMON_TRAVERTINE);
@@ -115,24 +117,22 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         saltLamp(id + "/salt_lamp", tag, blocks.SALT_LAMP, 4);
     }
 
-    private void woodSet(WoodBlocks blocks) {
+    private void woodSet(WoodBlocks blocks, Tag<Item> logsTag) {
         String baseFolder = blocks.getId() + "/";
 
-        ItemConvertible[] logs = {blocks.LOG, blocks.STRIPPED_LOG, blocks.WOOD, blocks.STRIPPED_WOOD};
-
-        shapeless(baseFolder + "planks", logs, blocks.PLANKS, 4);
-        shapeless(baseFolder + "wood", blocks.LOG, blocks.WOOD, 3);
-        shapeless(baseFolder + "stripped_wood", blocks.STRIPPED_LOG, blocks.STRIPPED_WOOD, 3);
-        generic3x1(baseFolder + "slab", blocks.PLANKS, blocks.SLAB, 6);
-        stairs(baseFolder + "stairs", blocks.PLANKS, blocks.STAIRS, 4);
-        fence(baseFolder + "fence", blocks.PLANKS, blocks.FENCE, 3);
-        generic2x3(baseFolder + "door", blocks.PLANKS, blocks.DOOR, 3);
-        generic3x2(baseFolder + "trapdoor", blocks.PLANKS, blocks.TRAPDOOR, 2);
-        generic2x1(baseFolder + "pressure_plate", blocks.PLANKS, blocks.PRESSURE_PLATE, 1);
-        shapeless(baseFolder + "button", blocks.PLANKS, blocks.BUTTON, 1);
-        fenceGate(baseFolder + "fence_gate", blocks.PLANKS, blocks.FENCE_GATE, 1);
-        sign(baseFolder + "sign", blocks.PLANKS, blocks.SIGN, 3);
-        boat(baseFolder + "boat", blocks.PLANKS, blocks.BOAT_ITEM, 1);
+        planks(baseFolder + "planks", logsTag, blocks.PLANKS);
+        wood(baseFolder + "wood", blocks.LOG, blocks.WOOD);
+        wood(baseFolder + "stripped_wood", blocks.STRIPPED_LOG, blocks.STRIPPED_WOOD);
+        woodenButton(baseFolder + "button", blocks.PLANKS, blocks.BUTTON);
+        woodenDoor(baseFolder + "door", blocks.PLANKS, blocks.DOOR);
+        woodenFence(baseFolder + "fence", blocks.PLANKS, blocks.FENCE);
+        woodenFenceGate(baseFolder + "fence_gate", blocks.PLANKS, blocks.FENCE_GATE);
+        woodenPressurePlate(baseFolder + "pressure_plate", blocks.PLANKS, blocks.PRESSURE_PLATE);
+        woodenSlab(baseFolder + "slab", blocks.PLANKS, blocks.SLAB);
+        woodenStairs(baseFolder + "stairs", blocks.PLANKS, blocks.STAIRS);
+        woodenTrapdoor(baseFolder + "trapdoor", blocks.PLANKS, blocks.TRAPDOOR);
+        sign(baseFolder + "sign", blocks.PLANKS, blocks.SIGN);
+        boat(baseFolder + "boat", blocks.PLANKS, blocks.BOAT_ITEM);
     }
 
     private void generic3x3(String id, ItemConvertible from, ItemConvertible to, int count) {
@@ -184,51 +184,279 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
                                                                        .input(Ingredient.ofItems(from));
         for (ItemConvertible itemC : from) {
             Item item = itemC.asItem();
-            String itemId = Registry.ITEM.getId(item).getPath();
+            String itemId = Registry.ITEM.getId(item)
+                                         .getPath();
             factory.criterion("has_" + itemId, hasItem(itemC));
         }
 
         factory.offerTo(consumer, id(id));
     }
 
-    private void fence(String id, ItemConvertible from, ItemConvertible to, int count) {
-        ShapedRecipeJsonFactory.create(to, count)
+    private void planks(String id, Tag<Item> from, ItemConvertible to) {
+        ShapelessRecipeJsonFactory.create(to, 4)
+                                  .input(from)
+                                  .group("planks")
+                                  .criterion("has_log", hasItems(from))
+                                  .offerTo(consumer, id(id));
+    }
+
+    private void planksLogs(String id, Tag<Item> from, ItemConvertible to) {
+        ShapelessRecipeJsonFactory.create(to, 4)
+                                  .input(from)
+                                  .group("planks")
+                                  .criterion("has_logs", hasItems(from))
+                                  .offerTo(consumer, id(id));
+    }
+
+    private void wood(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to, 3)
                                .input('#', from)
-                               .input('/', Items.STICK)
-                               .pattern("#/#")
-                               .pattern("#/#")
-                               .criterion("has_ingredient", hasItem(from))
+                               .pattern("##")
+                               .pattern("##")
+                               .group("bark")
+                               .criterion("has_log", hasItem(from))
                                .offerTo(consumer, id(id));
     }
 
-    private void fenceGate(String id, ItemConvertible from, ItemConvertible to, int count) {
-        ShapedRecipeJsonFactory.create(to, count)
-                               .input('#', from)
-                               .input('/', Items.STICK)
-                               .pattern("/#/")
-                               .pattern("/#/")
-                               .criterion("has_ingredient", hasItem(from))
-                               .offerTo(consumer, id(id));
-    }
-
-    private void sign(String id, ItemConvertible from, ItemConvertible to, int count) {
-        ShapedRecipeJsonFactory.create(to, count)
-                               .input('#', from)
-                               .input('/', Items.STICK)
-                               .pattern("###")
-                               .pattern("###")
-                               .pattern(" / ")
-                               .criterion("has_ingredient", hasItem(from))
-                               .offerTo(consumer, id(id));
-    }
-
-    private void boat(String id, ItemConvertible from, ItemConvertible to, int count) {
-        ShapedRecipeJsonFactory.create(to, count)
+    private void boat(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to)
                                .input('#', from)
                                .pattern("# #")
                                .pattern("###")
-                               .criterion("has_ingredient", hasItem(from))
+                               .group("boat")
+                               .criterion("in_water", inFluid(Blocks.WATER))
                                .offerTo(consumer, id(id));
+    }
+
+    private void woodenButton(String id, ItemConvertible from, ItemConvertible to) {
+        ShapelessRecipeJsonFactory.create(to)
+                                  .input(from)
+                                  .group("wooden_button")
+                                  .criterion("has_planks", hasItem(from))
+                                  .offerTo(consumer, id(id));
+    }
+
+    private void woodenDoor(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to, 3)
+                               .input('#', from)
+                               .pattern("##")
+                               .pattern("##")
+                               .pattern("##")
+                               .group("wooden_door")
+                               .criterion("has_planks", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void woodenFence(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to, 3)
+                               .input('#', Items.STICK)
+                               .input('W', from)
+                               .pattern("W#W")
+                               .pattern("W#W")
+                               .group("wooden_fence")
+                               .criterion("has_planks", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void woodenFenceGate(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to)
+                               .input('#', Items.STICK)
+                               .input('W', from)
+                               .pattern("#W#")
+                               .pattern("#W#")
+                               .group("wooden_fence_gate")
+                               .criterion("has_planks", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void woodenPressurePlate(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to)
+                               .input('#', from)
+                               .pattern("##")
+                               .group("wooden_pressure_plate")
+                               .criterion("has_planks", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void woodenSlab(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to, 6)
+                               .input('#', from)
+                               .pattern("###")
+                               .group("wooden_slab")
+                               .criterion("has_planks", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void woodenStairs(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to, 4)
+                               .input('#', from)
+                               .pattern("#  ")
+                               .pattern("## ")
+                               .pattern("###")
+                               .group("wooden_stairs")
+                               .criterion("has_planks", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void woodenTrapdoor(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to, 2)
+                               .input('#', from)
+                               .pattern("###")
+                               .pattern("###")
+                               .group("wooden_trapdoor")
+                               .criterion("has_planks", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void sign(String id, ItemConvertible from, ItemConvertible to) {
+        String string = Registry.ITEM.getId(from.asItem())
+                                     .getPath();
+        ShapedRecipeJsonFactory.create(to, 3)
+                               .group("sign")
+                               .input('#', from)
+                               .input('X', Items.STICK)
+                               .pattern("###")
+                               .pattern("###")
+                               .pattern(" X ")
+                               .criterion("has_" + string, hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void wool(String id, ItemConvertible from, ItemConvertible to) {
+        ShapelessRecipeJsonFactory.create(to)
+                                  .input(from)
+                                  .input(Blocks.WHITE_WOOL)
+                                  .group("wool")
+                                  .criterion("has_white_wool", hasItem(Blocks.WHITE_WOOL))
+                                  .offerTo(consumer, id(id));
+    }
+
+    private void carpet(String id, ItemConvertible from, ItemConvertible to) {
+        String string = Registry.ITEM.getId(from.asItem())
+                                     .getPath();
+        ShapedRecipeJsonFactory.create(to, 3)
+                               .input('#', from)
+                               .pattern("##")
+                               .group("carpet")
+                               .criterion("has_" + string, hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void dyedCarpet(String id, ItemConvertible from, ItemConvertible to) {
+        String string = Registry.ITEM.getId(to.asItem())
+                                     .getPath();
+        String string2 = Registry.ITEM.getId(from.asItem())
+                                      .getPath();
+        ShapedRecipeJsonFactory.create(to, 8)
+                               .input('#', Blocks.WHITE_CARPET)
+                               .input('$', from)
+                               .pattern("###")
+                               .pattern("#$#")
+                               .pattern("###")
+                               .group("carpet")
+                               .criterion("has_white_carpet", hasItem(Blocks.WHITE_CARPET))
+                               .criterion("has_" + string2, hasItem(from))
+                               .offerTo(consumer, string + "_from_white_carpet");
+    }
+
+    private void bed(String id, ItemConvertible from, ItemConvertible to) {
+        String string = Registry.ITEM.getId(from.asItem())
+                                     .getPath();
+        ShapedRecipeJsonFactory.create(to)
+                               .input('#', from)
+                               .input('X', ItemTags.PLANKS)
+                               .pattern("###")
+                               .pattern("XXX")
+                               .group("bed")
+                               .criterion("has_" + string, hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void dyedBed(String id, ItemConvertible from, ItemConvertible to) {
+        String string = Registry.ITEM.getId(to.asItem())
+                                     .getPath();
+        ShapelessRecipeJsonFactory.create(to)
+                                  .input(Items.WHITE_BED)
+                                  .input(from)
+                                  .group("dyed_bed")
+                                  .criterion("has_bed", hasItem(Items.WHITE_BED))
+                                  .offerTo(consumer, string + "_from_white_bed");
+    }
+
+    private void banner(String id, ItemConvertible from, ItemConvertible to) {
+        String string = Registry.ITEM.getId(from.asItem())
+                                     .getPath();
+        ShapedRecipeJsonFactory.create(to)
+                               .input('#', from)
+                               .input('|', Items.STICK)
+                               .pattern("###")
+                               .pattern("###")
+                               .pattern(" | ")
+                               .group("banner")
+                               .criterion("has_" + string, hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void stainedGlass(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to, 8)
+                               .input('#', Blocks.GLASS)
+                               .input('X', from)
+                               .pattern("###")
+                               .pattern("#X#")
+                               .pattern("###")
+                               .group("stained_glass")
+                               .criterion("has_glass", hasItem(Blocks.GLASS))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void stainedGlassPaneGlass(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to, 16)
+                               .input('#', from)
+                               .pattern("###")
+                               .pattern("###")
+                               .group("stained_glass_pane")
+                               .criterion("has_glass", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void stainedGlassPaneDye(String id, ItemConvertible from, ItemConvertible to) {
+        String string = Registry.ITEM.getId(to.asItem())
+                                     .getPath();
+        String string2 = Registry.ITEM.getId(from.asItem())
+                                      .getPath();
+        ShapedRecipeJsonFactory.create(to, 8)
+                               .input('#', Blocks.GLASS_PANE)
+                               .input('$', from)
+                               .pattern("###")
+                               .pattern("#$#")
+                               .pattern("###")
+                               .group("stained_glass_pane")
+                               .criterion("has_glass_pane", hasItem(Blocks.GLASS_PANE))
+                               .criterion("has_" + string2, hasItem(from))
+                               .offerTo(consumer, string + "_from_glass_pane");
+    }
+
+    private void stainedTerracotta(String id, ItemConvertible from, ItemConvertible to) {
+        ShapedRecipeJsonFactory.create(to, 8)
+                               .input('#', Blocks.TERRACOTTA)
+                               .input('X', from)
+                               .pattern("###")
+                               .pattern("#X#")
+                               .pattern("###")
+                               .group("stained_terracotta")
+                               .criterion("has_terracotta", hasItem(Blocks.TERRACOTTA))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void concretePowder(String id, ItemConvertible from, ItemConvertible to) {
+        ShapelessRecipeJsonFactory.create(to, 8)
+                                  .input(from)
+                                  .input(Blocks.SAND, 4)
+                                  .input(Blocks.GRAVEL, 4)
+                                  .group("concrete_powder")
+                                  .criterion("has_sand", hasItem(Blocks.SAND))
+                                  .criterion("has_gravel", hasItem(Blocks.GRAVEL))
+                                  .offerTo(consumer, id(id));
     }
 
     private void saltLamp(String id, Tag<Item> travertine, ItemConvertible to, int count) {
