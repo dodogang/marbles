@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "marbles:red_birch_log"
+    }
+  ],
+  "result": {
+    "item": "marbles:red_birch_wood",
+    "count": 3
+  }
+}

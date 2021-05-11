@@ -95,6 +95,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
     public void accept(BiConsumer<Identifier, LootTable.Builder> biConsumer) {
         addWoodDrops(MarblesBlocks.ASPEN);
         addWoodDrops(MarblesBlocks.HOOPSI_SPRUCE);
+        addWoodDrops(MarblesBlocks.RED_BIRCH);
 
         addTravertineDrops(MarblesBlocks.TRAVERTINE_BLOCKS);
         addTravertineDrops(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);

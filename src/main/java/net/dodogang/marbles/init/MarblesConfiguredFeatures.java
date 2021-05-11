@@ -17,6 +17,7 @@ import net.minecraft.world.gen.UniformIntDistribution;
 import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
+import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.MegaPineFoliagePlacer;
 import net.minecraft.world.gen.foliage.PineFoliagePlacer;
 import net.minecraft.world.gen.foliage.SpruceFoliagePlacer;
@@ -24,7 +25,6 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.GiantTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
-@SuppressWarnings("unused")
 public class MarblesConfiguredFeatures {
     public static final ConfiguredFeature<TreeFeatureConfig, ?> ASPEN = register(
         MarblesBlocks.ASPEN.getId(),
@@ -39,9 +39,7 @@ public class MarblesConfiguredFeatures {
                 ),
                 new StraightTrunkPlacer(5, 2, 1),
                 new TwoLayersFeatureSize(6, 0, 6)
-            )
-                .ignoreVines()
-                .build()
+            ).ignoreVines().build()
         )
     );
     public static final ConfiguredFeature<?, ?> TREES_ASPEN = register(
@@ -52,8 +50,8 @@ public class MarblesConfiguredFeatures {
                 ASPEN
             )
         )
-            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(20, 0.1F, 1)))
+        .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+        .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(20, 0.1F, 1)))
     );
 
     public static final ConfiguredFeature<TreeFeatureConfig, ?> HOOPSI_SPRUCE = register(
@@ -69,9 +67,7 @@ public class MarblesConfiguredFeatures {
                 ),
                 new StraightTrunkPlacer(5, 2, 1),
                 new TwoLayersFeatureSize(2, 0, 2)
-            )
-                .ignoreVines()
-                .build()
+            ).ignoreVines().build()
         )
     );
     public static final ConfiguredFeature<TreeFeatureConfig, ?> MEGA_HOOPSI_SPRUCE = register(
@@ -87,8 +83,7 @@ public class MarblesConfiguredFeatures {
                 ),
                 new GiantTrunkPlacer(13, 2, 14),
                 new TwoLayersFeatureSize(1, 1, 2)
-            )
-                .build()
+            ).build()
         )
     );
     public static final ConfiguredFeature<?, ?> TREES_HOOPSI_SPRUCE = register(
@@ -99,8 +94,36 @@ public class MarblesConfiguredFeatures {
                 HOOPSI_SPRUCE
             )
         )
-            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-            .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+        .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+        .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
+    );
+
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_BIRCH = register(
+        MarblesBlocks.RED_BIRCH.getId(),
+        Feature.TREE.configure(
+            new TreeFeatureConfig.Builder(
+                new SimpleBlockStateProvider(States.RED_BIRCH_LOG),
+                new SimpleBlockStateProvider(States.RED_BIRCH_LEAVES),
+                new BlobFoliagePlacer(
+                    UniformIntDistribution.of(2),
+                    UniformIntDistribution.of(0),
+                    3
+                ),
+                new StraightTrunkPlacer(5, 2, 0),
+                new TwoLayersFeatureSize(1, 0, 1)
+            ).ignoreVines().build()
+        )
+    );
+    public static final ConfiguredFeature<?, ?> TREES_RED_BIRCH = register(
+        "trees_" + MarblesBlocks.RED_BIRCH.getId(),
+        Feature.RANDOM_SELECTOR.configure(
+            new RandomFeatureConfig(
+                ImmutableList.of(RED_BIRCH.withChance(1.0f)),
+                RED_BIRCH
+            )
+        )
+        .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+        .decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)))
     );
 
     /*
@@ -190,6 +213,8 @@ public class MarblesConfiguredFeatures {
         private static final BlockState ASPEN_LEAVES = MarblesBlocks.ASPEN.LEAVES.getDefaultState();
         private static final BlockState HOOPSI_SPRUCE_LOG = MarblesBlocks.HOOPSI_SPRUCE.LOG.getDefaultState();
         private static final BlockState HOOPSI_SPRUCE_LEAVES = MarblesBlocks.HOOPSI_SPRUCE.LEAVES.getDefaultState();
+        private static final BlockState RED_BIRCH_LOG = MarblesBlocks.RED_BIRCH.LOG.getDefaultState();
+        private static final BlockState RED_BIRCH_LEAVES = MarblesBlocks.RED_BIRCH.LEAVES.getDefaultState();
         private static final BlockState PINK_SALT = MarblesBlocks.PINK_SALT.getDefaultState();
         private static final BlockState CRUMBLED_PINK_SALT = MarblesBlocks.CRUMBLED_PINK_SALT.getDefaultState();
         private static final BlockState GRANITE = Blocks.GRANITE.getDefaultState();

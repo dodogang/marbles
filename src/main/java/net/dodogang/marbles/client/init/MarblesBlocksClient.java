@@ -16,7 +16,7 @@ import net.minecraft.item.ItemConvertible;
 @Environment(EnvType.CLIENT)
 public class MarblesBlocksClient {
     static {
-        CClientUtils.registerWoodBlocks(MarblesBlocks.ASPEN, MarblesBlocks.HOOPSI_SPRUCE);
+        CClientUtils.registerWoodBlocks(MarblesBlocks.ASPEN, MarblesBlocks.HOOPSI_SPRUCE, MarblesBlocks.RED_BIRCH);
 
         BlockRenderLayerMap brlm = BlockRenderLayerMap.INSTANCE;
         brlm.putBlocks(

@@ -9,6 +9,7 @@ import net.dodogang.marbles.block.*;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
 import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
+import net.dodogang.marbles.block.sapling.RedBirchSaplingGenerator;
 import net.dodogang.marbles.block.vanilla.PublicCarpetBlock;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.state.property.MarblesProperties;
@@ -263,6 +264,12 @@ public class MarblesBlocks {
         .boatType(BoatEntity.Type.SPRUCE)
         .itemGroup(MarblesItemGroup.INSTANCE)
         .build(Marbles.MOD_ID, "hoopsi_spruce");
+
+    public static final WoodBlocks RED_BIRCH = new WoodBlocks.Builder()
+        .saplingGenerator(new RedBirchSaplingGenerator())
+        .boatType(BoatEntity.Type.ACACIA)
+        .itemGroup(MarblesItemGroup.INSTANCE)
+        .build(Marbles.MOD_ID, "red_birch");
 
     /*
      * REGISTRY

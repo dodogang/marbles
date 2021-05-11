@@ -35,6 +35,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
 
         woodSet(MarblesBlocks.ASPEN);
         woodSet(MarblesBlocks.HOOPSI_SPRUCE);
+        woodSet(MarblesBlocks.RED_BIRCH);
 
         travertineSet(MarblesBlocks.TRAVERTINE_BLOCKS, MarblesItemTags.TRAVERTINE);
         travertineSet(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS, MarblesItemTags.LEMON_TRAVERTINE);

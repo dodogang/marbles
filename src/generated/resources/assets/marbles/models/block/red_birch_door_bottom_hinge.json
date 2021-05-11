@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "bottom": "marbles:block/red_birch_door_bottom"
+  }
+}

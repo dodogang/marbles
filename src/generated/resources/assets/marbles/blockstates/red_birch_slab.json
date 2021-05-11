@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "marbles:block/red_birch_slab"
+    },
+    "type=double": {
+      "model": "marbles:block/red_birch_planks"
+    },
+    "type=top": {
+      "model": "marbles:block/red_birch_slab_top"
+    }
+  }
+}

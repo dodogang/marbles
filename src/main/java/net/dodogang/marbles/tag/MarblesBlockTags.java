@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 public class MarblesBlockTags {
     public static final Tag.Identified<Block> ASPEN_LOGS = register("aspen_logs");
     public static final Tag.Identified<Block> HOOPSI_SPRUCE_LOGS = register("hoopsi_spruce_logs");
+    public static final Tag.Identified<Block> RED_BIRCH_LOGS = register("red_birch_logs");
 
     public static final Tag.Identified<Block> RAW_TRAVERTINE = register("raw_travertine");
     public static final Tag.Identified<Block> TRAVERTINE = register("travertine");

@@ -32,6 +32,7 @@ public final class BlockStateTable {
 
         registerWoodBlocks(ASPEN);
         registerWoodBlocks(HOOPSI_SPRUCE);
+        registerWoodBlocks(RED_BIRCH);
 
         registerTravertineBlocks(TRAVERTINE_BLOCKS);
         registerTravertineBlocks(LEMON_TRAVERTINE_BLOCKS);

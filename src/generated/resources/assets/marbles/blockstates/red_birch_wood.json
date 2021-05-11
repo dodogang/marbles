@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "marbles:block/red_birch_wood",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "marbles:block/red_birch_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "marbles:block/red_birch_wood"
+    }
+  }
+}

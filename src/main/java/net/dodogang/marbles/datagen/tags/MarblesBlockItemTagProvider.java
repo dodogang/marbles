@@ -36,6 +36,7 @@ public class MarblesBlockItemTagProvider implements DataProvider {
     public void run(DataCache cache) throws IOException {
         addWoodSet(ASPEN, MarblesBlockTags.ASPEN_LOGS, MarblesItemTags.ASPEN_LOGS);
         addWoodSet(HOOPSI_SPRUCE, MarblesBlockTags.HOOPSI_SPRUCE_LOGS, MarblesItemTags.HOOPSI_SPRUCE_LOGS);
+        addWoodSet(RED_BIRCH, MarblesBlockTags.RED_BIRCH_LOGS, MarblesItemTags.RED_BIRCH_LOGS);
 
         addTravertineSet(TRAVERTINE_BLOCKS, MarblesBlockTags.TRAVERTINE, MarblesItemTags.TRAVERTINE);
         addTravertineSet(LEMON_TRAVERTINE_BLOCKS, MarblesBlockTags.LEMON_TRAVERTINE, MarblesItemTags.LEMON_TRAVERTINE);

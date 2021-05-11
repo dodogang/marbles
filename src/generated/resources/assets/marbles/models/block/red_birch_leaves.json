@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "marbles:block/red_birch_leaves"
+  }
+}

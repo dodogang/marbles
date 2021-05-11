@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "marbles:red_birch_planks"
+    }
+  ],
+  "result": {
+    "item": "marbles:red_birch_button"
+  }
+}

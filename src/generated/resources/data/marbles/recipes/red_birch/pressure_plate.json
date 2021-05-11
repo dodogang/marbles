@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:red_birch_planks"
+    }
+  },
+  "result": {
+    "item": "marbles:red_birch_pressure_plate"
+  }
+}

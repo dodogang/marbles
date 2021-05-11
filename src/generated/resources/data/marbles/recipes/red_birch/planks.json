@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "marbles:red_birch_log"
+      },
+      {
+        "item": "marbles:stripped_red_birch_log"
+      },
+      {
+        "item": "marbles:red_birch_wood"
+      },
+      {
+        "item": "marbles:stripped_red_birch_wood"
+      }
+    ]
+  ],
+  "result": {
+    "item": "marbles:red_birch_planks",
+    "count": 4
+  }
+}

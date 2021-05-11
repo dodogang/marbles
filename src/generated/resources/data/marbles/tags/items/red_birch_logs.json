@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "marbles:red_birch_log",
+    "marbles:stripped_red_birch_log",
+    "marbles:red_birch_wood",
+    "marbles:stripped_red_birch_wood"
+  ]
+}

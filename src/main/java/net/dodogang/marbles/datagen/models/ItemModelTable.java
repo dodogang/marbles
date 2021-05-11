@@ -25,6 +25,7 @@ public final class ItemModelTable {
 
         registerWoodBlocks(MarblesBlocks.ASPEN);
         registerWoodBlocks(MarblesBlocks.HOOPSI_SPRUCE);
+        registerWoodBlocks(MarblesBlocks.RED_BIRCH);
 
         registerTravertineBlocks(MarblesBlocks.TRAVERTINE_BLOCKS);
         registerTravertineBlocks(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);

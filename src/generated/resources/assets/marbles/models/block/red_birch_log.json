@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "marbles:block/red_birch_log_top",
+    "side": "marbles:block/red_birch_log"
+  }
+}

@@ -77,6 +77,7 @@ public abstract class AbstractRecipesProvider implements DataProvider {
         );
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     private static void saveRecipe(DataCache cache, JsonObject json, Path path) {
         try {
             String jsonTxt = GSON.toJson(json);
@@ -95,6 +96,7 @@ public abstract class AbstractRecipesProvider implements DataProvider {
 
     }
 
+    @SuppressWarnings("UnstableApiUsage")
     private static void saveRecipeAdvancement(DataCache dataCache, JsonObject jsonObject, Path path) {
         try {
             String jsonTxt = GSON.toJson(jsonObject);
