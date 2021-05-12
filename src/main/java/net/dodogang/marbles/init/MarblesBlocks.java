@@ -115,6 +115,7 @@ public class MarblesBlocks {
         PinkSaltSpikeBlock.id, new PinkSaltSpikeBlock(
             FabricBlockSettings.of(Material.PLANT, MaterialColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
+                .luminance(1)
                 .breakInstantly()
                 .nonOpaque()
         )
