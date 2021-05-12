@@ -271,7 +271,7 @@ public class MarblesBlocks {
     public static final WoodBlocks RED_BIRCH = new WoodBlocks.Builder()
         .saplingGenerator(new RedBirchSaplingGenerator())
         .boatType(BoatEntity.Type.ACACIA)
-        .itemGroup(MarblesItemGroup.INSTANCE)
+        // .itemGroup(MarblesItemGroup.INSTANCE)
         .build(Marbles.MOD_ID, "red_birch");
 
     /*
