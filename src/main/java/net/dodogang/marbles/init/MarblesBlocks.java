@@ -10,6 +10,7 @@ import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
 import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.dodogang.marbles.block.sapling.RedBirchSaplingGenerator;
+import net.dodogang.marbles.block.vanilla.PublicAirBlock;
 import net.dodogang.marbles.block.vanilla.PublicCarpetBlock;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.state.property.MarblesProperties;
@@ -85,7 +86,7 @@ public class MarblesBlocks {
 
     public static final Block PINK_SALT_SPIRE = register(
         PinkSaltSpireBlock.id, new PinkSaltSpireBlock(
-            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_SPIRE, MaterialColor.ORANGE)
+            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_ROCK, MaterialColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .strength(0.9f, 3.0f)
                 .requiresTool()
@@ -95,7 +96,7 @@ public class MarblesBlocks {
     );
     public static final Block PINK_SALT_STACK = register(
         PinkSaltStackBlock.id, new PinkSaltStackBlock(
-            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_SPIRE, MaterialColor.ORANGE)
+            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_ROCK, MaterialColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .strength(0.15f, 1.0f)
                 .breakByTool(FabricToolTags.PICKAXES)

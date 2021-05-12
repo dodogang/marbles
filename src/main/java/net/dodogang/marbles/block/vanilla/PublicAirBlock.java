@@ -1,4 +1,4 @@
-package net.dodogang.marbles.block;
+package net.dodogang.marbles.block.vanilla;
 
 import net.minecraft.block.AirBlock;
 
