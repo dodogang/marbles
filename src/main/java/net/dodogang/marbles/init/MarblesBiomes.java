@@ -9,7 +9,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeAdditionsSound;
 import net.minecraft.sound.BiomeMoodSound;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.sound.MusicSound;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -141,13 +141,14 @@ public class MarblesBiomes {
                             .fogColor(0x344D6B)
                             .skyColor(0xBD6541)
 
-                            .loopSound(SoundEvents.AMBIENT_WARPED_FOREST_LOOP) // TODO implement biome sound ambience properly
-                            .additionsSound(new BiomeAdditionsSound(SoundEvents.AMBIENT_WARPED_FOREST_ADDITIONS, 0.0111D))
+                            .loopSound(MarblesSoundEvents.AMBIENT_PINK_SALT_CAVE_LOOP)
+                            .additionsSound(new BiomeAdditionsSound(MarblesSoundEvents.AMBIENT_PINK_SALT_CAVE_ADDITIONS, 0.0111d))
+                            .music(new MusicSound(MarblesSoundEvents.MUSIC_PINK_SALT_CAVE, 12000, 24000, false))
                         .build()
                     )
                     .spawnSettings(
                         new SpawnSettings.Builder()
-                            .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 1, 1, 3))
+                            // .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 1, 1, 3))
                         .build()
                     )
                 .build();

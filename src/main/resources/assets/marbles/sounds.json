@@ -144,5 +144,50 @@
       "marbles:block/pink_salt_bricks/step3",
       "marbles:block/pink_salt_bricks/step4"
     ]
+  },
+
+  "music.pink_salt_cave": {
+    "sounds": []
+  },
+  "ambient.pink_salt_cave.loop": {
+    "sounds": [
+      {
+        "name": "marbles:ambient/pink_salt_cave/loop",
+        "stream": true,
+        "volume": 0.71
+      }
+    ]
+  },
+  "ambient.pink_salt_cave.additions": {
+    "sounds": [
+      {
+        "name": "marbles:ambient/pink_salt_cave/drip1",
+        "volume": 0.3
+      },
+      {
+        "name": "marbles:ambient/pink_salt_cave/drip2",
+        "volume": 0.3
+      },
+      {
+        "name": "marbles:ambient/pink_salt_cave/drip3",
+        "volume": 0.3
+      },
+
+      {
+        "name": "marbles:ambient/pink_salt_cave/drip1",
+        "volume": 0.3,
+        "pitch": 0.2
+      },
+      {
+        "name": "marbles:ambient/pink_salt_cave/drip2",
+        "volume": 0.3,
+        "pitch": 0.2
+      },
+      {
+        "name": "marbles:ambient/pink_salt_cave/drip3",
+        "volume": 0.3,
+        "pitch": 0.2
+      }
+    ]
   }
 }

@@ -34,11 +34,21 @@ public class MarblesSoundEvents {
         return block("pink_salt_bricks", type);
     }
 
+    public static final SoundEvent AMBIENT_PINK_SALT_CAVE_LOOP = pinkSaltCaveAmbient("loop");
+    public static final SoundEvent AMBIENT_PINK_SALT_CAVE_ADDITIONS = pinkSaltCaveAmbient("additions");
+    public static final SoundEvent MUSIC_PINK_SALT_CAVE = register("music.pink_salt_cave");
+    private static SoundEvent pinkSaltCaveAmbient(String id) {
+        return ambient(id, "pink_salt_cave");
+    }
+
     private static SoundEvent block(String block, String type) {
         return register("block." + block + "." + type);
     }
     private static SoundEvent entity(String entity, String type) {
         return register("entity." + entity + "." + type);
+    }
+    private static SoundEvent ambient(String id, String type) {
+        return register("ambient." + type + "." + id);
     }
 
     private static SoundEvent register(String name) {
