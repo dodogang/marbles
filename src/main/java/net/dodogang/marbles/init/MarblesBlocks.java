@@ -13,6 +13,7 @@ import net.dodogang.marbles.block.sapling.RedBirchSaplingGenerator;
 import net.dodogang.marbles.block.vanilla.PublicAirBlock;
 import net.dodogang.marbles.block.vanilla.PublicCarpetBlock;
 import net.dodogang.marbles.item.MarblesItemGroup;
+import net.dodogang.marbles.sound.MarblesSoundGroups;
 import net.dodogang.marbles.state.property.MarblesProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;

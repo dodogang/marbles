@@ -1,4 +1,4 @@
-package net.dodogang.marbles.block;
+package net.dodogang.marbles.sound;
 
 import net.dodogang.marbles.init.MarblesSoundEvents;
 import net.minecraft.sound.BlockSoundGroup;
