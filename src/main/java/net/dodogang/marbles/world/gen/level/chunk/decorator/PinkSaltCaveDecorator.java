@@ -1,4 +1,4 @@
-package net.dodogang.marbles.world.gen.level.pink_salt_cave;
+package net.dodogang.marbles.world.gen.level.chunk.decorator;
 
 import net.dodogang.marbles.world.gen.feature.MarblesConfiguredFeatureLists;
 import net.minecraft.util.math.BlockPos;

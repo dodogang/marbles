@@ -1,9 +1,10 @@
 package net.dodogang.marbles.mixin.hooks.worldgen;
 
 import net.dodogang.marbles.Marbles;
+import net.dodogang.marbles.init.MarblesBiomes;
 import net.dodogang.marbles.mixin.MutableBiomeArray;
 import net.dodogang.marbles.util.BiomeMath;
-import net.minecraft.util.registry.Registry;
+import net.dodogang.marbles.util.Util;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeArray;
@@ -17,8 +18,8 @@ public abstract class BiomeArrayMixin implements MutableBiomeArray {
 
     @Override
     public void setBiome(int x, int y, int z, RegistryKey<Biome> biome) {
-        if (Marbles.SERVER_INSTANCE != null) {
-            this.data[BiomeMath.getBiomeIndex(x, y, z)] = Marbles.SERVER_INSTANCE.getRegistryManager().get(Registry.BIOME_KEY).get(biome);
+        if (Marbles.SERVER_INSTANCE != null && this.data != null) {
+            this.data[BiomeMath.getBiomeIndex(x, y, z)] = Util.getBiomeFromKey(MarblesBiomes.PINK_SALT_CAVE);
         }
     }
 }

@@ -1,6 +1,7 @@
 package net.dodogang.marbles.mixin.hooks.worldgen;
 
-import net.dodogang.marbles.world.gen.level.pink_salt_cave.PinkSaltCaveGenerator;
+import net.dodogang.marbles.world.gen.level.MarblesChunkGenerator;
+import net.dodogang.marbles.world.gen.level.chunk.generator.PinkSaltCaveGenerator;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.biome.source.BiomeAccess;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -14,20 +15,30 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Mixin(NoiseChunkGenerator.class)
 public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
     @Shadow @Final private long seed;
-    private PinkSaltCaveGenerator marbles_pinkSaltCaveGenerator;
+    private List<MarblesChunkGenerator> marbles_chunkGenerators = null;
 
-    private NoiseChunkGeneratorMixin(BiomeSource biomeSource, StructuresConfig structuresConfig) {
-        super(biomeSource, structuresConfig);
+    private NoiseChunkGeneratorMixin(BiomeSource biomeSource, StructuresConfig config) {
+        super(biomeSource, config);
     }
 
-    private PinkSaltCaveGenerator marbles_getPinkSaltCaveGenerator() {
-        if (marbles_pinkSaltCaveGenerator == null) {
-            marbles_pinkSaltCaveGenerator = new PinkSaltCaveGenerator(seed, this);
+    private List<MarblesChunkGenerator> marbles_getChunkGenerators() {
+        if (marbles_chunkGenerators == null) {
+            marbles_chunkGenerators = new ArrayList<>();
+
+            /*
+             * Chunk generator 'registry'.
+             */
+
+            marbles_chunkGenerators.add(new PinkSaltCaveGenerator(this.seed, this, 1));
         }
-        return marbles_pinkSaltCaveGenerator;
+
+        return marbles_chunkGenerators;
     }
 
     @Override
@@ -35,13 +46,13 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
         super.carve(seed, access, chunk, carver);
 
         if (carver == GenerationStep.Carver.LIQUID) {
-            marbles_getPinkSaltCaveGenerator().generate(seed, access, chunk);
+            marbles_getChunkGenerators().forEach(generator -> generator.carve(seed, access, chunk));
         }
     }
 
     @Override
     public void generateFeatures(ChunkRegion region, StructureAccessor accessor) {
         super.generateFeatures(region, accessor);
-        marbles_getPinkSaltCaveGenerator().decorate(region, accessor);
+        marbles_getChunkGenerators().forEach(generator -> generator.decorate(region, accessor));
     }
 }

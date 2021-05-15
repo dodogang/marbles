@@ -1,6 +1,7 @@
 package net.dodogang.marbles.mixin.hooks.client;
 
 import net.dodogang.marbles.tag.MarblesBlockTags;
+import net.dodogang.marbles.util.ModLoaded;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
@@ -18,12 +19,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BiomeColorsMixin {
     @Inject(method = "getGrassColor", at = @At("HEAD"), cancellable = true)
     private static void onGetGrassColor(BlockRenderView world, BlockPos pos, CallbackInfoReturnable<Integer> cb) {
-        BlockState state = world.getBlockState(pos);
-        if (state.isSideSolidFullSquare(world, pos, Direction.DOWN)) return;
-
-        if (world.getBlockState(pos.down()).isIn(MarblesBlockTags.GRISP_COLOR_SOURCE)) {
-            cb.setReturnValue(0x74C05A);
-            cb.cancel();
+        if (!ModLoaded.SODIUM) {
+            BlockState state = world.getBlockState(pos);
+            if (!state.isSideSolidFullSquare(world, pos, Direction.DOWN)) {
+                if (world.getBlockState(pos.down()).isIn(MarblesBlockTags.GRISP_COLOR_SOURCE)) {
+                    cb.setReturnValue(0x74C05A);
+                    cb.cancel();
+                }
+            }
         }
     }
 }

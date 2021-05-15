@@ -1,5 +1,6 @@
 package net.dodogang.marbles.util;
 
+import net.dodogang.marbles.Marbles;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.Entity;
@@ -10,6 +11,10 @@ import net.minecraft.entity.passive.LlamaEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.biome.Biome;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
@@ -28,6 +33,17 @@ public class Util {
     /*
      * UTILITY METHODS
      */
+
+    @Nullable
+    public static Biome getBiomeFromKey(RegistryKey<Biome> biomeKey) {
+        if (Marbles.SERVER_INSTANCE != null) {
+            return Marbles.SERVER_INSTANCE.getRegistryManager()
+                                          .get(Registry.BIOME_KEY)
+                                          .get(biomeKey);
+        }
+
+        return null;
+    }
 
     public static Direction getLookDirectionForAxis(Entity entity, Direction.Axis axis) {
         switch (axis) {

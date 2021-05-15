@@ -64,7 +64,7 @@ public class PinkSaltSpireFeature extends Feature<DefaultFeatureConfig> {
             }
         }
 
-        if (!projectState(world, x, y, z, SALT_SPIRE, mpos, random, 8)) {
+        if (!projectState(world, x, y, z, SALT_SPIRE, mpos, random, 12)) {
             return false;
         }
 
@@ -74,7 +74,7 @@ public class PinkSaltSpireFeature extends Feature<DefaultFeatureConfig> {
                 int r = ox * ox + oz * oz;
 
                 if (random.nextInt(4 + r / 3) == 0 && r < 5 * 5) {
-                    if (projectState(world, ox + x, y, oz + z, SALT_SPIRE, mpos, random, 2 + 10 / (r + 1))) {
+                    if (projectState(world, ox + x, y, oz + z, SALT_SPIRE, mpos, random, 2 + 14 / (r + 1))) {
                         placedBlocks++;
                     }
                 }

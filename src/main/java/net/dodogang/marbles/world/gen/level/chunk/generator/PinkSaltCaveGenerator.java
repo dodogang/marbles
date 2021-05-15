@@ -1,8 +1,10 @@
-package net.dodogang.marbles.world.gen.level.pink_salt_cave;
+package net.dodogang.marbles.world.gen.level.chunk.generator;
 
 import net.dodogang.marbles.init.MarblesBiomes;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.mixin.MutableBiomeArray;
+import net.dodogang.marbles.world.gen.level.MarblesChunkGenerator;
+import net.dodogang.marbles.world.gen.level.chunk.decorator.PinkSaltCaveDecorator;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -29,11 +31,12 @@ import java.util.BitSet;
 import java.util.List;
 import java.util.Random;
 
-public class PinkSaltCaveGenerator {
-    //
-    // Sampling factors: affect performance and quality of the caves
-    //
-    private static final int VERTICAL_SPACE = 96;
+public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
+    /*
+     * Sampling factors: affect performance and quality of the caves
+     */
+
+    private static final int VERTICAL_SPACE   = 96;
     private static final int HORIZONTAL_SPACE = 16;
 
     private static final int MIN_Y = 0;
@@ -46,26 +49,27 @@ public class PinkSaltCaveGenerator {
     private static final int RESOLUTION_H = HORIZONTAL_SPACE / CELL_SIZE;
     private static final int RESOLUTION_V = VERTICAL_SPACE / CELL_SIZE;
 
-    //
-    // Cave factors: affect cave shapes
-    //
-    private static final double FIELD_SIZE = 228;    // Salt cave field noise size, determines where more and less caves generate
-    private static final double LEVEL_SIZE = 104.46; // Salt cave level (height) noise size
-    private static final double NOISE_SIZE = 40;     // Size of random cave noise
-    private static final double NOISE_SCALE = 3;     // Multiplier of random cave noise
-    private static final double OFFSET_SIZE = 48;    // Size of vertical offset noise
-    private static final double OFFSET_SCALE = 6;    // Multiplier of vertical offset scale
-    private static final double BRIDGE_SIZE_H = 15;  // Horizontal size of noise field that generates bridges and pillars
-    private static final double BRIDGE_SIZE_V = 7.5; // Vertical size of noise field that generates bridges and pillars
-    private static final double BRIDGE_SCALE = 12;   // Multiplier of bridge noise
-    private static final double BRIDGE_ADD = 6;      // Addend of bridge noise
-    private static final double CAVE_RARITY = 32;    // Overall rarity of caves
-    private static final double CAVE_SIZE = 2.5;     // Overall scaling of caves
-    private static final double MIN_RADIUS = 10;     // Minimum horizontal cave radius (gets scaled by CAVE_SIZE)
-    private static final double MAX_RADIUS = 17;     // Maximum horizontal cave radius (gets scaled by CAVE_SIZE)
-    private static final double MIN_LAYER_SIZE = 5;  // Minimum layer height (gets scaled by CAVE_SIZE)
-    private static final double MAX_LAYER_SIZE = 7;  // Maximum layer height (gets scaled by CAVE_SIZE)
-    private static final int WATER_LEVEL = 12;       // Any block below this Y value will turn into water instead of air
+    /*
+     * Cave factors: affect cave shapes
+     */
+
+    private static final double FIELD_SIZE     = 228;       // Salt cave field noise size, determines where more and less caves generate
+    private static final double LEVEL_SIZE     = 104.46;    // Salt cave level (height) noise size
+    private static final double NOISE_SIZE     = 40;        // Size of random cave noise
+    private static final double NOISE_SCALE    = 3;         // Multiplier of random cave noise
+    private static final double OFFSET_SIZE    = 48;        // Size of vertical offset noise
+    private static final double OFFSET_SCALE   = 6;         // Multiplier of vertical offset scale
+    private static final double BRIDGE_SIZE_H  = 15;        // Horizontal size of noise field that generates bridges and pillars
+    private static final double BRIDGE_SIZE_V  = 7.5;       // Vertical size of noise field that generates bridges and pillars
+    private static final double BRIDGE_SCALE   = 12;        // Multiplier of bridge noise
+    private static final double BRIDGE_ADD     = 6;         // Addend of bridge noise
+    private static final double CAVE_RARITY    = 32;        // Overall rarity of caves
+    private static final double CAVE_SIZE      = 3.2;       // Overall scaling of caves
+    private static final double MIN_RADIUS     = 10;        // Minimum horizontal cave radius (gets scaled by CAVE_SIZE)
+    private static final double MAX_RADIUS     = 17;        // Maximum horizontal cave radius (gets scaled by CAVE_SIZE)
+    private static final double MIN_LAYER_SIZE = 5;         // Minimum layer height (gets scaled by CAVE_SIZE)
+    private static final double MAX_LAYER_SIZE = 7;         // Maximum layer height (gets scaled by CAVE_SIZE)
+    private static final int WATER_LEVEL       = 12;        // Any block below this Y value will turn into water instead of air
 
     private final Noise2D fieldNoise;
     private final Noise2D levelNoise;
@@ -73,14 +77,9 @@ public class PinkSaltCaveGenerator {
     private final Noise3D offsetNoiseX;
     private final Noise3D offsetNoiseZ;
     private final Noise3D bridgeNoise;
-    private final long seed;
-    private final ChunkRandom random;
-    private final ChunkGenerator generator;
 
-    public PinkSaltCaveGenerator(long seed, ChunkGenerator generator) {
-        this.seed = seed;
-        this.random = new ChunkRandom(seed);
-        this.generator = generator;
+    public PinkSaltCaveGenerator(long seed, ChunkGenerator generator, int index) {
+        super(seed, generator, index);
 
         Random rand = new Random(seed);
 
@@ -99,7 +98,8 @@ public class PinkSaltCaveGenerator {
     }
 
 
-    public void generate(long seed, BiomeAccess biomes, Chunk chunk) {
+    @Override
+    public void carve(long seed, BiomeAccess biomes, Chunk chunk) {
         double[][][] buffers = new double[2][RESOLUTION_H + 1][RESOLUTION_V + 1];
 
         int cx = chunk.getPos().x;
@@ -208,7 +208,7 @@ public class PinkSaltCaveGenerator {
 
     private static void setPinkSaltCaveBiome(BlockPos pos, Chunk chunk) {
         BiomeArray biomeArray = chunk.getBiomeArray();
-        if (biomeArray != null) {
+        if (biomeArray instanceof MutableBiomeArray) {
             ((MutableBiomeArray) biomeArray).setBiome(pos.getX(), pos.getY(), pos.getZ(), MarblesBiomes.PINK_SALT_CAVE);
             chunk.setShouldSave(true);
         }
@@ -288,6 +288,7 @@ public class PinkSaltCaveGenerator {
         return caves;
     }
 
+    @Override
     public void decorate(ChunkRegion region, StructureAccessor accessor) {
         int cx = region.getCenterChunkX();
         int cz = region.getCenterChunkZ();
