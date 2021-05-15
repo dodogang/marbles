@@ -41,7 +41,7 @@ dependencies {
      */
 
     if (!Boolean.parseBoolean("${project.ip_enabled}") && Boolean.parseBoolean("${project.canvas_enabled}")) { // Immersive Portals is incompatible with Canvas
-        modImplementation("grondag:canvas-mc116:1.0.1267") {
+        modImplementation("grondag:canvas-mc116:${project.canvas_version}") {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
             exclude group: "io.github.prospector"
@@ -52,6 +52,7 @@ dependencies {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
             exclude group: "com.github.Virtuoel"
+            exclude group: "io.github.prospector"
         }
     }
 
@@ -66,7 +67,7 @@ dependencies {
     include("com.github.andantedevs:chord:${project.chord_version}") { exclude group: "net.fabricmc.fabric-api" }
     modImplementation("com.github.andantedevs:chord:${project.chord_version}") { exclude group: "net.fabricmc.fabric-api" }
 
-    modImplementation("net.shadew:jedt:0.1") { exclude group: "net.fabricmc.fabric-api" }
+    modImplementation("net.shadew:jedt:${project.jedt_version}") { exclude group: "net.fabricmc.fabric-api" }
 
     include("net.shadew:shwutil:${project.shwutil_version}")
     implementation("net.shadew:shwutil:${project.shwutil_version}") // not a mod, no need for modImplementation
@@ -84,7 +85,10 @@ dependencies {
         exclude group: "io.github.prospector"
     }
 
-    // modRuntime ("com.github.CaffeineMC:sodium-fabric:${project.sodium_version}") { exclude ( group: "net.fabricmc.fabric-api" ) }
+    if (!Boolean.parseBoolean("${project.ip_enabled}") && !Boolean.parseBoolean("${project.canvas_enabled}")) {
+        modRuntime("com.github.CaffeineMC:sodium-fabric:${project.sodium_version}") { exclude group: "net.fabricmc.fabric-api" }
+    }
+    // modRuntime("com.github.CaffeineMC:hydrogen-fabric:${project.hydrogen_version}") { exclude group: "net.fabricmc.fabric-api" }
     modRuntime("com.github.CaffeineMC:lithium-fabric:${project.lithium_version}") { exclude group: "net.fabricmc.fabric-api" }
     modRuntime("com.github.CaffeineMC:phosphor-fabric:${project.phosphor_version}") { exclude group: "net.fabricmc.fabric-api" }
 }
