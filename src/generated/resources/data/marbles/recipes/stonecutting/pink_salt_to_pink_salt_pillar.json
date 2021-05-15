@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:pink_salt"
+  },
+  "result": "marbles:pink_salt_pillar",
+  "count": 1
+}

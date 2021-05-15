@@ -37,7 +37,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
 
         woodSet(MarblesBlocks.ASPEN, MarblesItemTags.ASPEN_LOGS);
         woodSet(MarblesBlocks.HOOPSI_SPRUCE, MarblesItemTags.HOOPSI_SPRUCE_LOGS);
-        woodSet(MarblesBlocks.RED_BIRCH, MarblesItemTags.RED_BIRCH_LOGS);
+        // woodSet(MarblesBlocks.RED_BIRCH, MarblesItemTags.RED_BIRCH_LOGS);
 
         travertineSet(MarblesBlocks.TRAVERTINE_BLOCKS, MarblesItemTags.TRAVERTINE);
         travertineSet(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS, MarblesItemTags.LEMON_TRAVERTINE);
@@ -94,6 +94,13 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         stairs("pink_salt/stairs", MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_STAIRS, 4);
         generic3x1("pink_salt/brick_slab", MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_SLAB, 6);
         stairs("pink_salt/brick_stairs", MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_STAIRS, 4);
+        ShapedRecipeJsonFactory.create(MarblesBlocks.PINK_SALT_PILLAR, 2)
+                               .input('#', MarblesBlocks.PINK_SALT)
+                               .pattern("#")
+                               .pattern("#")
+                               .criterion("has_pink_salt", hasItem(MarblesBlocks.PINK_SALT))
+                               .criterion("has_pink_salt_pillar", hasItem(MarblesBlocks.PINK_SALT_PILLAR))
+                               .offerTo(consumer, id("pink_salt/pillar"));
     }
 
     private void travertineSet(TravertineBlocks blocks, Tag<Item> tag) {
