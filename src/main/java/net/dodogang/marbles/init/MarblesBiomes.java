@@ -135,7 +135,7 @@ public class MarblesBiomes {
 
                     .effects(
                         new BiomeEffects.Builder()
-                            .particleConfig(new BiomeParticleConfig(MarblesParticles.PINK_SALT, 0.00923f))
+                            .particleConfig(new BiomeParticleConfig(MarblesParticles.PINK_SALT, 0.013f))
                             .waterColor(0x242356)
                             .waterFogColor(0x344D6B)
                             .fogColor(0x344D6B)
