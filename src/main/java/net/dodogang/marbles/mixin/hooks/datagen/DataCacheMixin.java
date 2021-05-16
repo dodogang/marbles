@@ -21,7 +21,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Stream;
 
-@SuppressWarnings({"UnusedMixin","MismatchedQueryAndUpdateOfCollection"})
+@SuppressWarnings({ "UnusedMixin", "MismatchedQueryAndUpdateOfCollection", "unused" })
 @Mixin(DataCache.class)
 public abstract class DataCacheMixin implements DataCacheAccess {
     @Shadow

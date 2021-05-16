@@ -39,7 +39,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
-@SuppressWarnings("ConstantConditions")
+@SuppressWarnings({"ConstantConditions","unused"})
 @Mixin(Entity.class)
 public abstract class EntityMixin implements TravertinePortalingEntity {
     private static final Logger LOGGER = LogManager.getLogger();

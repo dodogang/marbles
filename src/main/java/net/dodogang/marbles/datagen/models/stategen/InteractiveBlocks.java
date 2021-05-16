@@ -66,6 +66,7 @@ public abstract class InteractiveBlocks {
         return gen;
     }
 
+    @SuppressWarnings("ConstantConditions")
     public static StateGen trapdoor(String name) {
         VariantsBlockStateGen gen = VariantsBlockStateGen.variants();
 

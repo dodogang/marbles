@@ -10,6 +10,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+@SuppressWarnings({"UnusedReturnValue","unused"})
 public class TravertineBlocks {
     private final String id;
     private final String modId;

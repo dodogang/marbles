@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 
+@SuppressWarnings("unused")
 public class MultipartBlockStateGen implements StateGen {
     private final List<Part> parts = Lists.newArrayList();
 

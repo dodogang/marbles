@@ -4,6 +4,7 @@ import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 
 import static net.dodogang.marbles.datagen.models.modelgen.InheritingModelGen.*;
 
+@SuppressWarnings("unused")
 public abstract class SimpleBlocks {
     public static StateGen predefined(String name) {
         return VariantsBlockStateGen.variants(ModelInfo.create(name));

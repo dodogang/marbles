@@ -9,6 +9,7 @@ import net.shadew.util.misc.MathUtil;
 
 import java.util.Random;
 
+@SuppressWarnings("unused")
 public class PinkSaltCaveDecorator {
     public Noise3D noise = Noise3D.constant(0);
     public Noise3D offsetNoiseX = Noise3D.constant(0);

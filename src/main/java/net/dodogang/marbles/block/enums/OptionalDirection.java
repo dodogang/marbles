@@ -3,6 +3,7 @@ package net.dodogang.marbles.block.enums;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.math.Direction;
 
+@SuppressWarnings("unused")
 public enum OptionalDirection implements StringIdentifiable {
     NONE("none", null),
     UP("up", Direction.UP),

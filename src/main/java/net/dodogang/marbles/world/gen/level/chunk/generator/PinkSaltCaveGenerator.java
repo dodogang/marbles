@@ -31,6 +31,7 @@ import java.util.BitSet;
 import java.util.List;
 import java.util.Random;
 
+@SuppressWarnings("unused")
 public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
     /*
      * Sampling factors: affect performance and quality of the caves

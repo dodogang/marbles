@@ -16,6 +16,7 @@ import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("unused")
 public class DataMain {
     public static void main(String[] strings) throws IOException {
         OptionParser opts = new OptionParser();

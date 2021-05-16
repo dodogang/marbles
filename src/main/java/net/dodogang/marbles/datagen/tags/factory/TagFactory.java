@@ -9,6 +9,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.function.Function;
 
+@SuppressWarnings({"UnusedReturnValue","unused"})
 public class TagFactory<T> {
     private boolean replace;
     private final Function<T, Identifier> idGetter;

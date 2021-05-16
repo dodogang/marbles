@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-
+@SuppressWarnings("unused")
 public class VariantsBlockStateGen implements StateGen {
     private final Map<String, ModelInfo[]> variants = new HashMap<>();
 

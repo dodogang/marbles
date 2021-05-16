@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+@SuppressWarnings({ "EmptyMethod", "UnusedReturnValue", "unused" })
 @Mixin(CrossbowItem.class)
 public class CrossbowItemMixin {
     @Shadow private static void putProjectile(ItemStack crossbow, ItemStack projectile) {}

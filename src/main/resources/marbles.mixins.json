@@ -21,7 +21,6 @@
     "ProtoWorldChunkMixin",
     "WorldMixin",
     "worldgen.BiomeArrayMixin",
-    "worldgen.ChunkGenSettingsAccessor",
     "worldgen.HorizontalVoronoiBiomeAccessTypeMixin",
     "worldgen.NoiseChunkGeneratorMixin"
   ],

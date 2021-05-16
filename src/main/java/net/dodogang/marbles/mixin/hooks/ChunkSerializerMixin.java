@@ -22,6 +22,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+@SuppressWarnings("UnnecessaryLocalVariable")
 @Mixin(ChunkSerializer.class)
 public class ChunkSerializerMixin {
     @Inject(

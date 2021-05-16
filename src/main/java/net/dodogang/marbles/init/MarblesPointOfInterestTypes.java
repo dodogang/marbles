@@ -10,6 +10,7 @@ import net.minecraft.world.poi.PointOfInterestType;
 import java.util.Set;
 import java.util.function.Predicate;
 
+@SuppressWarnings("unused")
 public class MarblesPointOfInterestTypes {
     public static final PointOfInterestType TRAVERTINE_PORTAL = register("travertine_portal", getAllStatesOf(MarblesBlocks.TRAVERTINE_PORTAL), 0, 1);
 

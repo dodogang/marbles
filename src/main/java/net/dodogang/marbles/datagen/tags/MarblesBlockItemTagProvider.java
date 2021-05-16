@@ -23,6 +23,7 @@ import java.io.IOException;
 
 import static net.dodogang.marbles.init.MarblesBlocks.*;
 
+@SuppressWarnings("unused")
 public class MarblesBlockItemTagProvider implements DataProvider {
     private final TagStore<Block> blocks;
     private final TagStore<Item> items;

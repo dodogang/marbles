@@ -23,6 +23,7 @@ public abstract class BlockDustParticleMixin extends SpriteBillboardParticle {
     @Final
     private BlockState blockState;
 
+    @SuppressWarnings("unused")
     protected BlockDustParticleMixin(ClientWorld world, double x, double y, double z) {
         super(world, x, y, z);
     }

@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import java.util.Set;
 import java.util.function.Predicate;
 
+@SuppressWarnings("unused")
 @Mixin(PointOfInterestType.class)
 public abstract class PointOfInterestTypeMixin implements MarblesPOIRegistryHelper {
     @Shadow

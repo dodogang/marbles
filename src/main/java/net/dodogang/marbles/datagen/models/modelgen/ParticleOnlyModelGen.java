@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.util.Identifier;
 
+@SuppressWarnings("unused")
 public class ParticleOnlyModelGen implements ModelGen {
     private final String particles;
 

@@ -7,7 +7,7 @@ import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 
 import java.util.function.BiConsumer;
 
-
+@SuppressWarnings("unused")
 public final class ModelInfo {
     private final String model;
     private ModelGen modelgen;

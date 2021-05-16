@@ -8,6 +8,7 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 
 // We have to do things reflectively. If IP is not present we must still be able to run.
+@SuppressWarnings("FieldCanBeLocal")
 public class ImmersivePortalsCompatHelper {
     private static final Logger LOGGER = LogManager.getLogger();
     private static boolean isPresent;

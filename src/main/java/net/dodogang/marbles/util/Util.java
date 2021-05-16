@@ -3,14 +3,12 @@ package net.dodogang.marbles.util;
 import net.dodogang.marbles.Marbles;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.LlamaEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
@@ -43,18 +41,6 @@ public class Util {
         }
 
         return null;
-    }
-
-    public static Direction getLookDirectionForAxis(Entity entity, Direction.Axis axis) {
-        switch (axis) {
-            case X:
-                return Direction.EAST.method_30928(entity.getYaw(1.0F)) ? Direction.EAST : Direction.WEST;
-            case Z:
-                return Direction.SOUTH.method_30928(entity.getYaw(1.0F)) ? Direction.SOUTH : Direction.NORTH;
-            case Y:
-            default:
-                return entity.getPitch(1.0F) < 0.0F ? Direction.UP : Direction.DOWN;
-        }
     }
 
     /**

@@ -7,6 +7,7 @@ import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
+@SuppressWarnings("unused")
 public abstract class MarblesChunkGenerator {
     protected final long seed;
     protected final ChunkRandom random;

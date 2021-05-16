@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@SuppressWarnings("unused")
 public class Selector {
     private final boolean or;
     private final Map<String, String> conditions = Maps.newHashMap();

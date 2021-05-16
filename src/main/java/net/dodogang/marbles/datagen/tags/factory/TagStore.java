@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public class TagStore<T> {
     private static final Gson GSON = new GsonBuilder()
                                          .setPrettyPrinting()

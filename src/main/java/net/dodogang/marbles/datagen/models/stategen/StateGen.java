@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import java.util.function.BiConsumer;
 
 
+@SuppressWarnings("unused")
 public interface StateGen {
     JsonElement makeJson(Identifier id, Block block);
     void getModels(BiConsumer<String, ModelGen> consumer);
