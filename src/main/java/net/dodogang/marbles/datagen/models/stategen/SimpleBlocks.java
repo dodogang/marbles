@@ -53,6 +53,13 @@ public abstract class SimpleBlocks {
                                     .variant("facing=west", ModelInfo.create(name, model).rotate(90, 270));
     }
 
+    public static StateGen facingHorizontalRotated(String name, ModelGen model) {
+        return VariantsBlockStateGen.variants("facing=north", ModelInfo.create(name, model).rotate(0, 0))
+                                    .variant("facing=east", ModelInfo.create(name, model).rotate(0, 90))
+                                    .variant("facing=south", ModelInfo.create(name, model).rotate(0, 180))
+                                    .variant("facing=west", ModelInfo.create(name, model).rotate(0, 270));
+    }
+
     public static StateGen randomRotationY(String name, ModelGen model) {
         return VariantsBlockStateGen.variants(
             ModelInfo.create(name, model).rotate(0, 0),

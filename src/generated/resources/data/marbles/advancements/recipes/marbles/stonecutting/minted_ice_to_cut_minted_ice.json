@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:stonecutting/minted_ice_to_cut_minted_ice"
+    ]
+  },
+  "criteria": {
+    "has_minted_ice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:minted_ice"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:stonecutting/minted_ice_to_cut_minted_ice"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_minted_ice",
+      "has_the_recipe"
+    ]
+  ]
+}

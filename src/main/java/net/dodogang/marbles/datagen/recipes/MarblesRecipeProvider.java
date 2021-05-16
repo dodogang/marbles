@@ -35,21 +35,32 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
     protected void generate(Consumer<RecipeJsonProvider> consumer) {
         this.consumer = consumer;
 
+        /*
+         * WOOD SETS
+         */
+
         woodSet(MarblesBlocks.ASPEN, MarblesItemTags.ASPEN_LOGS);
         woodSet(MarblesBlocks.HOOPSI_SPRUCE, MarblesItemTags.HOOPSI_SPRUCE_LOGS);
         // woodSet(MarblesBlocks.RED_BIRCH, MarblesItemTags.RED_BIRCH_LOGS);
+
+        /*
+         * TRAVERTINE SETS
+         */
 
         travertineSet(MarblesBlocks.TRAVERTINE_BLOCKS, MarblesItemTags.TRAVERTINE);
         travertineSet(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS, MarblesItemTags.LEMON_TRAVERTINE);
         travertineSet(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS, MarblesItemTags.PEACH_TRAVERTINE);
         travertineSet(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS, MarblesItemTags.TANGERINE_TRAVERTINE);
 
-        generic3x3("rope", Items.STRING, MarblesBlocks.ROPE, 9);
+        /*
+         * LAPIS SETS
+         */
 
         generic2x2("lapis/shingles", Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES, 4);
         generic3x1("lapis/shingles_slab", MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLE_SLAB, 6);
         stairs("lapis/shingles_stairs", MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLE_STAIRS, 4);
         generic3x2("lapis/glazed", Blocks.LAPIS_BLOCK, MarblesBlocks.GLAZED_LAPIS, 6);
+
         generic3x3("umbral_lazuli/block", MarblesItems.UMBRAL_LAZULI, MarblesBlocks.UMBRAL_LAZULI_BLOCK, 1);
         shapeless("umbral_lazuli/item_from_block", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesItems.UMBRAL_LAZULI, 9);
         smelting("umbral_lazuli/item_from_smelting", MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2);
@@ -59,7 +70,16 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         stairs("umbral_lazuli/shingles_stairs", MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS, 4);
         generic3x2("umbral_lazuli/glazed", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesBlocks.GLAZED_UMBRAL_LAZULI, 6);
 
+        /*
+         * MISC
+         */
+
         scaffolding("yellow_scaffolding", MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_SCAFFOLDING, 6);
+        generic3x3("rope", Items.STRING, MarblesBlocks.ROPE, 9);
+
+        /*
+         * SANDSTONE
+         */
 
         generic2x2("dawn_sand/sandstone", MarblesBlocks.DAWN_SAND, MarblesBlocks.DAWN_SANDSTONE, 1);
         generic2x2("dawn_sand/cut_sandstone", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE, 4);
@@ -89,6 +109,10 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         generic3x2("dusk_sand/cut_sandstone_wall", MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_WALL, 6);
         generic3x2("dusk_sand/smooth_sandstone_wall", MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, 6);
 
+        /*
+         * PINK SALT
+         */
+
         generic2x2("pink_salt/bricks", MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_BRICKS, 4);
         generic3x1("pink_salt/slab", MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_SLAB, 6);
         stairs("pink_salt/stairs", MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_STAIRS, 4);
@@ -101,6 +125,15 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
                                .criterion("has_pink_salt", hasItem(MarblesBlocks.PINK_SALT))
                                .criterion("has_pink_salt_pillar", hasItem(MarblesBlocks.PINK_SALT_PILLAR))
                                .offerTo(consumer, id("pink_salt/pillar"));
+
+        /*
+         * ICE
+         */
+
+        generic2x2("ice_bricks/ice", Blocks.ICE, MarblesBlocks.ICE_BRICKS, 4);
+        generic2x2("ice_bricks/blue_ice", Blocks.BLUE_ICE, MarblesBlocks.BLUE_ICE_BRICKS, 4);
+        generic2x2("ice_bricks/scaled_ice", MarblesBlocks.SCALED_ICE, MarblesBlocks.SCALED_ICE_BRICKS, 4);
+        generic2x2("ice_bricks/minted_ice", MarblesBlocks.MINTED_ICE, MarblesBlocks.MINTED_ICE_BRICKS, 4);
     }
 
     private void travertineSet(TravertineBlocks blocks, Tag<Item> tag) {

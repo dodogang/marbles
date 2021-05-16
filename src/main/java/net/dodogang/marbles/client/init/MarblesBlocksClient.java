@@ -36,7 +36,25 @@ public class MarblesBlocksClient {
 
         brlm.putBlocks(
             RenderLayer.getTranslucent(),
-            MarblesBlocks.TRAVERTINE_PORTAL
+            MarblesBlocks.TRAVERTINE_PORTAL,
+
+            MarblesBlocks.SCALED_ICE,
+            MarblesBlocks.MINTED_ICE,
+
+            MarblesBlocks.CUT_ICE,
+            MarblesBlocks.CUT_BLUE_ICE,
+            MarblesBlocks.CUT_SCALED_ICE,
+            MarblesBlocks.CUT_MINTED_ICE,
+
+            MarblesBlocks.CHISELED_ICE,
+            MarblesBlocks.CHISELED_BLUE_ICE,
+            MarblesBlocks.CHISELED_SCALED_ICE,
+            MarblesBlocks.CHISELED_MINTED_ICE,
+
+            MarblesBlocks.ICE_BRICKS,
+            MarblesBlocks.BLUE_ICE_BRICKS,
+            MarblesBlocks.SCALED_ICE_BRICKS,
+            MarblesBlocks.MINTED_ICE_BRICKS
         );
 
         ColorProviderRegistry<Block, BlockColorProvider> blockColors = ColorProviderRegistry.BLOCK;

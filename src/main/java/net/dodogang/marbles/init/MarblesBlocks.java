@@ -12,13 +12,17 @@ import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.dodogang.marbles.block.sapling.RedBirchSaplingGenerator;
 import net.dodogang.marbles.block.vanilla.PublicAirBlock;
 import net.dodogang.marbles.block.vanilla.PublicCarpetBlock;
+import net.dodogang.marbles.block.HorizontalFacingTransparentBlock;
+import net.dodogang.marbles.block.vanilla.PublicTransparentBlock;
 import net.dodogang.marbles.item.MarblesItemGroup;
+import net.dodogang.marbles.sound.MarblesBlockSoundGroup;
 import net.dodogang.marbles.sound.MarblesSoundGroups;
 import net.dodogang.marbles.state.property.MarblesProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BedPart;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -211,6 +215,40 @@ public class MarblesBlocks {
     public static final Block UMBRAL_LAZULI_SPOTLIGHT = register("umbral_lazuli_spotlight", new SpotlightBlock(FabricBlockSettings.copyOf(LAPIS_SPOTLIGHT)));
 
     public static final Block GLAZED_UMBRAL_LAZULI = register("glazed_umbral_lazuli", new DualConnectingBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
+
+    /*
+     * ICE
+     */
+
+    /**
+     * Modification of vanilla ice without {@link AbstractBlock.Settings#ticksRandomly}
+     */
+    public static final FabricBlockSettings ICE_SETTINGS = FabricBlockSettings.of(Material.ICE)
+                                                                              .slipperiness(0.98F)
+                                                                              .strength(0.5F)
+                                                                              .sounds(BlockSoundGroup.GLASS)
+                                                                              .nonOpaque()
+                                                                              .breakByTool(FabricToolTags.PICKAXES)
+                                                                              .requiresTool()
+                                                                              .allowsSpawning((state, world, pos, entityType) -> entityType == EntityType.POLAR_BEAR);
+
+    public static final Block SCALED_ICE = register("scaled_ice", new Block(ICE_SETTINGS));
+    public static final Block MINTED_ICE = register("minted_ice", new Block(ICE_SETTINGS));
+
+    public static final Block CUT_ICE = register("cut_ice", new Block(ICE_SETTINGS));
+    public static final Block CUT_BLUE_ICE = register("cut_blue_ice", new Block(ICE_SETTINGS));
+    public static final Block CUT_SCALED_ICE = register("cut_scaled_ice", new Block(FabricBlockSettings.copyOf(SCALED_ICE)));
+    public static final Block CUT_MINTED_ICE = register("cut_minted_ice", new Block(FabricBlockSettings.copyOf(MINTED_ICE)));
+
+    public static final Block CHISELED_ICE = register("chiseled_ice", new HorizontalFacingTransparentBlock(ICE_SETTINGS));
+    public static final Block CHISELED_BLUE_ICE = register("chiseled_blue_ice", new HorizontalFacingTransparentBlock(ICE_SETTINGS));
+    public static final Block CHISELED_SCALED_ICE = register("chiseled_scaled_ice", new HorizontalFacingTransparentBlock(FabricBlockSettings.copyOf(SCALED_ICE)));
+    public static final Block CHISELED_MINTED_ICE = register("chiseled_minted_ice", new HorizontalFacingTransparentBlock(FabricBlockSettings.copyOf(MINTED_ICE)));
+
+    public static final Block ICE_BRICKS = register("ice_bricks", new PublicTransparentBlock(ICE_SETTINGS.sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
+    public static final Block BLUE_ICE_BRICKS = register("blue_ice_bricks", new PublicTransparentBlock(ICE_SETTINGS.sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
+    public static final Block SCALED_ICE_BRICKS = register("scaled_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(SCALED_ICE).sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
+    public static final Block MINTED_ICE_BRICKS = register("minted_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(MINTED_ICE).sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
 
     /*
      * GRISP SET

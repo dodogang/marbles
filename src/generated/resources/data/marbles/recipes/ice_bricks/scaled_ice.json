@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:scaled_ice"
+    }
+  },
+  "result": {
+    "item": "marbles:scaled_ice_bricks",
+    "count": 4
+  }
+}

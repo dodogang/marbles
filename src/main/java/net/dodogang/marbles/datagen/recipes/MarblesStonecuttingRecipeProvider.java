@@ -42,10 +42,18 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
     protected void generate(Consumer<RecipeJsonProvider> consumer) {
         this.consumer = consumer;
 
+        /*
+         * TRAVERTINE SETS
+         */
+
         registerTravertine(MarblesBlocks.TRAVERTINE_BLOCKS);
         registerTravertine(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);
         registerTravertine(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
         registerTravertine(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
+
+        /*
+         * LAPIS SETS
+         */
 
         register(Blocks.LAPIS_BLOCK, MarblesBlocks.LAPIS_SHINGLES);
         register(MarblesBlocks.LAPIS_SHINGLES, MarblesBlocks.LAPIS_SHINGLE_SLAB, 2);
@@ -55,6 +63,10 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, 2);
         register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS);
         register(MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesBlocks.GLAZED_UMBRAL_LAZULI);
+
+        /*
+         * SANDSTONE SETS
+         */
 
         register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE);
         register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CHISELED_DAWN_SANDSTONE);
@@ -86,12 +98,39 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS);
         register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
 
+        /*
+         * PINK SALT
+         */
+
         register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_BRICKS);
         register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_SLAB, 2);
         register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_STAIRS);
         register(MarblesBlocks.PINK_SALT, MarblesBlocks.PINK_SALT_PILLAR);
         register(MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_SLAB, 2);
         register(MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_STAIRS);
+
+        /*
+         * ICE
+         */
+
+        register(Blocks.ICE, MarblesBlocks.CUT_ICE);
+        register(Blocks.BLUE_ICE, MarblesBlocks.CUT_BLUE_ICE);
+        register(MarblesBlocks.SCALED_ICE, MarblesBlocks.CUT_SCALED_ICE);
+        register(MarblesBlocks.MINTED_ICE, MarblesBlocks.CUT_MINTED_ICE);
+
+        register(Blocks.ICE, MarblesBlocks.CHISELED_ICE);
+        register(Blocks.BLUE_ICE, MarblesBlocks.CHISELED_BLUE_ICE);
+        register(MarblesBlocks.SCALED_ICE, MarblesBlocks.CHISELED_SCALED_ICE);
+        register(MarblesBlocks.MINTED_ICE, MarblesBlocks.CHISELED_MINTED_ICE);
+
+        register(Blocks.ICE, MarblesBlocks.ICE_BRICKS);
+        register(Blocks.BLUE_ICE, MarblesBlocks.BLUE_ICE_BRICKS);
+        register(MarblesBlocks.SCALED_ICE, MarblesBlocks.SCALED_ICE_BRICKS);
+        register(MarblesBlocks.MINTED_ICE, MarblesBlocks.MINTED_ICE_BRICKS);
+
+        /*
+         * GENERATION
+         */
 
         compile();
         flush();

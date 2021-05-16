@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:ice"
+  },
+  "result": "marbles:ice_bricks",
+  "count": 1
+}

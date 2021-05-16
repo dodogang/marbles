@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "marbles:scaled_ice",
+    "marbles:minted_ice",
+
+    "marbles:cut_ice",
+    "marbles:cut_blue_ice",
+    "marbles:cut_scaled_ice",
+    "marbles:cut_minted_ice",
+
+    "marbles:chiseled_ice",
+    "marbles:chiseled_blue_ice",
+    "marbles:chiseled_scaled_ice",
+    "marbles:chiseled_minted_ice",
+
+    "marbles:ice_bricks",
+    "marbles:blue_ice_bricks",
+    "marbles:scaled_ice_bricks",
+    "marbles:minted_ice_bricks"
+  ]
+}

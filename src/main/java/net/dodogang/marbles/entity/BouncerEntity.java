@@ -73,6 +73,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
         this.goalSelector.add(4, new WanderAroundGoal(this, 0.6d));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
+
         this.targetSelector.add(2, new RevengeGoal(this));
         this.targetSelector.add(3, new FollowTargetGoal<>(this, PlayerEntity.class, 10, true, false, entity -> this.shouldAngerAt(entity, false)));
         this.targetSelector.add(4, new FollowTargetGoal<>(this, MobEntity.class, 5, false, false, entity -> this.shouldAngerAt(entity, false)));

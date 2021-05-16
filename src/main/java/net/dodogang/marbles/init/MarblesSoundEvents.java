@@ -34,6 +34,15 @@ public class MarblesSoundEvents {
         return block("pink_salt_bricks", type);
     }
 
+    public static final SoundEvent BLOCK_ICE_BRICKS_BREAK = iceBricks("break");
+    public static final SoundEvent BLOCK_ICE_BRICKS_STEP = iceBricks("step");
+    public static final SoundEvent BLOCK_ICE_BRICKS_HIT = iceBricks("hit");
+    public static final SoundEvent BLOCK_ICE_BRICKS_PLACE = iceBricks("place");
+    public static final SoundEvent BLOCK_ICE_BRICKS_FALL = iceBricks("fall");
+    private static SoundEvent iceBricks(String type) {
+        return block("ice_bricks", type);
+    }
+
     public static final SoundEvent AMBIENT_PINK_SALT_CAVE_LOOP = pinkSaltCaveAmbient("loop");
     public static final SoundEvent AMBIENT_PINK_SALT_CAVE_ADDITIONS = pinkSaltCaveAmbient("additions");
     public static final SoundEvent MUSIC_PINK_SALT_CAVE = register("music.pink_salt_cave");

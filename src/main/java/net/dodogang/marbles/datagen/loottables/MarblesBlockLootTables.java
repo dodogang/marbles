@@ -55,7 +55,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
     protected static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.or(WITH_SILK_TOUCH);
     protected static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.invert();
 
-    @SuppressWarnings("all")
+    @SuppressWarnings("UnstableApiUsage")
     private static final Set<Item> EXPLOSION_IMMUNE = Stream.of(
         Blocks.DRAGON_EGG,
         Blocks.BEACON,
@@ -93,9 +93,17 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
 
     @Override
     public void accept(BiConsumer<Identifier, LootTable.Builder> biConsumer) {
+        /*
+         * WOOD SETS
+         */
+
         addWoodDrops(MarblesBlocks.ASPEN);
         addWoodDrops(MarblesBlocks.HOOPSI_SPRUCE);
         addWoodDrops(MarblesBlocks.RED_BIRCH);
+
+        /*
+         * TRAVERTINE SETS
+         */
 
         addTravertineDrops(MarblesBlocks.TRAVERTINE_BLOCKS);
         addTravertineDrops(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);
@@ -103,6 +111,11 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addTravertineDrops(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
 
         addDrop(MarblesBlocks.TRAVERTINE_OBSIDIAN);
+        addDrop(MarblesBlocks.TRAVERTINE_PORTAL, block -> dropsNothing());
+
+        /*
+         * PINK SALT
+         */
 
         addDrop(MarblesBlocks.PINK_SALT_CAVE_AIR, block -> dropsNothing());
         addDrop(MarblesBlocks.PINK_SALT);
@@ -118,6 +131,10 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.PINK_SALT_STUMP, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countRandom(1, 2)));
         addDrop(MarblesBlocks.PINK_SALT_SPIKES, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countBiased(2, 0.4f)));
 
+        /*
+         * LAPIS SETS
+         */
+
         addDrop(MarblesBlocks.LAPIS_SHINGLES);
         addSlabDrop(MarblesBlocks.LAPIS_SHINGLE_SLAB);
         addDrop(MarblesBlocks.LAPIS_SHINGLE_STAIRS);
@@ -131,12 +148,18 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.UMBRAL_LAZULI_SPOTLIGHT);
         addDrop(MarblesBlocks.GLAZED_UMBRAL_LAZULI);
 
+        /*
+         * BAMBOO
+         */
+
         addDrop(MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_BAMBOO);
         addDrop(MarblesBlocks.YELLOW_BAMBOO_SAPLING, MarblesBlocks.YELLOW_BAMBOO);
         addPottedPlantDrop(MarblesBlocks.POTTED_YELLOW_BAMBOO);
         addDrop(MarblesBlocks.YELLOW_SCAFFOLDING);
 
-        addDrop(MarblesBlocks.ROPE);
+        /*
+         * SANDSTONE SETS
+         */
 
         addDrop(MarblesBlocks.DAWN_SAND);
         addDrop(MarblesBlocks.DAWN_SANDSTONE);
@@ -168,6 +191,10 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
         addDrop(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL);
 
+        /*
+         * GRISP
+         */
+
         addDrop(MarblesBlocks.GRISP_DIRT);
         addDrop(MarblesBlocks.COARSE_GRISP_DIRT);
         addDrop(MarblesBlocks.GRISP_GRASS_BLOCK, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
@@ -179,11 +206,44 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.GRISP_MYCELIUM_PATH, MarblesBlocks.GRISP_DIRT);
         addDrop(MarblesBlocks.GRISP_FARMLAND, MarblesBlocks.GRISP_DIRT);
 
-        addDrop(MarblesBlocks.TRAVERTINE_PORTAL, block -> dropsNothing());
-
+        /*
+         * POLLEN-GRACED SET
+         */
         addDrop(MarblesBlocks.POLLEN_GRACED_WOOL);
         addDrop(MarblesBlocks.POLLEN_GRACED_CARPET);
         addDrop(MarblesBlocks.POLLEN_GRACED_BED, (blockx) -> dropsWithProperty(blockx, BedBlock.PART, BedPart.HEAD));
+
+        /*
+         * ICE SET
+         */
+
+        addDrop(MarblesBlocks.SCALED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.MINTED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+
+        addDrop(MarblesBlocks.CUT_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.CUT_BLUE_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.CUT_SCALED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.CUT_MINTED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+
+        addDrop(MarblesBlocks.CHISELED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.CHISELED_BLUE_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.CHISELED_SCALED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.CHISELED_MINTED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
+
+        addDrop(MarblesBlocks.ICE_BRICKS, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.BLUE_ICE_BRICKS, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.SCALED_ICE_BRICKS, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.MINTED_ICE_BRICKS, MarblesBlockLootTables::dropsWithSilkTouch);
+
+        /*
+         * MISC
+         */
+
+        addDrop(MarblesBlocks.ROPE);
+
+        /*
+         * GENERATION
+         */
 
         Set<Identifier> set = Sets.newHashSet();
         Iterable<Block> blocks = Registry.BLOCK

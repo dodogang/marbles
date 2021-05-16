@@ -5,6 +5,7 @@ import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 import net.dodogang.marbles.datagen.models.stategen.StateGen;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -30,9 +31,17 @@ public final class BlockStateTable {
     public static void registerBlockStates(BiConsumer<Block, StateGen> c) {
         consumer = c;
 
+        /*
+         * WOOD SETS
+         */
+
         registerWoodBlocks(ASPEN);
         registerWoodBlocks(HOOPSI_SPRUCE);
         registerWoodBlocks(RED_BIRCH);
+
+        /*
+         * TRAVERTINE SETS
+         */
 
         registerTravertineBlocks(TRAVERTINE_BLOCKS);
         registerTravertineBlocks(LEMON_TRAVERTINE_BLOCKS);
@@ -40,6 +49,10 @@ public final class BlockStateTable {
         registerTravertineBlocks(TANGERINE_TRAVERTINE_BLOCKS);
 
         register(TRAVERTINE_OBSIDIAN, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+
+        /*
+         * PINK SALT
+         */
 
         register(PINK_SALT_CAVE_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
         register(PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
@@ -55,6 +68,10 @@ public final class BlockStateTable {
         register(PINK_SALT_STUMP, block -> predefined(name(block, "block/%s")));
         register(PINK_SALT_SPIKES, block -> using(name(block, "block/%s"), name -> alternate(name, doubleCross(name + "_1"), doubleCross(name + "_2"))));
 
+        /*
+         * LAPIS SETS
+         */
+
         register(LAPIS_SHINGLES, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(LAPIS_SHINGLE_SLAB, block -> using(name(block, "block/%s_shingles", "_shingle_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
         register(LAPIS_SHINGLE_STAIRS, block -> using(name(block, "block/%s_shingles", "_shingle_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
@@ -67,6 +84,10 @@ public final class BlockStateTable {
         register(UMBRAL_LAZULI_SHINGLE_STAIRS, block -> using(name(block, "block/%s_shingles", "_shingle_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
         register(UMBRAL_LAZULI_SPOTLIGHT, block -> facingRotated(name(block, "block/%s"), cubeSeparateSided(name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_front"), name(block, "block/%s_back"))));
         register(GLAZED_UMBRAL_LAZULI, block -> dualConnecting(name(block, "block/%s")));
+
+        /*
+         * SANDSTONE SETS
+         */
 
         register(DAWN_SAND, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(DAWN_SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));
@@ -98,6 +119,10 @@ public final class BlockStateTable {
         register(CUT_DUSK_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_wall"))));
         register(SMOOTH_DUSK_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
 
+        /*
+         * GRISP SET
+         */
+
         register(GRISP_DIRT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(COARSE_GRISP_DIRT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(GRISP_GRASS_BLOCK, block -> snowyBlock(name(block, "block/%s"), grassBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_side_overlay")), cubeBottomTop(name(block, "block/grisp_dirt"), "block/snow", name(block, "block/%s_side_snowy"))));
@@ -109,8 +134,34 @@ public final class BlockStateTable {
         register(GRISP_MYCELIUM_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
         register(GRISP_FARMLAND, block -> farmland(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s"), name(block, "block/grisp_dirt")), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_moist"), name(block, "block/grisp_dirt"))));
 
+        /*
+         * POLLEN-GRACED SET
+         */
+
         register(POLLEN_GRACED_WOOL, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(POLLEN_GRACED_CARPET, block -> simple(name(block, "block/%s"), carpet(name(POLLEN_GRACED_WOOL, "block/%s"))));
+
+        /*
+         * ICE
+         */
+
+        register(SCALED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MINTED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+
+        register(CUT_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(CUT_BLUE_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(CUT_SCALED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(CUT_MINTED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+
+        register(CHISELED_ICE, block -> facingHorizontalRotated(name(block, "block/%s"), horizontalOrientable(name(block, "block/%s"), name(Blocks.ICE, "block/%s"))));
+        register(CHISELED_BLUE_ICE, block -> facingHorizontalRotated(name(block, "block/%s"), horizontalOrientable(name(block, "block/%s"), name(Blocks.BLUE_ICE, "block/%s"))));
+        register(CHISELED_SCALED_ICE, block -> facingHorizontalRotated(name(block, "block/%s"), horizontalOrientable(name(block, "block/%s"), name(SCALED_ICE, "block/%s"))));
+        register(CHISELED_MINTED_ICE, block -> facingHorizontalRotated(name(block, "block/%s"), horizontalOrientable(name(block, "block/%s"), name(MINTED_ICE, "block/%s"))));
+
+        register(ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(BLUE_ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(SCALED_ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MINTED_ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
     }
 
     private static void registerTravertineBlocks(TravertineBlocks blocks) {

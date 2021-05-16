@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:stonecutting/scaled_ice_to_scaled_ice_bricks"
+    ]
+  },
+  "criteria": {
+    "has_scaled_ice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "marbles:scaled_ice"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:stonecutting/scaled_ice_to_scaled_ice_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_scaled_ice",
+      "has_the_recipe"
+    ]
+  ]
+}

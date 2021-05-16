@@ -146,6 +146,46 @@
     ]
   },
 
+  "block.ice_bricks.break": {
+    "sounds": [
+      "marbles:block/ice_bricks/soft1",
+      "marbles:block/ice_bricks/soft2",
+      "marbles:block/ice_bricks/soft3"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.ice_bricks.fall": {
+    "sounds": [
+      "marbles:block/ice_bricks/hard1",
+      "marbles:block/ice_bricks/hard2",
+      "marbles:block/ice_bricks/hard3"
+    ]
+  },
+  "block.ice_bricks.hit": {
+    "sounds": [
+      "marbles:block/ice_bricks/hard1",
+      "marbles:block/ice_bricks/hard2",
+      "marbles:block/ice_bricks/hard3"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.ice_bricks.place": {
+    "sounds": [
+      "marbles:block/ice_bricks/soft1",
+      "marbles:block/ice_bricks/soft2",
+      "marbles:block/ice_bricks/soft3"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.ice_bricks.step": {
+    "sounds": [
+      "marbles:block/ice_bricks/hard1",
+      "marbles:block/ice_bricks/hard2",
+      "marbles:block/ice_bricks/hard3"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+
   "music.pink_salt_cave": {
     "sounds": []
   },

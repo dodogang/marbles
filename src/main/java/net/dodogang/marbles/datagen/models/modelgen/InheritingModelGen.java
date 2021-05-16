@@ -148,6 +148,13 @@ public class InheritingModelGen implements ModelGen {
                    .texture("side", side);
     }
 
+    public static InheritingModelGen horizontalOrientable(String face, String others) {
+        return new InheritingModelGen("block/orientable")
+                   .texture("top", others)
+                   .texture("front", face)
+                   .texture("side", others);
+    }
+
     public static InheritingModelGen cubeBottomTop(String bottom, String top, String side) {
         return new InheritingModelGen("block/cube_bottom_top")
                    .texture("bottom", bottom)

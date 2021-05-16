@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "marbles:block/minted_ice",
+    "front": "marbles:block/chiseled_minted_ice",
+    "side": "marbles:block/minted_ice"
+  }
+}

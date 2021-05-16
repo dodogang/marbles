@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "marbles:block/chiseled_ice",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "marbles:block/chiseled_ice",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "marbles:block/chiseled_ice"
+    },
+    "facing=west": {
+      "model": "marbles:block/chiseled_ice",
+      "y": 270
+    }
+  }
+}
