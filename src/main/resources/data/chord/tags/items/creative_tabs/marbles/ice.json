@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "marbles:floestone",
+    "marbles:polished_floestone",
+    "marbles:chiseled_floestone",
+    "marbles:floestone_bricks",
+    "marbles:rilled_floestone",
+
     "marbles:scaled_ice",
     "marbles:minted_ice",
 

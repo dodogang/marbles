@@ -130,6 +130,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
          * ICE
          */
 
+        generic2x2("floestone/polished", MarblesBlocks.FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE, 4);
         generic2x2("ice_bricks/ice", Blocks.ICE, MarblesBlocks.ICE_BRICKS, 4);
         generic2x2("ice_bricks/blue_ice", Blocks.BLUE_ICE, MarblesBlocks.BLUE_ICE_BRICKS, 4);
         generic2x2("ice_bricks/scaled_ice", MarblesBlocks.SCALED_ICE, MarblesBlocks.SCALED_ICE_BRICKS, 4);

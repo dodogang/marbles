@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "marbles:block/floestone",
+    "side": "marbles:block/chiseled_floestone"
+  }
+}

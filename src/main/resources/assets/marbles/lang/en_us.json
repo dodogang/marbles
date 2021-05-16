@@ -219,16 +219,25 @@
   "block.marbles.pink_salt_stack": "Pink Salt Stack",
   "block.marbles.pink_salt_stump": "Pink Salt Stump",
 
+  "block.marbles.floestone": "Floestone",
+  "block.marbles.polished_floestone": "Polished Floestone",
+  "block.marbles.chiseled_floestone": "Chiseled Floestone",
+  "block.marbles.floestone_bricks": "Floestone Bricks",
+  "block.marbles.rilled_floestone": "Rilled Floestone",
+
   "block.marbles.scaled_ice": "Scaled Ice",
   "block.marbles.minted_ice": "Minted Ice",
+
   "block.marbles.cut_ice": "Cut Ice",
   "block.marbles.cut_blue_ice": "Cut Blue Ice",
   "block.marbles.cut_scaled_ice": "Cut Scaled Ice",
   "block.marbles.cut_minted_ice": "Cut Minted Ice",
+
   "block.marbles.chiseled_ice": "Chiseled Ice",
   "block.marbles.chiseled_blue_ice": "Chiseled Blue Ice",
   "block.marbles.chiseled_scaled_ice": "Chiseled Scaled Ice",
   "block.marbles.chiseled_minted_ice": "Chiseled Minted Ice",
+
   "block.marbles.ice_bricks": "Ice Bricks",
   "block.marbles.blue_ice_bricks": "Blue Ice Bricks",
   "block.marbles.scaled_ice_bricks": "Scaled Ice Bricks",

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:floestone"
+  },
+  "result": "marbles:floestone_bricks",
+  "count": 1
+}

@@ -145,6 +145,12 @@ public final class BlockStateTable {
          * ICE
          */
 
+        register(FLOESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(POLISHED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(CHISELED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s", "^chiseled_", ""), name(block, "block/%s"))));
+        register(FLOESTONE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(RILLED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+
         register(SCALED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(MINTED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
 

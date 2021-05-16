@@ -12,7 +12,6 @@ import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.dodogang.marbles.block.sapling.RedBirchSaplingGenerator;
 import net.dodogang.marbles.block.vanilla.PublicAirBlock;
 import net.dodogang.marbles.block.vanilla.PublicCarpetBlock;
-import net.dodogang.marbles.block.HorizontalFacingTransparentBlock;
 import net.dodogang.marbles.block.vanilla.PublicTransparentBlock;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.sound.MarblesBlockSoundGroup;
@@ -138,7 +137,7 @@ public class MarblesBlocks {
 
     public static final Block YELLOW_BAMBOO = register("yellow_bamboo", new CBambooBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO)));
     public static final Block YELLOW_BAMBOO_SAPLING = register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO_SAPLING)), false);
-    public static final Block POTTED_YELLOW_BAMBOO = register("potted_yellow_bamboo", new FlowerPotBlock(YELLOW_BAMBOO, AbstractBlock.Settings.of(Material.SUPPORTED).breakInstantly().nonOpaque()), false);
+    public static final Block POTTED_YELLOW_BAMBOO = register("potted_yellow_bamboo", new FlowerPotBlock(YELLOW_BAMBOO, FabricBlockSettings.of(Material.SUPPORTED).breakInstantly().nonOpaque()), false);
 
     public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copyOf(Blocks.SCAFFOLDING)), false);
 
@@ -220,6 +219,12 @@ public class MarblesBlocks {
      * ICE
      */
 
+    public static final Block FLOESTONE = register("floestone", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.BROWN).requiresTool().strength(1.5F, 6.0F)));
+    public static final Block POLISHED_FLOESTONE = register("polished_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
+    public static final Block CHISELED_FLOESTONE = register("chiseled_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
+    public static final Block FLOESTONE_BRICKS = register("floestone_bricks", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
+    public static final Block RILLED_FLOESTONE = register("rilled_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE).slipperiness(0.85F)));
+
     /**
      * Modification of vanilla ice without {@link AbstractBlock.Settings#ticksRandomly}
      */
@@ -231,22 +236,23 @@ public class MarblesBlocks {
                                                                               .breakByTool(FabricToolTags.PICKAXES)
                                                                               .requiresTool()
                                                                               .allowsSpawning((state, world, pos, entityType) -> entityType == EntityType.POLAR_BEAR);
+    public static final FabricBlockSettings BLUE_ICE_SETTINGS = FabricBlockSettings.copyOf(ICE_SETTINGS).slipperiness(0.989F);
 
     public static final Block SCALED_ICE = register("scaled_ice", new Block(ICE_SETTINGS));
     public static final Block MINTED_ICE = register("minted_ice", new Block(ICE_SETTINGS));
 
     public static final Block CUT_ICE = register("cut_ice", new Block(ICE_SETTINGS));
-    public static final Block CUT_BLUE_ICE = register("cut_blue_ice", new Block(ICE_SETTINGS));
+    public static final Block CUT_BLUE_ICE = register("cut_blue_ice", new Block(BLUE_ICE_SETTINGS));
     public static final Block CUT_SCALED_ICE = register("cut_scaled_ice", new Block(FabricBlockSettings.copyOf(SCALED_ICE)));
     public static final Block CUT_MINTED_ICE = register("cut_minted_ice", new Block(FabricBlockSettings.copyOf(MINTED_ICE)));
 
     public static final Block CHISELED_ICE = register("chiseled_ice", new HorizontalFacingTransparentBlock(ICE_SETTINGS));
-    public static final Block CHISELED_BLUE_ICE = register("chiseled_blue_ice", new HorizontalFacingTransparentBlock(ICE_SETTINGS));
+    public static final Block CHISELED_BLUE_ICE = register("chiseled_blue_ice", new HorizontalFacingTransparentBlock(BLUE_ICE_SETTINGS));
     public static final Block CHISELED_SCALED_ICE = register("chiseled_scaled_ice", new HorizontalFacingTransparentBlock(FabricBlockSettings.copyOf(SCALED_ICE)));
     public static final Block CHISELED_MINTED_ICE = register("chiseled_minted_ice", new HorizontalFacingTransparentBlock(FabricBlockSettings.copyOf(MINTED_ICE)));
 
     public static final Block ICE_BRICKS = register("ice_bricks", new PublicTransparentBlock(ICE_SETTINGS.sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
-    public static final Block BLUE_ICE_BRICKS = register("blue_ice_bricks", new PublicTransparentBlock(ICE_SETTINGS.sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
+    public static final Block BLUE_ICE_BRICKS = register("blue_ice_bricks", new PublicTransparentBlock(BLUE_ICE_SETTINGS.sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
     public static final Block SCALED_ICE_BRICKS = register("scaled_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(SCALED_ICE).sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
     public static final Block MINTED_ICE_BRICKS = register("minted_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(MINTED_ICE).sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
 

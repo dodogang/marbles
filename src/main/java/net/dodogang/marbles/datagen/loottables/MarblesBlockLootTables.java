@@ -217,6 +217,12 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
          * ICE SET
          */
 
+        addDrop(MarblesBlocks.FLOESTONE);
+        addDrop(MarblesBlocks.POLISHED_FLOESTONE);
+        addDrop(MarblesBlocks.CHISELED_FLOESTONE);
+        addDrop(MarblesBlocks.FLOESTONE_BRICKS);
+        addDrop(MarblesBlocks.RILLED_FLOESTONE, MarblesBlockLootTables::dropsWithSilkTouch);
+
         addDrop(MarblesBlocks.SCALED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
         addDrop(MarblesBlocks.MINTED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
 
