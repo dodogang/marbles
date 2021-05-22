@@ -32,6 +32,10 @@ public class MarblesBiomes {
 
     public static final RegistryKey<Biome> PINK_SALT_CAVE = register("pink_salt_cave", createPinkSaltCave());
 
+    public static final RegistryKey<Biome> ICE_CAVE = register("ice_cave", createIceCave());
+    public static final RegistryKey<Biome> SCALED_ICE_CAVE = register("scaled_ice_cave", createIceCave());
+    public static final RegistryKey<Biome> MINTED_ICE_CAVE = register("minted_ice_cave", createIceCave());
+
     static {
         OverworldBiomes.addBiomeVariant(BiomeKeys.BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE, 0.5F, OverworldClimate.TEMPERATE);
         OverworldBiomes.addHillsBiome(MarblesBiomes.YELLOW_BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE_HILLS, 1.0F);
@@ -123,6 +127,9 @@ public class MarblesBiomes {
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.6F).downfall(0.6F).effects(new BiomeEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.6F)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
+    /**
+     * Dummy biome configuration existing only for biome effects in pink salt caves.
+     */
     protected static Biome createPinkSaltCave() {
         return new Biome.Builder() // mostly dummy configuration, apart from spawn settings and biome effects
                     .precipitation(Biome.Precipitation.RAIN)
@@ -149,6 +156,40 @@ public class MarblesBiomes {
                     .spawnSettings(
                         new SpawnSettings.Builder()
                             // .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 1, 1, 3))
+                        .build()
+                    )
+                .build();
+    }
+
+    /**
+     * Dummy biome configuration existing only for biome effects in ice caves.
+     */
+    protected static Biome createIceCave() {
+        return new Biome.Builder()
+                    .precipitation(Biome.Precipitation.RAIN)
+                    .category(Biome.Category.NONE)
+                    .depth(0.0f)
+                    .scale(0.0f)
+                    .temperature(0.5f)
+                    .downfall(0.5f)
+                    .generationSettings(new GenerationSettings.Builder().surfaceBuilder(ConfiguredSurfaceBuilders.GRASS).build())
+
+                    .effects(
+                        new BiomeEffects.Builder()
+                            .particleConfig(new BiomeParticleConfig(MarblesParticles.ICE_SPORE, 0.007f))
+                            .waterColor(0x242356)
+                            .waterFogColor(0x344D6B)
+                            .fogColor(0x344D6B)
+                            .skyColor(0x344D6B)
+
+                            .loopSound(MarblesSoundEvents.AMBIENT_ICE_CAVE_LOOP)
+                            .additionsSound(new BiomeAdditionsSound(MarblesSoundEvents.AMBIENT_ICE_CAVE_ADDITIONS, 0.0111d))
+                            .music(new MusicSound(MarblesSoundEvents.MUSIC_ICE_CAVE, 12000, 24000, false))
+                        .build()
+                    )
+                    .spawnSettings(
+                        new SpawnSettings.Builder()
+                            .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.DROWNED, 1, 1, 1))
                         .build()
                     )
                 .build();

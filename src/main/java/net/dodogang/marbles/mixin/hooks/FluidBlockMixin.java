@@ -18,9 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(FluidBlock.class)
 public class FluidBlockMixin {
-    @Shadow
-    @Final
-    protected FlowableFluid fluid;
+    @Shadow @Final protected FlowableFluid fluid;
 
     @Inject(method = "receiveNeighborFluids", at = @At("HEAD"), cancellable = true)
     private void receiveNeighborFluids(World world, BlockPos pos, BlockState state, CallbackInfoReturnable<Boolean> cir) {

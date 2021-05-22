@@ -118,6 +118,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
          */
 
         addDrop(MarblesBlocks.PINK_SALT_CAVE_AIR, block -> dropsNothing());
+        addDrop(MarblesBlocks.ICE_CAVE_AIR, block -> dropsNothing());
         addDrop(MarblesBlocks.PINK_SALT);
         addDrop(MarblesBlocks.PINK_SALT_SLAB);
         addDrop(MarblesBlocks.PINK_SALT_STAIRS);

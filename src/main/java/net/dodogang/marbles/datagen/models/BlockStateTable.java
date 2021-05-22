@@ -145,6 +145,8 @@ public final class BlockStateTable {
          * ICE
          */
 
+        register(ICE_CAVE_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
+
         register(FLOESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(POLISHED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(CHISELED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s", "^chiseled_", ""), name(block, "block/%s"))));

@@ -1,5 +1,6 @@
 package net.dodogang.marbles.util;
 
+import com.google.common.collect.Lists;
 import net.dodogang.marbles.Marbles;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -14,6 +15,7 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Random;
 
 public class Util {
@@ -27,6 +29,10 @@ public class Util {
 
     @Environment(EnvType.CLIENT)
     public static final Identifier POLLEN_GRACED_CARPET_LLAMA_DECOR_TEXTURE = new Identifier("textures/entity/llama/decor/marbles/pollen_graced_wool.png");
+    @Environment(EnvType.CLIENT)
+    public static final List<String> SPLASHES = Lists.newArrayList(
+        "Losing my Marbles!", "Fast acting portals!", "¡Perdiendo mis canicas!"
+    );
 
     /*
      * UTILITY METHODS

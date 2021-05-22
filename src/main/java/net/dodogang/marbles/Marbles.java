@@ -4,6 +4,7 @@ import com.google.common.reflect.Reflection;
 import net.dodogang.marbles.debug.MarblesDebugCommand;
 import net.dodogang.marbles.handler.ToolClickHandlers;
 import net.dodogang.marbles.init.*;
+import net.dodogang.marbles.world.gen.chunk.generator.config.BridgedCaveBiomeGeneratorConfigs;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -30,10 +31,13 @@ public class Marbles implements ModInitializer {
             log("Initializing");
 
             Reflection.initialize(
+                MarblesRegistries.class,
+
                 MarblesBlocks.class,
                 MarblesItems.class,
                 MarblesEntities.class,
 
+                BridgedCaveBiomeGeneratorConfigs.class,
                 MarblesFeatures.class,
                 MarblesConfiguredFeatures.class,
                 MarblesBiomes.class,

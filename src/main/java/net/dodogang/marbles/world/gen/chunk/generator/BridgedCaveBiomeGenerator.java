@@ -1,12 +1,9 @@
-package net.dodogang.marbles.world.gen.level.chunk.generator;
+package net.dodogang.marbles.world.gen.chunk.generator;
 
-import net.dodogang.marbles.init.MarblesBiomes;
-import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.mixin.MutableBiomeArray;
-import net.dodogang.marbles.world.gen.level.MarblesChunkGenerator;
-import net.dodogang.marbles.world.gen.level.chunk.decorator.PinkSaltCaveDecorator;
+import net.dodogang.marbles.world.gen.chunk.decorator.BridgedCaveBiomeDecorator;
+import net.dodogang.marbles.world.gen.chunk.generator.config.BridgedCaveBiomeGeneratorConfig;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BlockView;
@@ -16,6 +13,7 @@ import net.minecraft.world.biome.source.BiomeAccess;
 import net.minecraft.world.biome.source.BiomeArray;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.ChunkRandom;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.shadew.ptg.noise.Noise2D;
@@ -32,7 +30,7 @@ import java.util.List;
 import java.util.Random;
 
 @SuppressWarnings("unused")
-public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
+public class BridgedCaveBiomeGenerator extends MarblesChunkGenerator {
     /*
      * Sampling factors: affect performance and quality of the caves
      */
@@ -50,27 +48,7 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
     private static final int RESOLUTION_H = HORIZONTAL_SPACE / CELL_SIZE;
     private static final int RESOLUTION_V = VERTICAL_SPACE / CELL_SIZE;
 
-    /*
-     * Cave factors: affect cave shapes
-     */
-
-    private static final double FIELD_SIZE     = 228;       // Salt cave field noise size, determines where more and less caves generate
-    private static final double LEVEL_SIZE     = 104.46;    // Salt cave level (height) noise size
-    private static final double NOISE_SIZE     = 40;        // Size of random cave noise
-    private static final double NOISE_SCALE    = 3;         // Multiplier of random cave noise
-    private static final double OFFSET_SIZE    = 48;        // Size of vertical offset noise
-    private static final double OFFSET_SCALE   = 6;         // Multiplier of vertical offset scale
-    private static final double BRIDGE_SIZE_H  = 15;        // Horizontal size of noise field that generates bridges and pillars
-    private static final double BRIDGE_SIZE_V  = 7.5;       // Vertical size of noise field that generates bridges and pillars
-    private static final double BRIDGE_SCALE   = 12;        // Multiplier of bridge noise
-    private static final double BRIDGE_ADD     = 6;         // Addend of bridge noise
-    private static final double CAVE_RARITY    = 32;        // Overall rarity of caves
-    private static final double CAVE_SIZE      = 3.2;       // Overall scaling of caves
-    private static final double MIN_RADIUS     = 10;        // Minimum horizontal cave radius (gets scaled by CAVE_SIZE)
-    private static final double MAX_RADIUS     = 17;        // Maximum horizontal cave radius (gets scaled by CAVE_SIZE)
-    private static final double MIN_LAYER_SIZE = 5;         // Minimum layer height (gets scaled by CAVE_SIZE)
-    private static final double MAX_LAYER_SIZE = 7;         // Maximum layer height (gets scaled by CAVE_SIZE)
-    private static final int WATER_LEVEL       = 12;        // Any block below this Y value will turn into water instead of air
+    private final BridgedCaveBiomeGeneratorConfig config;
 
     private final Noise2D fieldNoise;
     private final Noise2D levelNoise;
@@ -79,28 +57,34 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
     private final Noise3D offsetNoiseZ;
     private final Noise3D bridgeNoise;
 
-    public PinkSaltCaveGenerator(long seed, ChunkGenerator generator, int index) {
-        super(seed, generator, index);
+    public BridgedCaveBiomeGenerator(BridgedCaveBiomeGeneratorConfig config, long seed, ChunkGenerator generator) {
+        super(seed, generator);
+        this.config = config;
 
         Random rand = new Random(seed);
 
-        fieldNoise = new OpenSimplex2D(rand.nextInt(), FIELD_SIZE);
-        levelNoise = new OpenSimplex2D(rand.nextInt(), LEVEL_SIZE).lerp(10, 40);
+        fieldNoise = new OpenSimplex2D(rand.nextInt(), config.getFieldSize());
+        levelNoise = new OpenSimplex2D(rand.nextInt(), config.getLevelSize()).lerp(10, 40);
 
-        caveNoise = new FractalPerlin3D(rand.nextInt(), NOISE_SIZE, 4).multiply(NOISE_SCALE);
-        offsetNoiseX = new Perlin3D(rand.nextInt(), OFFSET_SIZE).multiply(OFFSET_SCALE);
-        offsetNoiseZ = new Perlin3D(rand.nextInt(), OFFSET_SIZE).multiply(OFFSET_SCALE);
+        caveNoise = new FractalPerlin3D(rand.nextInt(), config.getNoiseSize(), 4).multiply(config.getNoiseScale());
+        double offsetSize = config.getOffsetSize();
+        double offsetScale = config.getOffsetScale();
+        offsetNoiseX = new Perlin3D(rand.nextInt(), offsetSize).multiply(offsetScale);
+        offsetNoiseZ = new Perlin3D(rand.nextInt(), offsetSize).multiply(offsetScale);
 
-        Noise3D a = new OpenSimplex3D(rand.nextInt(), BRIDGE_SIZE_H, BRIDGE_SIZE_V, BRIDGE_SIZE_H)
-                        .ridge().inverse().multiply(BRIDGE_SCALE).add(BRIDGE_ADD);
-        Noise3D b = new OpenSimplex3D(rand.nextInt(), BRIDGE_SIZE_H, BRIDGE_SIZE_V, BRIDGE_SIZE_H)
-                        .ridge().inverse().multiply(BRIDGE_SCALE).add(BRIDGE_ADD);
+        double bridgeSizeH = config.getBridgeSizeH();
+        double bridgeSizeV = config.getBridgeSizeV();
+        double bridgeScale = config.getBridgeScale();
+        double bridgeAdd = config.getBridgeAdd();
+        Noise3D a = new OpenSimplex3D(rand.nextInt(), bridgeSizeH, bridgeSizeV, bridgeSizeH)
+                        .ridge().inverse().multiply(bridgeScale).add(bridgeAdd);
+        Noise3D b = new OpenSimplex3D(rand.nextInt(), bridgeSizeH, bridgeSizeV, bridgeSizeH)
+                        .ridge().inverse().multiply(bridgeScale).add(bridgeAdd);
         bridgeNoise = (x, y, z) -> Math.max(a.generate(x, y, z), b.generate(x, y, z));
     }
 
-
     @Override
-    public void carve(long seed, BiomeAccess biomes, Chunk chunk) {
+    public void carve(long seed, BiomeAccess biomes, Chunk chunk, GenerationStep.Carver carver) {
         double[][][] buffers = new double[2][RESOLUTION_H + 1][RESOLUTION_V + 1];
 
         int cx = chunk.getPos().x;
@@ -111,10 +95,10 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
 
         Heightmap hm = chunk.getHeightmap(Heightmap.Type.OCEAN_FLOOR_WG);
 
-        BitSet saltMaterial = new BitSet(16 * 16 * 256);
+        BitSet material = new BitSet(16 * 16 * 256);
         BlockPos.Mutable mpos = new BlockPos.Mutable();
 
-        List<PinkSaltCaveDecorator> caves = getPinkSaltCaves(cx, cz);
+        List<BridgedCaveBiomeDecorator> caves = getCaves(cx, cz);
 
         random.setCarverSeed(seed, cx, cz);
         random.consume(41);
@@ -122,7 +106,7 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
         for (int oz = 0; oz <= RESOLUTION_H; oz++) {
             double[] col = buffers[0][oz];
             int gz = nz + oz;
-            generateSaltCaveColumn(col, nx, gz, hm.get(0, Math.min(oz * CELL_SIZE, 15)), caves);
+            generateCaveColumn(col, nx, gz, hm.get(0, Math.min(oz * CELL_SIZE, 15)), caves);
         }
 
         for (int ox = 0; ox < RESOLUTION_H; ox++) {
@@ -130,7 +114,7 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
                 double[] col = buffers[1][oz];
                 int gx = nx + ox + 1;
                 int gz = nz + oz;
-                generateSaltCaveColumn(col, gx, gz, hm.get(Math.min((ox + 1) * CELL_SIZE, 15), Math.min(oz * CELL_SIZE, 15)), caves);
+                generateCaveColumn(col, gx, gz, hm.get(Math.min((ox + 1) * CELL_SIZE, 15), Math.min(oz * CELL_SIZE, 15)), caves);
             }
 
             for (int oz = 0; oz < RESOLUTION_H; oz++) {
@@ -173,13 +157,10 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
 
                                     if (n < 0) {
                                         mpos.set(sx, sy, sz);
-                                        if (sy <= WATER_LEVEL)
-                                            chunk.setBlockState(mpos, Blocks.WATER.getDefaultState(), false);
-                                        else
-                                            chunk.setBlockState(mpos, MarblesBlocks.PINK_SALT_CAVE_AIR.getDefaultState(), false);
+                                        chunk.setBlockState(mpos, this.config.getFillerBlockState(mpos, random), false);
                                         int si = (sx * 16 + sz) * 256 + sy;
-                                        saltMaterial.set(si);
-                                        setPinkSaltCaveBiome(mpos, chunk);
+                                        material.set(si);
+                                        this.setBiome(mpos, chunk);
                                     }
 
                                     for (int ry = -rad; ry <= rad; ry++) {
@@ -187,10 +168,10 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
                                         if (vy >= 0 && vy < 256) {
                                             int si = (sx * 16 + sz) * 256 + vy;
                                             mpos.set(sx, vy, sz);
-                                            if (!saltMaterial.get(si) && isReplaceableBlock(chunk.getBlockState(mpos), chunk, mpos)) {
-                                                chunk.setBlockState(mpos, MarblesBlocks.PINK_SALT.getDefaultState(), false);
-                                                saltMaterial.set(si);
-                                                setPinkSaltCaveBiome(mpos, chunk);
+                                            if (!material.get(si) && isReplaceableBlock(chunk.getBlockState(mpos), chunk, mpos)) {
+                                                chunk.setBlockState(mpos, this.config.getBodyBlockState(mpos, random), false);
+                                                material.set(si);
+                                                this.setBiome(mpos, chunk);
                                             }
                                         }
                                     }
@@ -207,24 +188,24 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
         }
     }
 
-    private static void setPinkSaltCaveBiome(BlockPos pos, Chunk chunk) {
+    private void setBiome(BlockPos pos, Chunk chunk) {
         BiomeArray biomeArray = chunk.getBiomeArray();
         if (biomeArray instanceof MutableBiomeArray) {
-            ((MutableBiomeArray) biomeArray).setBiome(pos.getX(), pos.getY(), pos.getZ(), MarblesBiomes.PINK_SALT_CAVE);
+            ((MutableBiomeArray) biomeArray).setBiome(pos.getX(), pos.getY(), pos.getZ(), this.config.getBiome());
             chunk.setShouldSave(true);
         }
     }
 
     private boolean isReplaceableBlock(BlockState state, BlockView world, BlockPos pos) {
-        return state.getHardness(world, pos) >= 0; // && chunk.getBlockState(mpos).isSolidBlock(chunk, mpos)
+        return state.getHardness(world, pos) >= 0;
     }
 
-    protected void generateSaltCaveColumn(double[] col, int x, int z, int oceanFloorHeight, List<PinkSaltCaveDecorator> caves) {
+    protected void generateCaveColumn(double[] col, int x, int z, int oceanFloorHeight, List<BridgedCaveBiomeDecorator> caves) {
         int lo = LIMIT_Y / CELL_SIZE;
         int hi = Math.min(MAX_Y, oceanFloorHeight - 4) / CELL_SIZE;
 
         for (int y = 0; y <= RESOLUTION_V; y++) {
-            double noise = -getPinkSaltNoise(x, y, z, caves);
+            double noise = -getNoise(x, y, z, caves);
 
             int fy = y - lo;
             if (fy < 2) {
@@ -244,16 +225,16 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
         }
     }
 
-    private double getPinkSaltNoise(double x, double y, double z, List<PinkSaltCaveDecorator> caves) {
+    private double getNoise(double x, double y, double z, List<BridgedCaveBiomeDecorator> caves) {
         double n = Double.NEGATIVE_INFINITY;
-        for (PinkSaltCaveDecorator cave : caves) {
+        for (BridgedCaveBiomeDecorator cave : caves) {
             n = Math.max(n, cave.getValue(x * CELL_SIZE_D, y * CELL_SIZE_D, z * CELL_SIZE_D));
         }
         return n;
     }
 
-    private List<PinkSaltCaveDecorator> getPinkSaltCaves(int cx, int cz) {
-        List<PinkSaltCaveDecorator> caves = new ArrayList<>();
+    private List<BridgedCaveBiomeDecorator> getCaves(int cx, int cz) {
+        List<BridgedCaveBiomeDecorator> caves = new ArrayList<>();
         for (int ix = -5; ix <= 5; ix++) {
             for (int iz = -5; iz <= 5; iz++) {
                 int bx = cx + ix;
@@ -263,18 +244,19 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
                 random.consume(27);
 
                 double field = fieldNoise.generate(bx * 16, bz * 16);
-                double r = random.nextDouble() * CAVE_RARITY;
+                double r = random.nextDouble() * this.config.getCaveRarity();
 
                 if (r < field) {
-                    PinkSaltCaveDecorator cave = new PinkSaltCaveDecorator();
+                    BridgedCaveBiomeDecorator cave = new BridgedCaveBiomeDecorator(this.config.getFeatures());
                     cave.noise = caveNoise;
                     cave.offsetNoiseX = offsetNoiseX;
                     cave.offsetNoiseZ = offsetNoiseZ;
                     cave.smallNoise = bridgeNoise;
 
                     cave.layers = random.nextInt(3) + 2;
-                    cave.layerRadius = MathUtil.lerp(MIN_RADIUS, MAX_RADIUS, random.nextDouble()) * CAVE_SIZE;
-                    cave.layerSize = MathUtil.lerp(MIN_LAYER_SIZE, MAX_LAYER_SIZE, random.nextDouble()) * CAVE_SIZE;
+                    double caveSize = this.config.getCaveSize();
+                    cave.layerRadius = MathUtil.lerp(this.config.getMinRadius(), this.config.getMaxRadius(), random.nextDouble()) * caveSize;
+                    cave.layerSize = MathUtil.lerp(this.config.getMinLayerSize(), this.config.getMaxLayerSize(), random.nextDouble()) * caveSize;
 
                     double level = levelNoise.generate(bx * 16, bz * 16) / CELL_SIZE_D;
                     cave.sourceX = random.nextInt(16) + bx * 16;
@@ -300,7 +282,7 @@ public class PinkSaltCaveGenerator extends MarblesChunkGenerator {
         ChunkRandom rng = new ChunkRandom();
         rng.setPopulationSeed(region.getSeed(), sx, sz);
 
-        List<PinkSaltCaveDecorator> caves = getPinkSaltCaves(cx, cz);
+        List<BridgedCaveBiomeDecorator> caves = getCaves(cx, cz);
         caves.forEach(cave -> cave.decorate(region, blockPos, generator, rng));
     }
 }

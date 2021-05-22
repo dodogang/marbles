@@ -50,6 +50,13 @@ public class MarblesSoundEvents {
         return ambient(id, "pink_salt_cave");
     }
 
+    public static final SoundEvent AMBIENT_ICE_CAVE_LOOP = iceCaveAmbient("loop");
+    public static final SoundEvent AMBIENT_ICE_CAVE_ADDITIONS = iceCaveAmbient("additions");
+    public static final SoundEvent MUSIC_ICE_CAVE = register("music.ice_cave");
+    private static SoundEvent iceCaveAmbient(String id) {
+        return ambient(id, "ice_cave");
+    }
+
     private static SoundEvent block(String block, String type) {
         return register("block." + block + "." + type);
     }

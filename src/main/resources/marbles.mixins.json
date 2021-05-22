@@ -33,6 +33,7 @@
     "client.InGameHudMixin",
     "client.JsonUnbakedModelDeserializerMixin",
     "client.LlamaDecorFeatureRendererMixin",
+    "client.SplashTextResourceSupplierMixin",
     "client.WorldRendererMixin"
   ],
   "injectors": {

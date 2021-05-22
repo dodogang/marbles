@@ -40,15 +40,31 @@ dependencies {
      * COMPATIBILITY
      */
 
+    String canvas = "grondag:canvas-mc116:${project.canvas_version}"
     if (!Boolean.parseBoolean("${project.ip_enabled}") && Boolean.parseBoolean("${project.canvas_enabled}")) { // Immersive Portals is incompatible with Canvas
-        modImplementation("grondag:canvas-mc116:${project.canvas_version}") {
+        modImplementation(canvas) {
+            exclude group: "net.fabricmc.fabric-api"
+            exclude group: "me.shedaniel.cloth"
+            exclude group: "io.github.prospector"
+        }
+    } else {
+        modCompileOnly(canvas) {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
             exclude group: "io.github.prospector"
         }
     }
+
+    String ip = "com.github.qouteall.ImmersivePortalsMod:build:${project.ip_version}"
     if (Boolean.parseBoolean("${project.ip_enabled}")) {
-        modImplementation("com.github.qouteall.ImmersivePortalsMod:build:${project.ip_version}") {
+        modImplementation(ip) {
+            exclude group: "net.fabricmc.fabric-api"
+            exclude group: "me.shedaniel.cloth"
+            exclude group: "com.github.Virtuoel"
+            exclude group: "io.github.prospector"
+        }
+    } else {
+        modCompileOnly(ip) {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
             exclude group: "com.github.Virtuoel"
@@ -86,8 +102,11 @@ dependencies {
         exclude group: "io.github.prospector"
     }
 
+    String sodium = "com.github.CaffeineMC:sodium-fabric:${project.sodium_version}"
     if (!Boolean.parseBoolean("${project.ip_enabled}") && !Boolean.parseBoolean("${project.canvas_enabled}")) {
-        modRuntime("com.github.CaffeineMC:sodium-fabric:${project.sodium_version}") { exclude group: "net.fabricmc.fabric-api" }
+        modRuntime(sodium) { exclude group: "net.fabricmc.fabric-api" }
+    } else {
+        modCompileOnly(sodium) { exclude group: "net.fabricmc.fabric-api" }
     }
     // modRuntime("com.github.CaffeineMC:hydrogen-fabric:${project.hydrogen_version}") { exclude group: "net.fabricmc.fabric-api" }
     modRuntime("com.github.CaffeineMC:lithium-fabric:${project.lithium_version}") { exclude group: "net.fabricmc.fabric-api" }

@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.world.gen.feature.PinkSaltSpireFeature;
 import net.dodogang.marbles.world.gen.feature.PinkSaltStumpClusterFeature;
+import net.dodogang.marbles.world.gen.feature.StateProvidedChanceDiskFeatureConfig;
 import net.dodogang.marbles.world.gen.feature.YellowBambooFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -22,6 +23,7 @@ import net.minecraft.world.gen.foliage.MegaPineFoliagePlacer;
 import net.minecraft.world.gen.foliage.PineFoliagePlacer;
 import net.minecraft.world.gen.foliage.SpruceFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.trunk.GiantTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
@@ -204,6 +206,25 @@ public class MarblesConfiguredFeatures {
             .decorate(Decorator.COUNT.configure(new CountConfig(6)))
     );
 
+    /*
+     * ICE CAVES
+     */
+
+    public static final ConfiguredFeature<?, ?> ICE_CAVE_FLOESTONE_DISK = register(
+        "ice_cave_floestone_disk",
+        MarblesFeatures.STATE_PROVIDED_DISK
+            .configure(
+                new StateProvidedChanceDiskFeatureConfig(
+                    new WeightedBlockStateProvider().addState(States.FLOESTONE, 1).addState(States.RILLED_FLOESTONE, 3),
+                    UniformIntDistribution.of(6, 8),
+                    4, 0.3f,
+                    Lists.newArrayList(States.ICE, States.PACKED_ICE)
+                )
+            )
+            .rangeOf(19)
+            .spreadHorizontally()
+    );
+
     private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) {
         return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Marbles.MOD_ID, id), configuredFeature);
     }
@@ -218,5 +239,9 @@ public class MarblesConfiguredFeatures {
         private static final BlockState PINK_SALT = MarblesBlocks.PINK_SALT.getDefaultState();
         private static final BlockState CRUMBLED_PINK_SALT = MarblesBlocks.CRUMBLED_PINK_SALT.getDefaultState();
         private static final BlockState GRANITE = Blocks.GRANITE.getDefaultState();
+        private static final BlockState FLOESTONE = MarblesBlocks.FLOESTONE.getDefaultState();
+        private static final BlockState RILLED_FLOESTONE = MarblesBlocks.RILLED_FLOESTONE.getDefaultState();
+        private static final BlockState ICE = Blocks.ICE.getDefaultState();
+        private static final BlockState PACKED_ICE = Blocks.PACKED_ICE.getDefaultState();
     }
 }

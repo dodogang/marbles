@@ -1,16 +1,17 @@
-package net.dodogang.marbles.world.gen.level.chunk.decorator;
+package net.dodogang.marbles.world.gen.chunk.decorator;
 
-import net.dodogang.marbles.world.gen.feature.MarblesConfiguredFeatureLists;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.shadew.ptg.noise.Noise3D;
 import net.shadew.util.misc.MathUtil;
 
+import java.util.List;
 import java.util.Random;
 
 @SuppressWarnings("unused")
-public class PinkSaltCaveDecorator {
+public class BridgedCaveBiomeDecorator {
     public Noise3D noise = Noise3D.constant(0);
     public Noise3D offsetNoiseX = Noise3D.constant(0);
     public Noise3D offsetNoiseZ = Noise3D.constant(0);
@@ -23,6 +24,12 @@ public class PinkSaltCaveDecorator {
     public double layerRadius = 16;
 
     public int layers = 3;
+
+    public final List<ConfiguredFeature<?, ?>> features;
+
+    public BridgedCaveBiomeDecorator(List<ConfiguredFeature<?, ?>> features) {
+        this.features = features;
+    }
 
     public static class Layer {
         public float offX;
@@ -40,7 +47,7 @@ public class PinkSaltCaveDecorator {
             return;
         }
 
-        MarblesConfiguredFeatureLists.PINK_SALT_CAVE.forEach(configuredFeature -> configuredFeature.generate(world, gen, rng, pos));
+        features.forEach(configuredFeature -> configuredFeature.generate(world, gen, rng, pos));
     }
 
     public double getValue(double x, double y, double z) {

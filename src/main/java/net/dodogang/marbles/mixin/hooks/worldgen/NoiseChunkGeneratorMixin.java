@@ -1,11 +1,13 @@
 package net.dodogang.marbles.mixin.hooks.worldgen;
 
-import net.dodogang.marbles.world.gen.level.MarblesChunkGenerator;
-import net.dodogang.marbles.world.gen.level.chunk.generator.PinkSaltCaveGenerator;
+import net.dodogang.marbles.init.MarblesRegistries;
+import net.dodogang.marbles.world.gen.chunk.generator.BridgedCaveBiomeGenerator;
+import net.dodogang.marbles.world.gen.chunk.generator.MarblesChunkGenerator;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.biome.source.BiomeAccess;
 import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
@@ -17,28 +19,31 @@ import org.spongepowered.asm.mixin.Shadow;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Mixin(NoiseChunkGenerator.class)
 public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
     @Shadow @Final private long seed;
-    private List<MarblesChunkGenerator> marbles_chunkGenerators = null;
+
+    @Shadow @Final protected ChunkRandom random;
+    private static Random marbles_random = null;
+    private static List<MarblesChunkGenerator> marbles_chunkGenerators = null;
 
     private NoiseChunkGeneratorMixin(BiomeSource biomeSource, StructuresConfig config) {
         super(biomeSource, config);
     }
 
-    private List<MarblesChunkGenerator> marbles_getChunkGenerators() {
+    private MarblesChunkGenerator marbles_getGenerator() {
         if (marbles_chunkGenerators == null) {
             marbles_chunkGenerators = new ArrayList<>();
-
-            /*
-             * Chunk generator 'registry'.
-             */
-
-            marbles_chunkGenerators.add(new PinkSaltCaveGenerator(this.seed, this, 1));
+            MarblesRegistries.BRIDGED_CAVE_BIOME_GENERATOR_CONFIG.forEach(config -> marbles_chunkGenerators.add(new BridgedCaveBiomeGenerator(config, this.seed, this)));
         }
 
-        return marbles_chunkGenerators;
+        if (marbles_random == null) {
+            marbles_random = new Random(this.seed);
+        }
+
+        return marbles_chunkGenerators.get(random.nextInt(marbles_chunkGenerators.size() - 1));
     }
 
     @Override
@@ -46,13 +51,13 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
         super.carve(seed, access, chunk, carver);
 
         if (carver == GenerationStep.Carver.LIQUID) {
-            marbles_getChunkGenerators().forEach(generator -> generator.carve(seed, access, chunk));
+            marbles_getGenerator().carve(seed, access, chunk, carver);
         }
     }
 
     @Override
     public void generateFeatures(ChunkRegion region, StructureAccessor accessor) {
         super.generateFeatures(region, accessor);
-        marbles_getChunkGenerators().forEach(generator -> generator.decorate(region, accessor));
+        marbles_getGenerator().decorate(region, accessor);
     }
 }

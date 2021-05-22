@@ -15,4 +15,9 @@ public class MarblesConfiguredFeatureLists {
         PINK_SALT_CAVE_CRUMBLED_SALT_DISK,
         PINK_SALT_SPIKE_PATCH
     );
+    public static final List<ConfiguredFeature<?, ?>> ICE_CAVE = ImmutableList.of(
+        ICE_CAVE_FLOESTONE_DISK
+    );
+    public static final List<ConfiguredFeature<?, ?>> SCALED_ICE_CAVE = ICE_CAVE;
+    public static final List<ConfiguredFeature<?, ?>> MINTED_ICE_CAVE = ICE_CAVE;
 }

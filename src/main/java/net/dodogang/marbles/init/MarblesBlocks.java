@@ -219,11 +219,16 @@ public class MarblesBlocks {
      * ICE
      */
 
+    /**
+     * Used in the pink salt cave generator and various structures/features to check whether a position is in a pink salt cave.
+     */
+    public static final Block ICE_CAVE_AIR = register("ice_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
+
     public static final Block FLOESTONE = register("floestone", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.BROWN).requiresTool().strength(1.5F, 6.0F)));
     public static final Block POLISHED_FLOESTONE = register("polished_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
     public static final Block CHISELED_FLOESTONE = register("chiseled_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
     public static final Block FLOESTONE_BRICKS = register("floestone_bricks", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
-    public static final Block RILLED_FLOESTONE = register("rilled_floestone", new RilledFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).slipperiness(0.85F)));
+    public static final Block RILLED_FLOESTONE = register("rilled_floestone", new RilledFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).emissiveLighting((state, world, pos) -> true).luminance(11).slipperiness(0.85F)));
 
     /**
      * Modification of vanilla ice without {@link AbstractBlock.Settings#ticksRandomly}

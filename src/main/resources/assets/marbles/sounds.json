@@ -229,5 +229,15 @@
         "pitch": 0.2
       }
     ]
+  },
+
+  "music.ice_cave": {
+    "sounds": []
+  },
+  "ambient.ice_cave.loop": {
+    "sounds": []
+  },
+  "ambient.ice_cave.additions": {
+    "sounds": []
   }
 }

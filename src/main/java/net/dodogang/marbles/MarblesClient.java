@@ -5,6 +5,7 @@ import net.dodogang.marbles.block.RopeBlock;
 import net.dodogang.marbles.client.config.MarblesConfigManager;
 import net.dodogang.marbles.client.init.MarblesBlocksClient;
 import net.dodogang.marbles.client.network.MarblesClientNetwork;
+import net.dodogang.marbles.client.particle.IceSporeParticle;
 import net.dodogang.marbles.client.particle.MarblesParticleFactories;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
@@ -32,6 +33,7 @@ public class MarblesClient implements ClientModInitializer {
     public void onInitializeClient() {
         ParticleFactoryRegistry pfrInstance = ParticleFactoryRegistry.getInstance();
         pfrInstance.register(MarblesParticles.PINK_SALT, PinkSaltParticle.Factory::new);
+        pfrInstance.register(MarblesParticles.ICE_SPORE, IceSporeParticle.Factory::new);
         pfrInstance.register(MarblesParticles.ITEM_ROPE, MarblesParticleFactories.RopeFactory::new);
 
         EntityRendererRegistry errInstance = EntityRendererRegistry.INSTANCE;

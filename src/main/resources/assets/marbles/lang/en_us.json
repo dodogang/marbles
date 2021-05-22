@@ -207,6 +207,7 @@
 
   "item.marbles.pink_salt_shard": "Pink Salt Shard",
   "block.marbles.pink_salt_spikes": "Pink Salt Spikes",
+  "block.marbles.pink_salt_cave_air": "Pink Salt Cave Air",
   "block.marbles.pink_salt": "Pink Salt",
   "block.marbles.pink_salt_slab": "Pink Salt Slab",
   "block.marbles.pink_salt_stairs": "Pink Salt Stairs",
@@ -218,6 +219,8 @@
   "block.marbles.pink_salt_spire": "Pink Salt Spire",
   "block.marbles.pink_salt_stack": "Pink Salt Stack",
   "block.marbles.pink_salt_stump": "Pink Salt Stump",
+
+  "block.marbles.ice_cave_air": "Ice Cave Air",
 
   "block.marbles.floestone": "Floestone",
   "block.marbles.polished_floestone": "Polished Floestone",
@@ -254,6 +257,7 @@
   "biome.marbles.yellow_bamboo_jungle": "Yellow Bamboo Jungle",
   "biome.marbles.yellow_bamboo_jungle_hills": "Yellow Bamboo Jungle Hills",
   "biome.marbles.pink_salt_cave": "Pink Salt Cave",
+  "biome.marbles.ice_cave": "Ice Cave",
   "biome.marbles.aspen_forest": "[TEST] Aspen Forest",
   "biome.marbles.hoopsi_spruce_forest": "[TEST] Hoopsi Spruce Forest",
   "biome.marbles.red_birch_forest": "[TEST] Red Birch Forest",
