@@ -43,7 +43,7 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
             marbles_random = new Random(this.seed);
         }
 
-        return marbles_chunkGenerators.get(random.nextInt(marbles_chunkGenerators.size() - 1));
+        return marbles_chunkGenerators.get(random.nextInt(marbles_chunkGenerators.size()));
     }
 
     @Override
