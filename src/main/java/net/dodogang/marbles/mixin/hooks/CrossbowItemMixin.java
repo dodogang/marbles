@@ -5,7 +5,7 @@ import net.dodogang.marbles.entity.ThrownRopeEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.util.math.Vector3f;
+import net.minecraft.util.math.Vec3f;
 import net.minecraft.entity.CrossbowUser;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -78,9 +78,9 @@ public class CrossbowItemMixin {
                 crossbowUser.shoot(crossbowUser.getTarget(), crossbow, thrown, simulated);
             } else {
                 Vec3d oppositeRotationVec = shooter.getOppositeRotationVector(1.0F);
-                Quaternion oppositeRotation = new Quaternion(new Vector3f(oppositeRotationVec), simulated, true);
+                Quaternion oppositeRotation = new Quaternion(new Vec3f(oppositeRotationVec), simulated, true);
                 Vec3d rotationVec = shooter.getRotationVec(1.0F);
-                Vector3f rotation = new Vector3f(rotationVec);
+                Vec3f rotation = new Vec3f(rotationVec);
                 rotation.rotate(oppositeRotation);
                 thrown.setVelocity(rotation.getX(), rotation.getY(), rotation.getZ(), speed, divergence);
             }

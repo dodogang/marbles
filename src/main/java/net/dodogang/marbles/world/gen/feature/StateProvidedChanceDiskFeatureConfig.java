@@ -3,7 +3,7 @@ package net.dodogang.marbles.world.gen.feature;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.BlockState;
-import net.minecraft.world.gen.UniformIntDistribution;
+import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
@@ -14,8 +14,8 @@ public class StateProvidedChanceDiskFeatureConfig implements FeatureConfig {
         (instance) -> instance.group(
             BlockStateProvider.TYPE_CODEC
                 .fieldOf("state_provider").forGetter((config) -> config.stateProvider),
-            UniformIntDistribution.createValidatedCodec(0, 4, 3)
-                .fieldOf("radius").forGetter((config) -> config.radius),
+            IntProvider.createValidatingCodec(0, 8)
+                       .fieldOf("radius").forGetter((config) -> config.radius),
             Codec.intRange(0, 4)
                 .fieldOf("half_height").forGetter((config) -> config.halfHeight),
             Codec.floatRange(0.0f, 1.0f)
@@ -26,12 +26,12 @@ public class StateProvidedChanceDiskFeatureConfig implements FeatureConfig {
     );
 
     public final BlockStateProvider stateProvider;
-    public final UniformIntDistribution radius;
+    public final IntProvider radius;
     public final int halfHeight;
     public final float chance;
     public final List<BlockState> targets;
 
-    public StateProvidedChanceDiskFeatureConfig(BlockStateProvider stateProvider, UniformIntDistribution radius, int halfHeight, float chance, List<BlockState> targets) {
+    public StateProvidedChanceDiskFeatureConfig(BlockStateProvider stateProvider, IntProvider radius, int halfHeight, float chance, List<BlockState> targets) {
         this.stateProvider = stateProvider;
         this.radius = radius;
         this.halfHeight = halfHeight;

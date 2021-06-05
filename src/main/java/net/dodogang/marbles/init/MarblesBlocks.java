@@ -1,8 +1,8 @@
 package net.dodogang.marbles.init;
 
+import me.andante.chord.block.CBambooBlock;
+import me.andante.chord.block.CBambooSaplingBlock;
 import me.andante.chord.block.helper.WoodBlocks;
-import me.andante.chord.block.vanilla.CBambooBlock;
-import me.andante.chord.block.vanilla.CBambooSaplingBlock;
 import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.*;
@@ -11,7 +11,6 @@ import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
 import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.dodogang.marbles.block.sapling.RedBirchSaplingGenerator;
 import net.dodogang.marbles.block.vanilla.PublicAirBlock;
-import net.dodogang.marbles.block.vanilla.PublicCarpetBlock;
 import net.dodogang.marbles.block.vanilla.PublicTransparentBlock;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.sound.MarblesBlockSoundGroup;
@@ -26,7 +25,6 @@ import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -36,14 +34,14 @@ public class MarblesBlocks {
      * TRAVERTINE
      */
 
-    public static final TravertineBlocks TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE);
-    public static final TravertineBlocks LEMON_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "lemon_travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE);
-    public static final TravertineBlocks PEACH_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "peach_travertine", MarblesItemGroup.INSTANCE, MaterialColor.WHITE_TERRACOTTA);
-    public static final TravertineBlocks TANGERINE_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "tangerine_travertine", MarblesItemGroup.INSTANCE, MaterialColor.ORANGE);
+    public static final TravertineBlocks TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "travertine", MarblesItemGroup.INSTANCE, MapColor.WHITE);
+    public static final TravertineBlocks LEMON_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "lemon_travertine", MarblesItemGroup.INSTANCE, MapColor.WHITE);
+    public static final TravertineBlocks PEACH_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "peach_travertine", MarblesItemGroup.INSTANCE, MapColor.TERRACOTTA_WHITE);
+    public static final TravertineBlocks TANGERINE_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "tangerine_travertine", MarblesItemGroup.INSTANCE, MapColor.ORANGE);
 
     public static final Block TRAVERTINE_OBSIDIAN = register(
         "travertine_obsidian", new Block(
-            FabricBlockSettings.of(Material.STONE, MaterialColor.BROWN)
+            FabricBlockSettings.of(Material.STONE, MapColor.BROWN)
                 .strength(50.0f, 1200.0f)
                 .requiresTool()
         )
@@ -62,10 +60,10 @@ public class MarblesBlocks {
     public static final Block PINK_SALT = register(
         "pink_salt",
         new Block(
-            FabricBlockSettings.of(Material.STONE, MaterialColor.ORANGE)
+            FabricBlockSettings.of(Material.STONE, MapColor.ORANGE)
                 .strength(1.2f, 6.0f)
                 .breakByTool(FabricToolTags.PICKAXES)
-                .materialColor(MaterialColor.ORANGE)
+                .mapColor(MapColor.ORANGE)
                 .requiresTool()
                 .sounds(MarblesSoundGroups.PINK_SALT)
         )
@@ -73,10 +71,10 @@ public class MarblesBlocks {
     public static final Block CRUMBLED_PINK_SALT = register(
         "crumbled_pink_salt",
         new FallingBlock(
-            FabricBlockSettings.of(Material.STONE, MaterialColor.ORANGE)
+            FabricBlockSettings.of(Material.STONE, MapColor.ORANGE)
                 .strength(0.9f, 3.0f)
                 .breakByTool(FabricToolTags.PICKAXES)
-                .materialColor(MaterialColor.ORANGE)
+                .mapColor(MapColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
         )
     );
@@ -90,35 +88,38 @@ public class MarblesBlocks {
 
     public static final Block PINK_SALT_SPIRE = register(
         PinkSaltSpireBlock.id, new PinkSaltSpireBlock(
-            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_ROCK, MaterialColor.ORANGE)
+            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_ROCK, MapColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .strength(0.9f, 3.0f)
                 .requiresTool()
+                .dynamicBounds()
                 .breakByTool(FabricToolTags.PICKAXES)
                 .luminance(state -> 4)
         )
     );
     public static final Block PINK_SALT_STACK = register(
         PinkSaltStackBlock.id, new PinkSaltStackBlock(
-            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_ROCK, MaterialColor.ORANGE)
+            FabricBlockSettings.of(MarblesMaterial.PINK_SALT_ROCK, MapColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .strength(0.15f, 1.0f)
                 .breakByTool(FabricToolTags.PICKAXES)
+                .dynamicBounds()
                 .luminance(state -> state.get(MarblesProperties.RETAINED_LIGHT))
         )
     );
     public static final Block PINK_SALT_STUMP = register(
         PinkSaltStumpBlock.id, new PinkSaltStumpBlock(
-            FabricBlockSettings.of(Material.PLANT, MaterialColor.ORANGE)
+            FabricBlockSettings.of(Material.PLANT, MapColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .strength(0.05f, 1.0f)
                 .breakByTool(FabricToolTags.PICKAXES)
+                .dynamicBounds()
                 .luminance(state -> state.get(MarblesProperties.RETAINED_LIGHT) / 3)
         )
     );
     public static final Block PINK_SALT_SPIKES = register(
         PinkSaltSpikeBlock.id, new PinkSaltSpikeBlock(
-            FabricBlockSettings.of(Material.PLANT, MaterialColor.ORANGE)
+            FabricBlockSettings.of(Material.PLANT, MapColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .breakInstantly()
                 .nonOpaque()
@@ -129,7 +130,7 @@ public class MarblesBlocks {
      * MISC
      */
 
-    public static final Block ROPE = register("rope", new RopeBlock(FabricBlockSettings.of(Material.WOOL, MaterialColor.WHITE).breakInstantly().sounds(BlockSoundGroup.WOOL)));
+    public static final Block ROPE = register("rope", new RopeBlock(FabricBlockSettings.of(Material.WOOL, MapColor.WHITE).breakInstantly().sounds(BlockSoundGroup.WOOL)));
 
     /*
      * YELLOW BAMBOO
@@ -137,7 +138,7 @@ public class MarblesBlocks {
 
     public static final Block YELLOW_BAMBOO = register("yellow_bamboo", new CBambooBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO)));
     public static final Block YELLOW_BAMBOO_SAPLING = register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO_SAPLING)), false);
-    public static final Block POTTED_YELLOW_BAMBOO = register("potted_yellow_bamboo", new FlowerPotBlock(YELLOW_BAMBOO, FabricBlockSettings.of(Material.SUPPORTED).breakInstantly().nonOpaque()), false);
+    public static final Block POTTED_YELLOW_BAMBOO = register("potted_yellow_bamboo", new FlowerPotBlock(YELLOW_BAMBOO, FabricBlockSettings.of(Material.DECORATION).breakInstantly().nonOpaque()), false);
 
     public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copyOf(Blocks.SCAFFOLDING)), false);
 
@@ -168,14 +169,14 @@ public class MarblesBlocks {
     public static final Block DUSK_SAND = register(
         "dusk_sand", new SandBlock(
             0x471515,
-            FabricBlockSettings.of(Material.AGGREGATE, MaterialColor.RED)
+            FabricBlockSettings.of(Material.AGGREGATE, MapColor.RED)
                 .strength(0.5f).sounds(BlockSoundGroup.SAND)
         )
     );
 
     public static final Block DUSK_SANDSTONE = register(
         "dusk_sandstone", new Block(
-            FabricBlockSettings.of(Material.STONE, MaterialColor.RED)
+            FabricBlockSettings.of(Material.STONE, MapColor.RED)
                 .requiresTool().strength(0.8f)
         )
     );
@@ -224,7 +225,7 @@ public class MarblesBlocks {
      */
     public static final Block ICE_CAVE_AIR = register("ice_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
 
-    public static final Block FLOESTONE = register("floestone", new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.BROWN).requiresTool().strength(1.5F, 6.0F)));
+    public static final Block FLOESTONE = register("floestone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.BROWN).requiresTool().strength(1.5F, 6.0F)));
     public static final Block POLISHED_FLOESTONE = register("polished_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
     public static final Block CHISELED_FLOESTONE = register("chiseled_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
     public static final Block FLOESTONE_BRICKS = register("floestone_bricks", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
@@ -266,35 +267,34 @@ public class MarblesBlocks {
      */
 
     public static final Block GRISP_DIRT = register("grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_DIRT_PATH = register("grisp_dirt_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().materialColor(MaterialColor.DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_DIRT_PATH = register("grisp_dirt_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.DIRT_BROWN).breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block COARSE_GRISP_DIRT = register("coarse_grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.COARSE_DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_FARMLAND = register("grisp_farmland", new MarblesFarmlandBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND).nonOpaque().breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_GRASS_BLOCK = register("grisp_grass_block", new GrispGrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_GRASS_PATH = register("grisp_grass_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).nonOpaque().materialColor(MaterialColor.GRASS).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_PODZOL = register("grisp_podzol", new GrispPodzolBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).materialColor(MaterialColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_PODZOL_PATH = register("grisp_podzol_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().materialColor(MaterialColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_GRASS_PATH = register("grisp_grass_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).nonOpaque().mapColor(MapColor.DIRT_BROWN).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_PODZOL = register("grisp_podzol", new GrispPodzolBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).mapColor(MapColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_PODZOL_PATH = register("grisp_podzol_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
     public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_PATH).nonOpaque().materialColor(MaterialColor.PURPLE_TERRACOTTA).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).nonOpaque().mapColor(MapColor.TERRACOTTA_PURPLE).breakByTool(FabricToolTags.SHOVELS, 0)));
 
     /*
      * POLLEN-GRACED SHEEP
      */
 
     public static final Block POLLEN_GRACED_WOOL = register("pollen_graced_wool", new Block(
-        FabricBlockSettings.of(Material.WOOL, MaterialColor.YELLOW_TERRACOTTA)
+        FabricBlockSettings.of(Material.WOOL, MapColor.TERRACOTTA_YELLOW)
             .strength(0.8F)
             .sounds(BlockSoundGroup.WOOL)
         )
     );
-    public static final Block POLLEN_GRACED_CARPET = register("pollen_graced_carpet", new PublicCarpetBlock(
-        DyeColor.YELLOW,
-        FabricBlockSettings.of(Material.CARPET, MaterialColor.YELLOW_TERRACOTTA)
+    public static final Block POLLEN_GRACED_CARPET = register("pollen_graced_carpet", new CarpetBlock(
+        FabricBlockSettings.of(Material.CARPET, MapColor.TERRACOTTA_YELLOW)
             .strength(0.1F)
             .sounds(BlockSoundGroup.WOOL)
         )
     );
     public static final Block POLLEN_GRACED_BED = register("pollen_graced_bed", new PollenGracedBedBlock(
-        FabricBlockSettings.of(Material.WOOL, (blockState) -> blockState.get(BedBlock.PART) == BedPart.FOOT ? MaterialColor.YELLOW_TERRACOTTA : MaterialColor.WEB)
+        FabricBlockSettings.of(Material.WOOL, (blockState) -> blockState.get(BedBlock.PART) == BedPart.FOOT ? MapColor.TERRACOTTA_YELLOW : MapColor.WHITE_GRAY)
             .sounds(BlockSoundGroup.WOOD)
             .strength(0.2F)
             .nonOpaque()

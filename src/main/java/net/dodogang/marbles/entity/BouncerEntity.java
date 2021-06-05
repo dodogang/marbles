@@ -25,7 +25,7 @@ import net.minecraft.entity.mob.*;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -34,9 +34,9 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.IntRange;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 
@@ -49,7 +49,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
 
     protected int cachedSize = 1;
     private int attackTicksLeft;
-    private static final IntRange ANGER_TIME_RANGE = Durations.betweenSeconds(20, 39);
+    private static final UniformIntProvider ANGER_TIME_RANGE = Durations.betweenSeconds(20, 39);
     private int angerTime;
     private UUID angryAt;
 
@@ -90,7 +90,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
     public void onTrackedDataSet(TrackedData<?> data) {
         if (BouncerEntity.SIZE.equals(data)) {
             this.calculateDimensions();
-            this.yaw = this.headYaw;
+            this.setYaw(this.headYaw);
             this.bodyYaw = this.headYaw;
         }
 
@@ -98,16 +98,16 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
     }
 
     @Override
-    public void writeCustomDataToTag(CompoundTag tag) {
-        super.writeCustomDataToTag(tag);
-        this.angerToTag(tag);
+    public void writeCustomDataToNbt(NbtCompound tag) {
+        super.writeCustomDataToNbt(tag);
+        this.writeAngerToNbt(tag);
 
         tag.putInt("Size", this.getSize());
     }
     @Override
-    public void readCustomDataFromTag(CompoundTag tag) {
-        super.readCustomDataFromTag(tag);
-        this.angerFromTag((ServerWorld)this.world, tag);
+    public void readCustomDataFromNbt(NbtCompound tag) {
+        super.readCustomDataFromNbt(tag);
+        this.readAngerFromNbt(this.world, tag);
 
         int size = tag.getInt("Size");
         if (size < 0) {
@@ -124,7 +124,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
             --this.attackTicksLeft;
         }
 
-        if (Entity.squaredHorizontalLength(this.getVelocity()) > Double.MAX_VALUE && this.random.nextInt(5) == 0) {
+        if (this.getVelocity().horizontalLengthSquared() > Double.MAX_VALUE && this.random.nextInt(5) == 0) {
             int x = MathHelper.floor(this.getX());
             int y = MathHelper.floor(this.getY() - 0.20000000298023224d);
             int z = MathHelper.floor(this.getZ());
@@ -180,7 +180,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
             && !(entity instanceof WaterCreatureEntity)
             && entity.getType() != this.getType()
             && !MarblesEntityTypeTags.BOUNCER_IGNORED_ENTITIES.contains(entity.getType())
-            && EntityPredicates.EXCEPT_CREATIVE_SPECTATOR_OR_PEACEFUL.test(entity);
+            && EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.test(entity);
     }
     public boolean shouldAngerAt(LivingEntity entity, boolean bypassRandom) {
         return (bypassRandom || this.random.nextFloat() <= (1.0f / this.getSize()) / 10) && this.shouldAngerAt(entity);
@@ -211,8 +211,8 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
     }
 
     @Override
-    public boolean handleFallDamage(float fallDistance, float damageMultiplier) {
-        return false;
+    public int computeFallDamage(float fallDistance, float damageMultiplier) {
+        return 0;
     }
 
     @Override
@@ -222,7 +222,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
 
     @Override
     public void chooseRandomAngerTime() {
-        this.setAngerTime(ANGER_TIME_RANGE.choose(this.random));
+        this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
     }
 
     @Override
@@ -264,7 +264,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
 
         if (!target.world.isClient && target instanceof ServerPlayerEntity) {
             PacketByteBuf buf = PacketByteBufs.create();
-            buf.writeInt(this.getEntityId());
+            buf.writeInt(this.getId());
             buf.writeUuid(target.getUuid());
 
             ServerPlayNetworking.send((ServerPlayerEntity) target, MarblesNetwork.BOUNCER_HIT_PLAYER_SHIELD_PACKET_ID, buf);
@@ -284,7 +284,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
             StatusEffectInstance slowFalling = new StatusEffectInstance(StatusEffects.SLOW_FALLING, (int) ((size * (target instanceof PlayerEntity ? 0.4f : size)) * 20), size);
             ((LivingEntity) target).addStatusEffect(slowFalling);
 
-            this.dealDamage(this, target);
+            this.applyDamageEffects(this, target);
             this.playThrowSound();
         }
     }
@@ -369,7 +369,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
 
     @Override
     @Environment(EnvType.CLIENT)
-    public Vec3d method_29919() {
+    public Vec3d getLeashOffset() {
         return new Vec3d(0.0d, 0.875F * this.getStandingEyeHeight(), this.getWidth() * 0.4F);
     }
 
@@ -394,12 +394,12 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
         @Override
         protected double getSquaredMaxAttackDistance(LivingEntity entity) {
             double distance = this.mob.getWidth() * 1.5f;
-            return Math.max(Math.min(24.0d, distance * distance), 4.0f);
+            return Math.max(Math.min(24.0d, distance * distance), 6.0f);
         }
 
         @Override
-        protected void method_28346() {
-            this.field_24667 = 5;
+        protected void resetCooldown() {
+            this.cooldown = 5;
         }
     }
 }

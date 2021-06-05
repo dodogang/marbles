@@ -208,8 +208,8 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
                 // register already. We can assume that when a recipe is registered twice, they are exactly the same and
                 // the latter one can be safely omitted...
                 if (!flushed.contains(name)) {
-                    SingleItemRecipeJsonFactory.create(Ingredient.ofItems(from), to, count)
-                                               .create(criterionName(from), hasItem(from))
+                    SingleItemRecipeJsonFactory.createStonecutting(Ingredient.ofItems(from), to, count)
+                                               .criterion(criterionName(from), hasItem(from))
                                                .offerTo(consumer, new Identifier(name));
                     flushed.add(name);
                 }

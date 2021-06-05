@@ -4,17 +4,18 @@ import com.google.common.collect.ImmutableList;
 import net.dodogang.marbles.entity.PollenGracedSheepEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.model.ModelPart;
+import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.CompositeEntityModel;
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
 import java.util.List;
 
-@SuppressWarnings("FieldCanBeLocal")
+@SuppressWarnings({"FieldCanBeLocal","unused"})
 @Environment(EnvType.CLIENT)
-public class PollenGracedSheepEntityModel<E extends PollenGracedSheepEntity> extends CompositeEntityModel<E> {
+public class PollenGracedSheepEntityModel<E extends PollenGracedSheepEntity> extends SinglePartEntityModel<E> {
+    private final ModelPart root;
     private final ModelPart body;
     private final ModelPart bodyCube;
     private final ModelPart bodyFur;
@@ -29,59 +30,116 @@ public class PollenGracedSheepEntityModel<E extends PollenGracedSheepEntity> ext
     private final List<ModelPart> fur;
     private float headPitchModifier;
 
-    public PollenGracedSheepEntityModel() {
-        textureWidth = 128;
-        textureHeight = 128;
-        body = new ModelPart(this);
-        body.setPivot(0.0F, 5.0F, 2.0F);
+    public PollenGracedSheepEntityModel(ModelPart root) {
+        this.root           = root;
 
-        bodyCube = new ModelPart(this);
-        bodyCube.setPivot(0.0F, 2.0F, 19.0F);
-        body.addChild(bodyCube);
-        setRotationAngle(bodyCube, 1.5708F, 0.0F, 0.0F);
-        bodyCube.setTextureOffset(0, 14).addCuboid(-4.0F, -29.0F, -5.0F, 8.0F, 16.0F, 6.0F, 0.0F, false);
+        this.body           = root.getChild("body");
+        this.bodyCube       = body.getChild("body_cube");
 
-        bodyFur = new ModelPart(this);
-        bodyFur.setPivot(0.0F, 0.0F, 0.0F);
-        body.addChild(bodyFur);
+        this.bodyFur        = body.getChild("body_fur");
+        this.bodyFurCube    = bodyFur.getChild("body_fur_cube");
 
-        bodyFurCube = new ModelPart(this);
-        bodyFurCube.setPivot(0.0F, 2.0F, 19.0F);
-        bodyFur.addChild(bodyFurCube);
-        setRotationAngle(bodyFurCube, 1.5708F, 0.0F, 0.0F);
-        bodyFurCube.setTextureOffset(0, 36).addCuboid(-7.0F, -29.75F, -8.0F, 14.0F, 20.0F, 13.0F, 0.0F, false);
+        this.head           = root.getChild("head");
+        this.headFur        = head.getChild("head_fur");
 
-        head = new ModelPart(this);
-        head.setPivot(0.0F, 6.0F, -8.0F);
-        head.setTextureOffset(0, 0).addCuboid(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, 0.0F, false);
-        head.setTextureOffset(44, 17).addCuboid(-4.0F, -5.0F, -5.0F, 8.0F, 8.0F, 6.0F, -0.1F, false);
+        this.backLeftLeg    = root.getChild("back_left_leg");
+        this.backRightLeg   = root.getChild("back_right_leg");
+        this.frontLeftLeg   = root.getChild("front_left_leg");
+        this.frontRightLeg  = root.getChild("front_right_leg");
 
-        headFur = new ModelPart(this);
-        headFur.setPivot(-0.5F, 0.0F, 0.0F);
-        head.addChild(headFur);
-        headFur.setTextureOffset(28, 0).addCuboid(-4.0F, -6.0F, -7.0F, 9.0F, 5.0F, 8.0F, 0.0F, false);
+        this.fur            = ImmutableList.of(this.bodyFur, this.headFur);
+    }
 
-        backLeftLeg = new ModelPart(this);
-        backLeftLeg.setPivot(3.0F, 12.0F, 7.0F);
-        backLeftLeg.setTextureOffset(28, 20).addCuboid(-8.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, true);
-        backLeftLeg.setTextureOffset(44, 31).addCuboid(-9.0F, -0.1F, -3.0F, 6.0F, 7.0F, 6.0F, 0.0F, true);
+    public static TexturedModelData getTexturedModelData() {
+        ModelData data = new ModelData();
+        ModelPartData root = data.getRoot();
 
-        backRightLeg = new ModelPart(this);
-        backRightLeg.setPivot(-3.0F, 12.0F, 7.0F);
-        backRightLeg.setTextureOffset(28, 20).addCuboid(4.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
-        backRightLeg.setTextureOffset(44, 31).addCuboid(3.0F, -0.1F, -3.0F, 6.0F, 7.0F, 6.0F, 0.0F, false);
+        ModelPartData body = root.addChild(
+            "body",
+            ModelPartBuilder.create(),
+            ModelTransform.pivot(0.0F, 5.0F, 2.0F)
+        );
+        body.addChild(
+            "body_cube",
+            ModelPartBuilder.create()
+                .uv(0, 14)
+                .cuboid(-4.0F, -29.0F, -5.0F, 8.0F, 16.0F, 6.0F),
+            ModelTransform.of(0.0F, 2.0F, 19.0F, 1.5708F, 0.0F, 0.0F)
+        );
 
-        frontLeftLeg = new ModelPart(this);
-        frontLeftLeg.setPivot(3.0F, 12.0F, -5.0F);
-        frontLeftLeg.setTextureOffset(28, 20).addCuboid(-8.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, true);
-        frontLeftLeg.setTextureOffset(44, 31).addCuboid(-9.0F, -0.1F, -3.0F, 6.0F, 7.0F, 6.0F, 0.0F, true);
+        ModelPartData bodyFur = body.addChild(
+            "body_fur",
+            ModelPartBuilder.create(),
+            ModelTransform.NONE
+        );
+        bodyFur.addChild(
+            "body_fur_cube",
+            ModelPartBuilder.create()
+                .uv(0, 36)
+                .cuboid(-7.0F, -29.75F, -8.0F, 14.0F, 20.0F, 13.0F),
+            ModelTransform.of(0.0F, 2.0F, 19.0F, 1.5708F, 0.0F, 0.0F)
+        );
 
-        frontRightLeg = new ModelPart(this);
-        frontRightLeg.setPivot(-3.0F, 12.0F, -5.0F);
-        frontRightLeg.setTextureOffset(28, 20).addCuboid(4.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
-        frontRightLeg.setTextureOffset(44, 31).addCuboid(3.0F, -0.1F, -3.0F, 6.0F, 7.0F, 6.0F, 0.0F, false);
+        ModelPartData head = root.addChild(
+            "head",
+            ModelPartBuilder.create()
+                .uv(0, 0)
+                .cuboid(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F)
 
-        this.fur = ImmutableList.of(this.bodyFur, this.headFur);
+                .uv(44, 17)
+                .cuboid(-4.0F, -5.0F, -5.0F, 8.0F, 8.0F, 6.0F, new Dilation(-0.1F)),
+            ModelTransform.pivot(0.0F, 6.0F, -8.0F)
+        );
+        head.addChild(
+            "head_fur",
+            ModelPartBuilder.create()
+                .uv(28, 0)
+                .cuboid(-4.0F, -6.0F, -7.0F, 9.0F, 5.0F, 8.0F),
+            ModelTransform.pivot(-0.5F, 0.0F, 0.0F)
+        );
+
+        root.addChild(
+            "back_left_leg",
+            ModelPartBuilder.create()
+                .uv(28, 20)
+                .cuboid(-8.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, true)
+
+                .uv(44, 31)
+                .cuboid(-9.0F, -0.1F, -3.0F, 6.0F, 7.0F, 6.0F, true),
+            ModelTransform.pivot(3.0F, 12.0F, 7.0F)
+        );
+        root.addChild(
+            "back_right_leg",
+            ModelPartBuilder.create()
+                .uv(28, 20)
+                .cuboid(4.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F)
+
+                .uv(44, 31)
+                .cuboid(3.0F, -0.1F, -3.0F, 6.0F, 7.0F, 6.0F),
+            ModelTransform.pivot(-3.0F, 12.0F, 7.0F)
+        );
+        root.addChild(
+            "front_left_leg",
+            ModelPartBuilder.create()
+                .uv(28, 20)
+                .cuboid(-8.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, true)
+
+                .uv(44, 31)
+                .cuboid(-9.0F, -0.1F, -3.0F, 6.0F, 7.0F, 6.0F, true),
+            ModelTransform.pivot(3.0F, 12.0F, -5.0F)
+        );
+        root.addChild(
+            "front_right_leg",
+            ModelPartBuilder.create()
+                .uv(28, 20)
+                .cuboid(4.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F)
+
+                .uv(44, 31)
+                .cuboid(3.0F, -0.1F, -3.0F, 6.0F, 7.0F, 6.0F),
+            ModelTransform.pivot(-3.0F, 12.0F, -5.0F)
+        );
+
+        return TexturedModelData.of(data, 128, 128);
     }
 
     @Override
@@ -141,16 +199,11 @@ public class PollenGracedSheepEntityModel<E extends PollenGracedSheepEntity> ext
     }
 
     @Override
-    public Iterable<ModelPart> getParts() {
-        return ImmutableList.of(body, head, backLeftLeg, backRightLeg, frontLeftLeg, frontRightLeg);
-    }
-    protected Iterable<ModelPart> getBodyParts() {
-        return ImmutableList.of(body, backLeftLeg, backRightLeg, frontLeftLeg, frontRightLeg);
+    public ModelPart getPart() {
+        return this.root;
     }
 
-    public void setRotationAngle(ModelPart bone, float x, float y, float z) {
-        bone.pitch = x;
-        bone.yaw = y;
-        bone.roll = z;
+    protected Iterable<ModelPart> getBodyParts() {
+        return ImmutableList.of(this.body, this.backLeftLeg, this.backRightLeg, this.frontLeftLeg, this.frontRightLeg);
     }
 }

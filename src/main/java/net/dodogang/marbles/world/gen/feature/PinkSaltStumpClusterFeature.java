@@ -9,9 +9,9 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -26,7 +26,11 @@ public class PinkSaltStumpClusterFeature extends Feature<DefaultFeatureConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random random, BlockPos pos, DefaultFeatureConfig config) {
+    public boolean generate(FeatureContext<DefaultFeatureConfig> ctx) {
+        BlockPos pos = ctx.getOrigin();
+        StructureWorldAccess world = ctx.getWorld();
+        Random random = ctx.getRandom();
+
         int placedBlocks = 0;
 
         BlockPos.Mutable mpos = new BlockPos.Mutable();

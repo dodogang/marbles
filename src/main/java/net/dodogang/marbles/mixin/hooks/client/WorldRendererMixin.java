@@ -27,10 +27,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Environment(EnvType.CLIENT)
 @Mixin(WorldRenderer.class)
 public abstract class WorldRendererMixin {
-    @Shadow public abstract void renderClouds(MatrixStack matrices, float tickDelta, double cameraX, double cameraY, double cameraZ);
+    @Shadow public abstract void renderClouds(MatrixStack matrices, Matrix4f matrix4f, float f, double d, double e, double g);
     @Shadow private ClientWorld world;
 
-    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;renderClouds(Lnet/minecraft/client/util/math/MatrixStack;FDDD)V", shift = At.Shift.BEFORE))
+    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;renderClouds(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/util/math/Matrix4f;FDDD)V", shift = At.Shift.BEFORE))
     private void renderAdditionalClouds(MatrixStack matrices, float tickDelta, long limitTime, boolean renderBlockOutline, Camera camera, GameRenderer gameRenderer, LightmapTextureManager lightmapTextureManager, Matrix4f matrix4f, CallbackInfo ci) {
         if (MarblesConfig.RENDER.additionalCloudLayers.value) {
             Vec3d cameraPos = camera.getPos();
@@ -39,7 +39,7 @@ public abstract class WorldRendererMixin {
             double z = cameraPos.getZ();
 
             for (int i = 1; i < Util.ADDITIONAL_CLOUD_COUNT + 1; i++) {
-                this.renderClouds(matrices, tickDelta, x + (270 * i), y - (Util.ADDITIONAL_CLOUD_OFFSET * i), z + (270 * i));
+                this.renderClouds(matrices, matrix4f, tickDelta, x + (270 * i), y - (Util.ADDITIONAL_CLOUD_OFFSET * i), z + (270 * i));
             }
         }
     }

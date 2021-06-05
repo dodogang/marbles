@@ -4,6 +4,7 @@ import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
@@ -65,12 +66,12 @@ public class MarblesFarmlandBlock extends FarmlandBlock {
     }
 
     @Override
-    public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
+    public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float distance) {
         if (!world.isClient && world.random.nextFloat() < distance - 0.5F && entity instanceof LivingEntity && (entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) && entity.getWidth() * entity.getWidth() * entity.getHeight() > 0.512F) {
             setToGrispDirt(world.getBlockState(pos), world, pos);
         }
 
-        entity.handleFallDamage(distance, 1.0F);
+        entity.handleFallDamage(distance, 1.0F, DamageSource.FALL);
     }
 
     public static void setToGrispDirt(BlockState state, World world, BlockPos pos) {

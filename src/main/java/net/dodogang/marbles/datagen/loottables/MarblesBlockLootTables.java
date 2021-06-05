@@ -23,6 +23,11 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
+import net.minecraft.loot.provider.nbt.ContextLootNbtProvider;
+import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.loot.provider.number.LootNumberProvider;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.BlockPredicate;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.StatePredicate;
@@ -50,7 +55,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
     );
     protected static final LootCondition.Builder WITHOUT_SILK_TOUCH = WITH_SILK_TOUCH.invert();
     protected static final LootCondition.Builder WITH_SHEARS = MatchToolLootCondition.builder(
-        ItemPredicate.Builder.create().item(Items.SHEARS)
+        ItemPredicate.Builder.create().items(Items.SHEARS)
     );
     protected static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.or(WITH_SILK_TOUCH);
     protected static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.invert();
@@ -334,11 +339,11 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
                : builder.getThis();
     }
 
-    private static ConditionalLootFunction.Builder<?> setCount(LootTableRange range) {
+    private static ConditionalLootFunction.Builder<?> setCount(LootNumberProvider range) {
         return SetCountLootFunction.builder(range);
     }
 
-    private static LootPool.Builder pool(LootTableRange rolls) {
+    private static LootPool.Builder pool(LootNumberProvider rolls) {
         return LootPool.builder().rolls(rolls);
     }
 
@@ -346,16 +351,16 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         return pool(count(1));
     }
 
-    private static LootTableRange count(int count) {
-        return ConstantLootTableRange.create(count);
+    private static LootNumberProvider count(int count) {
+        return ConstantLootNumberProvider.create(count);
     }
 
-    private static LootTableRange countRandom(float min, float max) {
-        return UniformLootTableRange.between(min, max);
+    private static LootNumberProvider countRandom(float min, float max) {
+        return UniformLootNumberProvider.create(min, max);
     }
 
-    private static LootTableRange countBiased(int n, float p) {
-        return BinomialLootTableRange.create(n, p);
+    private static LootNumberProvider countBiased(int n, float p) {
+        return BinomialLootNumberProvider.create(n, p);
     }
 
     private static <T extends Comparable<T>> StatePredicate.Builder stateProp(Property<T> prop, T val) {
@@ -394,7 +399,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         );
     }
 
-    protected static LootTable.Builder drops(ItemConvertible drop, LootTableRange count) {
+    protected static LootTable.Builder drops(ItemConvertible drop, LootNumberProvider count) {
         return LootTable.builder().pool(
             pool().with(explosionFunc(drop, ItemEntry.builder(drop).apply(setCount(count))))
         );
@@ -422,7 +427,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         return dropsWithSilkTouch(drop, explosionCond(drop, ItemEntry.builder(orElse)));
     }
 
-    protected static LootTable.Builder dropsWithSilkTouch(ItemConvertible drop, ItemConvertible orElse, LootTableRange elseCount) {
+    protected static LootTable.Builder dropsWithSilkTouch(ItemConvertible drop, ItemConvertible orElse, LootNumberProvider elseCount) {
         return dropsWithSilkTouch(drop, explosionFunc(drop, ItemEntry.builder(orElse).apply(setCount(elseCount))));
     }
 
@@ -482,7 +487,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
             drop, pool().with(
                 ItemEntry.builder(drop)
                          .apply(CopyNameLootFunction.builder(CopyNameLootFunction.Source.BLOCK_ENTITY))
-                         .apply(CopyNbtLootFunction.builder(CopyNbtLootFunction.Source.BLOCK_ENTITY)
+                         .apply(CopyNbtLootFunction.builder(ContextLootNbtProvider.BLOCK_ENTITY)
                                                    .withOperation("Lock", "BlockEntityTag.Lock")
                                                    .withOperation("LootTable", "BlockEntityTag.LootTable")
                                                    .withOperation("LootTableSeed", "BlockEntityTag.LootTableSeed")
@@ -499,7 +504,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
             drop, pool().with(
                 ItemEntry.builder(drop)
                          .apply(CopyNameLootFunction.builder(CopyNameLootFunction.Source.BLOCK_ENTITY))
-                         .apply(CopyNbtLootFunction.builder(CopyNbtLootFunction.Source.BLOCK_ENTITY)
+                         .apply(CopyNbtLootFunction.builder(ContextLootNbtProvider.BLOCK_ENTITY)
                                                    .withOperation("Patterns", "BlockEntityTag.Patterns")
                          )
             )
@@ -510,10 +515,10 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         return LootTable.builder().pool(
             pool().conditionally(WITH_SILK_TOUCH).with(
                 ItemEntry.builder(drop)
-                         .apply(CopyNbtLootFunction.builder(CopyNbtLootFunction.Source.BLOCK_ENTITY)
+                         .apply(CopyNbtLootFunction.builder(ContextLootNbtProvider.BLOCK_ENTITY)
                                                    .withOperation("Bees", "BlockEntityTag.Bees")
                          )
-                         .apply(CopyStateFunction.getBuilder(drop).method_21898(BeehiveBlock.HONEY_LEVEL))
+                         .apply(CopyStateFunction.getBuilder(drop).addProperty(BeehiveBlock.HONEY_LEVEL))
             )
         );
     }
@@ -523,10 +528,10 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
             pool().with(
                 ItemEntry.builder(drop)
                          .conditionally(WITH_SILK_TOUCH)
-                         .apply(CopyNbtLootFunction.builder(CopyNbtLootFunction.Source.BLOCK_ENTITY)
+                         .apply(CopyNbtLootFunction.builder(ContextLootNbtProvider.BLOCK_ENTITY)
                                                    .withOperation("Bees", "BlockEntityTag.Bees")
                          )
-                         .apply(CopyStateFunction.getBuilder(drop).method_21898(BeehiveBlock.HONEY_LEVEL))
+                         .apply(CopyStateFunction.getBuilder(drop).addProperty(BeehiveBlock.HONEY_LEVEL))
                          .alternatively(ItemEntry.builder(drop))
             )
         );
@@ -680,9 +685,9 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         int d = half == DoubleBlockHalf.UPPER ? 1 : -1;
         StatePredicate expectState = stateProp(TallPlantBlock.HALF, half).build();
 
-        return LocationCheckLootCondition.method_30151(
+        return LocationCheckLootCondition.builder(
             LocationPredicate.Builder.create().block(
-                BlockPredicate.Builder.create().block(plant).state(expectState).build()
+                BlockPredicate.Builder.create().blocks(plant).state(expectState).build()
             ),
             new BlockPos(0, d, 0)
         );

@@ -34,13 +34,13 @@ public class SpotlightUtil {
     }
 
     public static int getSpotlightData(World world, BlockPos pos) {
-        if (World.isOutOfBuildLimitVertically(pos)) return 0;
+        if (World.isValid(pos)) return 0;
         Chunk chunk = world.getChunk(pos.getX() >> 4, pos.getZ() >> 4, ChunkStatus.EMPTY, false);
         return getSpotlightData(chunk, pos);
     }
 
     public static int getSpotlightData(Chunk chunk, BlockPos pos) {
-        if (World.isOutOfBuildLimitVertically(pos)) return 0;
+        if (World.isValid(pos)) return 0;
         if (chunk == null) return 0;
 
         ChunkSection[] sections = chunk.getSectionArray();
@@ -60,7 +60,7 @@ public class SpotlightUtil {
 
     @SuppressWarnings("ConstantConditions")
     public static void setSpotlightData(World world, BlockPos pos, int val, boolean sync) {
-        if (World.isOutOfBuildLimitVertically(pos)) return;
+        if (World.isValid(pos)) return;
         Chunk chunk = world.getChunk(pos.getX() >> 4, pos.getZ() >> 4, ChunkStatus.EMPTY, true);
         if (chunk == null) return;
 
@@ -98,7 +98,7 @@ public class SpotlightUtil {
     }
 
     public static void updateSpotlight(World world, BlockPos pos, List<Pair<BlockPos, Integer>> updates) {
-        if (World.isOutOfBuildLimitVertically(pos)) return;
+        if (World.isValid(pos)) return;
 
         int currentLight = getSpotlightData(world, pos);
         int newLight = currentLight;

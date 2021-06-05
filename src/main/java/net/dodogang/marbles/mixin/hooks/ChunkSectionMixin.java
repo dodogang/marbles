@@ -4,7 +4,7 @@ import net.dodogang.marbles.util.SpotlightUtil;
 import net.dodogang.marbles.world.chunk.MarblesChunkSection;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.world.chunk.ChunkSection;
 import org.spongepowered.asm.mixin.Mixin;
@@ -37,13 +37,13 @@ public class ChunkSectionMixin implements MarblesChunkSection {
     }
 
     @Override
-    public void read(CompoundTag tag) {
+    public void read(NbtCompound tag) {
         int[] arr = tag.getIntArray("Spotlight");
         System.arraycopy(arr, 0, marbles_spotlightData, 0, Math.min(arr.length, SpotlightUtil.SPOTLIGHT_BUFFER_SIZE));
     }
 
     @Override
-    public void write(CompoundTag tag) {
+    public void write(NbtCompound tag) {
         tag.putIntArray("Spotlight", marbles_spotlightData);
     }
 

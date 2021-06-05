@@ -57,11 +57,12 @@ public class MarblesEntities {
         , null
     );
 
+    @SuppressWarnings("unchecked")
     private static <T extends Entity> EntityType<T> register(String id, FabricEntityTypeBuilder<T> entityType, int[] spawnEggColors) {
         EntityType<T> builtEntityType = entityType.build();
 
         if (spawnEggColors != null) {
-            Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, id + "_spawn_egg"), new SpawnEggItem(builtEntityType, spawnEggColors[0], spawnEggColors[1], new Item.Settings().maxCount(64).group(MarblesItemGroup.INSTANCE)));
+            Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, id + "_spawn_egg"), new SpawnEggItem((EntityType<? extends MobEntity>) builtEntityType, spawnEggColors[0], spawnEggColors[1], new Item.Settings().maxCount(64).group(MarblesItemGroup.INSTANCE)));
         }
 
         return Registry.register(Registry.ENTITY_TYPE, new Identifier(Marbles.MOD_ID, id), builtEntityType);

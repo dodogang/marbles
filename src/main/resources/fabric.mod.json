@@ -48,7 +48,7 @@
     "fabricloader": ">=0.11.0",
     "fabric": ">=0.32.0",
     "minecraft": ">=1.16.4",
-    "chord": ">=1.7.1"
+    "chord": "*"
   },
   "recommends": {
     "canvas": "*",

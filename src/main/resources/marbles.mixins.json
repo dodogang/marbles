@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "net.dodogang.marbles.mixin.hooks",
   "plugin": "net.dodogang.marbles.mixin.MarblesMixinPlugin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "mixins": [
     "AbstractFireBlockMixin",
     "BlockViewMixin",
@@ -30,6 +30,9 @@
     "client.ClientPlayerEntityMixin",
     "client.ClientPlayNetworkHandlerMixin",
     "client.ClientWorldMixin",
+    "client.EntityModelLayersInvoker",
+    "client.EntityModelLayersMixin",
+    "client.EntityModelsMixin",
     "client.InGameHudMixin",
     "client.JsonUnbakedModelDeserializerMixin",
     "client.LlamaDecorFeatureRendererMixin",

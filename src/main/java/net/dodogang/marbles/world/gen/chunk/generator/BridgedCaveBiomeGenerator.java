@@ -5,6 +5,7 @@ import net.dodogang.marbles.world.gen.chunk.decorator.BridgedCaveBiomeDecorator;
 import net.dodogang.marbles.world.gen.chunk.generator.config.BridgedCaveBiomeGeneratorConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.ChunkRegion;
@@ -101,7 +102,7 @@ public class BridgedCaveBiomeGenerator extends MarblesChunkGenerator {
         List<BridgedCaveBiomeDecorator> caves = getCaves(cx, cz);
 
         random.setCarverSeed(seed, cx, cz);
-        random.consume(41);
+        random.skip(41);
 
         for (int oz = 0; oz <= RESOLUTION_H; oz++) {
             double[] col = buffers[0][oz];
@@ -241,7 +242,7 @@ public class BridgedCaveBiomeGenerator extends MarblesChunkGenerator {
                 int bz = cz + iz;
 
                 random.setCarverSeed(seed, bx, bz);
-                random.consume(27);
+                random.skip(27);
 
                 double field = fieldNoise.generate(bx * 16, bz * 16);
                 double r = random.nextDouble() * this.config.getCaveRarity();
@@ -273,8 +274,9 @@ public class BridgedCaveBiomeGenerator extends MarblesChunkGenerator {
 
     @Override
     public void decorate(ChunkRegion region, StructureAccessor accessor) {
-        int cx = region.getCenterChunkX();
-        int cz = region.getCenterChunkZ();
+        ChunkPos pos = region.getCenterPos();
+        int cx = pos.x;
+        int cz = pos.z;
         int sx = cx * 16;
         int sz = cz * 16;
 

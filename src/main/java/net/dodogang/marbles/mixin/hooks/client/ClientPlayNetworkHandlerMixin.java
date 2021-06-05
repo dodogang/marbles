@@ -33,8 +33,8 @@ public class ClientPlayNetworkHandlerMixin {
     private void marbles_onProjectileEntitySpawn(EntitySpawnS2CPacket packet, ProjectileEntity entity, double x, double y, double z) {
         entity.updateTrackedPosition(x, y, z);
         entity.refreshPositionAfterTeleport(x, y, z);
-        entity.pitch = (float)(packet.getPitch() * 360) / 256.0f;
-        entity.yaw = (float)(packet.getYaw() * 360) / 256.0f;
+        entity.setPitch((float)(packet.getPitch() * 360) / 256.0f);
+        entity.setYaw((float)(packet.getYaw() * 360) / 256.0f);
         entity.setUuid(packet.getUuid());
 
         int entityId = packet.getId();

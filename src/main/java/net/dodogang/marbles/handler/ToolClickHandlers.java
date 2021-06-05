@@ -40,40 +40,39 @@ public class ToolClickHandlers {
     }
 
     private static ActionResult onItemUse(PlayerEntity player, World world, Hand hand, BlockHitResult hit) {
-        ItemStack stack = player.getStackInHand(hand);
-        Item item = stack.getItem();
-        BlockPos pos = hit.getBlockPos();
-        BlockState state = world.getBlockState(pos);
+        if (!player.isSpectator()) {
+            ItemStack stack = player.getStackInHand(hand);
+            Item item = stack.getItem();
+            BlockPos pos = hit.getBlockPos();
+            BlockState state = world.getBlockState(pos);
 
-        if (player.isSpectator())
-            return ActionResult.PASS;
+            if (FabricToolTags.SHOVELS.contains(item) && hit.getSide() == Direction.UP) {
+                BlockState newState = FLATTENABLE.get(state.getBlock());
+                if (newState != null && world.getBlockState(pos.up()).isAir()) {
+                    playFlattenSound(world, pos, player);
 
-        if (item.isIn(FabricToolTags.SHOVELS) && hit.getSide() == Direction.UP) {
-            BlockState newState = FLATTENABLE.get(state.getBlock());
-            if (newState != null && world.getBlockState(pos.up()).isAir()) {
-                playFlattenSound(world, pos, player);
-
-                if (!world.isClient) {
-                    world.setBlockState(pos, newState, 11);
-                    if (!player.isCreative()) {
-                        stack.damage(1, player, p -> p.sendToolBreakStatus(hand));
+                    if (!world.isClient) {
+                        world.setBlockState(pos, newState, 11);
+                        if (!player.isCreative()) {
+                            stack.damage(1, player, p -> p.sendToolBreakStatus(hand));
+                        }
                     }
+                    return ActionResult.success(world.isClient);
                 }
-                return ActionResult.success(world.isClient);
             }
-        }
-        if (item.isIn(FabricToolTags.HOES) && hit.getSide() == Direction.UP) {
-            BlockState newState = TILLABLE.get(state.getBlock());
-            if (newState != null && world.getBlockState(pos.up()).isAir()) {
-                playTillSound(world, pos, player);
+            if (FabricToolTags.HOES.contains(item) && hit.getSide() == Direction.UP) {
+                BlockState newState = TILLABLE.get(state.getBlock());
+                if (newState != null && world.getBlockState(pos.up()).isAir()) {
+                    playTillSound(world, pos, player);
 
-                if (!world.isClient) {
-                    world.setBlockState(pos, newState, 11);
-                    if (!player.isCreative()) {
-                        stack.damage(1, player, p -> p.sendToolBreakStatus(hand));
+                    if (!world.isClient) {
+                        world.setBlockState(pos, newState, 11);
+                        if (!player.isCreative()) {
+                            stack.damage(1, player, p -> p.sendToolBreakStatus(hand));
+                        }
                     }
+                    return ActionResult.success(world.isClient);
                 }
-                return ActionResult.success(world.isClient);
             }
         }
 

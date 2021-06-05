@@ -1,25 +1,23 @@
 package net.dodogang.marbles.client.render.entity;
 
+import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.model.entity.BouncerEntityModel;
 import net.dodogang.marbles.entity.BouncerEntity;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.util.math.Vec3f;
 
 @Environment(EnvType.CLIENT)
 public class BouncerEntityRenderer extends MobEntityRenderer<BouncerEntity, BouncerEntityModel> {
     private static final Identifier TEXTURE = MarblesEntities.texture(BouncerEntity.id + "/" + BouncerEntity.id);
 
-    @SuppressWarnings("unused")
-    public BouncerEntityRenderer(EntityRenderDispatcher dispatcher, @Nullable EntityRendererRegistry.Context ctx) {
-        super(dispatcher, new BouncerEntityModel(), 0.7F);
+    public BouncerEntityRenderer(EntityRendererFactory.Context ctx) {
+        super(ctx, new BouncerEntityModel(ctx.getPart(MarblesEntityModelLayers.BOUNCER)), 0.7F);
     }
 
     @Override
@@ -40,7 +38,7 @@ public class BouncerEntityRenderer extends MobEntityRenderer<BouncerEntity, Boun
         if (!((double)entity.limbDistance < 0.01D)) {
             float limbDelta = entity.limbAngle - entity.limbDistance * (1.0F - tickDelta) + 6.0F;
             float angle = (Math.abs(limbDelta % 13.0F - 6.5F) - 3.25F) / 3.25F;
-            matrices.multiply(Vector3f.POSITIVE_Z.getDegreesQuaternion(6.5F * angle));
+            matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(6.5F * angle));
         }
     }
 }

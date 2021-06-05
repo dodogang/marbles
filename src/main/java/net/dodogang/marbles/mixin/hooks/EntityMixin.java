@@ -67,9 +67,9 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
     @Shadow
     public abstract Vec3d getVelocity();
 
-    @Shadow public float yaw;
+    @Shadow private float yaw;
 
-    @Shadow public float pitch;
+    @Shadow private float pitch;
 
     @Shadow
     public abstract Vec3d getPos();
@@ -103,7 +103,7 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
         method = "getTeleportTarget",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/entity/Entity;method_30330(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Z)Ljava/util/Optional;"
+            target = "Lnet/minecraft/entity/Entity;getPortalRect(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Z)Ljava/util/Optional;"
         ),
         cancellable = true
     )
@@ -125,7 +125,7 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
         double northBorder = Math.max(-30000000, worldBorder.getBoundNorth() + 16);
         double eastBorder = Math.min(30000000, worldBorder.getBoundEast() - 16);
         double southBorder = Math.min(30000000, worldBorder.getBoundSouth() - 16);
-        double coordScale = DimensionType.method_31109(world.getDimension(), destination.getDimension());
+        double coordScale = DimensionType.getCoordinateScaleFactor(world.getDimension(), destination.getDimension());
 
         BlockPos destPos = new BlockPos(
             MathHelper.clamp(getX() * coordScale, westBorder, eastBorder),
@@ -136,10 +136,10 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
         Optional<PortalUtil.Rectangle> optPortal = TravertinePortalForcer.findPortal(destination, destPos, isNether);
 
         // If we're a player, try to create a portal if it's not present
-        if (ServerPlayerEntity.class.isInstance(this) && !optPortal.isPresent()) {
-            Direction.Axis axis = world.getBlockState(lastNetherPortalPosition).method_28500(NetherPortalBlock.AXIS).orElse(Direction.Axis.X);
+        if (ServerPlayerEntity.class.isInstance(this) && optPortal.isEmpty()) {
+            Direction.Axis axis = world.getBlockState(lastNetherPortalPosition).getOrEmpty(NetherPortalBlock.AXIS).orElse(Direction.Axis.X);
             Optional<PortalUtil.Rectangle> createdPortal = TravertinePortalForcer.createNewPortal(destination, destPos, axis);
-            if (!createdPortal.isPresent()) {
+            if (createdPortal.isEmpty()) {
                 LOGGER.error("Unable to create a portal, likely target out of worldborder");
             }
 
@@ -175,7 +175,7 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
     private Vec3d computeInterpolator(Direction.Axis axis, PortalUtil.Rectangle portal) {
         Vec3d ipl = TravertinePortalHelper.computeInterpolator(portal, axis, getPos(), getDimensions(getPose()));
         if (LivingEntity.class.isInstance(this)) {
-            ipl = LivingEntity.method_31079(ipl);
+            ipl = LivingEntity.positionInPortal(ipl);
         }
         return ipl;
     }

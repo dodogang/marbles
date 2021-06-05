@@ -1,6 +1,6 @@
 package net.dodogang.marbles.client.init;
 
-import me.andante.chord.client.util.CClientUtils;
+import me.andante.chord.util.CClientUtils;
 import net.dodogang.marbles.client.color.world.MarblesBiomeColors;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.fabricmc.api.EnvType;

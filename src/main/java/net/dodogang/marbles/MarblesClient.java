@@ -4,13 +4,13 @@ import com.google.common.reflect.Reflection;
 import net.dodogang.marbles.block.RopeBlock;
 import net.dodogang.marbles.client.config.MarblesConfigManager;
 import net.dodogang.marbles.client.init.MarblesBlocksClient;
+import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.network.MarblesClientNetwork;
 import net.dodogang.marbles.client.particle.IceSporeParticle;
 import net.dodogang.marbles.client.particle.MarblesParticleFactories;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
 import net.dodogang.marbles.client.render.entity.PollenGracedSheepEntityRenderer;
-import net.dodogang.marbles.entity.ThrownRopeEntity;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesParticles;
 import net.fabricmc.api.ClientModInitializer;
@@ -39,9 +39,9 @@ public class MarblesClient implements ClientModInitializer {
         EntityRendererRegistry errInstance = EntityRendererRegistry.INSTANCE;
         errInstance.register(MarblesEntities.BOUNCER, BouncerEntityRenderer::new);
         errInstance.register(MarblesEntities.POLLEN_GRACED_SHEEP, PollenGracedSheepEntityRenderer::new);
-        errInstance.register(MarblesEntities.THROWN_ROPE, (dispatcher, context) -> new FlyingItemEntityRenderer<ThrownRopeEntity>(dispatcher, context.getItemRenderer()));
+        errInstance.register(MarblesEntities.THROWN_ROPE, FlyingItemEntityRenderer::new);
 
-        FabricModelPredicateProviderRegistry.register(Items.CROSSBOW, new Identifier(Marbles.MOD_ID, "rope"), (stack, world, entity) -> {
+        FabricModelPredicateProviderRegistry.register(Items.CROSSBOW, new Identifier(Marbles.MOD_ID, "rope"), (stack, world, entity, seed) -> {
             Item item = stack.getItem();
             if (item instanceof CrossbowItem) {
                 List<ItemStack> projectiles = CrossbowItem.getProjectiles(stack);
@@ -60,8 +60,9 @@ public class MarblesClient implements ClientModInitializer {
 
         Reflection.initialize(
             MarblesBlocksClient.class,
-            MarblesClientNetwork.class,
+            MarblesEntityModelLayers.class,
 
+            MarblesClientNetwork.class,
             MarblesConfigManager.class
         );
     }

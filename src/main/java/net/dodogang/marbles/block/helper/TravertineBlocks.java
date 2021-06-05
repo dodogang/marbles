@@ -15,7 +15,7 @@ public class TravertineBlocks {
     private final String id;
     private final String modId;
     private final ItemGroup itemGroup;
-    private final MaterialColor color;
+    private final MapColor color;
 
     public final Block RAW;
     public final Block BRICKS;
@@ -39,7 +39,7 @@ public class TravertineBlocks {
 
     public final Block SALT_LAMP;
 
-    public TravertineBlocks(String modId, String id, ItemGroup itemGroup, MaterialColor color) {
+    public TravertineBlocks(String modId, String id, ItemGroup itemGroup, MapColor color) {
         this.id = id;
         this.modId = modId;
         this.itemGroup = itemGroup;
@@ -86,7 +86,7 @@ public class TravertineBlocks {
         return itemGroup;
     }
 
-    public MaterialColor getColor() {
+    public MapColor getColor() {
         return color;
     }
 

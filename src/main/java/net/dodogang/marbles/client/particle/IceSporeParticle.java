@@ -12,7 +12,7 @@ import net.minecraft.particle.DefaultParticleType;
 @Environment(EnvType.CLIENT)
 public class IceSporeParticle extends AscendingParticle {
     public IceSporeParticle(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, float scaleMultiplier, SpriteProvider spriteProvider) {
-        super(world, x, y, z, 0.04F, -0.01F, 0.04F, velocityX, velocityY, velocityZ, scaleMultiplier, spriteProvider, 1.0F, 60, -0.0005D, false);
+        super(world, x, y, z, 0.04F, -0.01F, 0.04F, velocityX, velocityY, velocityZ, scaleMultiplier, spriteProvider, 1.0F, 60, -0.0005F, false);
 
         this.colorAlpha = 1.0F;
         this.colorRed = 1.0F - (random.nextFloat() / 2);

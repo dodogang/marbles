@@ -1,10 +1,10 @@
 plugins {
-    id 'fabric-loom' version '0.7-SNAPSHOT'
+    id 'fabric-loom' version '0.8-SNAPSHOT'
     id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
 
 archivesBaseName = project.archives_base_name
 group = project.maven_group
@@ -40,18 +40,16 @@ dependencies {
      * COMPATIBILITY
      */
 
-    String canvas = "grondag:canvas-mc116:${project.canvas_version}"
+    String canvas = "grondag:canvas-mc117-1.17:${project.canvas_version}"
     if (!Boolean.parseBoolean("${project.ip_enabled}") && Boolean.parseBoolean("${project.canvas_enabled}")) { // Immersive Portals is incompatible with Canvas
         modImplementation(canvas) {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
-            exclude group: "io.github.prospector"
         }
     } else {
         modCompileOnly(canvas) {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
-            exclude group: "io.github.prospector"
         }
     }
 
@@ -61,30 +59,32 @@ dependencies {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
             exclude group: "com.github.Virtuoel"
-            exclude group: "io.github.prospector"
         }
     } else {
         modCompileOnly(ip) {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
             exclude group: "com.github.Virtuoel"
-            exclude group: "io.github.prospector"
         }
     }
 
+    modImplementation("com.github.teamhollow:fallingblocktweaks:${project.fbt_version}")
     modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}") { exclude group: "net.fabricmc.fabric-api" }
-    modImplementation("com.github.teamhollow:fallingblocktweaks:${project.fbt_version}") { exclude group: "net.fabricmc.fabric-api" }
 
     /*
      * LIBRARIES
      */
-    include("com.github.andantedevs:chord:${project.chord_version}") { exclude group: "net.fabricmc.fabric-api" }
-    modImplementation("com.github.andantedevs:chord:${project.chord_version}") { exclude group: "net.fabricmc.fabric-api" }
+    include("com.github.andantedevs:chord:${project.chord_version}") {
+        exclude group: "com.terraformersmc"
+    }
+    modImplementation("com.github.andantedevs:chord:${project.chord_version}") {
+        exclude group: "com.terraformersmc"
+    }
 
-    modImplementation "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
-    include "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
+    modImplementation ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}")
+    include ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}")
 
-    modImplementation("net.shadew:jedt:${project.jedt_version}") { exclude group: "net.fabricmc.fabric-api" }
+    // modImplementation("net.shadew:jedt:${project.jedt_version}") { exclude group: "net.fabricmc.fabric-api" }
 
     include("net.shadew:shwutil:${project.shwutil_version}")
     implementation("net.shadew:shwutil:${project.shwutil_version}") // not a mod, no need for modImplementation
@@ -96,21 +96,22 @@ dependencies {
      * RUNTIME UTILITIES
      */
 
-    modRuntime("com.github.joaoh1:OkZoomer:${project.okzoomer_version}") {
+    /*modRuntime("com.github.joaoh1:OkZoomer:${project.okzoomer_version}") {
         exclude group: "net.fabricmc.fabric-api"
         exclude group: "me.shedaniel.cloth"
-        exclude group: "io.github.prospector"
-    }
+        exclude group: "com.terraformersmc"
+    }*/
 
-    String sodium = "com.github.CaffeineMC:sodium-fabric:${project.sodium_version}"
+    // TODO OUTDATED
+    /*String sodium = "com.github.CaffeineMC:sodium-fabric:${project.sodium_version}"
     if (!Boolean.parseBoolean("${project.ip_enabled}") && !Boolean.parseBoolean("${project.canvas_enabled}")) {
         modRuntime(sodium) { exclude group: "net.fabricmc.fabric-api" }
     } else {
         modCompileOnly(sodium) { exclude group: "net.fabricmc.fabric-api" }
     }
-    // modRuntime("com.github.CaffeineMC:hydrogen-fabric:${project.hydrogen_version}") { exclude group: "net.fabricmc.fabric-api" }
+    modRuntime("com.github.CaffeineMC:hydrogen-fabric:${project.hydrogen_version}") { exclude group: "net.fabricmc.fabric-api" }
     modRuntime("com.github.CaffeineMC:lithium-fabric:${project.lithium_version}") { exclude group: "net.fabricmc.fabric-api" }
-    modRuntime("com.github.CaffeineMC:phosphor-fabric:${project.phosphor_version}") { exclude group: "net.fabricmc.fabric-api" }
+    modRuntime("com.github.CaffeineMC:phosphor-fabric:${project.phosphor_version}") { exclude group: "net.fabricmc.fabric-api" }*/
 }
 
 loom {
@@ -136,7 +137,9 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
-    def targetVersion = 8
+
+    // Minecraft 1.17 (21w19a) upwards uses Java 16.
+    it.options.release = 16
 }
 
 jar {

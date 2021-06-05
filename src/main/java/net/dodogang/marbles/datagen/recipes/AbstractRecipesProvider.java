@@ -122,7 +122,7 @@ public abstract class AbstractRecipesProvider implements DataProvider {
     }
 
     protected static InventoryChangedCriterion.Conditions hasItem(ItemConvertible itemConvertible) {
-        return hasItems(ItemPredicate.Builder.create().item(itemConvertible).build());
+        return hasItems(ItemPredicate.Builder.create().items(itemConvertible).build());
     }
 
     protected static InventoryChangedCriterion.Conditions hasItems(Tag<Item> tag) {

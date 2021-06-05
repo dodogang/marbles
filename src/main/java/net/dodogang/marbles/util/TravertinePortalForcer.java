@@ -67,11 +67,11 @@ public class TravertinePortalForcer {
         BlockPos unoptimalPortalPos = null;
 
         WorldBorder worldBorder = world.getWorldBorder();
-        int dimHeight = world.getDimensionHeight() - 1;
+        int dimHeight = world.getHeight() - 1;
 
         BlockPos.Mutable mpos = pos.mutableCopy();
 
-        for (BlockPos.Mutable ipos : BlockPos.method_30512(pos, 16, Direction.EAST, Direction.SOUTH)) {
+        for (BlockPos.Mutable ipos : BlockPos.iterateInSquare(pos, 16, Direction.EAST, Direction.SOUTH)) {
             int portalY = Math.min(dimHeight, world.getTopY(Heightmap.Type.MOTION_BLOCKING, ipos.getX(), ipos.getZ()));
 
             if (!worldBorder.contains(ipos))
@@ -123,7 +123,7 @@ public class TravertinePortalForcer {
             // Couldn't find nearby solid surface
             portalPos = new BlockPos(
                 pos.getX(),
-                MathHelper.clamp(pos.getY(), 70, world.getDimensionHeight() - 10),
+                MathHelper.clamp(pos.getY(), 70, world.getHeight() - 10),
                 pos.getZ()
             ).toImmutable();
 

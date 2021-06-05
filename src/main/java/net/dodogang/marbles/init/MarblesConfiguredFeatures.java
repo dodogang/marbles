@@ -10,11 +10,14 @@ import net.dodogang.marbles.world.gen.feature.YellowBambooFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.ProbabilityConfig;
-import net.minecraft.world.gen.UniformIntDistribution;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
@@ -22,6 +25,7 @@ import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.MegaPineFoliagePlacer;
 import net.minecraft.world.gen.foliage.PineFoliagePlacer;
 import net.minecraft.world.gen.foliage.SpruceFoliagePlacer;
+import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.trunk.GiantTrunkPlacer;
@@ -33,13 +37,14 @@ public class MarblesConfiguredFeatures {
         Feature.TREE.configure(
             new TreeFeatureConfig.Builder(
                 new SimpleBlockStateProvider(States.ASPEN_LOG),
-                new SimpleBlockStateProvider(States.ASPEN_LEAVES),
-                new PineFoliagePlacer(
-                    UniformIntDistribution.of(2),
-                    UniformIntDistribution.of(1),
-                    UniformIntDistribution.of(4, 1)
-                ),
                 new StraightTrunkPlacer(5, 2, 1),
+                new SimpleBlockStateProvider(States.ASPEN_LEAVES),
+                new SimpleBlockStateProvider(States.ASPEN_SAPLING),
+                new PineFoliagePlacer(
+                    ConstantIntProvider.create(2),
+                    ConstantIntProvider.create(1),
+                    UniformIntProvider.create(1, 4)
+                ),
                 new TwoLayersFeatureSize(6, 0, 6)
             ).ignoreVines().build()
         )
@@ -61,13 +66,14 @@ public class MarblesConfiguredFeatures {
         Feature.TREE.configure(
             new TreeFeatureConfig.Builder(
                 new SimpleBlockStateProvider(States.HOOPSI_SPRUCE_LOG),
-                new SimpleBlockStateProvider(States.HOOPSI_SPRUCE_LEAVES),
-                new SpruceFoliagePlacer(
-                    UniformIntDistribution.of(2, 1),
-                    UniformIntDistribution.of(0, 2),
-                    UniformIntDistribution.of(1, 1)
-                ),
                 new StraightTrunkPlacer(5, 2, 1),
+                new SimpleBlockStateProvider(States.HOOPSI_SPRUCE_LEAVES),
+                new SimpleBlockStateProvider(States.HOOPSI_SPRUCE_SAPLING),
+                new SpruceFoliagePlacer(
+                    UniformIntProvider.create(1, 2),
+                    UniformIntProvider.create(0, 2),
+                    UniformIntProvider.create(1, 1)
+                ),
                 new TwoLayersFeatureSize(2, 0, 2)
             ).ignoreVines().build()
         )
@@ -77,13 +83,14 @@ public class MarblesConfiguredFeatures {
         Feature.TREE.configure(
             new TreeFeatureConfig.Builder(
                 new SimpleBlockStateProvider(States.HOOPSI_SPRUCE_LOG),
-                new SimpleBlockStateProvider(States.HOOPSI_SPRUCE_LEAVES),
-                new MegaPineFoliagePlacer(
-                    UniformIntDistribution.of(0),
-                    UniformIntDistribution.of(0),
-                    UniformIntDistribution.of(13, 4)
-                ),
                 new GiantTrunkPlacer(13, 2, 14),
+                new SimpleBlockStateProvider(States.HOOPSI_SPRUCE_LEAVES),
+                new SimpleBlockStateProvider(States.HOOPSI_SPRUCE_SAPLING),
+                new MegaPineFoliagePlacer(
+                    ConstantIntProvider.create(0),
+                    ConstantIntProvider.create(0),
+                    UniformIntProvider.create(4, 13)
+                ),
                 new TwoLayersFeatureSize(1, 1, 2)
             ).build()
         )
@@ -105,13 +112,14 @@ public class MarblesConfiguredFeatures {
         Feature.TREE.configure(
             new TreeFeatureConfig.Builder(
                 new SimpleBlockStateProvider(States.RED_BIRCH_LOG),
+                new StraightTrunkPlacer(5, 2, 0),
                 new SimpleBlockStateProvider(States.RED_BIRCH_LEAVES),
+                new SimpleBlockStateProvider(States.RED_BIRCH_SAPLING),
                 new BlobFoliagePlacer(
-                    UniformIntDistribution.of(2),
-                    UniformIntDistribution.of(0),
+                    ConstantIntProvider.create(2),
+                    ConstantIntProvider.create(0),
                     3
                 ),
-                new StraightTrunkPlacer(5, 2, 0),
                 new TwoLayersFeatureSize(1, 0, 1)
             ).ignoreVines().build()
         )
@@ -153,7 +161,7 @@ public class MarblesConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> PINK_SALT_STUMP_CLUSTER = register(
         PinkSaltStumpClusterFeature.id,
         MarblesFeatures.PINK_SALT_STUMP_CLUSTER.configure(FeatureConfig.DEFAULT)
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(96)))))
             .spreadHorizontally()
             .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(2)))
             .decorate(Decorator.COUNT.configure(new CountConfig(3)))
@@ -162,7 +170,7 @@ public class MarblesConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> PINK_SALT_SPIRE = register(
         PinkSaltSpireFeature.id,
         MarblesFeatures.PINK_SALT_SPIRE.configure(FeatureConfig.DEFAULT)
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(96)))))
             .spreadHorizontally()
             .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(3)))
             .decorate(Decorator.COUNT.configure(new CountConfig(4)))
@@ -173,11 +181,11 @@ public class MarblesConfiguredFeatures {
         MarblesFeatures.DISK
             .configure(new DiskFeatureConfig(
                 States.GRANITE,
-                UniformIntDistribution.of(2, 4),
+                UniformIntProvider.create(2, 4),
                 3,
                 Lists.newArrayList(States.PINK_SALT)
             ))
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(96)))))
             .spreadHorizontally()
             .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(2)))
             .decorate(Decorator.COUNT.configure(new CountConfig(4)))
@@ -188,11 +196,11 @@ public class MarblesConfiguredFeatures {
         MarblesFeatures.DISK
             .configure(new DiskFeatureConfig(
                 States.CRUMBLED_PINK_SALT,
-                UniformIntDistribution.of(2, 4),
+                UniformIntProvider.create(2, 4),
                 3,
                 Lists.newArrayList(States.PINK_SALT)
             ))
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(96)))))
             .spreadHorizontally()
             .decorate(Decorator.COUNT.configure(new CountConfig(6)))
     );
@@ -201,7 +209,7 @@ public class MarblesConfiguredFeatures {
         "pink_salt_spike_patch",
         MarblesFeatures.PINK_SALT_SPIKES
             .configure(FeatureConfig.DEFAULT)
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 96)))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(96)))))
             .spreadHorizontally()
             .decorate(Decorator.COUNT.configure(new CountConfig(6)))
     );
@@ -215,15 +223,19 @@ public class MarblesConfiguredFeatures {
         MarblesFeatures.STATE_PROVIDED_DISK
             .configure(
                 new StateProvidedChanceDiskFeatureConfig(
-                    new WeightedBlockStateProvider().addState(States.FLOESTONE, 1).addState(States.RILLED_FLOESTONE, 3),
-                    UniformIntDistribution.of(6, 8),
+                    new WeightedBlockStateProvider(createStatePool().add(States.FLOESTONE, 1).add(States.RILLED_FLOESTONE, 3)),
+                    UniformIntProvider.create(6, 8),
                     4, 0.3f,
                     Lists.newArrayList(States.ICE, States.PACKED_ICE)
                 )
             )
-            .rangeOf(19)
+            .repeatRandomly(19)
             .spreadHorizontally()
     );
+
+    static DataPool.Builder<BlockState> createStatePool() {
+        return DataPool.builder();
+    }
 
     private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) {
         return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Marbles.MOD_ID, id), configuredFeature);
@@ -232,10 +244,13 @@ public class MarblesConfiguredFeatures {
     private static class States {
         private static final BlockState ASPEN_LOG = MarblesBlocks.ASPEN.LOG.getDefaultState();
         private static final BlockState ASPEN_LEAVES = MarblesBlocks.ASPEN.LEAVES.getDefaultState();
+        private static final BlockState ASPEN_SAPLING = MarblesBlocks.ASPEN.POTTED_SAPLING.getDefaultState();
         private static final BlockState HOOPSI_SPRUCE_LOG = MarblesBlocks.HOOPSI_SPRUCE.LOG.getDefaultState();
         private static final BlockState HOOPSI_SPRUCE_LEAVES = MarblesBlocks.HOOPSI_SPRUCE.LEAVES.getDefaultState();
+        private static final BlockState HOOPSI_SPRUCE_SAPLING = MarblesBlocks.HOOPSI_SPRUCE.SAPLING.getDefaultState();
         private static final BlockState RED_BIRCH_LOG = MarblesBlocks.RED_BIRCH.LOG.getDefaultState();
         private static final BlockState RED_BIRCH_LEAVES = MarblesBlocks.RED_BIRCH.LEAVES.getDefaultState();
+        private static final BlockState RED_BIRCH_SAPLING = MarblesBlocks.RED_BIRCH.SAPLING.getDefaultState();
         private static final BlockState PINK_SALT = MarblesBlocks.PINK_SALT.getDefaultState();
         private static final BlockState CRUMBLED_PINK_SALT = MarblesBlocks.CRUMBLED_PINK_SALT.getDefaultState();
         private static final BlockState GRANITE = Blocks.GRANITE.getDefaultState();

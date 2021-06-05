@@ -1,5 +1,6 @@
 package net.dodogang.marbles.mixin.hooks.client;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonElement;
@@ -23,7 +24,7 @@ public class JsonUnbakedModelDeserializerMixin {
     /**
      * @reason Injects a rope override for crossbows.
      */
-    @Inject(method = "deserializeOverrides", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "overridesFromJson", at = @At("RETURN"), cancellable = true)
     private void addOverrides(JsonDeserializationContext context, JsonObject object, CallbackInfoReturnable<List<ModelOverride>> cir) {
         JsonElement textures = object.get("textures");
         if (textures != null && textures.isJsonObject()) {
@@ -32,7 +33,7 @@ public class JsonUnbakedModelDeserializerMixin {
                 String textureId = layer0.getAsString();
                 if (textureId.equals("item/crossbow_standby") || textureId.equals("minecraft:item/crossbow_standby")) {
                     List<ModelOverride> overrides = cir.getReturnValue();
-                    overrides.add(new ModelOverride(new Identifier(Marbles.MOD_ID, "item/crossbow_rope"), ImmutableMap.of(new Identifier(Marbles.MOD_ID, "rope"), 1.0f)));
+                    overrides.add(new ModelOverride(new Identifier(Marbles.MOD_ID, "item/crossbow_rope"), ImmutableList.of(new ModelOverride.Condition(new Identifier(Marbles.MOD_ID, "rope"), 1.0f))));
 
                     cir.setReturnValue(overrides);
                 }

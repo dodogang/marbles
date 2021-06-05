@@ -12,7 +12,7 @@ import net.minecraft.particle.DefaultParticleType;
 @Environment(EnvType.CLIENT)
 public class PinkSaltParticle extends AscendingParticle {
     public PinkSaltParticle(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, float scaleMultiplier, SpriteProvider spriteProvider) {
-        super(world, x, y, z, 0.1F, -0.1F, 0.1F, velocityX, velocityY, velocityZ, scaleMultiplier, spriteProvider, 1.0F, 20, -0.004D, false);
+        super(world, x, y, z, 0.1F, -0.1F, 0.1F, velocityX, velocityY, velocityZ, scaleMultiplier, spriteProvider, 1.0F, 20, -0.004F, false);
 
         this.colorAlpha = 1.0F;
         this.colorRed = 1.0F - (random.nextFloat() / 2);

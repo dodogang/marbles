@@ -9,6 +9,7 @@ import net.minecraft.client.world.BiomeColorCache;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -38,8 +39,8 @@ public class ClientWorldMixin implements MarblesColorWorld {
     }
 
     @Inject(method = "resetChunkColor", at = @At("HEAD"))
-    private void onResetChunkColor(int x, int z, CallbackInfo info) {
-        marblesColorCache.forEach((k, v) -> v.reset(x, z));
+    private void onResetChunkColor(ChunkPos pos, CallbackInfo ci) {
+        marblesColorCache.forEach((k, v) -> v.reset(pos.x, pos.z));
     }
 
     protected int computeColor(BlockPos pos, ColorGenerator generator) {

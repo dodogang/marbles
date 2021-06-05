@@ -17,7 +17,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -53,13 +53,13 @@ public class ThrownRopeEntity extends ThrownItemEntity {
     }
 
     @Override
-    public void writeCustomDataToTag(CompoundTag tag) {
-        super.writeCustomDataToTag(tag);
+    public void writeCustomDataToNbt(NbtCompound tag) {
+        super.writeCustomDataToNbt(tag);
         tag.putInt("Count", this.getCount());
     }
     @Override
-    public void readCustomDataFromTag(CompoundTag tag) {
-        super.readCustomDataFromTag(tag);
+    public void readCustomDataFromNbt(NbtCompound tag) {
+        super.readCustomDataFromNbt(tag);
         this.setCount(tag.getInt("Count"));
     }
 
@@ -135,7 +135,7 @@ public class ThrownRopeEntity extends ThrownItemEntity {
 
         if (!this.world.isClient) {
             this.world.sendEntityStatus(this, (byte)3);
-            this.remove();
+            this.discard();
         }
     }
 
@@ -147,6 +147,6 @@ public class ThrownRopeEntity extends ThrownItemEntity {
     }
     public void dropRope() {
         this.dropRope(this.getCount());
-        this.remove();
+        this.discard();
     }
 }

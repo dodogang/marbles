@@ -3,8 +3,8 @@ package net.dodogang.marbles.mixin.hooks;
 import net.dodogang.marbles.world.chunk.MarblesChunkSection;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureManager;
 import net.minecraft.util.math.ChunkPos;
@@ -36,31 +36,31 @@ public class ChunkSerializerMixin {
         StructureManager structureManager,
         PointOfInterestStorage poiStorage,
         ChunkPos pos,
-        CompoundTag tag,
+        NbtCompound tag,
         CallbackInfoReturnable<ProtoChunk> cir,
 
         ChunkGenerator chunkGenerator,
         BiomeSource biomeSource,
-        CompoundTag compoundTag,
+        NbtCompound NbtCompound,
         BiomeArray biomeArray,
         UpgradeData upgradeData,
         ChunkTickScheduler<Block> chunkTickScheduler,
         ChunkTickScheduler<Fluid> chunkTickScheduler2,
         boolean bl,
-        ListTag listTag,
+        NbtList NbtList,
         int i,
         ChunkSection[] chunkSections,
         boolean bl2,
         ChunkManager chunkManager,
         LightingProvider lightingProvider,
         int j,
-        CompoundTag compoundTag2,
+        NbtCompound NbtCompound2,
         int k,
         ChunkSection chunkSection
     ) {
         // Reassignment of locals for clarity of this method
         ChunkSection section = chunkSection;
-        CompoundTag sectionTag = compoundTag2;
+        NbtCompound sectionTag = NbtCompound2;
 
         if (sectionTag.contains("Marbles", 10)) {
             ((MarblesChunkSection) section).read(sectionTag.getCompound("Marbles"));
@@ -71,7 +71,7 @@ public class ChunkSerializerMixin {
         method = "serialize",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/world/chunk/PalettedContainer;write(Lnet/minecraft/nbt/CompoundTag;Ljava/lang/String;Ljava/lang/String;)V",
+            target = "Lnet/minecraft/world/chunk/PalettedContainer;write(Lnet/minecraft/nbt/NbtCompound;Ljava/lang/String;Ljava/lang/String;)V",
             shift = At.Shift.AFTER
         ),
         locals = LocalCapture.CAPTURE_FAILEXCEPTION
@@ -79,13 +79,13 @@ public class ChunkSerializerMixin {
     private static void onSerializeChunkSection(
         ServerWorld world,
         Chunk chunk,
-        CallbackInfoReturnable<CompoundTag> cir,
+        CallbackInfoReturnable<NbtCompound> cir,
 
         ChunkPos chunkPos,
-        CompoundTag compoundTag,
-        CompoundTag compoundTag2,
+        NbtCompound NbtCompound,
+        NbtCompound NbtCompound2,
         ChunkSection[] chunkSections,
-        ListTag listTag,
+        NbtList NbtList,
         LightingProvider lightingProvider,
         boolean bl,
         int i,
@@ -93,10 +93,10 @@ public class ChunkSerializerMixin {
         ChunkSection chunkSection,
         ChunkNibbleArray chunkNibbleArray,
         ChunkNibbleArray chunkNibbleArray2,
-        CompoundTag compoundTag3
+        NbtCompound NbtCompound3
     ) {
-        CompoundTag sectionTag = compoundTag3;
-        CompoundTag marblesTag = new CompoundTag();
+        NbtCompound sectionTag = NbtCompound3;
+        NbtCompound marblesTag = new NbtCompound();
         ChunkSection section = chunkSection;
 
         ((MarblesChunkSection) section).write(marblesTag);

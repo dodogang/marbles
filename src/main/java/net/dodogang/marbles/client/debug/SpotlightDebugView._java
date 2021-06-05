@@ -29,7 +29,6 @@ public class SpotlightDebugView implements DebugView {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, double cameraX, double cameraY, double cameraZ) {
         MinecraftClient client = MinecraftClient.getInstance();
         assert client.player != null;
@@ -39,7 +38,7 @@ public class SpotlightDebugView implements DebugView {
 
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
-        RenderSystem.color4f(0, 1, 0, 0.75f);
+        RenderSystem.clearColor(0, 1, 0, 0.75f);
         RenderSystem.disableTexture();
         RenderSystem.lineWidth(1);
         VertexConsumer buff = vertexConsumers.getBuffer(RenderLayer.getLines());

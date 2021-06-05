@@ -11,8 +11,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.ProbabilityConfig;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 
 import java.util.Random;
 
@@ -29,7 +29,12 @@ public class YellowBambooFeature extends Feature<ProbabilityConfig> {
     }
 
     @Override
-    public boolean generate(StructureWorldAccess world, ChunkGenerator generator, Random random, BlockPos pos, ProbabilityConfig config) {
+    public boolean generate(FeatureContext<ProbabilityConfig> ctx) {
+        BlockPos pos = ctx.getOrigin();
+        StructureWorldAccess world = ctx.getWorld();
+        Random random = ctx.getRandom();
+        ProbabilityConfig config = ctx.getConfig();
+
         int i = 0;
         BlockPos.Mutable bambooPos = pos.mutableCopy();
         BlockPos.Mutable podzolPos = pos.mutableCopy();
@@ -45,7 +50,7 @@ public class YellowBambooFeature extends Feature<ProbabilityConfig> {
                             int o = z - pos.getZ();
                             if (n * n + o * o <= height * height) {
                                 podzolPos.set(x, world.getTopY(Heightmap.Type.WORLD_SURFACE, x, z) - 1, z);
-                                if (isSoil(world.getBlockState(podzolPos).getBlock())) {
+                                if (isSoil(world.getBlockState(podzolPos))) {
                                     world.setBlockState(podzolPos, Blocks.PODZOL.getDefaultState(), 2);
                                 }
                             }

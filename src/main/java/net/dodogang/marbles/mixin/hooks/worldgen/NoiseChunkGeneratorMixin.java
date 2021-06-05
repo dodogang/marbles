@@ -25,7 +25,6 @@ import java.util.Random;
 public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
     @Shadow @Final private long seed;
 
-    @Shadow @Final protected ChunkRandom random;
     private static Random marbles_random = null;
     private static List<MarblesChunkGenerator> marbles_chunkGenerators = null;
 
@@ -43,7 +42,7 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
             marbles_random = new Random(this.seed);
         }
 
-        return marbles_chunkGenerators.get(random.nextInt(marbles_chunkGenerators.size()));
+        return marbles_chunkGenerators.get(new ChunkRandom(this.seed).nextInt(marbles_chunkGenerators.size()));
     }
 
     @Override
