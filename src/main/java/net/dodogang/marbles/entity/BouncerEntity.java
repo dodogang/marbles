@@ -60,8 +60,8 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
 
     @Override
     @Nullable
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason reason, @Nullable EntityData data, @Nullable CompoundTag tag) {
-        this.setSize((int) Util.getBiasedRandom(1.0d, 1.0d, 3.0d, world.getRandom()), true);
+    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason reason, @Nullable EntityData data, @Nullable NbtCompound tag) {
+        this.setSize((int) Math.max(Util.getBiasedRandom(2.7d, 0.0d, 3.0d, world.getRandom()), 1.0d), true);
         return super.initialize(world, difficulty, reason, data, tag);
     }
 
@@ -273,7 +273,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
 
     public void tryThrowEntity(Entity target, boolean fromShield) {
         float attackDamage = this.getAttackDamage();
-        float damage = attackDamage > 0 ? attackDamage / 6.0F + (float)this.random.nextInt((int) (attackDamage / 1.3f)) : attackDamage;
+        float damage = attackDamage > 0 ? (attackDamage / 1.5F) + (this.random.nextInt((int) (attackDamage / 1.3f)) / 3f) : attackDamage;
 
         boolean damageTarget = fromShield || target.damage(new EntityDamageSource(Marbles.MOD_ID + "." + BouncerEntity.id, this), target instanceof PlayerEntity ? damage / 2.3f : 0.1f);
         if (damageTarget) {
@@ -281,7 +281,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
 
             target.setVelocity(target.getVelocity().add(0.0d, 0.1d + ((damage * damage) * 0.02d), 0.0d));
 
-            StatusEffectInstance slowFalling = new StatusEffectInstance(StatusEffects.SLOW_FALLING, (int) ((size * (target instanceof PlayerEntity ? 0.4f : size)) * 20), size);
+            StatusEffectInstance slowFalling = new StatusEffectInstance(StatusEffects.SLOW_FALLING, (int) ((size * (target instanceof PlayerEntity ? 0.8f : size)) * 20), size);
             ((LivingEntity) target).addStatusEffect(slowFalling);
 
             this.applyDamageEffects(this, target);
