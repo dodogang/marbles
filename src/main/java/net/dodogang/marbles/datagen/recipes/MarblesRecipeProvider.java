@@ -593,7 +593,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
     }
 
     private static Identifier id(String id) {
-        return new Identifier(Marbles.MOD_ID + ":" + id);
+        return new Identifier(Marbles.MOD_ID, id);
     }
 
     @Override
