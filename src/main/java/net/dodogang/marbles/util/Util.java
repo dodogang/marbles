@@ -1,5 +1,6 @@
 package net.dodogang.marbles.util;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.dodogang.marbles.Marbles;
 import net.fabricmc.api.EnvType;
@@ -24,8 +25,21 @@ public class Util {
      */
     public static final TrackedData<ItemStack> LLAMA_SADDLE_ITEM_TRACKED_DATA = DataTracker.registerData(LlamaEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
 
-    public static final int ADDITIONAL_CLOUD_COUNT = 2;
-    public static final double ADDITIONAL_CLOUD_OFFSET = 40.0d;
+    public static final ImmutableList<Double> ADDITIONAL_CLOUD_OFFSETS;
+    static {
+        Random random = new Random();
+        ImmutableList.Builder<Double> cloudOffsets = new ImmutableList.Builder<>();
+
+        double cloudOffset = 5.0d + (random.nextDouble() * 5.0d);
+        for (int i = 0; i < Util.getAdditionalCloudCount(); i++) {
+            cloudOffsets.add(cloudOffset += (((i + 1) * 10.0d) + ((random.nextDouble() * random.nextDouble()) * 25.0d)));
+        }
+
+        ADDITIONAL_CLOUD_OFFSETS = cloudOffsets.build();
+    }
+    protected static int getAdditionalCloudCount() {
+        return 5;
+    }
 
     @Environment(EnvType.CLIENT)
     public static final Identifier POLLEN_GRACED_CARPET_LLAMA_DECOR_TEXTURE = new Identifier("textures/entity/llama/decor/marbles/pollen_graced_wool.png");

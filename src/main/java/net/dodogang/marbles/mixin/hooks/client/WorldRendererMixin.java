@@ -38,8 +38,9 @@ public abstract class WorldRendererMixin {
             double y = cameraPos.getY();
             double z = cameraPos.getZ();
 
-            for (int i = 1; i < Util.ADDITIONAL_CLOUD_COUNT + 1; i++) {
-                this.renderClouds(matrices, matrix4f, tickDelta, x + (270 * i), y - (Util.ADDITIONAL_CLOUD_OFFSET * i), z + (270 * i));
+            for (int i = 0; i < Util.ADDITIONAL_CLOUD_OFFSETS.size(); i++) {
+                double offset = Util.ADDITIONAL_CLOUD_OFFSETS.get(i);
+                this.renderClouds(matrices, matrix4f, tickDelta, x + (270 * (i + 1)), y - offset, z + (270 * (i + 1)));
             }
         }
     }
