@@ -37,8 +37,8 @@ public class ClientPlayNetworkHandlerMixin {
         entity.setYaw((float)(packet.getYaw() * 360) / 256.0f);
         entity.setUuid(packet.getUuid());
 
-        int entityId = packet.getId();
-        entity.setEntityId(entityId);
-        this.world.addEntity(entityId, entity);
+        int id = packet.getId();
+        entity.setId(id);
+        this.world.addEntity(id, entity);
     }
 }

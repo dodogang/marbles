@@ -47,7 +47,7 @@ public class MarblesDiskFeature extends Feature<DiskFeatureConfig> {
                             for (BlockState blockState2 : config.targets) {
                                 if (blockState2.isOf(block)) {
                                     structureWorldAccess.setBlockState(ipos, config.state, Block.NOTIFY_LISTENERS);
-                                    this.method_37256(structureWorldAccess, ipos);
+                                    this.markBlocksAboveForPostProcessing(structureWorldAccess, ipos);
                                     generated = true;
                                     bl4 = true;
                                     break;
