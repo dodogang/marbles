@@ -55,15 +55,7 @@ public class MultipartBlockStateGen implements StateGen {
         return new MultipartBlockStateGen();
     }
 
-    private static class Part {
-        final Selector selector;
-        final ModelInfo[] models;
-
-        Part(Selector selector, ModelInfo[] models) {
-            this.selector = selector;
-            this.models = models;
-        }
-
+    private record Part(Selector selector, ModelInfo[] models) {
         public JsonObject getJson() {
             JsonObject obj = new JsonObject();
             if (selector != null) {

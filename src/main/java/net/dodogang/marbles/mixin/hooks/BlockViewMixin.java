@@ -23,8 +23,7 @@ public interface BlockViewMixin {
     @Overwrite
     default int getLuminance(BlockPos pos) {
         int cur = getBlockState(pos).getLuminance();
-        if (this instanceof Chunk) {
-            Chunk c = (Chunk) this;
+        if (this instanceof Chunk c) {
             int sld = SpotlightUtil.getSpotlightData(c, pos);
             for (Direction d : Direction.values()) {
                 int sl = SpotlightUtil.getSpotlightValue(sld, d);

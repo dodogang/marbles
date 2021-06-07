@@ -23,21 +23,21 @@ public class StateProvidedChanceDiskFeature extends Feature<StateProvidedChanceD
         StructureWorldAccess world = ctx.getWorld();
 
         boolean generated = false;
-        if (random.nextFloat() <= config.chance) {
-            int radius = config.radius.get(random);
+        if (random.nextFloat() <= config.chance()) {
+            int radius = config.radius().get(random);
 
             for (int x = pos.getX() - radius; x <= pos.getX() + radius; ++x) {
                 for (int z = pos.getZ() - radius; z <= pos.getZ() + radius; ++z) {
                     int dx = x - pos.getX();
                     int dz = z - pos.getZ();
                     if (dx * dx + dz * dz <= radius * radius) {
-                        for (int y = pos.getY() - config.halfHeight; y <= pos.getY() + config.halfHeight; ++y) {
+                        for (int y = pos.getY() - config.halfHeight(); y <= pos.getY() + config.halfHeight(); ++y) {
                             BlockPos ipos = new BlockPos(x, y, z);
                             Block block = world.getBlockState(ipos)
                                                .getBlock();
-                            for (BlockState blockState : config.targets) {
+                            for (BlockState blockState : config.targets()) {
                                 if (blockState.isOf(block)) {
-                                    world.setBlockState(ipos, config.stateProvider.getBlockState(random, pos), 2);
+                                    world.setBlockState(ipos, config.stateProvider().getBlockState(random, pos), 2);
                                     generated = true;
                                     break;
                                 }

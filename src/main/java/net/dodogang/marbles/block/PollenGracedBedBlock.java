@@ -3,7 +3,6 @@ package net.dodogang.marbles.block;
 import net.minecraft.block.*;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -30,16 +29,11 @@ public class PollenGracedBedBlock extends BedBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Direction direction = getOppositePartDirection(state).getOpposite();
-        switch(direction) {
-            case NORTH:
-                return NORTH_SHAPE;
-            case SOUTH:
-                return SOUTH_SHAPE;
-            case WEST:
-                return WEST_SHAPE;
-            default:
-                return EAST_SHAPE;
-        }
+        return switch (getOppositePartDirection(state).getOpposite()) {
+            case NORTH -> NORTH_SHAPE;
+            case SOUTH -> SOUTH_SHAPE;
+            case WEST -> WEST_SHAPE;
+            default -> EAST_SHAPE;
+        };
     }
 }

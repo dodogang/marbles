@@ -44,13 +44,7 @@ public class TravertinePortalBlock extends Block {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch (state.get(AXIS)) {
-            case Z:
-                return Z_SHAPE;
-            case X:
-            default:
-                return X_SHAPE;
-        }
+        return state.get(AXIS) == Direction.Axis.Z ? Z_SHAPE : X_SHAPE;
     }
 
     @Override
@@ -130,20 +124,14 @@ public class TravertinePortalBlock extends Block {
 
     @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
-        switch (rotation) {
-            case COUNTERCLOCKWISE_90:
-            case CLOCKWISE_90:
-                switch (state.get(AXIS)) {
-                    case Z:
-                        return state.with(AXIS, Direction.Axis.X);
-                    case X:
-                        return state.with(AXIS, Direction.Axis.Z);
-                    default:
-                        return state;
-                }
-            default:
-                return state;
-        }
+        return switch (rotation) {
+            case COUNTERCLOCKWISE_90, CLOCKWISE_90 -> switch (state.get(AXIS)) {
+                case Z -> state.with(AXIS, Direction.Axis.X);
+                case X -> state.with(AXIS, Direction.Axis.Z);
+                default -> state;
+            };
+            default -> state;
+        };
     }
 
     public float getPortalTravelSpeedAdditional() {

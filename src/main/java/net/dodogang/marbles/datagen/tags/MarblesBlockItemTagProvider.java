@@ -291,14 +291,14 @@ public class MarblesBlockItemTagProvider implements DataProvider {
     }
 
     @SafeVarargs
-    private final void add(Block block, Tag<Block>... tags) {
+    private void add(Block block, Tag<Block>... tags) {
         for (Tag<Block> tag : tags) {
             add(tag, block);
         }
     }
 
     @SafeVarargs
-    private final void add(ItemConvertible item, Tag<Item>... tags) {
+    private void add(ItemConvertible item, Tag<Item>... tags) {
         for (Tag<Item> tag : tags) {
             add(tag, item);
         }

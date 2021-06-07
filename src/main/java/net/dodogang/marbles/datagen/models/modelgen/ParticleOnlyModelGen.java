@@ -5,13 +5,7 @@ import com.google.gson.JsonObject;
 import net.minecraft.util.Identifier;
 
 @SuppressWarnings("unused")
-public class ParticleOnlyModelGen implements ModelGen {
-    private final String particles;
-
-    private ParticleOnlyModelGen(String particles) {
-        this.particles = particles;
-    }
-
+public record ParticleOnlyModelGen(String particles) implements ModelGen {
     @Override
     public JsonElement makeJson(Identifier name) {
         JsonObject root = new JsonObject();

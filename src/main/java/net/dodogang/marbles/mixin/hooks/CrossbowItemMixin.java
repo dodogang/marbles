@@ -73,8 +73,7 @@ public class CrossbowItemMixin {
             ThrownRopeEntity thrown = new ThrownRopeEntity(world, shooter);
             thrown.setCount(projectile.getCount());
 
-            if (shooter instanceof CrossbowUser) {
-                CrossbowUser crossbowUser = (CrossbowUser)shooter;
+            if (shooter instanceof CrossbowUser crossbowUser) {
                 crossbowUser.shoot(crossbowUser.getTarget(), crossbow, thrown, simulated);
             } else {
                 Vec3d oppositeRotationVec = shooter.getOppositeRotationVector(1.0F);
