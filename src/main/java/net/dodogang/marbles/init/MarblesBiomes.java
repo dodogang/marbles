@@ -23,12 +23,22 @@ import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilders;
 
 @SuppressWarnings({ "unused", "deprecation" })
 public class MarblesBiomes {
+    /*
+     * MISC
+     */
+
+    public static final RegistryKey<Biome> TRAVERTINE_STRAWS = register("travertine_straws", createTravertineStraws());
+
+    /*
+     * YELLOW BAMBOO
+     */
+
     public static final RegistryKey<Biome> YELLOW_BAMBOO_JUNGLE = register(YellowBambooFeature.id + "_jungle", createNormalYellowBambooJungle());
     public static final RegistryKey<Biome> YELLOW_BAMBOO_JUNGLE_HILLS = register(YellowBambooFeature.id + "_jungle_hills", createYellowBambooJungleHills());
 
-    public static final RegistryKey<Biome> ASPEN_FOREST = register("aspen_forest", createAspenForest());
-    public static final RegistryKey<Biome> HOOPSI_SPRUCE_FOREST = register("hoopsi_spruce_forest", createHoopsiSpruceForest());
-    public static final RegistryKey<Biome> RED_BIRCH_FOREST = register("red_birch_forest", createRedBirchForest());
+    /*
+     * CAVE BIOMES
+     */
 
     public static final RegistryKey<Biome> PINK_SALT_CAVE = register("pink_salt_cave", createPinkSaltCave());
 
@@ -36,9 +46,54 @@ public class MarblesBiomes {
     public static final RegistryKey<Biome> SCALED_ICE_CAVE = register("scaled_ice_cave", createIceCave());
     public static final RegistryKey<Biome> MINTED_ICE_CAVE = register("minted_ice_cave", createIceCave());
 
+    /*
+     * TEST BIOMES
+     */
+
+    public static final RegistryKey<Biome> TEST_ASPEN_FOREST = register("aspen_forest", createAspenForest());
+    public static final RegistryKey<Biome> TEST_HOOPSI_SPRUCE_FOREST = register("hoopsi_spruce_forest", createHoopsiSpruceForest());
+    public static final RegistryKey<Biome> TEST_RED_BIRCH_FOREST = register("red_birch_forest", createRedBirchForest());
+
     static {
+        OverworldBiomes.addContinentalBiome(MarblesBiomes.TRAVERTINE_STRAWS, OverworldClimate.DRY, 1.05);
+
         OverworldBiomes.addBiomeVariant(BiomeKeys.BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE, 0.5F, OverworldClimate.TEMPERATE);
         OverworldBiomes.addHillsBiome(MarblesBiomes.YELLOW_BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE_HILLS, 1.0F);
+    }
+
+    // unfinished travertine straws biome, just for people to get travertine from
+    protected static Biome createTravertineStraws() {
+        SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
+
+        GenerationSettings.Builder generationSettings = new GenerationSettings.Builder()
+            .surfaceBuilder(MarblesConfiguredSurfaceBuilders.TRAVERTINE_STRAWS)
+            .structureFeature(ConfiguredStructureFeatures.RUINED_PORTAL_MOUNTAIN);
+
+        DefaultBiomeFeatures.addAmethystGeodes(generationSettings);
+        DefaultBiomeFeatures.addDungeons(generationSettings);
+        DefaultBiomeFeatures.addMineables(generationSettings);
+        DefaultBiomeFeatures.addDefaultOres(generationSettings);
+        DefaultBiomeFeatures.addDefaultDisks(generationSettings);
+        DefaultBiomeFeatures.addSprings(generationSettings);
+        DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
+
+        return new Biome.Builder()
+                    .precipitation(Biome.Precipitation.NONE)
+                    .category(Biome.Category.MESA)
+                    .depth(1.4F).scale(0.4F)
+                    .temperature(2.0F).downfall(0.0F)
+                    .effects(
+                        new BiomeEffects.Builder()
+                            .waterColor(4159204).skyColor(getSkyColor(2.0F))
+                            .grassColor(9470285).foliageColor(10387789)
+                            .waterFogColor(329011).fogColor(12638463)
+                            .moodSound(BiomeMoodSound.CAVE)
+                        .build()
+                    )
+                    .spawnSettings(spawnSettings.build())
+                    .generationSettings(generationSettings.build())
+                .build();
     }
 
     protected static Biome createAspenForest() {
