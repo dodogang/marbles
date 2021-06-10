@@ -1,5 +1,6 @@
 package net.dodogang.marbles.client.config;
 
+import com.google.common.reflect.Reflection;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
@@ -26,19 +27,22 @@ import java.io.StringWriter;
 import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
+@SuppressWarnings("UnstableApiUsage")
 @Environment(EnvType.CLIENT)
 public class MarblesConfigManager {
     private static final File FILE = FabricLoader.getInstance().getConfigDir().toFile().toPath().resolve(Marbles.MOD_ID + ".json").toFile();
-    public static final List<Option<?>> OPTIONS = new LinkedList<>();
+    public static final List<Option<JsonPrimitive>> OPTIONS = new LinkedList<>();
 
     static {
+        Reflection.initialize(MarblesConfig.class);
         MarblesConfigManager.load();
     }
 
     public static void save() {
         JsonObject jsonObject = new JsonObject();
-        OPTIONS.forEach(option -> jsonObject.addProperty(option.getId(), option.getValueForSave()));
+        OPTIONS.forEach(option -> jsonObject.add(option.getId(), option.value));
 
         try (PrintWriter out = new PrintWriter(FILE)) {
             StringWriter stringWriter = new StringWriter();
@@ -54,7 +58,6 @@ public class MarblesConfigManager {
         }
     }
 
-    @SuppressWarnings("ConstantConditions")
     public static void load() {
         try {
             String json = new String(Files.readAllBytes(FILE.toPath()));
@@ -62,7 +65,7 @@ public class MarblesConfigManager {
                 JsonObject jsonObject = (JsonObject) new JsonParser().parse(json);
 
                 MarblesConfig.RenderGroup RENDER = MarblesConfig.RENDER;
-                RENDER.additionalCloudLayers.value = MarblesConfigManager.load(jsonObject, RENDER.additionalCloudLayers).getAsBoolean();
+                RENDER.additionalCloudLayers.value = MarblesConfigManager.load(jsonObject, RENDER.additionalCloudLayers);
             }
         } catch (IOException ignored) {
             Marbles.log(Level.WARN, "Could not load configuration file! Saving and loading default values.");
@@ -73,22 +76,17 @@ public class MarblesConfigManager {
             Marbles.log(Level.ERROR, "Configuration option failed to load: " + e);
         }
     }
-    private static JsonPrimitive load(JsonObject jsonObject, Option<?> option) {
+    private static JsonPrimitive load(JsonObject jsonObject, Option<JsonPrimitive> option) {
         try {
-            return jsonObject.getAsJsonPrimitive(option.getId());
+            return Optional.ofNullable(jsonObject.getAsJsonPrimitive(option.getId())).orElse(loadDefault(option));
         } catch (RuntimeException e) {
-            Object optionDefault = option.getDefault();
-            Marbles.log(Level.WARN, option.getId() + " is not present! Defaulting to " + optionDefault);
-            if (optionDefault instanceof Boolean) {
-                return new JsonPrimitive((Boolean) optionDefault);
-            } else if (optionDefault instanceof Integer) {
-                return new JsonPrimitive((Integer) optionDefault);
-            } else if (optionDefault instanceof Enum<?>) {
-                return new JsonPrimitive(String.valueOf(optionDefault));
-            }
-
-            return null;
+            return loadDefault(option);
         }
+    }
+    private static JsonPrimitive loadDefault(Option<JsonPrimitive> option) {
+        JsonPrimitive optionDefault = option.getDefault();
+        Marbles.log(Level.WARN, option.getId() + " is not present! Defaulting to " + optionDefault);
+        return optionDefault;
     }
 
     @SuppressWarnings("deprecation")
@@ -111,11 +109,11 @@ public class MarblesConfigManager {
         ConfigCategory RENDER = builder.getOrCreateCategory(createRenderText());
         if (!ModLoaded.CANVAS) {
             TranslatableText additionalCloudLayers = createRenderText(MarblesConfig.RENDER.additionalCloudLayers.getId());
-            Option<Boolean> additionalCloudLayersOption = MarblesConfig.RENDER.additionalCloudLayers;
+            Option<JsonPrimitive> additionalCloudLayersOption = MarblesConfig.RENDER.additionalCloudLayers;
             RENDER.addEntry(
-                entryBuilder.startBooleanToggle(additionalCloudLayers, additionalCloudLayersOption.value)
-                    .setDefaultValue(additionalCloudLayersOption.getDefault())
-                    .setSaveConsumer(value -> additionalCloudLayersOption.value = value)
+                entryBuilder.startBooleanToggle(additionalCloudLayers, additionalCloudLayersOption.value.getAsBoolean())
+                    .setDefaultValue(additionalCloudLayersOption.getDefault().getAsBoolean())
+                    .setSaveConsumer(value -> additionalCloudLayersOption.value = new JsonPrimitive(value))
                     .setTooltip(createTooltip(additionalCloudLayers))
                     .build()
             );

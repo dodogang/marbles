@@ -32,6 +32,16 @@ public class MarblesClient implements ClientModInitializer {
     @SuppressWarnings("UnstableApiUsage")
     @Override
     public void onInitializeClient() {
+        Marbles.log("Initializing (CLIENT)");
+
+        Reflection.initialize(
+            MarblesBlocksClient.class,
+            MarblesEntityModelLayers.class,
+
+            MarblesClientNetwork.class,
+            MarblesConfigManager.class
+        );
+
         ParticleFactoryRegistry pfrInstance = ParticleFactoryRegistry.getInstance();
         pfrInstance.register(MarblesParticles.PINK_SALT, PinkSaltParticle.Factory::new);
         pfrInstance.register(MarblesParticles.ICE_SPORE, IceSporeParticle.Factory::new);
@@ -59,13 +69,7 @@ public class MarblesClient implements ClientModInitializer {
             return 0.0f;
         });
 
-        Reflection.initialize(
-            MarblesBlocksClient.class,
-            MarblesEntityModelLayers.class,
-
-            MarblesClientNetwork.class,
-            MarblesConfigManager.class
-        );
+        Marbles.log("Initialized (CLIENT)");
     }
 
     public static Identifier texture(String path) {
