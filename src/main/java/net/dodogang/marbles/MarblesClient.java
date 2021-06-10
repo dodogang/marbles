@@ -13,6 +13,7 @@ import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
 import net.dodogang.marbles.client.render.entity.PollenGracedSheepEntityRenderer;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesParticles;
+import net.dodogang.marbles.mixin.hooks.CrossbowItemAccessor;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
@@ -44,7 +45,7 @@ public class MarblesClient implements ClientModInitializer {
         FabricModelPredicateProviderRegistry.register(Items.CROSSBOW, new Identifier(Marbles.MOD_ID, "rope"), (stack, world, entity, seed) -> {
             Item item = stack.getItem();
             if (item instanceof CrossbowItem) {
-                List<ItemStack> projectiles = CrossbowItem.getProjectiles(stack);
+                List<ItemStack> projectiles = CrossbowItemAccessor.getProjectiles(stack);
                 projectiles.removeIf(istack -> {
                     Item iitem = istack.getItem();
                     return !(iitem instanceof BlockItem && ((BlockItem) iitem).getBlock() instanceof RopeBlock);

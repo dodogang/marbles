@@ -2,6 +2,8 @@ package net.dodogang.marbles.entity;
 
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
+import net.dodogang.marbles.mixin.hooks.EatGrassGoalAccessor;
+import net.dodogang.marbles.mixin.hooks.SheepEntityAccessor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -35,14 +37,15 @@ public class PollenGracedSheepEntity extends SheepEntity {
 
     @Override
     protected void initGoals() {
-        this.eatGrassGoal = new EatGrispGrassGoal(this);
+        SheepEntityAccessor accessor = (SheepEntityAccessor) this;
 
+        accessor.setEatGrassGoal(new EatGrispGrassGoal(this));
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new EscapeDangerGoal(this, 1.25D));
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.0D));
         this.goalSelector.add(3, new TemptGoal(this, 1.1D, Ingredient.ofItems(Items.WHEAT), false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.1D));
-        this.goalSelector.add(5, this.eatGrassGoal);
+        this.goalSelector.add(5, accessor.getEatGrassGoal());
         this.goalSelector.add(6, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
@@ -115,8 +118,9 @@ public class PollenGracedSheepEntity extends SheepEntity {
 
         @Override
         public void tick() {
-            this.timer = Math.max(0, this.timer - 1);
-            if (this.timer == 4) {
+            EatGrassGoalAccessor accessor = ((EatGrassGoalAccessor) this);
+            accessor.setTimer(Math.max(0, accessor.getTimer() - 1));
+            if (accessor.getTimer() == 4) {
                 BlockPos pos = this.mob.getBlockPos();
                 if (GRASS_PREDICATE.test(this.world.getBlockState(pos))) {
                     if (this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {

@@ -2,6 +2,7 @@ package net.dodogang.marbles.entity;
 
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.init.MarblesSoundEvents;
+import net.dodogang.marbles.mixin.hooks.MeleeAttackGoalAccessor;
 import net.dodogang.marbles.network.MarblesNetwork;
 import net.dodogang.marbles.tag.MarblesEntityTypeTags;
 import net.dodogang.marbles.util.Util;
@@ -399,7 +400,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
 
         @Override
         protected void resetCooldown() {
-            this.cooldown = 5;
+            ((MeleeAttackGoalAccessor) this).setCooldown(5);
         }
     }
 }
