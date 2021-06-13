@@ -69,20 +69,17 @@ dependencies {
     }
 
     modImplementation("com.github.teamhollow:fallingblocktweaks:${project.fbt_version}")
-    modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}") { exclude group: "net.fabricmc.fabric-api" }
 
     /*
      * LIBRARIES
      */
-    include("com.github.andantedevs:chord:${project.chord_version}") {
-        exclude group: "com.terraformersmc"
-    }
-    modImplementation("com.github.andantedevs:chord:${project.chord_version}") {
-        exclude group: "com.terraformersmc"
-    }
+    include("com.github.andantedevs:chord:${project.chord_version}") { exclude group: "com.terraformersmc" }
+    modImplementation("com.github.andantedevs:chord:${project.chord_version}") { exclude group: "com.terraformersmc" }
 
     modImplementation ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}")
     include ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}")
+
+    modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}") { exclude group: "net.fabricmc.fabric-api" }
 
     // modImplementation("net.shadew:jedt:${project.jedt_version}") { exclude group: "net.fabricmc.fabric-api" }
 
@@ -102,16 +99,15 @@ dependencies {
         exclude group: "com.terraformersmc"
     }*/
 
-    // TODO OUTDATED
-    /*String sodium = "com.github.CaffeineMC:sodium-fabric:${project.sodium_version}"
-    if (!Boolean.parseBoolean("${project.ip_enabled}") && !Boolean.parseBoolean("${project.canvas_enabled}")) {
+    // String sodium = "com.github.CaffeineMC:sodium-fabric:${project.sodium_version}"
+    /*if (!Boolean.parseBoolean("${project.ip_enabled}") && !Boolean.parseBoolean("${project.canvas_enabled}")) {
         modRuntime(sodium) { exclude group: "net.fabricmc.fabric-api" }
     } else {
         modCompileOnly(sodium) { exclude group: "net.fabricmc.fabric-api" }
-    }
-    modRuntime("com.github.CaffeineMC:hydrogen-fabric:${project.hydrogen_version}") { exclude group: "net.fabricmc.fabric-api" }
-    modRuntime("com.github.CaffeineMC:lithium-fabric:${project.lithium_version}") { exclude group: "net.fabricmc.fabric-api" }
-    modRuntime("com.github.CaffeineMC:phosphor-fabric:${project.phosphor_version}") { exclude group: "net.fabricmc.fabric-api" }*/
+    }*/
+    // modRuntime("com.github.CaffeineMC:hydrogen-fabric:${project.hydrogen_version}") { exclude group: "net.fabricmc.fabric-api" }
+    // modRuntime("com.github.CaffeineMC:lithium-fabric:${project.lithium_version}") { exclude group: "net.fabricmc.fabric-api" }
+    // modRuntime("com.github.CaffeineMC:phosphor-fabric:${project.phosphor_version}") { exclude group: "net.fabricmc.fabric-api" }
 }
 
 loom {
