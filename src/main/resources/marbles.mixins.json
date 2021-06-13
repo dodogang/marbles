@@ -36,7 +36,6 @@
     "client.ClientWorldMixin",
     "client.EntityModelLayersInvoker",
     "client.EntityModelLayersMixin",
-    "client.EntityModelsMixin",
     "client.InGameHudMixin",
     "client.JsonUnbakedModelDeserializerMixin",
     "client.LlamaDecorFeatureRendererMixin",
