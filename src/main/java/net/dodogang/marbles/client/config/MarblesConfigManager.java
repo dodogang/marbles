@@ -85,7 +85,7 @@ public class MarblesConfigManager {
     }
     private static JsonPrimitive loadDefault(Option<JsonPrimitive> option) {
         JsonPrimitive optionDefault = option.getDefault();
-        Marbles.log(Level.WARN, option.getId() + " is not present! Defaulting to " + optionDefault);
+        Marbles.log(Level.WARN, "Config option " + option.getId() + " is not present! Defaulting to " + optionDefault);
         return optionDefault;
     }
 
