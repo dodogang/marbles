@@ -35,13 +35,15 @@ public class MarblesConfigManager {
     private static final File FILE = FabricLoader.getInstance().getConfigDir().toFile().toPath().resolve(Marbles.MOD_ID + ".json").toFile();
     public static final List<Option<JsonPrimitive>> OPTIONS = new LinkedList<>();
 
+    private static JsonObject loaded;
+
     static {
         Reflection.initialize(MarblesConfig.class);
         MarblesConfigManager.load();
     }
 
     public static void save() {
-        JsonObject jsonObject = new JsonObject();
+        JsonObject jsonObject = loaded;
         OPTIONS.forEach(option -> jsonObject.add(option.getId(), option.value));
 
         try (PrintWriter out = new PrintWriter(FILE)) {
@@ -63,9 +65,10 @@ public class MarblesConfigManager {
             String json = new String(Files.readAllBytes(FILE.toPath()));
             if (!json.isEmpty()) {
                 JsonObject jsonObject = (JsonObject) new JsonParser().parse(json);
+                loaded = jsonObject;
 
                 MarblesConfig.RenderGroup RENDER = MarblesConfig.RENDER;
-                RENDER.additionalCloudLayers.value = MarblesConfigManager.load(jsonObject, RENDER.additionalCloudLayers);
+                RENDER.additionalCloudLayers.value = load(jsonObject, RENDER.additionalCloudLayers);
             }
         } catch (IOException ignored) {
             Marbles.log(Level.WARN, "Could not load configuration file! Saving and loading default values.");
