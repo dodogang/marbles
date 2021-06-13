@@ -78,7 +78,7 @@ public class MarblesConfigManager {
     }
     private static JsonPrimitive load(JsonObject jsonObject, Option<JsonPrimitive> option) {
         try {
-            return Optional.ofNullable(jsonObject.getAsJsonPrimitive(option.getId())).orElse(loadDefault(option));
+            return Optional.ofNullable(jsonObject.getAsJsonPrimitive(option.getId())).orElseGet(() -> loadDefault(option));
         } catch (RuntimeException e) {
             return loadDefault(option);
         }
