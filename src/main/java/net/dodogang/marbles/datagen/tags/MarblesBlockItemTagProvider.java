@@ -190,7 +190,6 @@ public class MarblesBlockItemTagProvider implements DataProvider {
             tag,
             GRISP_DIRT,
             COARSE_GRISP_DIRT,
-            GRISP_GRASS_BLOCK,
             GRISP_PODZOL,
             GRISP_MYCELIUM
         );
@@ -201,7 +200,6 @@ public class MarblesBlockItemTagProvider implements DataProvider {
             tag,
             GRISP_DIRT,
             COARSE_GRISP_DIRT,
-            GRISP_GRASS_BLOCK,
             GRISP_PODZOL,
             GRISP_MYCELIUM
         );

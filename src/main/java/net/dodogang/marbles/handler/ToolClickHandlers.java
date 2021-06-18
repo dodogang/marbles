@@ -24,13 +24,11 @@ import java.util.Map;
 public class ToolClickHandlers {
     private static final Map<Block, BlockState> FLATTENABLE = Util.make(new HashMap<>(), map -> {
         map.put(MarblesBlocks.GRISP_DIRT, MarblesBlocks.GRISP_DIRT_PATH.getDefaultState());
-        map.put(MarblesBlocks.GRISP_GRASS_BLOCK, MarblesBlocks.GRISP_GRASS_PATH.getDefaultState());
         map.put(MarblesBlocks.GRISP_PODZOL, MarblesBlocks.GRISP_PODZOL_PATH.getDefaultState());
         map.put(MarblesBlocks.GRISP_MYCELIUM, MarblesBlocks.GRISP_MYCELIUM_PATH.getDefaultState());
     });
     private static final Map<Block, BlockState> TILLABLE = Util.make(new HashMap<>(), map -> {
         map.put(MarblesBlocks.GRISP_DIRT, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
-        map.put(MarblesBlocks.GRISP_GRASS_BLOCK, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
         map.put(MarblesBlocks.GRISP_PODZOL, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
         map.put(MarblesBlocks.GRISP_MYCELIUM, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
     });

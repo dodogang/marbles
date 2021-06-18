@@ -1,8 +1,0 @@
-{
-  "parent": "marbles:block/flattened_block",
-  "textures": {
-    "bottom": "marbles:block/grisp_dirt",
-    "top": "marbles:block/grisp_grass_path_top",
-    "side": "marbles:block/grisp_grass_path_side"
-  }
-}

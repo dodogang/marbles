@@ -117,11 +117,9 @@ public final class ItemModelTable {
 
         register(MarblesBlocks.GRISP_DIRT, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.COARSE_GRISP_DIRT, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GRISP_GRASS_BLOCK, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.GRISP_PODZOL, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.GRISP_MYCELIUM, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.GRISP_DIRT_PATH, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GRISP_GRASS_PATH, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.GRISP_PODZOL_PATH, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.GRISP_MYCELIUM_PATH, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.GRISP_FARMLAND, item -> inherit(name(item, "block/%s")));

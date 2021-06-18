@@ -16,7 +16,9 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.loot.*;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.*;
 import net.minecraft.loot.entry.DynamicEntry;
 import net.minecraft.loot.entry.ItemEntry;
@@ -203,11 +205,9 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
 
         addDrop(MarblesBlocks.GRISP_DIRT);
         addDrop(MarblesBlocks.COARSE_GRISP_DIRT);
-        addDrop(MarblesBlocks.GRISP_GRASS_BLOCK, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
         addDrop(MarblesBlocks.GRISP_PODZOL, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
         addDrop(MarblesBlocks.GRISP_MYCELIUM, block -> dropsWithSilkTouch(block, MarblesBlocks.GRISP_DIRT));
         addDrop(MarblesBlocks.GRISP_DIRT_PATH, MarblesBlocks.GRISP_DIRT);
-        addDrop(MarblesBlocks.GRISP_GRASS_PATH, MarblesBlocks.GRISP_DIRT);
         addDrop(MarblesBlocks.GRISP_PODZOL_PATH, MarblesBlocks.GRISP_DIRT);
         addDrop(MarblesBlocks.GRISP_MYCELIUM_PATH, MarblesBlocks.GRISP_DIRT);
         addDrop(MarblesBlocks.GRISP_FARMLAND, MarblesBlocks.GRISP_DIRT);

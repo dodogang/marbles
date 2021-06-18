@@ -96,7 +96,7 @@ public class PollenGracedSheepEntity extends SheepEntity {
 
     static class EatGrispGrassGoal extends EatGrassGoal {
         private static final Predicate<BlockState> GRASS_PREDICATE = state -> state.isOf(Blocks.GRASS);
-        private static final Predicate<BlockState> GRASS_BLOCK_PREDICATE = state -> state.isOf(Blocks.GRASS_BLOCK) || state.isOf(MarblesBlocks.GRISP_GRASS_BLOCK) || state.isOf(MarblesBlocks.GRISP_PODZOL);
+        private static final Predicate<BlockState> GRASS_BLOCK_PREDICATE = state -> state.isOf(Blocks.GRASS_BLOCK) || state.isOf(MarblesBlocks.GRISP_PODZOL);
 
         private final MobEntity mob;
         private final World world;

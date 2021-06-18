@@ -1,9 +1,0 @@
-{
-  "parent": "marbles:block/layered_grass_block",
-  "textures": {
-    "bottom": "marbles:block/grisp_dirt",
-    "top": "marbles:block/grisp_grass_block_top",
-    "side": "marbles:block/grisp_grass_block_side",
-    "overlay": "marbles:block/grisp_grass_block_side_overlay"
-  }
-}

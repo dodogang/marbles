@@ -31,7 +31,6 @@
   ],
   "client": [
     "client.BiomeColorsMixin",
-    "client.BlockDustParticleMixin",
     "client.ClientPlayerEntityMixin",
     "client.ClientPlayNetworkHandlerMixin",
     "client.ClientWorldMixin",
