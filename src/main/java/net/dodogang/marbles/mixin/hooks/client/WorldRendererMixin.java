@@ -32,7 +32,7 @@ public abstract class WorldRendererMixin {
 
     @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;renderClouds(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/util/math/Matrix4f;FDDD)V", shift = At.Shift.BEFORE))
     private void renderAdditionalClouds(MatrixStack matrices, float tickDelta, long limitTime, boolean renderBlockOutline, Camera camera, GameRenderer gameRenderer, LightmapTextureManager lightmapTextureManager, Matrix4f matrix4f, CallbackInfo ci) {
-        if (MarblesConfig.RENDER.additionalCloudLayers.value.getAsBoolean()) {
+        if (MarblesConfig.Graphics.additionalCloudLayers.value.getAsBoolean()) {
             Vec3d cameraPos = camera.getPos();
             double x = cameraPos.getX();
             double y = cameraPos.getY();

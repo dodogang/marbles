@@ -283,8 +283,9 @@
   "debug.option.marbles.spotlight": "Spotlights",
 
   "config.marbles.title": "Marbles",
-  "config.marbles.category.none_available": "§c(No options available)",
-  "config.marbles.category.render": "Render",
-  "config.marbles.category.render.additional_cloud_layers": "Additional Cloud Layers",
-  "config.marbles.category.render.additional_cloud_layers.tooltip": "Enable or disable any additional cloud layers."
+  "config.marbles.category.graphics": "Graphics",
+  "config.marbles.category.graphics.additional_cloud_layers": "Additional Cloud Layers",
+  "config.marbles.category.graphics.additional_cloud_layers.tooltip": "Enable or disable any additional cloud layers.",
+  "config.marbles.category.graphics.only_marbles_splash_texts": "Only Marbles Splash Texts",
+  "config.marbles.category.graphics.only_marbles_splash_texts.tooltip": "Display only Marbles splash texts."
 }

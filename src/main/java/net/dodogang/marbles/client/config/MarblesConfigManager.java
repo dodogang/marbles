@@ -12,10 +12,13 @@ import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.MarblesClient;
+import net.dodogang.marbles.mixin.hooks.client.TitleScreenAccessor;
 import net.dodogang.marbles.util.ModLoaded;
+import net.dodogang.marbles.util.Util;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.TranslatableText;
 import org.apache.logging.log4j.Level;
@@ -67,8 +70,8 @@ public class MarblesConfigManager {
                 JsonObject jsonObject = (JsonObject) new JsonParser().parse(json);
                 loaded = jsonObject;
 
-                MarblesConfig.RenderGroup RENDER = MarblesConfig.RENDER;
-                RENDER.additionalCloudLayers.value = load(jsonObject, RENDER.additionalCloudLayers);
+                MarblesConfig.Graphics.additionalCloudLayers.value = load(jsonObject, MarblesConfig.Graphics.additionalCloudLayers);
+                MarblesConfig.Graphics.onlyMarblesSplashTexts.value = load(jsonObject, MarblesConfig.Graphics.onlyMarblesSplashTexts);
             }
         } catch (IOException ignored) {
             Marbles.log(Level.WARN, "Could not load configuration file! Saving and loading default values.");
@@ -92,7 +95,6 @@ public class MarblesConfigManager {
         return optionDefault;
     }
 
-    @SuppressWarnings("deprecation")
     public static Screen createScreen(Screen parentScreen) {
         ConfigBuilder builder = ConfigBuilder.create()
             .setParentScreen(parentScreen)
@@ -106,14 +108,14 @@ public class MarblesConfigManager {
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
         /*
-         *  RENDER CATEGORY
+         * GRAPHICS CATEGORY
          */
 
-        ConfigCategory RENDER = builder.getOrCreateCategory(createRenderText());
+        ConfigCategory GRAPHICS = builder.getOrCreateCategory(createGraphicsText());
         if (!ModLoaded.CANVAS) {
-            TranslatableText additionalCloudLayers = createRenderText(MarblesConfig.RENDER.additionalCloudLayers.getId());
-            Option<JsonPrimitive> additionalCloudLayersOption = MarblesConfig.RENDER.additionalCloudLayers;
-            RENDER.addEntry(
+            TranslatableText additionalCloudLayers = createGraphicsText(MarblesConfig.Graphics.additionalCloudLayers.getId());
+            Option<JsonPrimitive> additionalCloudLayersOption = MarblesConfig.Graphics.additionalCloudLayers;
+            GRAPHICS.addEntry(
                 entryBuilder.startBooleanToggle(additionalCloudLayers, additionalCloudLayersOption.value.getAsBoolean())
                     .setDefaultValue(additionalCloudLayersOption.getDefault().getAsBoolean())
                     .setSaveConsumer(value -> additionalCloudLayersOption.value = new JsonPrimitive(value))
@@ -121,11 +123,22 @@ public class MarblesConfigManager {
                     .build()
             );
         }
+        TranslatableText onlyMarblesSplashes = createGraphicsText(MarblesConfig.Graphics.onlyMarblesSplashTexts.getId());
+        Option<JsonPrimitive> onlyMarblesSplashesOption = MarblesConfig.Graphics.onlyMarblesSplashTexts;
+        GRAPHICS.addEntry(
+            entryBuilder.startBooleanToggle(onlyMarblesSplashes, onlyMarblesSplashesOption.value.getAsBoolean())
+                        .setDefaultValue(onlyMarblesSplashesOption.getDefault().getAsBoolean())
+                        .setSaveConsumer(value -> {
+                            boolean valueChanged = value != onlyMarblesSplashesOption.value.getAsBoolean();
+                            onlyMarblesSplashesOption.value = new JsonPrimitive(value);
 
-        if (RENDER.getEntries().isEmpty()) {
-            RENDER.removeCategory();
-            builder.getOrCreateCategory(createCatText("none_available"));
-        }
+                            if (valueChanged && Util.currentTitleScreen != null) {
+                                ((TitleScreenAccessor) Util.currentTitleScreen).setSplashText(MinecraftClient.getInstance().getSplashTextLoader().get());
+                            }
+                        })
+                        .setTooltip(createTooltip(onlyMarblesSplashes))
+                        .build()
+        );
 
         return builder.build();
     }
@@ -138,11 +151,11 @@ public class MarblesConfigManager {
         return new TranslatableText(text.getKey() + ".tooltip");
     }
 
-    private static TranslatableText createRenderText(String label) {
-        return createCatText("render" + (label.isEmpty() ? "" : "." + label));
+    private static TranslatableText createGraphicsText(String label) {
+        return createCatText("graphics" + (label.isEmpty() ? "" : "." + label));
     }
-    private static TranslatableText createRenderText() {
-        return createRenderText("");
+    private static TranslatableText createGraphicsText() {
+        return createGraphicsText("");
     }
 
     private static TranslatableText createCatText(String group) {

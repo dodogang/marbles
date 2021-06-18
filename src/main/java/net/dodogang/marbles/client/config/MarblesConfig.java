@@ -7,12 +7,15 @@ import net.fabricmc.api.Environment;
 
 @Environment(EnvType.CLIENT)
 public class MarblesConfig {
-    public static RenderGroup RENDER = new RenderGroup();
-    public static class RenderGroup {
+    public static class Graphics {
         /**
          * Enable or disable any additional cloud layers.
          */
-        public Option<JsonPrimitive> additionalCloudLayers = register(new Option<>("additional_cloud_layers", new JsonPrimitive(true)));
+        public static Option<JsonPrimitive> additionalCloudLayers = register(new Option<>("additional_cloud_layers", new JsonPrimitive(true)));
+        /**
+         * Display only Marbles splash texts.
+         */
+        public static Option<JsonPrimitive> onlyMarblesSplashTexts = register(new Option<>("only_marbles_splash_texts", new JsonPrimitive(false)));
     }
 
     private static <T extends Option<JsonPrimitive>> T register(T option) {

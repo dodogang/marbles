@@ -41,6 +41,8 @@
     "client.JsonUnbakedModelDeserializerMixin",
     "client.LlamaDecorFeatureRendererMixin",
     "client.SplashTextResourceSupplierMixin",
+    "client.TitleScreenAccessor",
+    "client.TitleScreenMixin",
     "client.WorldRendererMixin"
   ],
   "injectors": {
