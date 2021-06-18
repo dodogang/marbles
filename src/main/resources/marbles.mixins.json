@@ -24,6 +24,7 @@
     "ProtoWorldChunkMixin",
     "SheepEntityAccessor",
     "WorldMixin",
+    "datagen.SharedConstantsMixin",
     "worldgen.BiomeArrayMixin",
     "worldgen.HorizontalVoronoiBiomeAccessTypeMixin",
     "worldgen.NoiseChunkGeneratorMixin"

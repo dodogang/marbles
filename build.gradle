@@ -118,7 +118,7 @@ loom {
             server()
 
             vmArg "-Dmarbles.datagen=true"
-            vmArg "-Dmarbles.datagen.path=${project.file("src/generated/resources")};${project.file("$buildDir/resources/main")}"
+            vmArg "-Dmarbles.datagen.path=\"${project.file("src/generated/resources")};${project.file("$buildDir/resources/main")}\""
         }
     }
 }

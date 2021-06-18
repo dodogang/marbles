@@ -29,25 +29,23 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-@SuppressWarnings({ "EmptyMethod", "UnusedReturnValue", "unused" })
 @Mixin(CrossbowItem.class)
 public class CrossbowItemMixin {
     @Shadow private static void putProjectile(ItemStack crossbow, ItemStack projectile) {}
     @Shadow
     private static boolean loadProjectile(LivingEntity shooter, ItemStack crossbow, ItemStack projectile, boolean simulated, boolean creative) {
-        return false;
+        throw new AssertionError();
     }
     @Shadow
-    public static List<ItemStack> getProjectiles(ItemStack crossbow) {
-        return new ArrayList<>();
+    private static List<ItemStack> getProjectiles(ItemStack crossbow) {
+        throw new AssertionError();
     }
     @Shadow
     public static boolean isCharged(ItemStack stack) {
-        return false;
+        throw new AssertionError();
     }
 
     @Environment(EnvType.CLIENT)
@@ -116,7 +114,6 @@ public class CrossbowItemMixin {
         }
     }
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Inject(method = "loadProjectiles", at = @At("HEAD"), cancellable = true)
     private static void loadProjectiles(LivingEntity shooter, ItemStack crossbow, CallbackInfoReturnable<Boolean> cir) {
         if (shooter instanceof PlayerEntity) {
