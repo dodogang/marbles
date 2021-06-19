@@ -41,7 +41,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
 
         woodSet(MarblesBlocks.ASPEN, MarblesItemTags.ASPEN_LOGS);
         woodSet(MarblesBlocks.HOOPSI_SPRUCE, MarblesItemTags.HOOPSI_SPRUCE_LOGS);
-        // woodSet(MarblesBlocks.RED_BIRCH, MarblesItemTags.RED_BIRCH_LOGS);
+        woodSet(MarblesBlocks.RED_BIRCH, MarblesItemTags.RED_BIRCH_LOGS);
 
         /*
          * TRAVERTINE SETS
@@ -63,8 +63,8 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
 
         generic3x3("umbral_lazuli/block", MarblesItems.UMBRAL_LAZULI, MarblesBlocks.UMBRAL_LAZULI_BLOCK, 1);
         shapeless("umbral_lazuli/item_from_block", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesItems.UMBRAL_LAZULI, 9);
-        smelting("umbral_lazuli/item_from_smelting", MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2);
-        blasting("umbral_lazuli/item_from_blasting", MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2);
+        smelting("umbral_lazuli/item_from_smelting", MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2f);
+        blasting("umbral_lazuli/item_from_blasting", MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2f);
         generic2x2("umbral_lazuli/shingles", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesBlocks.UMBRAL_LAZULI_SHINGLES, 4);
         generic3x1("umbral_lazuli/shingles_slab", MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, 6);
         stairs("umbral_lazuli/shingles_stairs", MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS, 4);
@@ -84,7 +84,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         generic2x2("dawn_sand/sandstone", MarblesBlocks.DAWN_SAND, MarblesBlocks.DAWN_SANDSTONE, 1);
         generic2x2("dawn_sand/cut_sandstone", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE, 4);
         generic2x1("dawn_sand/chiseled_sandstone", MarblesBlocks.DAWN_SANDSTONE_SLAB, MarblesBlocks.CHISELED_DAWN_SANDSTONE, 4);
-        smelting("dawn_sand/smooth_sandstone", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE, 0.1);
+        smelting("dawn_sand/smooth_sandstone", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE, 0.1f);
         generic3x1("dawn_sand/sandstone_slab", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.DAWN_SANDSTONE_SLAB, 6);
         generic3x1("dawn_sand/cut_sandstone_slab", MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_SLAB, 6);
         generic3x1("dawn_sand/smooth_sandstone_slab", MarblesBlocks.SMOOTH_DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE_SLAB, 6);
@@ -98,7 +98,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         generic2x2("dusk_sand/sandstone", MarblesBlocks.DUSK_SAND, MarblesBlocks.DUSK_SANDSTONE, 1);
         generic2x2("dusk_sand/cut_sandstone", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE, 4);
         generic2x1("dusk_sand/chiseled_sandstone", MarblesBlocks.DUSK_SANDSTONE_SLAB, MarblesBlocks.CHISELED_DUSK_SANDSTONE, 4);
-        smelting("dusk_sand/smooth_sandstone", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE, 0.1);
+        smelting("dusk_sand/smooth_sandstone", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE, 0.1f);
         generic3x1("dusk_sand/sandstone_slab", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.DUSK_SANDSTONE_SLAB, 6);
         generic3x1("dusk_sand/cut_sandstone_slab", MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_SLAB, 6);
         generic3x1("dusk_sand/smooth_sandstone_slab", MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_SLAB, 6);
@@ -587,14 +587,14 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
                                .offerTo(consumer, id(id));
     }
 
-    private void smelting(String id, ItemConvertible from, ItemConvertible to, double xp) {
-        CookingRecipeJsonFactory.createSmelting(Ingredient.ofItems(from), to, (float) xp, 200)
+    private void smelting(String id, ItemConvertible from, ItemConvertible to, float xp) {
+        CookingRecipeJsonFactory.createSmelting(Ingredient.ofItems(from), to, xp, 200)
                                 .criterion("has_ingredient", hasItem(from))
                                 .offerTo(consumer, id(id));
     }
 
-    private void blasting(String id, ItemConvertible from, ItemConvertible to, double xp) {
-        CookingRecipeJsonFactory.createBlasting(Ingredient.ofItems(from), to, (float) xp, 100)
+    private void blasting(String id, ItemConvertible from, ItemConvertible to, float xp) {
+        CookingRecipeJsonFactory.createBlasting(Ingredient.ofItems(from), to, xp, 100)
                                 .criterion("has_ingredient", hasItem(from))
                                 .offerTo(consumer, id(id));
     }

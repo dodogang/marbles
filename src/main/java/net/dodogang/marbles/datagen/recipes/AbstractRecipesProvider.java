@@ -47,14 +47,19 @@ public abstract class AbstractRecipesProvider implements DataProvider {
         Path path = this.root.getOutput();
         Set<Identifier> set = Sets.newHashSet();
         generate(provider -> {
-            if (!set.add(provider.getRecipeId())) {
-                throw new IllegalStateException("Duplicate recipe " + provider.getRecipeId());
+            Identifier rawRecipeId = provider.getRecipeId();
+            Identifier recipeId = rawRecipeId.getNamespace().equals(Marbles.MOD_ID)
+                ? rawRecipeId
+                : new Identifier(Marbles.MOD_ID, rawRecipeId.getNamespace() + "/" + rawRecipeId.getPath());
+
+            if (!set.add(recipeId)) {
+                throw new IllegalStateException("Duplicate recipe " + recipeId);
             } else {
                 saveRecipe(
                     cache, provider.toJson(),
                     path.resolve(
-                        "data/" + provider.getRecipeId().getNamespace() +
-                            "/recipes/" + provider.getRecipeId().getPath() + ".json"
+                        "data/" + recipeId.getNamespace() +
+                            "/recipes/" + recipeId.getPath() + ".json"
                     )
                 );
                 JsonObject advJson = provider.toAdvancementJson();
@@ -62,7 +67,7 @@ public abstract class AbstractRecipesProvider implements DataProvider {
                     saveRecipeAdvancement(
                         cache, advJson,
                         path.resolve(
-                            "data/" + provider.getRecipeId().getNamespace() +
+                            "data/" + recipeId.getNamespace() +
                                 "/advancements/" + Objects.requireNonNull(provider.getAdvancementId()).getPath() + ".json"
                         )
                     );

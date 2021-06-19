@@ -2,9 +2,15 @@ package net.dodogang.marbles.mixin.hooks.datagen;
 
 import net.dodogang.marbles.Marbles;
 import net.minecraft.advancement.Advancement;
+import net.minecraft.advancement.AdvancementRewards;
+import net.minecraft.advancement.CriterionMerger;
+import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonFactory;
+import net.minecraft.item.Item;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -12,16 +18,38 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 @Mixin(ShapelessRecipeJsonFactory.class)
-public class ShapelessRecipeJsonFactoryMixin {
+public abstract class ShapelessRecipeJsonFactoryMixin {
     @Shadow @Final private Advancement.Task builder;
+    @Shadow @Final private Item output;
+    @Shadow @Final private int outputCount;
+    @Shadow @Nullable private String group;
+    @Shadow @Final private List<Ingredient> inputs;
 
-    @Inject(method = "offerTo", at = @At(value = "INVOKE", target = "Lnet/minecraft/advancement/Advancement$Task;parent(Lnet/minecraft/util/Identifier;)Lnet/minecraft/advancement/Advancement$Task;", shift = At.Shift.AFTER, ordinal = 0))
-    private void fixParent(Consumer<RecipeJsonProvider> exporter, Identifier recipeId, CallbackInfo ci) {
+    @Shadow protected abstract void validate(Identifier recipeId);
+
+    @Inject(method = "offerTo", at = @At(value = "HEAD"), cancellable = true)
+    private void offerTo(Consumer<RecipeJsonProvider> exporter, Identifier recipeId, CallbackInfo ci) {
         if (recipeId.getNamespace().equals(Marbles.MOD_ID)) {
-            this.builder.parent(new Identifier(Marbles.MOD_ID, "recipes/root"));
+            this.validate(recipeId);
+            this.builder.parent(new Identifier(Marbles.MOD_ID, "recipes/root"))
+                        .criterion("has_the_recipe", RecipeUnlockedCriterion.create(recipeId))
+                        .rewards(AdvancementRewards.Builder.recipe(recipeId))
+                        .criteriaMerger(CriterionMerger.OR);
+
+            exporter.accept(new ShapelessRecipeJsonFactory.ShapelessRecipeJsonProvider(
+                recipeId, this.output, this.outputCount,
+                this.group == null
+                    ? ""
+                    : this.group,
+                this.inputs, this.builder,
+                new Identifier(recipeId.getNamespace(), "recipes/" + recipeId.getPath())
+            ));
+
+            ci.cancel();
         }
     }
 }

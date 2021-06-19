@@ -6,3 +6,4 @@ extendable method net/minecraft/client/world/GeneratorType <init> (Ljava/lang/St
 extendable method net/minecraft/world/gen/chunk/NoiseChunkGenerator <init> (Lnet/minecraft/world/biome/source/BiomeSource;Lnet/minecraft/world/biome/source/BiomeSource;JLjava/util/function/Supplier;)V
 
 extendable      class     net/minecraft/world/gen/feature/ConfiguredFeatures$Decorators
+extendable      class     net/minecraft/data/server/recipe/ShapedRecipeJsonFactory$ShapedRecipeJsonProvider
