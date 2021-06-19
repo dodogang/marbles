@@ -132,6 +132,10 @@ public final class BlockStateTable {
         register(GRISP_MYCELIUM_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
         register(GRISP_FARMLAND, block -> farmland(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s"), name(block, "block/grisp_dirt")), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_moist"), name(block, "block/grisp_dirt"))));
 
+        register(POLLENATED_COBBLESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(POLLENATED_COBBLESTONE_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
+        register(POLLENATED_COBBLESTONE_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
+
         /*
          * POLLEN-GRACED SET
          */

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:pollenated_cobblestone"
+  },
+  "result": "minecraft:cobblestone_stairs",
+  "count": 1
+}

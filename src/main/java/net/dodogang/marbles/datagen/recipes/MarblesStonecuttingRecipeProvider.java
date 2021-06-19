@@ -99,6 +99,14 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
 
         /*
+         * GRISP SET
+         */
+
+        register(MarblesBlocks.POLLENATED_COBBLESTONE, Blocks.COBBLESTONE);
+        register(MarblesBlocks.POLLENATED_COBBLESTONE, Blocks.COBBLESTONE_SLAB, 2);
+        register(MarblesBlocks.POLLENATED_COBBLESTONE, Blocks.COBBLESTONE_STAIRS);
+
+        /*
          * PINK SALT
          */
 

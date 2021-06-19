@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "marbles:block/pollenated_cobblestone",
+    "top": "marbles:block/pollenated_cobblestone",
+    "side": "marbles:block/pollenated_cobblestone"
+  }
+}

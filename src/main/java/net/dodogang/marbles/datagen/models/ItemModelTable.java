@@ -124,6 +124,10 @@ public final class ItemModelTable {
         register(MarblesBlocks.GRISP_MYCELIUM_PATH, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.GRISP_FARMLAND, item -> inherit(name(item, "block/%s")));
 
+        register(MarblesBlocks.POLLENATED_COBBLESTONE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.POLLENATED_COBBLESTONE_SLAB, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, item -> inherit(name(item, "block/%s")));
+
         /*
          * POLLEN-GRACED SET
          */

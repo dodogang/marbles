@@ -102,7 +102,9 @@ public class MarblesTagProvider implements DataProvider {
             SMOOTH_DUSK_SANDSTONE_SLAB,
 
             PINK_SALT_SLAB,
-            PINK_SALT_BRICK_SLAB
+            PINK_SALT_BRICK_SLAB,
+
+            POLLENATED_COBBLESTONE_SLAB
         );
 
         add(
@@ -116,7 +118,9 @@ public class MarblesTagProvider implements DataProvider {
             SMOOTH_DUSK_SANDSTONE_STAIRS,
 
             PINK_SALT_STAIRS,
-            PINK_SALT_BRICK_STAIRS
+            PINK_SALT_BRICK_STAIRS,
+
+            POLLENATED_COBBLESTONE_STAIRS
         );
 
         add(
@@ -317,7 +321,11 @@ public class MarblesTagProvider implements DataProvider {
             SpawnEggItem.forEntity(MarblesEntities.POLLEN_GRACED_SHEEP),
             POLLEN_GRACED_WOOL,
             POLLEN_GRACED_CARPET,
-            POLLEN_GRACED_BED
+            POLLEN_GRACED_BED,
+
+            POLLENATED_COBBLESTONE,
+            POLLENATED_COBBLESTONE_SLAB,
+            POLLENATED_COBBLESTONE_STAIRS
         );
 
         // bamboo valley

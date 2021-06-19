@@ -154,6 +154,10 @@
   "block.marbles.grisp_mycelium_path": "Grisp Mycelium Path",
   "block.marbles.grisp_farmland": "Grisp Farmland",
 
+  "block.marbles.pollenated_cobblestone": "Pollenated Cobblestone",
+  "block.marbles.pollenated_cobblestone_slab": "Pollenated Cobblestone Slab",
+  "block.marbles.pollenated_cobblestone_stairs": "Pollenated Cobblestone Stairs",
+
   "block.marbles.pollen_graced_wool": "Pollen-Graced Wool",
   "block.marbles.pollen_graced_carpet": "Pollen-Graced Carpet",
   "block.marbles.pollen_graced_bed": "Pollen-Graced Bed",

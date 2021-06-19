@@ -274,6 +274,10 @@ public class MarblesBlocks {
     public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly().breakByTool(FabricToolTags.SHOVELS)));
     public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).nonOpaque().mapColor(MapColor.TERRACOTTA_PURPLE).breakByTool(FabricToolTags.SHOVELS)));
 
+    public static final Block POLLENATED_COBBLESTONE = copyPickaxe("pollenated_cobblestone", Blocks.COBBLESTONE);
+    public static final Block POLLENATED_COBBLESTONE_SLAB = createSlab(POLLENATED_COBBLESTONE);
+    public static final Block POLLENATED_COBBLESTONE_STAIRS = createStairs(POLLENATED_COBBLESTONE);
+
     /*
      * POLLEN-GRACED SHEEP
      */

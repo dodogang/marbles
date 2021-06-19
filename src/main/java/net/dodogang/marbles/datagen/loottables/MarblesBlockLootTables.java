@@ -212,6 +212,10 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.GRISP_MYCELIUM_PATH, MarblesBlocks.GRISP_DIRT);
         addDrop(MarblesBlocks.GRISP_FARMLAND, MarblesBlocks.GRISP_DIRT);
 
+        addDrop(MarblesBlocks.POLLENATED_COBBLESTONE);
+        addSlabDrop(MarblesBlocks.POLLENATED_COBBLESTONE_SLAB);
+        addDrop(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS);
+
         /*
          * POLLEN-GRACED SET
          */
