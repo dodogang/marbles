@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "marbles:recipes/root",
   "rewards": {
     "recipes": [
       "marbles:lemon_travertine/polished"
@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "marbles:lemon_travertine"
+            "items": [
+              "marbles:lemon_travertine"
+            ]
           }
         ]
       }

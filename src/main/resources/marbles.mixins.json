@@ -24,6 +24,7 @@
     "ProtoWorldChunkMixin",
     "SheepEntityAccessor",
     "WorldMixin",
+    "datagen.ShapelessRecipeJsonFactoryMixin",
     "datagen.SharedConstantsMixin",
     "worldgen.BiomeArrayMixin",
     "worldgen.HorizontalVoronoiBiomeAccessTypeMixin",

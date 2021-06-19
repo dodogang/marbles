@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "marbles:peach_travertine_bricks"
+            "items": [
+              "marbles:peach_travertine_bricks"
+            ]
           }
         ]
       }

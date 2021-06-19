@@ -8,6 +8,7 @@
 *.df            text            eol=crlf
 *.htm           text diff=html  eol=crlf
 *.html          text diff=html  eol=crlf
+*.json          text diff=json  eol=crlf
 *.js            text            eol=crlf
 *.jsp           text            eol=crlf
 *.jspf          text            eol=crlf

@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "marbles:dusk_sandstone"
+            "items": [
+              "marbles:dusk_sandstone"
+            ]
           }
         ]
       }

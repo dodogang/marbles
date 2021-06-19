@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "marbles:recipes/root",
   "rewards": {
     "recipes": [
       "marbles:hoopsi_spruce/button"
@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "marbles:hoopsi_spruce_planks"
+            "items": [
+              "marbles:hoopsi_spruce_planks"
+            ]
           }
         ]
       }

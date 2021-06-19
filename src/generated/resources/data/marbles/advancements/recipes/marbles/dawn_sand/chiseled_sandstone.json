@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "marbles:dawn_sandstone_slab"
+            "items": [
+              "marbles:dawn_sandstone_slab"
+            ]
           }
         ]
       }

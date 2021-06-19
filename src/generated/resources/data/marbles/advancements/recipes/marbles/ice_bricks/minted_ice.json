@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "marbles:minted_ice"
+            "items": [
+              "marbles:minted_ice"
+            ]
           }
         ]
       }

@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import net.dodogang.marbles.Marbles;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.criterion.EnterBlockCriterion;
 import net.minecraft.advancement.criterion.ImpossibleCriterion;
@@ -73,7 +74,7 @@ public abstract class AbstractRecipesProvider implements DataProvider {
             Advancement.Task.create()
                             .criterion("impossible", new ImpossibleCriterion.Conditions())
                             .toJson(),
-            path.resolve("data/minecraft/advancements/recipes/root.json")
+            path.resolve("data/" + Marbles.MOD_ID + "/advancements/recipes/root.json")
         );
     }
 
