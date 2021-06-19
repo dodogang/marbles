@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/nether_portal_ns",
+  "textures": {
+    "particle": "#portal"
+  }
+}

@@ -29,7 +29,7 @@ public class TravertinePortalHelper {
     public static final int MAX_HEIGHT = 21;
 
     private static final AbstractBlock.ContextPredicate FRAME = (state, world, pos) -> state.isOf(MarblesBlocks.TRAVERTINE_OBSIDIAN);
-    private static final AbstractBlock.ContextPredicate PORTAL = (state, world, pos) -> state.isOf(MarblesBlocks.TRAVERTINE_PORTAL);
+    private static final AbstractBlock.ContextPredicate PORTAL = (state, world, pos) -> state.isOf(MarblesBlocks.TRAVERTINE_NETHER_PORTAL);
     private static final AbstractBlock.ContextPredicate REPLACEABLE = (state, world, pos) -> {
         if (PORTAL.test(state, world, pos)) return true;
         return state.isOf(Blocks.FIRE) || state.isAir();
@@ -173,7 +173,7 @@ public class TravertinePortalHelper {
     public void createPortal() {
         assert origin != null;
 
-        BlockState portal = MarblesBlocks.TRAVERTINE_PORTAL.getDefaultState().with(NetherPortalBlock.AXIS, axis);
+        BlockState portal = MarblesBlocks.TRAVERTINE_NETHER_PORTAL.getDefaultState().with(NetherPortalBlock.AXIS, axis);
         BlockPos.iterate(origin, origin.offset(Direction.UP, height - 1).offset(direction, width - 1))
                 .forEach(pos -> world.setBlockState(pos, portal, 18));
     }

@@ -53,7 +53,7 @@ public class MarblesTagProvider implements DataProvider {
 
         blocks.factory(MarblesBlockTags.SPECIAL_ROPE_SUPPORTS).add(BlockTags.LEAVES);
 
-        blocks.factory(BlockTags.PORTALS).add(TRAVERTINE_PORTAL);
+        blocks.factory(BlockTags.PORTALS).add(TRAVERTINE_NETHER_PORTAL);
 
         blocks.factory(BlockTags.SLABS).add(MarblesBlockTags.TRAVERTINE_SLABS);
         items.factory(ItemTags.SLABS).add(MarblesItemTags.TRAVERTINE_SLABS);

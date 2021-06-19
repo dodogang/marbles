@@ -45,7 +45,7 @@ public class MarblesBlocks {
                 .requiresTool()
         )
     );
-    public static final Block TRAVERTINE_PORTAL = register("travertine_portal", new TravertinePortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL)), false);
+    public static final Block TRAVERTINE_NETHER_PORTAL = register("travertine_nether_portal", new TravertinePortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL)), false);
 
     /*
      * PINK SALT

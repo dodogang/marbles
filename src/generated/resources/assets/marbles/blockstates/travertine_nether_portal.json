@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "marbles:block/travertine_nether_portal_ew"
+    },
+    "axis=x": {
+      "model": "marbles:block/travertine_nether_portal_ns"
+    }
+  }
+}

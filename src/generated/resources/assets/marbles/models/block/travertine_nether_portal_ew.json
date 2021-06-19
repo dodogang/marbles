@@ -1,0 +1,6 @@
+{
+  "parent": "marbles:block/nether_portal_ew",
+  "textures": {
+    "portal": "minecraft:block/nether_portal"
+  }
+}

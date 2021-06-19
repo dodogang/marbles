@@ -13,7 +13,7 @@ import java.util.function.Predicate;
 
 @SuppressWarnings("unused")
 public class MarblesPointOfInterestTypes {
-    public static final PointOfInterestType TRAVERTINE_PORTAL = register("travertine_portal", getAllStatesOf(MarblesBlocks.TRAVERTINE_PORTAL), 0, 1);
+    public static final PointOfInterestType TRAVERTINE_NETHER_PORTAL = register("travertine_nether_portal", getAllStatesOf(MarblesBlocks.TRAVERTINE_NETHER_PORTAL), 0, 1);
 
 
     private static PointOfInterestType register(String id, Set<BlockState> workStationStates, int ticketCount, int searchDistance) {

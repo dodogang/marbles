@@ -265,6 +265,15 @@ public class InheritingModelGen implements ModelGen {
             .texture("wool", texture);
     }
 
+    public static InheritingModelGen netherPortalNs(String texture) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/nether_portal_ns"))
+            .texture("portal", texture);
+    }
+    public static InheritingModelGen netherPortalEw(String texture) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/nether_portal_ew"))
+            .texture("portal", texture);
+    }
+
     public static InheritingModelGen fenceSide(String texture) {
         return new InheritingModelGen("block/fence_side")
                    .texture("texture", texture);

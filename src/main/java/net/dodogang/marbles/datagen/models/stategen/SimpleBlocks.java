@@ -29,6 +29,11 @@ public abstract class SimpleBlocks {
                                     .variant("moisture=7", ModelInfo.create(name + "_moist", moist));
     }
 
+    public static StateGen netherPortal(String name, ModelGen ns, ModelGen ew) {
+        return VariantsBlockStateGen.variants("axis=x", ModelInfo.create(name + "_ns", ns))
+                                    .variant("axis=z", ModelInfo.create(name + "_ew", ew));
+    }
+
     public static StateGen dualConnecting(String name) {
         return VariantsBlockStateGen.variants("connection=none", ModelInfo.create(name, cubeAll(name)))
                                     .variant("connection=up", ModelInfo.create(name + "_up", cubeColumn(name, name + "_bottom")))

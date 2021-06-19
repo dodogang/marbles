@@ -48,6 +48,8 @@ public final class BlockStateTable {
         registerTravertineBlocks(PEACH_TRAVERTINE_BLOCKS);
         registerTravertineBlocks(TANGERINE_TRAVERTINE_BLOCKS);
 
+        String _netherPortalTexture = new Identifier("block/nether_portal").toString();
+        register(TRAVERTINE_NETHER_PORTAL, block -> netherPortal(name(block, "block/%s"), netherPortalNs(_netherPortalTexture), netherPortalEw(_netherPortalTexture)));
         register(TRAVERTINE_OBSIDIAN, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
 
         /*

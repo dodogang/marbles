@@ -109,7 +109,7 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
     )
     private void onGetTeleportTarget(ServerWorld destination, CallbackInfoReturnable<TeleportTarget> cb) {
         BlockState portal = world.getBlockState(lastNetherPortalPosition);
-        if (portal.isOf(MarblesBlocks.TRAVERTINE_PORTAL)) {
+        if (portal.isOf(MarblesBlocks.TRAVERTINE_NETHER_PORTAL)) {
             Optional<TeleportTarget> target = findTravertineTeleportTarget(destination);
             cb.setReturnValue(target.orElse(null));
             cb.cancel();

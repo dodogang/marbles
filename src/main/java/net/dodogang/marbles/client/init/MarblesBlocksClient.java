@@ -25,7 +25,7 @@ public class MarblesBlocksClient {
 
         brlm.putBlocks(
             RenderLayer.getTranslucent(),
-            MarblesBlocks.TRAVERTINE_PORTAL,
+            MarblesBlocks.TRAVERTINE_NETHER_PORTAL,
 
             MarblesBlocks.CUT_ICE,
             MarblesBlocks.CHISELED_ICE,

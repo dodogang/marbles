@@ -28,7 +28,7 @@ public class TravertinePortalForcer {
         pois.preloadChunks(world, source, searchRange);
 
         Optional<PointOfInterest> nearestPortal = pois.getInSquare(
-            type -> type == MarblesPointOfInterestTypes.TRAVERTINE_PORTAL,
+            type -> type == MarblesPointOfInterestTypes.TRAVERTINE_NETHER_PORTAL,
             source,
             searchRange,
             PointOfInterestStorage.OccupationStatus.ANY
@@ -39,7 +39,7 @@ public class TravertinePortalForcer {
                 poi -> poi.getPos().getY()
             )
         ).filter(
-            poi -> world.getBlockState(poi.getPos()).isOf(MarblesBlocks.TRAVERTINE_PORTAL)
+            poi -> world.getBlockState(poi.getPos()).isOf(MarblesBlocks.TRAVERTINE_NETHER_PORTAL)
         ).findFirst();
 
         return nearestPortal.map(poi -> {
@@ -167,7 +167,7 @@ public class TravertinePortalForcer {
         }
 
         // Create portal
-        BlockState portal = MarblesBlocks.TRAVERTINE_PORTAL.getDefaultState().with(NetherPortalBlock.AXIS, axis);
+        BlockState portal = MarblesBlocks.TRAVERTINE_NETHER_PORTAL.getDefaultState().with(NetherPortalBlock.AXIS, axis);
         for (int tanI = 0; tanI < 2; tanI++) {
             for (int hgtI = 0; hgtI < 3; hgtI++) {
                 mpos.set(portalPos, tanI * tangent.getOffsetX(), hgtI, tanI * tangent.getOffsetZ());

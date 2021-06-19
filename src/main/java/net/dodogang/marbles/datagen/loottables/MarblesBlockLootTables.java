@@ -118,7 +118,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addTravertineDrops(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
 
         addDrop(MarblesBlocks.TRAVERTINE_OBSIDIAN);
-        addDrop(MarblesBlocks.TRAVERTINE_PORTAL, block -> dropsNothing());
+        addDrop(MarblesBlocks.TRAVERTINE_NETHER_PORTAL, block -> dropsNothing());
 
         /*
          * PINK SALT
