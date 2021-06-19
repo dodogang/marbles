@@ -2,7 +2,8 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -32,10 +33,11 @@
                 {
                   "function": "minecraft:set_count",
                   "count": {
-                    "n": 4,
-                    "p": 0.4,
-                    "type": "minecraft:binomial"
-                  }
+                    "type": "minecraft:binomial",
+                    "n": 4.0,
+                    "p": 0.4
+                  },
+                  "add": false
                 },
                 {
                   "function": "minecraft:explosion_decay"

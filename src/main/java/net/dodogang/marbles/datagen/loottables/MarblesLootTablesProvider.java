@@ -32,7 +32,8 @@ public class MarblesLootTablesProvider implements DataProvider {
 
     public MarblesLootTablesProvider(DataGenerator dataGenerator) {
         lootTypeGenerators = ImmutableList.of(
-            Pair.of(MarblesBlockLootTables::new, LootContextTypes.BLOCK)
+            Pair.of(MarblesBlockLootTables::new, LootContextTypes.BLOCK),
+            Pair.of(MarblesEntityLootTables::new, LootContextTypes.ENTITY)
         );
         root = dataGenerator;
     }

@@ -19,7 +19,6 @@ import net.dodogang.marbles.state.property.MarblesProperties;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.BedPart;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
@@ -53,7 +52,7 @@ public class MarblesBlocks {
      */
 
     /**
-     * Used in the pink salt cave generator and various structures/features to check whether a position is in a pink salt cave.
+     * Used in cave generators and various structures/features to check whether a position is in a cave.
      */
     public static final Block PINK_SALT_CAVE_AIR = register("pink_salt_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
 
@@ -78,7 +77,7 @@ public class MarblesBlocks {
                 .sounds(MarblesSoundGroups.PINK_SALT)
         )
     );
-    public static final Block PINK_SALT_SLAB = createSlab(PINK_SALT); // I mean, I hate these methods too but ok
+    public static final Block PINK_SALT_SLAB = createSlab(PINK_SALT);
     public static final Block PINK_SALT_STAIRS = createStairs(PINK_SALT);
 
     public static final Block PINK_SALT_BRICKS = register("pink_salt_bricks", new Block(FabricBlockSettings.copyOf(PINK_SALT).sounds(MarblesSoundGroups.PINK_SALT_BRICKS)));
@@ -136,22 +135,22 @@ public class MarblesBlocks {
      * YELLOW BAMBOO
      */
 
-    public static final Block YELLOW_BAMBOO = register("yellow_bamboo", new CBambooBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO)));
+    public static final Block YELLOW_BAMBOO = register("yellow_bamboo", new CBambooBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO).breakByTool(FabricToolTags.AXES)));
     public static final Block YELLOW_BAMBOO_SAPLING = register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO_SAPLING)), false);
     public static final Block POTTED_YELLOW_BAMBOO = register("potted_yellow_bamboo", new FlowerPotBlock(YELLOW_BAMBOO, FabricBlockSettings.of(Material.DECORATION).breakInstantly().nonOpaque()), false);
 
-    public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copyOf(Blocks.SCAFFOLDING)), false);
+    public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copyOf(Blocks.SCAFFOLDING).breakByTool(FabricToolTags.AXES)), false);
 
     /*
      * SANDS
      */
 
-    public static final Block DAWN_SAND = register("dawn_sand", new SandBlock(0xA95821, FabricBlockSettings.copyOf(Blocks.RED_SAND)));
+    public static final Block DAWN_SAND = register("dawn_sand", new SandBlock(0xA95821, FabricBlockSettings.copyOf(Blocks.RED_SAND).breakByTool(FabricToolTags.SHOVELS)));
 
     public static final Block DAWN_SANDSTONE = register("dawn_sandstone", new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE)));
-    public static final Block CHISELED_DAWN_SANDSTONE = copy("chiseled_dawn_sandstone", DAWN_SANDSTONE);
-    public static final Block CUT_DAWN_SANDSTONE = copy("cut_dawn_sandstone", DAWN_SANDSTONE);
-    public static final Block SMOOTH_DAWN_SANDSTONE = copy("smooth_dawn_sandstone", DAWN_SANDSTONE);
+    public static final Block CHISELED_DAWN_SANDSTONE = copyPickaxe("chiseled_dawn_sandstone", DAWN_SANDSTONE);
+    public static final Block CUT_DAWN_SANDSTONE = copyPickaxe("cut_dawn_sandstone", DAWN_SANDSTONE);
+    public static final Block SMOOTH_DAWN_SANDSTONE = copyPickaxe("smooth_dawn_sandstone", DAWN_SANDSTONE);
 
     public static final Block DAWN_SANDSTONE_SLAB = createSlab(DAWN_SANDSTONE);
     public static final Block CUT_DAWN_SANDSTONE_SLAB = createSlab(CUT_DAWN_SANDSTONE);
@@ -170,19 +169,19 @@ public class MarblesBlocks {
         "dusk_sand", new SandBlock(
             0x471515,
             FabricBlockSettings.of(Material.AGGREGATE, MapColor.RED)
-                .strength(0.5f).sounds(BlockSoundGroup.SAND)
+                .strength(0.5f).sounds(BlockSoundGroup.SAND).breakByTool(FabricToolTags.SHOVELS)
         )
     );
 
     public static final Block DUSK_SANDSTONE = register(
         "dusk_sandstone", new Block(
             FabricBlockSettings.of(Material.STONE, MapColor.RED)
-                .requiresTool().strength(0.8f)
+                .requiresTool().strength(0.8f).breakByTool(FabricToolTags.PICKAXES)
         )
     );
-    public static final Block CHISELED_DUSK_SANDSTONE = copy("chiseled_dusk_sandstone", DUSK_SANDSTONE);
-    public static final Block CUT_DUSK_SANDSTONE = copy("cut_dusk_sandstone", DUSK_SANDSTONE);
-    public static final Block SMOOTH_DUSK_SANDSTONE = copy("smooth_dusk_sandstone", DUSK_SANDSTONE);
+    public static final Block CHISELED_DUSK_SANDSTONE = copyPickaxe("chiseled_dusk_sandstone", DUSK_SANDSTONE);
+    public static final Block CUT_DUSK_SANDSTONE = copyPickaxe("cut_dusk_sandstone", DUSK_SANDSTONE);
+    public static final Block SMOOTH_DUSK_SANDSTONE = copyPickaxe("smooth_dusk_sandstone", DUSK_SANDSTONE);
 
     public static final Block DUSK_SANDSTONE_SLAB = createSlab(DUSK_SANDSTONE);
     public static final Block CUT_DUSK_SANDSTONE_SLAB = createSlab(CUT_DUSK_SANDSTONE);
@@ -209,7 +208,7 @@ public class MarblesBlocks {
 
     public static final Block UMBRAL_LAZULI_ORE = register("umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE).breakByTool(FabricToolTags.PICKAXES, 1)));
     public static final Block UMBRAL_LAZULI_BLOCK = register("umbral_lazuli_block", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
-    public static final Block UMBRAL_LAZULI_SHINGLES = copy("umbral_lazuli_shingles", LAPIS_SHINGLES);
+    public static final Block UMBRAL_LAZULI_SHINGLES = copyPickaxe("umbral_lazuli_shingles", LAPIS_SHINGLES);
     public static final Block UMBRAL_LAZULI_SHINGLE_SLAB = createSlab("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
     public static final Block UMBRAL_LAZULI_SHINGLE_STAIRS = createStairs("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
     public static final Block UMBRAL_LAZULI_SPOTLIGHT = register("umbral_lazuli_spotlight", new SpotlightBlock(FabricBlockSettings.copyOf(LAPIS_SPOTLIGHT)));
@@ -221,14 +220,14 @@ public class MarblesBlocks {
      */
 
     /**
-     * Used in the pink salt cave generator and various structures/features to check whether a position is in a pink salt cave.
+     * Used in cave generators and various structures/features to check whether a position is in a cave.
      */
     public static final Block ICE_CAVE_AIR = register("ice_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
 
-    public static final Block FLOESTONE = register("floestone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.BROWN).requiresTool().strength(1.5F, 6.0F)));
-    public static final Block POLISHED_FLOESTONE = register("polished_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
-    public static final Block CHISELED_FLOESTONE = register("chiseled_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
-    public static final Block FLOESTONE_BRICKS = register("floestone_bricks", new Block(FabricBlockSettings.copyOf(FLOESTONE)));
+    public static final Block FLOESTONE = register("floestone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.BROWN).breakByTool(FabricToolTags.PICKAXES).requiresTool().strength(1.5F, 6.0F)));
+    public static final Block POLISHED_FLOESTONE = copyPickaxe("polished_floestone", FLOESTONE);
+    public static final Block CHISELED_FLOESTONE = copyPickaxe("chiseled_floestone", FLOESTONE);
+    public static final Block FLOESTONE_BRICKS = copyPickaxe("floestone_bricks", FLOESTONE);
     public static final Block RILLED_FLOESTONE = register("rilled_floestone", new RilledFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).emissiveLighting((state, world, pos) -> true).luminance(11).slipperiness(0.85F)));
 
     /**
@@ -249,8 +248,8 @@ public class MarblesBlocks {
 
     public static final Block CUT_ICE = register("cut_ice", new Block(ICE_SETTINGS));
     public static final Block CUT_BLUE_ICE = register("cut_blue_ice", new Block(BLUE_ICE_SETTINGS));
-    public static final Block CUT_SCALED_ICE = register("cut_scaled_ice", new Block(FabricBlockSettings.copyOf(SCALED_ICE)));
-    public static final Block CUT_MINTED_ICE = register("cut_minted_ice", new Block(FabricBlockSettings.copyOf(MINTED_ICE)));
+    public static final Block CUT_SCALED_ICE = copyPickaxe("cut_scaled_ice", SCALED_ICE);
+    public static final Block CUT_MINTED_ICE = copyPickaxe("cut_minted_ice", MINTED_ICE);
 
     public static final Block CHISELED_ICE = register("chiseled_ice", new HorizontalFacingTransparentBlock(ICE_SETTINGS));
     public static final Block CHISELED_BLUE_ICE = register("chiseled_blue_ice", new HorizontalFacingTransparentBlock(BLUE_ICE_SETTINGS));
@@ -266,14 +265,14 @@ public class MarblesBlocks {
      * GRISP SET
      */
 
-    public static final Block GRISP_PODZOL = register("grisp_podzol", new GrispPodzolBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).mapColor(MapColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_PODZOL_PATH = register("grisp_podzol_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.YELLOW).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_DIRT = register("grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_DIRT_PATH = register("grisp_dirt_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.DIRT_BROWN).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block COARSE_GRISP_DIRT = register("coarse_grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.COARSE_DIRT).breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_FARMLAND = register("grisp_farmland", new MarblesFarmlandBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND).nonOpaque().breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly().breakByTool(FabricToolTags.SHOVELS, 0)));
-    public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).nonOpaque().mapColor(MapColor.TERRACOTTA_PURPLE).breakByTool(FabricToolTags.SHOVELS, 0)));
+    public static final Block GRISP_PODZOL = register("grisp_podzol", new GrispPodzolBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).mapColor(MapColor.YELLOW).breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block GRISP_PODZOL_PATH = register("grisp_podzol_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.YELLOW).breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block GRISP_DIRT = register("grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT).breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block GRISP_DIRT_PATH = register("grisp_dirt_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.DIRT_BROWN).breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block COARSE_GRISP_DIRT = register("coarse_grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.COARSE_DIRT).breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block GRISP_FARMLAND = register("grisp_farmland", new MarblesFarmlandBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND).nonOpaque().breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly().breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).nonOpaque().mapColor(MapColor.TERRACOTTA_PURPLE).breakByTool(FabricToolTags.SHOVELS)));
 
     /*
      * POLLEN-GRACED SHEEP
@@ -283,18 +282,21 @@ public class MarblesBlocks {
         FabricBlockSettings.of(Material.WOOL, MapColor.TERRACOTTA_YELLOW)
             .strength(0.8F)
             .sounds(BlockSoundGroup.WOOL)
+        .breakByTool(FabricToolTags.SHEARS)
         )
     );
     public static final Block POLLEN_GRACED_CARPET = register("pollen_graced_carpet", new CarpetBlock(
         FabricBlockSettings.of(Material.CARPET, MapColor.TERRACOTTA_YELLOW)
             .strength(0.1F)
             .sounds(BlockSoundGroup.WOOL)
+            .breakByTool(FabricToolTags.SHEARS)
         )
     );
     public static final Block POLLEN_GRACED_BED = register("pollen_graced_bed", new PollenGracedBedBlock(
-        FabricBlockSettings.of(Material.WOOL, (blockState) -> blockState.get(BedBlock.PART) == BedPart.FOOT ? MapColor.TERRACOTTA_YELLOW : MapColor.WHITE_GRAY)
+        FabricBlockSettings.copyOf(Blocks.YELLOW_BED)
             .sounds(BlockSoundGroup.WOOD)
             .strength(0.2F)
+            .breakByTool(FabricToolTags.AXES)
             .nonOpaque()
         )
     );
@@ -361,21 +363,26 @@ public class MarblesBlocks {
         return register(id + "_stairs", new PublicStairsBlock(block.getDefaultState(), FabricBlockSettings.copyOf(block)));
     }
 
-    private static Block createPillarBricks(Block block) {
-        return register(getBlockId(block) + "_bricks", new PillarBlock(FabricBlockSettings.copyOf(block)));
-    }
-
-    private static Block createSaltLamp(Block block) {
-        return register(getBlockId(block) + "_salt_lamp", new Block(
-                FabricBlockSettings.copyOf(block)
-                    .strength(0.75F, 3.0F)
-                    .luminance(state -> 15)
-            )
-        );
-    }
-
     private static Block copy(String id, Block block) {
         return register(id, new Block(FabricBlockSettings.copyOf(block)));
+    }
+    private static Block copyAxe(String id, Block block) {
+        return register(id, new Block(FabricBlockSettings.copyOf(block).breakByTool(FabricToolTags.AXES)));
+    }
+    private static Block copyPickaxe(String id, Block block) {
+        return register(id, new Block(FabricBlockSettings.copyOf(block).breakByTool(FabricToolTags.PICKAXES)));
+    }
+    private static Block copyShovel(String id, Block block) {
+        return register(id, new Block(FabricBlockSettings.copyOf(block).breakByTool(FabricToolTags.SHOVELS)));
+    }
+    private static Block copyHoe(String id, Block block) {
+        return register(id, new Block(FabricBlockSettings.copyOf(block).breakByTool(FabricToolTags.HOES)));
+    }
+    private static Block copySword(String id, Block block) {
+        return register(id, new Block(FabricBlockSettings.copyOf(block).breakByTool(FabricToolTags.SWORDS)));
+    }
+    private static Block copyShears(String id, Block block) {
+        return register(id, new Block(FabricBlockSettings.copyOf(block).breakByTool(FabricToolTags.SHEARS)));
     }
 
     private static String getBlockId(Block block) {

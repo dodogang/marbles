@@ -11,7 +11,12 @@ import net.minecraft.util.Identifier;
 public class MarblesEntityTypeTags {
     public static final Tag.Identified<EntityType<?>> BOUNCER_IGNORED_ENTITIES = register("bouncer_ignored_entities");
 
+    public static final Tag.Identified<EntityType<?>> FALLING_BLOCK_TWEAKS_TRIGGER_FALL_ENTITIES = register(new Identifier("fallingblocktweaks", "trigger_fall_entities"));
+
     private static Tag.Identified<EntityType<?>> register(String id) {
-        return TagRegistry.create(new Identifier(Marbles.MOD_ID, id), EntityTypeTags::getTagGroup);
+        return register(new Identifier(Marbles.MOD_ID, id));
+    }
+    private static Tag.Identified<EntityType<?>> register(Identifier id) {
+        return TagRegistry.create(id, EntityTypeTags::getTagGroup);
     }
 }

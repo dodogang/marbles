@@ -7,7 +7,7 @@ import net.dodogang.marbles.datagen.loottables.MarblesLootTablesProvider;
 import net.dodogang.marbles.datagen.models.MarblesStateModelProvider;
 import net.dodogang.marbles.datagen.recipes.MarblesRecipeProvider;
 import net.dodogang.marbles.datagen.recipes.MarblesStonecuttingRecipeProvider;
-import net.dodogang.marbles.datagen.tags.MarblesBlockItemTagProvider;
+import net.dodogang.marbles.datagen.tags.MarblesTagProvider;
 import net.minecraft.data.DataGenerator;
 
 import java.io.IOException;
@@ -76,7 +76,7 @@ public class DataMain {
 //            MarblesBlockTagsProvider blockTags = new MarblesBlockTagsProvider(gen);
 //            gen.install(blockTags);
 //            gen.install(new MarblesItemTagsProvider(gen, blockTags));
-            gen.install(new MarblesBlockItemTagProvider(gen));
+            gen.install(new MarblesTagProvider(gen));
             gen.install(new MarblesRecipeProvider(gen));
             gen.install(new MarblesStonecuttingRecipeProvider(gen));
             gen.install(new MarblesLootTablesProvider(gen));

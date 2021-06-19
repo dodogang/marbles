@@ -3,6 +3,7 @@ package net.dodogang.marbles.block.helper;
 import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.marbles.block.MarblesFacingBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -49,6 +50,7 @@ public class TravertineBlocks {
             "%s", new PillarBlock(
                 FabricBlockSettings.of(Material.STONE, color)
                                    .strength(1.5f, 6f)
+                                   .breakByTool(FabricToolTags.PICKAXES)
                                    .requiresTool()
             )
         );

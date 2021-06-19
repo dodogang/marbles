@@ -7,7 +7,6 @@ import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
-@SuppressWarnings("unused")
 public class MarblesBlockTags {
     public static final Tag.Identified<Block> ASPEN_LOGS = register("aspen_logs");
     public static final Tag.Identified<Block> HOOPSI_SPRUCE_LOGS = register("hoopsi_spruce_logs");
@@ -28,6 +27,9 @@ public class MarblesBlockTags {
     public static final Tag.Identified<Block> SPECIAL_ROPE_SUPPORTS = register("special_rope_supports");
 
     private static Tag.Identified<Block> register(String id) {
-        return TagRegistry.create(new Identifier(Marbles.MOD_ID, id), BlockTags::getTagGroup);
+        return register(new Identifier(Marbles.MOD_ID, id));
+    }
+    private static Tag.Identified<Block> register(Identifier id) {
+        return TagRegistry.create(id, BlockTags::getTagGroup);
     }
 }

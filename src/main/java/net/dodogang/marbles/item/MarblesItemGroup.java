@@ -5,11 +5,10 @@ import me.andante.chord.client.gui.item_group.ItemGroupTab;
 import me.andante.chord.item.item_group.AbstractTabbedItemGroup;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.init.MarblesBlocks;
+import net.dodogang.marbles.tag.MarblesItemTags;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -27,12 +26,17 @@ public class MarblesItemGroup extends AbstractTabbedItemGroup {
     @Override
     public List<ItemGroupTab> initTabs() {
         return ImmutableList.of(
-            createTab(MarblesBlocks.PINK_SALT, "pink_salt_and_travertine"),
-            createTab(MarblesBlocks.DAWN_SAND, "sunset_grotto"),
-            createTab(MarblesBlocks.CUT_ICE, "ice"),
-            createTab(MarblesBlocks.GRISP_PODZOL, "aspen_crevices"),
-            createTab(MarblesBlocks.YELLOW_BAMBOO, "bamboo_valley")
+            createTab(MarblesBlocks.PINK_SALT, MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE),
+            createTab(MarblesBlocks.DAWN_SAND, MarblesItemTags.CHORD_GROUP_SUNSET_GROTTO),
+            createTab(MarblesBlocks.CUT_ICE, MarblesItemTags.CHORD_GROUP_ICE),
+            createTab(MarblesBlocks.GRISP_PODZOL, MarblesItemTags.CHORD_GROUP_ASPEN_CREVICES),
+            createTab(MarblesBlocks.YELLOW_BAMBOO, MarblesItemTags.CHORD_GROUP_BAMBOO_VALLEY)
         );
+    }
+
+    protected ItemGroupTab createTab(ItemConvertible item, Tag.Identified<Item> tag) {
+        String path = tag.getId().getPath();
+        return super.createTab(item, path.substring(path.lastIndexOf("/") + 1));
     }
 
     @Override
