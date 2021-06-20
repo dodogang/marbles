@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:pollenated_cobblestone_wall"
+  },
+  "result": "minecraft:cobblestone_wall",
+  "count": 1
+}

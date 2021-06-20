@@ -227,6 +227,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.POLLENATED_COBBLESTONE);
         addSlabDrop(MarblesBlocks.POLLENATED_COBBLESTONE_SLAB);
         addDrop(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS);
+        addDrop(MarblesBlocks.POLLENATED_COBBLESTONE_WALL);
 
         addDrop(MarblesBlocks.ASPEN_GRASS, MarblesBlockLootTables::dropsGrass);
         addDrop(MarblesBlocks.TALL_ASPEN_GRASS, block -> MarblesBlockLootTables.dropsDoubleGrass(block, MarblesBlocks.ASPEN_GRASS));

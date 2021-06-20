@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:pollenated_cobblestone"
+    }
+  },
+  "result": {
+    "item": "marbles:pollenated_cobblestone_wall",
+    "count": 6
+  }
+}

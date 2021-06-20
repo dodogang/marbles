@@ -122,6 +122,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
 
         generic3x1("grisp/pollenated_cobblestone_slab", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_SLAB, 6);
         stairs("grisp/pollenated_cobblestone_stairs", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, 4);
+        generic3x2("grisp/pollenated_cobblestone_wall", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_WALL, 6);
 
         /*
          * PINK SALT

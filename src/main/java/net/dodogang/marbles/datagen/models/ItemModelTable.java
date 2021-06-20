@@ -139,6 +139,7 @@ public final class ItemModelTable {
         register(MarblesBlocks.POLLENATED_COBBLESTONE, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.POLLENATED_COBBLESTONE_SLAB, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.POLLENATED_COBBLESTONE_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
 
         register(MarblesBlocks.ASPEN_GRASS, item -> generated(name(item, "block/%s")));
         register(MarblesBlocks.TALL_ASPEN_GRASS, item -> generated(name(item, "block/%s_top")));

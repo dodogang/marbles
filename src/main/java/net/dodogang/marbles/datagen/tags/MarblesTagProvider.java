@@ -143,7 +143,9 @@ public class MarblesTagProvider implements DataProvider {
 
             DUSK_SANDSTONE_WALL,
             CUT_DUSK_SANDSTONE_WALL,
-            SMOOTH_DUSK_SANDSTONE_WALL
+            SMOOTH_DUSK_SANDSTONE_WALL,
+
+            POLLENATED_COBBLESTONE_WALL
         );
 
         add(
@@ -354,6 +356,7 @@ public class MarblesTagProvider implements DataProvider {
             POLLENATED_COBBLESTONE,
             POLLENATED_COBBLESTONE_SLAB,
             POLLENATED_COBBLESTONE_STAIRS,
+            POLLENATED_COBBLESTONE_WALL,
 
             ASPEN_GRASS,
             TALL_ASPEN_GRASS

@@ -83,13 +83,13 @@
   "block.marbles.tangerine_travertine_salt_lamp": "Tangerine Travertine Salt Lamp",
 
   "block.marbles.limestone": "Limestone",
-  "block.marbles.limestone_wall": "Limestone Wall",
   "block.marbles.limestone_slab": "Limestone Slab",
+  "block.marbles.limestone_wall": "Limestone Wall",
   "block.marbles.limestone_stairs": "Limestone Stairs",
   "block.marbles.polished_limestone": "Polished Limestone",
-  "block.marbles.polished_limestone_wall": "Polished Limestone Wall",
   "block.marbles.polished_limestone_slab": "Polished Limestone Slab",
   "block.marbles.polished_limestone_stairs": "Polished Limestone Stairs",
+  "block.marbles.polished_limestone_wall": "Polished Limestone Wall",
 
   "block.marbles.aspen_planks": "Aspen Planks",
   "block.marbles.aspen_sapling": "Aspen Sapling",
@@ -166,6 +166,7 @@
   "block.marbles.pollenated_cobblestone": "Pollenated Cobblestone",
   "block.marbles.pollenated_cobblestone_slab": "Pollenated Cobblestone Slab",
   "block.marbles.pollenated_cobblestone_stairs": "Pollenated Cobblestone Stairs",
+  "block.marbles.pollenated_cobblestone_wall": "Pollenated Cobblestone Wall",
 
   "block.marbles.aspen_grass": "Aspen Grass",
   "block.marbles.tall_aspen_grass": "Tall Aspen Grass",

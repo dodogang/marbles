@@ -290,6 +290,7 @@ public class MarblesBlocks {
     public static final Block POLLENATED_COBBLESTONE = copyPickaxe("pollenated_cobblestone", Blocks.COBBLESTONE);
     public static final Block POLLENATED_COBBLESTONE_SLAB = createSlab(POLLENATED_COBBLESTONE);
     public static final Block POLLENATED_COBBLESTONE_STAIRS = createStairs(POLLENATED_COBBLESTONE);
+    public static final Block POLLENATED_COBBLESTONE_WALL = createWall(POLLENATED_COBBLESTONE);
 
     public static final Block ASPEN_GRASS = register("aspen_grass", new PublicFernBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
     public static final Block TALL_ASPEN_GRASS = register("tall_aspen_grass", new TallPlantBlock(FabricBlockSettings.copyOf(ASPEN_GRASS)));
