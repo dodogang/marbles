@@ -1,5 +1,5 @@
 {
-  "parent": "marbles:block/flattened_block",
+  "parent": "marbles:block/template_flattened_block",
   "textures": {
     "bottom": "marbles:block/grisp_dirt",
     "top": "marbles:block/grisp_podzol_path_top",

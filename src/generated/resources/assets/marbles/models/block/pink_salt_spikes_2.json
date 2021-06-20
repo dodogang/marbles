@@ -1,5 +1,5 @@
 {
-  "parent": "marbles:block/double_cross",
+  "parent": "marbles:block/template_double_cross",
   "textures": {
     "cross": "marbles:block/pink_salt_spikes_2"
   }

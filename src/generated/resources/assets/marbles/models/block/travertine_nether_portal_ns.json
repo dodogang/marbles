@@ -1,5 +1,5 @@
 {
-  "parent": "marbles:block/nether_portal_ns",
+  "parent": "marbles:block/template_nether_portal_ns",
   "textures": {
     "portal": "minecraft:block/nether_portal"
   }

@@ -1,5 +1,5 @@
 {
-  "parent": "marbles:block/thick_ring",
+  "parent": "marbles:block/template_thick_ring",
   "textures": {
     "texture": "marbles:block/ringed_floestone",
     "side": "marbles:block/ringed_floestone_side"

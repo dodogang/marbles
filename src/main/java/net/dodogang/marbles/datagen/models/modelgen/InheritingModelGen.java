@@ -163,7 +163,7 @@ public class InheritingModelGen implements ModelGen {
     }
 
     public static InheritingModelGen grassBlock(String bottom, String top, String side, String overlay) {
-        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/layered_grass_block"))
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_layered_grass_block"))
                    .texture("bottom", bottom)
                    .texture("top", top)
                    .texture("side", side)
@@ -171,7 +171,7 @@ public class InheritingModelGen implements ModelGen {
     }
 
     public static InheritingModelGen flattenedBlock(String bottom, String top, String side) {
-        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/flattened_block"))
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_flattened_block"))
                    .texture("bottom", bottom)
                    .texture("top", top)
                    .texture("side", side);
@@ -251,20 +251,20 @@ public class InheritingModelGen implements ModelGen {
     }
 
     public static InheritingModelGen doubleCross(String texture) {
-        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/double_cross"))
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_double_cross"))
                    .texture("cross", texture);
     }
 
     public static InheritingModelGen octoCross(String texture) {
-        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/octo_cross"))
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_octo_cross"))
                    .texture("cross", texture);
     }
     public static InheritingModelGen tallOctoCrossTop(String texture) {
-        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/tall_octo_cross_top"))
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_tall_octo_cross_top"))
                    .texture("cross", texture);
     }
     public static InheritingModelGen tallOctoCrossBottom(String texture) {
-        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/tall_octo_cross_bottom"))
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_tall_octo_cross_bottom"))
                    .texture("cross", texture);
     }
 
@@ -279,11 +279,11 @@ public class InheritingModelGen implements ModelGen {
     }
 
     public static InheritingModelGen netherPortalNs(String texture) {
-        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/nether_portal_ns"))
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_nether_portal_ns"))
             .texture("portal", texture);
     }
     public static InheritingModelGen netherPortalEw(String texture) {
-        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/nether_portal_ew"))
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_nether_portal_ew"))
             .texture("portal", texture);
     }
 
@@ -402,7 +402,7 @@ public class InheritingModelGen implements ModelGen {
     }
 
     public static InheritingModelGen thickRing(String texture, String side) {
-        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/thick_ring"))
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_thick_ring"))
                    .texture("texture", texture)
                    .texture("side", side);
     }
