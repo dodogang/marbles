@@ -42,6 +42,15 @@ public final class ItemModelTable {
 
         register(MarblesBlocks.TRAVERTINE_OBSIDIAN, item -> inherit(name(item, "block/%s")));
 
+        register(MarblesBlocks.LIMESTONE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.LIMESTONE_SLAB, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.LIMESTONE_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.LIMESTONE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
+        register(MarblesBlocks.POLISHED_LIMESTONE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.POLISHED_LIMESTONE_SLAB, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.POLISHED_LIMESTONE_STAIRS, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.POLISHED_LIMESTONE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
+
         /*
          * PINK SALT
          */

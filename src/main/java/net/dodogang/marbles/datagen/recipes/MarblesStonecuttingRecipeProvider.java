@@ -51,6 +51,13 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         registerTravertine(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
         registerTravertine(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
 
+        register(MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_SLAB, 2);
+        register(MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_STAIRS);
+        register(MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_WALL);
+        register(MarblesBlocks.POLISHED_LIMESTONE, MarblesBlocks.POLISHED_LIMESTONE_SLAB, 2);
+        register(MarblesBlocks.POLISHED_LIMESTONE, MarblesBlocks.POLISHED_LIMESTONE_STAIRS);
+        register(MarblesBlocks.POLISHED_LIMESTONE, MarblesBlocks.POLISHED_LIMESTONE_WALL);
+
         /*
          * LAPIS SETS
          */

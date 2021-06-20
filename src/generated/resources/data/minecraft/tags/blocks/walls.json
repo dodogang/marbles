@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "#marbles:travertine_walls",
+    "marbles:limestone_wall",
+    "marbles:polished_limestone_wall",
     "marbles:dawn_sandstone_wall",
     "marbles:cut_dawn_sandstone_wall",
     "marbles:smooth_dawn_sandstone_wall",

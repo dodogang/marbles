@@ -52,6 +52,13 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         travertineSet(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS, MarblesItemTags.PEACH_TRAVERTINE);
         travertineSet(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS, MarblesItemTags.TANGERINE_TRAVERTINE);
 
+        generic3x1("limestone/slab", MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_SLAB, 6);
+        stairs("limestone/stairs", MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_STAIRS, 4);
+        generic3x2("limestone/wall", MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_WALL, 6);
+        generic3x1("limestone/slab_polished", MarblesBlocks.POLISHED_LIMESTONE, MarblesBlocks.POLISHED_LIMESTONE_SLAB, 6);
+        stairs("limestone/stairs_polished", MarblesBlocks.POLISHED_LIMESTONE, MarblesBlocks.POLISHED_LIMESTONE_STAIRS, 4);
+        generic3x2("limestone/wall_polished", MarblesBlocks.POLISHED_LIMESTONE, MarblesBlocks.POLISHED_LIMESTONE_WALL, 6);
+
         /*
          * LAPIS SETS
          */

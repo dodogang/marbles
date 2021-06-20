@@ -93,6 +93,10 @@ public class MarblesTagProvider implements DataProvider {
 
         add(
             BlockTags.SLABS, ItemTags.SLABS,
+
+            LIMESTONE_SLAB,
+            POLISHED_LIMESTONE_SLAB,
+
             DAWN_SANDSTONE_SLAB,
             CUT_DAWN_SANDSTONE_SLAB,
             SMOOTH_DAWN_SANDSTONE_SLAB,
@@ -109,6 +113,10 @@ public class MarblesTagProvider implements DataProvider {
 
         add(
             BlockTags.STAIRS, ItemTags.STAIRS,
+
+            LIMESTONE_STAIRS,
+            POLISHED_LIMESTONE_STAIRS,
+
             DAWN_SANDSTONE_STAIRS,
             CUT_DAWN_SANDSTONE_STAIRS,
             SMOOTH_DAWN_SANDSTONE_STAIRS,
@@ -125,6 +133,10 @@ public class MarblesTagProvider implements DataProvider {
 
         add(
             BlockTags.WALLS, ItemTags.WALLS,
+
+            LIMESTONE_WALL,
+            POLISHED_LIMESTONE_WALL,
+
             DAWN_SANDSTONE_WALL,
             CUT_DAWN_SANDSTONE_WALL,
             SMOOTH_DAWN_SANDSTONE_WALL,
@@ -191,19 +203,32 @@ public class MarblesTagProvider implements DataProvider {
             CBlockTags.ATTACHED_STEM_SUPPORTERS
         );
 
+        add(LIMESTONE, ItemTags.STONE_CRAFTING_MATERIALS, ItemTags.STONE_TOOL_MATERIALS);
+        add(LIMESTONE, BlockTags.BASE_STONE_OVERWORLD);
+
         /*
          * ITEM GROUPS
          */
 
         // pink salt and travertine
-        addTravertineSet(TRAVERTINE_BLOCKS, MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE);
-        addTravertineSet(LEMON_TRAVERTINE_BLOCKS, MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE);
-        addTravertineSet(PEACH_TRAVERTINE_BLOCKS, MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE);
-        addTravertineSet(TANGERINE_TRAVERTINE_BLOCKS, MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE);
+        items.factory(MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE).add(MarblesItemTags.TRAVERTINE_BLOCKS)
+                                                                           .add(MarblesItemTags.TRAVERTINE_LAMPS)
+                                                                           .add(MarblesItemTags.TRAVERTINE_SLABS)
+                                                                           .add(MarblesItemTags.TRAVERTINE_STAIRS)
+                                                                           .add(MarblesItemTags.TRAVERTINE_WALLS);
         add(
             MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE,
 
             TRAVERTINE_OBSIDIAN,
+
+            LIMESTONE,
+            LIMESTONE_SLAB,
+            LIMESTONE_STAIRS,
+            LIMESTONE_WALL,
+            POLISHED_LIMESTONE,
+            POLISHED_LIMESTONE_SLAB,
+            POLISHED_LIMESTONE_STAIRS,
+            POLISHED_LIMESTONE_WALL,
 
             PINK_SALT,
             CRUMBLED_PINK_SALT,

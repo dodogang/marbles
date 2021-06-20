@@ -48,6 +48,15 @@ public class MarblesBlocks {
     );
     public static final Block TRAVERTINE_NETHER_PORTAL = register("travertine_nether_portal", new TravertinePortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL)), false);
 
+    public static final Block LIMESTONE = register("limestone", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STONE).mapColor(MapColor.OFF_WHITE).breakByTool(FabricToolTags.PICKAXES)));
+    public static final Block LIMESTONE_SLAB = createSlab(LIMESTONE);
+    public static final Block LIMESTONE_STAIRS = createStairs(LIMESTONE);
+    public static final Block LIMESTONE_WALL = createWall(LIMESTONE);
+    public static final Block POLISHED_LIMESTONE = register("polished_limestone", new PillarBlock(FabricBlockSettings.copyOf(LIMESTONE)));
+    public static final Block POLISHED_LIMESTONE_SLAB = createSlab(POLISHED_LIMESTONE);
+    public static final Block POLISHED_LIMESTONE_STAIRS = createStairs(POLISHED_LIMESTONE);
+    public static final Block POLISHED_LIMESTONE_WALL = createWall(POLISHED_LIMESTONE);
+
     /*
      * PINK SALT
      */
