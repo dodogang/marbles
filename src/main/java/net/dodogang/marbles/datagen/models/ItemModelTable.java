@@ -68,6 +68,16 @@ public final class ItemModelTable {
         register(MarblesBlocks.PINK_SALT_STUMP, item -> generated(name(item, "item/%s")));
         register(MarblesBlocks.PINK_SALT_SPIKES, item -> generated(name(item, "item/%s")));
 
+        register(MarblesBlocks.PINK_SALT_GOLD_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_IRON_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_COAL_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_LAPIS_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_DIAMOND_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_REDSTONE_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_EMERALD_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_COPPER_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_UMBRAL_LAZULI_ORE, item -> inherit(name(item, "block/%s")));
+
         /*
          * LAPIS SETS
          */
@@ -79,6 +89,7 @@ public final class ItemModelTable {
         register(MarblesBlocks.GLAZED_LAPIS, item -> inherit(name(item, "block/%s")));
         register(MarblesItems.UMBRAL_LAZULI, item -> generated(name(item, "item/%s")));
         register(MarblesBlocks.UMBRAL_LAZULI_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.DEEPSLATE_UMBRAL_LAZULI_ORE, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.UMBRAL_LAZULI_BLOCK, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, item -> inherit(name(item, "block/%s")));

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "marbles:pink_salt_gold_ore",
+    "marbles:pink_salt_diamond_ore",
+    "marbles:pink_salt_redstone_ore",
+    "marbles:pink_salt_emerald_ore"
+  ]
+}

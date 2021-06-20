@@ -185,6 +185,7 @@
   "block.marbles.glazed_umbral_lazuli": "Glazed Umbral Lazuli",
   "block.marbles.umbral_lazuli_block": "Umbral Lazuli Block",
   "block.marbles.umbral_lazuli_ore": "Umbral Lazuli Ore",
+  "block.marbles.deepslate_umbral_lazuli_ore": "Deepslate Umbral Lazuli Ore",
   "block.marbles.umbral_lazuli_shingles": "Umbral Lazuli Shingles",
   "block.marbles.umbral_lazuli_shingle_slab": "Umbral Lazuli Shingles Slab",
   "block.marbles.umbral_lazuli_shingle_stairs": "Umbral Lazuli Shingles Stairs",
@@ -237,6 +238,16 @@
   "block.marbles.pink_salt_spire": "Pink Salt Spire",
   "block.marbles.pink_salt_stack": "Pink Salt Stack",
   "block.marbles.pink_salt_stump": "Pink Salt Stump",
+
+  "block.marbles.pink_salt_gold_ore": "Pink Salt Gold Ore",
+  "block.marbles.pink_salt_iron_ore": "Pink Salt Iron Ore",
+  "block.marbles.pink_salt_coal_ore": "Pink Salt Coal Ore",
+  "block.marbles.pink_salt_diamond_ore": "Pink Salt Diamond Ore",
+  "block.marbles.pink_salt_redstone_ore": "Pink Salt Redstone Ore",
+  "block.marbles.pink_salt_lapis_ore": "Pink Salt Lapis Lazuli Ore",
+  "block.marbles.pink_salt_umbral_lazuli_ore": "Pink Salt Umbral Lazuli Ore",
+  "block.marbles.pink_salt_emerald_ore": "Pink Salt Emerald Ore",
+  "block.marbles.pink_salt_copper_ore": "Pink Salt Copper Ore",
 
   "block.marbles.ice_cave_air": "Ice Cave Air",
 

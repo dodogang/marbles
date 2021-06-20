@@ -8,6 +8,7 @@ import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesItems;
+import net.dodogang.marbles.mixin.hooks.datagen.BlockLootTableGeneratorInvoker;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.DoubleBlockHalf;
@@ -148,6 +149,15 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.PINK_SALT_STUMP, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countRandom(1, 2)));
         addDrop(MarblesBlocks.PINK_SALT_SPIKES, block -> dropsWithSilkTouch(block, MarblesItems.PINK_SALT_SHARD, countBiased(2, 0.4f)));
 
+        addDrop(MarblesBlocks.PINK_SALT_COAL_ORE, block -> oreDrops(block, Items.COAL));
+        addDrop(MarblesBlocks.PINK_SALT_EMERALD_ORE, block -> oreDrops(block, Items.EMERALD));
+        addDrop(MarblesBlocks.PINK_SALT_DIAMOND_ORE, block -> oreDrops(block, Items.DIAMOND));
+        addDrop(MarblesBlocks.PINK_SALT_COPPER_ORE, MarblesBlockLootTables::dropsCopperOre);
+        addDrop(MarblesBlocks.PINK_SALT_IRON_ORE, block -> oreDrops(block, Items.RAW_IRON));
+        addDrop(MarblesBlocks.PINK_SALT_GOLD_ORE, (blockx) -> oreDrops(blockx, Items.RAW_GOLD));
+        addDrop(MarblesBlocks.PINK_SALT_LAPIS_ORE, MarblesBlockLootTables::dropsLapisOre);
+        addDrop(MarblesBlocks.PINK_SALT_REDSTONE_ORE, MarblesBlockLootTables::dropsRedstoneOre);
+
         /*
          * LAPIS SETS
          */
@@ -157,7 +167,9 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.LAPIS_SHINGLE_STAIRS);
         addDrop(MarblesBlocks.LAPIS_SPOTLIGHT);
         addDrop(MarblesBlocks.GLAZED_LAPIS);
-        addDrop(MarblesBlocks.UMBRAL_LAZULI_ORE, block -> dropsWithSilkTouch(block, MarblesItems.UMBRAL_LAZULI, countBiased(4, 0.4f)));
+        addDrop(MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesBlockLootTables::dropsUmbralLazuliOre);
+        addDrop(MarblesBlocks.DEEPSLATE_UMBRAL_LAZULI_ORE, MarblesBlockLootTables::dropsUmbralLazuliOre);
+        addDrop(MarblesBlocks.PINK_SALT_UMBRAL_LAZULI_ORE, MarblesBlockLootTables::dropsUmbralLazuliOre);
         addDrop(MarblesBlocks.UMBRAL_LAZULI_BLOCK);
         addDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLES);
         addSlabDrop(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB);
@@ -530,6 +542,22 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
                          )
             )
         ));
+    }
+
+    private static LootTable.Builder oreDrops(Block dropWithSilkTouch, Item drop) {
+        return BlockLootTableGeneratorInvoker.oreDrops(dropWithSilkTouch, drop);
+    }
+    private static LootTable.Builder dropsCopperOre(Block ore) {
+        return BlockLootTableGeneratorInvoker.copperOreDrops(ore);
+    }
+    private static LootTable.Builder dropsRedstoneOre(Block ore) {
+        return BlockLootTableGeneratorInvoker.redstoneOreDrops(ore);
+    }
+    private static LootTable.Builder dropsLapisOre(Block ore) {
+        return BlockLootTableGeneratorInvoker.lapisOreDrops(ore);
+    }
+    private static LootTable.Builder dropsUmbralLazuliOre(Block ore) {
+        return dropsWithSilkTouch(ore, MarblesItems.UMBRAL_LAZULI, countBiased(4, 0.4f));
     }
 
     protected static LootTable.Builder dropsBeeNest(Block drop) {

@@ -24,6 +24,7 @@
     "ProtoWorldChunkMixin",
     "SheepEntityAccessor",
     "WorldMixin",
+    "datagen.BlockLootTableGeneratorInvoker",
     "datagen.CookingRecipeJsonFactoryMixin",
     "datagen.ShapedRecipeJsonFactoryMixin",
     "datagen.ShapelessRecipeJsonFactoryMixin",

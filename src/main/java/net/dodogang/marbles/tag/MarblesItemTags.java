@@ -8,7 +8,6 @@ import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
-@SuppressWarnings("unused")
 public class MarblesItemTags {
     public static final Tag.Identified<Item> ASPEN_LOGS = register("aspen_logs");
     public static final Tag.Identified<Item> HOOPSI_SPRUCE_LOGS = register("hoopsi_spruce_logs");
@@ -26,6 +25,8 @@ public class MarblesItemTags {
     public static final Tag.Identified<Item> TRAVERTINE_LAMPS = register("travertine_lamps");
 
     public static final Tag.Identified<Item> HIGH_LIGHT_BLOCKS = register("high_light_blocks");
+
+    public static final Tag.Identified<Item> UMBRAL_LAZULI_ORES = register("umbral_lazuli_ores");
 
     public static final Tag.Identified<Item> CHORD_GROUP_PINK_SALT_AND_TRAVERTINE = chordGroup("pink_salt_and_travertine");
     public static final Tag.Identified<Item> CHORD_GROUP_SUNSET_GROTTO = chordGroup("sunset_grotto");

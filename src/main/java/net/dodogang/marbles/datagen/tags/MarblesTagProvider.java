@@ -209,6 +209,39 @@ public class MarblesTagProvider implements DataProvider {
         add(LIMESTONE, BlockTags.BASE_STONE_OVERWORLD);
 
         /*
+         * ORES
+         */
+
+        add(PINK_SALT_GOLD_ORE, BlockTags.GOLD_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL);
+        add(PINK_SALT_GOLD_ORE, ItemTags.GOLD_ORES);
+
+        add(PINK_SALT_IRON_ORE, BlockTags.IRON_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
+        add(PINK_SALT_IRON_ORE, ItemTags.IRON_ORES);
+
+        add(PINK_SALT_COAL_ORE, BlockTags.COAL_ORES, BlockTags.PICKAXE_MINEABLE);
+        add(PINK_SALT_COAL_ORE, ItemTags.COAL_ORES);
+
+        add(PINK_SALT_LAPIS_ORE, BlockTags.LAPIS_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
+        add(PINK_SALT_LAPIS_ORE, ItemTags.LAPIS_ORES);
+
+        add(PINK_SALT_UMBRAL_LAZULI_ORE, MarblesBlockTags.UMBRAL_LAZULI_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
+        add(PINK_SALT_UMBRAL_LAZULI_ORE, MarblesItemTags.UMBRAL_LAZULI_ORES);
+        add(DEEPSLATE_UMBRAL_LAZULI_ORE, MarblesBlockTags.UMBRAL_LAZULI_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
+        add(DEEPSLATE_UMBRAL_LAZULI_ORE, MarblesItemTags.UMBRAL_LAZULI_ORES);
+
+        add(PINK_SALT_DIAMOND_ORE, BlockTags.DIAMOND_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL);
+        add(PINK_SALT_DIAMOND_ORE, ItemTags.DIAMOND_ORES);
+
+        add(PINK_SALT_REDSTONE_ORE, BlockTags.REDSTONE_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL);
+        add(PINK_SALT_REDSTONE_ORE, ItemTags.REDSTONE_ORES);
+
+        add(PINK_SALT_EMERALD_ORE, BlockTags.EMERALD_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL);
+        add(PINK_SALT_EMERALD_ORE, ItemTags.EMERALD_ORES);
+
+        add(PINK_SALT_COPPER_ORE, BlockTags.COPPER_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
+        add(PINK_SALT_COPPER_ORE, ItemTags.COPPER_ORES);
+
+        /*
          * ITEM GROUPS
          */
 
@@ -246,7 +279,17 @@ public class MarblesTagProvider implements DataProvider {
             PINK_SALT_STACK,
             PINK_SALT_STUMP,
             PINK_SALT_SPIKES,
-            MarblesItems.PINK_SALT_SHARD
+            MarblesItems.PINK_SALT_SHARD,
+
+            PINK_SALT_GOLD_ORE,
+            PINK_SALT_IRON_ORE,
+            PINK_SALT_COAL_ORE,
+            PINK_SALT_LAPIS_ORE,
+            PINK_SALT_DIAMOND_ORE,
+            PINK_SALT_REDSTONE_ORE,
+            PINK_SALT_EMERALD_ORE,
+            PINK_SALT_COPPER_ORE,
+            PINK_SALT_UMBRAL_LAZULI_ORE
         );
 
         // sunset grotto
@@ -295,6 +338,8 @@ public class MarblesTagProvider implements DataProvider {
 
             MarblesItems.UMBRAL_LAZULI,
             UMBRAL_LAZULI_ORE,
+            DEEPSLATE_UMBRAL_LAZULI_ORE,
+            PINK_SALT_UMBRAL_LAZULI_ORE,
             UMBRAL_LAZULI_BLOCK,
             UMBRAL_LAZULI_SHINGLES,
             UMBRAL_LAZULI_SHINGLE_SLAB,

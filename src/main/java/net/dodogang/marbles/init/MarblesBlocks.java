@@ -25,8 +25,12 @@ import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
+
+import java.util.function.ToIntFunction;
 
 @SuppressWarnings("unused")
 public class MarblesBlocks {
@@ -135,6 +139,15 @@ public class MarblesBlocks {
         )
     );
 
+    public static final Block PINK_SALT_COAL_ORE = register("pink_salt_coal_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.COAL_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT), UniformIntProvider.create(0, 2)));
+    public static final Block PINK_SALT_IRON_ORE = register("pink_salt_iron_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT)));
+    public static final Block PINK_SALT_COPPER_ORE = register("pink_salt_copper_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.COPPER_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT)));
+    public static final Block PINK_SALT_GOLD_ORE = register("pink_salt_gold_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.GOLD_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT)));
+    public static final Block PINK_SALT_REDSTONE_ORE = register("pink_salt_redstone_ore", new RedstoneOreBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT)));
+    public static final Block PINK_SALT_EMERALD_ORE = register("pink_salt_emerald_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.EMERALD_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT), UniformIntProvider.create(3, 7)));
+    public static final Block PINK_SALT_LAPIS_ORE = register("pink_salt_lapis_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT), UniformIntProvider.create(2, 5)));
+    public static final Block PINK_SALT_DIAMOND_ORE = register("pink_salt_diamond_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT), UniformIntProvider.create(3, 7)));
+
     /*
      * MISC
      */
@@ -219,7 +232,9 @@ public class MarblesBlocks {
 
     public static final Block GLAZED_LAPIS = register("glazed_lapis", new DualConnectingBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
 
-    public static final Block UMBRAL_LAZULI_ORE = register("umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE).breakByTool(FabricToolTags.PICKAXES, 1)));
+    public static final Block UMBRAL_LAZULI_ORE = register("umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE)));
+    public static final Block DEEPSLATE_UMBRAL_LAZULI_ORE = register("deepslate_umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(UMBRAL_LAZULI_ORE).mapColor(MapColor.DEEPSLATE_GRAY).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE), UniformIntProvider.create(2, 5)));
+    public static final Block PINK_SALT_UMBRAL_LAZULI_ORE = register("pink_salt_umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(UMBRAL_LAZULI_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT), UniformIntProvider.create(2, 5)));
     public static final Block UMBRAL_LAZULI_BLOCK = register("umbral_lazuli_block", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1)));
     public static final Block UMBRAL_LAZULI_SHINGLES = copyPickaxe("umbral_lazuli_shingles", LAPIS_SHINGLES);
     public static final Block UMBRAL_LAZULI_SHINGLE_SLAB = createSlab("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
@@ -404,6 +419,10 @@ public class MarblesBlocks {
     }
     private static Block copyShears(String id, Block block) {
         return register(id, new Block(FabricBlockSettings.copyOf(block).breakByTool(FabricToolTags.SHEARS)));
+    }
+
+    private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
+        return state -> state.get(Properties.LIT) ? litLevel : 0;
     }
 
     private static String getBlockId(Block block) {

@@ -27,6 +27,15 @@
     "marbles:pink_salt_stack",
     "marbles:pink_salt_stump",
     "marbles:pink_salt_spikes",
-    "marbles:pink_salt_shard"
+    "marbles:pink_salt_shard",
+    "marbles:pink_salt_gold_ore",
+    "marbles:pink_salt_iron_ore",
+    "marbles:pink_salt_coal_ore",
+    "marbles:pink_salt_lapis_ore",
+    "marbles:pink_salt_diamond_ore",
+    "marbles:pink_salt_redstone_ore",
+    "marbles:pink_salt_emerald_ore",
+    "marbles:pink_salt_copper_ore",
+    "marbles:pink_salt_umbral_lazuli_ore"
   ]
 }

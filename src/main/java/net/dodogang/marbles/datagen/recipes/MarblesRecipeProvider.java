@@ -73,6 +73,8 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         shapeless("umbral_lazuli/item_from_block", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesItems.UMBRAL_LAZULI, 9);
         smelting("umbral_lazuli/item_from_smelting", MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2f);
         blasting("umbral_lazuli/item_from_blasting", MarblesBlocks.UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2f);
+        smelting("umbral_lazuli/item_from_smelting_deepslate", MarblesBlocks.DEEPSLATE_UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2f);
+        blasting("umbral_lazuli/item_from_blasting_deepslate", MarblesBlocks.DEEPSLATE_UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2f);
         generic2x2("umbral_lazuli/shingles", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesBlocks.UMBRAL_LAZULI_SHINGLES, 4);
         generic3x1("umbral_lazuli/shingles_slab", MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, 6);
         stairs("umbral_lazuli/shingles_stairs", MarblesBlocks.UMBRAL_LAZULI_SHINGLES, MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS, 4);
@@ -141,6 +143,25 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
                                .criterion("has_pink_salt", hasItem(MarblesBlocks.PINK_SALT))
                                .criterion("has_pink_salt_pillar", hasItem(MarblesBlocks.PINK_SALT_PILLAR))
                                .offerTo(consumer, id("pink_salt/pillar"));
+
+        smelting("pink_salt/ores/coal_from_smelting", MarblesBlocks.PINK_SALT_COAL_ORE, Items.COAL, 0.1F);
+        smelting("pink_salt/ores/iron_from_smelting", MarblesBlocks.PINK_SALT_IRON_ORE, Items.IRON_INGOT, 0.7F);
+        smelting("pink_salt/ores/copper_from_smelting", MarblesBlocks.PINK_SALT_COPPER_ORE, Items.COPPER_INGOT, 0.7F);
+        smelting("pink_salt/ores/gold_from_smelting", MarblesBlocks.PINK_SALT_GOLD_ORE, Items.GOLD_INGOT, 1.0F);
+        smelting("pink_salt/ores/diamond_from_smelting", MarblesBlocks.PINK_SALT_DIAMOND_ORE, Items.DIAMOND, 1.0F);
+        smelting("pink_salt/ores/lapis_from_smelting", MarblesBlocks.PINK_SALT_LAPIS_ORE, Items.LAPIS_LAZULI, 0.2F);
+        smelting("pink_salt/ores/umbral_lazuli_from_smelting", MarblesBlocks.PINK_SALT_UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2F);
+        smelting("pink_salt/ores/redstone_from_smelting", MarblesBlocks.PINK_SALT_REDSTONE_ORE, Items.REDSTONE, 0.7F);
+        smelting("pink_salt/ores/emerald_from_smelting", MarblesBlocks.PINK_SALT_EMERALD_ORE, Items.EMERALD, 1.0F);
+        blasting("pink_salt/ores/coal_from_blasting", MarblesBlocks.PINK_SALT_COAL_ORE, Items.COAL, 0.1F);
+        blasting("pink_salt/ores/iron_from_blasting", MarblesBlocks.PINK_SALT_IRON_ORE, Items.IRON_INGOT, 0.7F);
+        blasting("pink_salt/ores/copper_from_blasting", MarblesBlocks.PINK_SALT_COPPER_ORE, Items.COPPER_INGOT, 0.7F);
+        blasting("pink_salt/ores/gold_from_blasting", MarblesBlocks.PINK_SALT_GOLD_ORE, Items.GOLD_INGOT, 1.0F);
+        blasting("pink_salt/ores/diamond_from_blasting", MarblesBlocks.PINK_SALT_DIAMOND_ORE, Items.DIAMOND, 1.0F);
+        blasting("pink_salt/ores/lapis_from_blasting", MarblesBlocks.PINK_SALT_LAPIS_ORE, Items.LAPIS_LAZULI, 0.2F);
+        blasting("pink_salt/ores/umbral_lazuli_from_blasting", MarblesBlocks.PINK_SALT_UMBRAL_LAZULI_ORE, MarblesItems.UMBRAL_LAZULI, 0.2F);
+        blasting("pink_salt/ores/redstone_from_blasting", MarblesBlocks.PINK_SALT_REDSTONE_ORE, Items.REDSTONE, 0.7F);
+        blasting("pink_salt/ores/emerald_from_blasting", MarblesBlocks.PINK_SALT_EMERALD_ORE, Items.EMERALD, 1.0F);
 
         /*
          * ICE

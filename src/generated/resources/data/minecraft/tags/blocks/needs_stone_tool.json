@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "marbles:pink_salt_iron_ore",
+    "marbles:pink_salt_lapis_ore",
+    "marbles:pink_salt_umbral_lazuli_ore",
+    "marbles:deepslate_umbral_lazuli_ore",
+    "marbles:pink_salt_copper_ore"
+  ]
+}

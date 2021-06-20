@@ -79,6 +79,16 @@ public final class BlockStateTable {
         register(PINK_SALT_STUMP, block -> predefined(name(block, "block/%s")));
         register(PINK_SALT_SPIKES, block -> using(name(block, "block/%s"), name -> alternate(name, doubleCross(name + "_1"), doubleCross(name + "_2"))));
 
+        register(PINK_SALT_GOLD_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_IRON_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_COAL_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_LAPIS_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_DIAMOND_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_REDSTONE_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_EMERALD_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_COPPER_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_UMBRAL_LAZULI_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+
         /*
          * LAPIS SETS
          */
@@ -89,6 +99,7 @@ public final class BlockStateTable {
         register(LAPIS_SPOTLIGHT, block -> facingRotated(name(block, "block/%s"), cubeSeparateSided(name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_front"), name(block, "block/%s_back"))));
         register(GLAZED_LAPIS, block -> dualConnecting(name(block, "block/%s")));
         register(UMBRAL_LAZULI_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(DEEPSLATE_UMBRAL_LAZULI_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(UMBRAL_LAZULI_BLOCK, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(UMBRAL_LAZULI_SHINGLES, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(UMBRAL_LAZULI_SHINGLE_SLAB, block -> using(name(block, "block/%s_shingles", "_shingle_slab"), n -> slabAll(name(block, "block/%s"), n, n)));

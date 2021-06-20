@@ -7,7 +7,6 @@ import net.minecraft.tag.EntityTypeTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
-@SuppressWarnings("unused")
 public class MarblesEntityTypeTags {
     public static final Tag.Identified<EntityType<?>> BOUNCER_IGNORED_ENTITIES = register("bouncer_ignored_entities");
 
