@@ -400,4 +400,10 @@ public class InheritingModelGen implements ModelGen {
         return new InheritingModelGen("block/template_fence_gate_wall" + (open ? "_open" : ""))
                    .texture("texture", texture);
     }
+
+    public static InheritingModelGen thickRing(String texture, String side) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/thick_ring"))
+                   .texture("texture", texture)
+                   .texture("side", side);
+    }
 }

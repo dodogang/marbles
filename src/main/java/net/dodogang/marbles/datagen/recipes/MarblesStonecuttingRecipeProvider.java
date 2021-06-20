@@ -136,6 +136,7 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         register(MarblesBlocks.FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE);
         register(MarblesBlocks.FLOESTONE, MarblesBlocks.CHISELED_FLOESTONE);
         register(MarblesBlocks.FLOESTONE, MarblesBlocks.FLOESTONE_BRICKS);
+        register(MarblesBlocks.FLOESTONE, MarblesBlocks.RINGED_FLOESTONE);
 
         register(Blocks.ICE, MarblesBlocks.CUT_ICE);
         register(Blocks.BLUE_ICE, MarblesBlocks.CUT_BLUE_ICE);

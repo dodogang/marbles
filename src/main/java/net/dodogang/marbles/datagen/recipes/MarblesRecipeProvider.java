@@ -147,6 +147,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
          */
 
         generic2x2("floestone/polished", MarblesBlocks.FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE, 4);
+        ring("floestone/ringed", MarblesBlocks.FLOESTONE, MarblesBlocks.RINGED_FLOESTONE, 8);
         generic2x2("ice_bricks/ice", Blocks.ICE, MarblesBlocks.ICE_BRICKS, 4);
         generic2x2("ice_bricks/blue_ice", Blocks.BLUE_ICE, MarblesBlocks.BLUE_ICE_BRICKS, 4);
         generic2x2("ice_bricks/scaled_ice", MarblesBlocks.SCALED_ICE, MarblesBlocks.SCALED_ICE_BRICKS, 4);
@@ -225,6 +226,16 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
                                .pattern("##")
                                .pattern("##")
                                .pattern("##")
+                               .criterion("has_ingredient", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void ring(String id, ItemConvertible from, ItemConvertible to, int count) {
+        ShapedRecipeJsonFactory.create(to, count)
+                               .input('#', from)
+                               .pattern("###")
+                               .pattern("# #")
+                               .pattern("###")
                                .criterion("has_ingredient", hasItem(from))
                                .offerTo(consumer, id(id));
     }

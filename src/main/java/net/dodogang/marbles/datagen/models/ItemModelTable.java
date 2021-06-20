@@ -170,6 +170,7 @@ public final class ItemModelTable {
         register(MarblesBlocks.CHISELED_FLOESTONE, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.FLOESTONE_BRICKS, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.RILLED_FLOESTONE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.RINGED_FLOESTONE, item -> inherit(name(item, "block/%s")));
 
         register(MarblesBlocks.SCALED_ICE, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.MINTED_ICE, item -> inherit(name(item, "block/%s")));

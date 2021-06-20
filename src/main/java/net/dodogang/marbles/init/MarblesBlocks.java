@@ -242,6 +242,7 @@ public class MarblesBlocks {
     public static final Block CHISELED_FLOESTONE = copyPickaxe("chiseled_floestone", FLOESTONE);
     public static final Block FLOESTONE_BRICKS = copyPickaxe("floestone_bricks", FLOESTONE);
     public static final Block RILLED_FLOESTONE = register("rilled_floestone", new RilledFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).emissiveLighting((state, world, pos) -> true).luminance(11).slipperiness(0.85F)));
+    public static final Block RINGED_FLOESTONE = register("ringed_floestone", new RingedFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).nonOpaque()));
 
     /**
      * Modification of vanilla ice without {@link AbstractBlock.Settings#ticksRandomly}

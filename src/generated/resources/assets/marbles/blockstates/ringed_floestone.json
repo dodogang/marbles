@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "marbles:block/ringed_floestone",
+      "x": 90,
+      "y": 90
+    },
+    "facing=south": {
+      "model": "marbles:block/ringed_floestone",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down": {
+      "model": "marbles:block/ringed_floestone",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "marbles:block/ringed_floestone",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "marbles:block/ringed_floestone",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "marbles:block/ringed_floestone",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

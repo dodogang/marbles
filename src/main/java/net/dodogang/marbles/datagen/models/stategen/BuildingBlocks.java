@@ -181,4 +181,13 @@ public abstract class BuildingBlocks {
     public static StateGen stairsColumn(String name, String end, String side) {
         return stairsSided(name, end, end, side);
     }
+
+    public static StateGen attaching(String name, ModelGen model) {
+        return VariantsBlockStateGen.variants("facing=up", ModelInfo.create(name, model).rotate(0, 270))
+                                    .variant("facing=down", ModelInfo.create(name, model).rotate(180, 0))
+                                    .variant("facing=north", ModelInfo.create(name, model).rotate(90, 0))
+                                    .variant("facing=east", ModelInfo.create(name, model).rotate(90, 90))
+                                    .variant("facing=south", ModelInfo.create(name, model).rotate(90, 180))
+                                    .variant("facing=west", ModelInfo.create(name, model).rotate(90, 270));
+    }
 }

@@ -314,6 +314,7 @@ public class MarblesTagProvider implements DataProvider {
             CHISELED_FLOESTONE,
             FLOESTONE_BRICKS,
             RILLED_FLOESTONE,
+            RINGED_FLOESTONE,
 
             SCALED_ICE,
             MINTED_ICE,
