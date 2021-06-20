@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=upper": {
+      "model": "marbles:block/tall_morn_grass_top"
+    },
+    "half=lower": {
+      "model": "marbles:block/tall_morn_grass_bottom"
+    }
+  }
+}

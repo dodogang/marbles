@@ -197,6 +197,7 @@ public class MarblesBlocks {
     public static final Block SMOOTH_DUSK_SANDSTONE_WALL = createWall(SMOOTH_DUSK_SANDSTONE);
 
     public static final Block MORN_GRASS = register("morn_grass", new PublicFernBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
+    public static final Block TALL_MORN_GRASS = register("tall_morn_grass", new TallPlantBlock(FabricBlockSettings.copyOf(MORN_GRASS)));
 
     /*
      * LAPIS SETS
@@ -282,7 +283,7 @@ public class MarblesBlocks {
     public static final Block POLLENATED_COBBLESTONE_STAIRS = createStairs(POLLENATED_COBBLESTONE);
 
     public static final Block ASPEN_GRASS = register("aspen_grass", new PublicFernBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
-    public static final Block TALL_ASPEN_GRASS = register("tall_aspen_grass", new TallPlantBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS)));
+    public static final Block TALL_ASPEN_GRASS = register("tall_aspen_grass", new TallPlantBlock(FabricBlockSettings.copyOf(ASPEN_GRASS)));
 
     /*
      * POLLEN-GRACED SHEEP

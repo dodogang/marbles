@@ -200,6 +200,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL);
 
         addDrop(MarblesBlocks.MORN_GRASS, MarblesBlockLootTables::dropsGrass);
+        addDrop(MarblesBlocks.TALL_MORN_GRASS, block -> MarblesBlockLootTables.dropsDoubleGrass(block, MarblesBlocks.MORN_GRASS));
 
         /*
          * GRISP

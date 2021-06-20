@@ -122,6 +122,7 @@ public final class BlockStateTable {
         register(SMOOTH_DUSK_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
 
         register(MORN_GRASS, block -> simple(name(block, "block/%s"), octoCross(name(block, "block/%s")).texture("particle", name(block, "block/%s_inventory"))));
+        register(TALL_MORN_GRASS, block -> doubleBlock(name(block, "block/%s_bottom"), tallOctoCrossBottom(name(block, "block/%s")).texture("particle", name(block, "block/%s_inventory")), name(block, "block/%s_top"), tallOctoCrossTop(name(block, "block/%s")).texture("particle", name(block, "block/%s_inventory"))));
 
         /*
          * GRISP SET

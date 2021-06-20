@@ -259,6 +259,14 @@ public class InheritingModelGen implements ModelGen {
         return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/octo_cross"))
                    .texture("cross", texture);
     }
+    public static InheritingModelGen tallOctoCrossTop(String texture) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/tall_octo_cross_top"))
+                   .texture("cross", texture);
+    }
+    public static InheritingModelGen tallOctoCrossBottom(String texture) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/tall_octo_cross_bottom"))
+                   .texture("cross", texture);
+    }
 
     public static InheritingModelGen flowerPotCross(String texture) {
         return new InheritingModelGen("block/flower_pot_cross")
