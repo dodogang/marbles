@@ -60,7 +60,10 @@ public class MarblesClient implements ClientModInitializer {
             MarblesBlocks.YELLOW_SCAFFOLDING,
             MarblesBlocks.PINK_SALT_SPIKES,
             MarblesBlocks.POLLEN_GRACED_WOOL,
-            MarblesBlocks.POTTED_YELLOW_BAMBOO
+            MarblesBlocks.POTTED_YELLOW_BAMBOO,
+
+            MarblesBlocks.ASPEN_GRASS,
+            MarblesBlocks.TALL_ASPEN_GRASS
         );
 
         brlm.putBlocks(
@@ -73,10 +76,7 @@ public class MarblesClient implements ClientModInitializer {
             MarblesBlocks.ICE_BRICKS,
             MarblesBlocks.BLUE_ICE_BRICKS,
             MarblesBlocks.SCALED_ICE_BRICKS,
-            MarblesBlocks.MINTED_ICE_BRICKS,
-
-            MarblesBlocks.ASPEN_GRASS,
-            MarblesBlocks.TALL_ASPEN_GRASS
+            MarblesBlocks.MINTED_ICE_BRICKS
         );
 
         ParticleFactoryRegistry pfrInstance = ParticleFactoryRegistry.getInstance();
