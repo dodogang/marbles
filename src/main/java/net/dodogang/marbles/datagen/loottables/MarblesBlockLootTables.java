@@ -216,12 +216,15 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addSlabDrop(MarblesBlocks.POLLENATED_COBBLESTONE_SLAB);
         addDrop(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS);
 
+        addDrop(MarblesBlocks.ASPEN_GRASS, MarblesBlockLootTables::dropsGrass);
+        addDrop(MarblesBlocks.TALL_ASPEN_GRASS, block -> MarblesBlockLootTables.dropsDoubleGrass(block, block));
+
         /*
          * POLLEN-GRACED SET
          */
         addDrop(MarblesBlocks.POLLEN_GRACED_WOOL);
         addDrop(MarblesBlocks.POLLEN_GRACED_CARPET);
-        addDrop(MarblesBlocks.POLLEN_GRACED_BED, (blockx) -> dropsWithProperty(blockx, BedBlock.PART, BedPart.HEAD));
+        addDrop(MarblesBlocks.POLLEN_GRACED_BED, block -> dropsWithProperty(block, BedBlock.PART, BedPart.HEAD));
 
         /*
          * ICE SET

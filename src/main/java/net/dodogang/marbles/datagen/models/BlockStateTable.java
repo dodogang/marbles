@@ -138,6 +138,9 @@ public final class BlockStateTable {
         register(POLLENATED_COBBLESTONE_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
         register(POLLENATED_COBBLESTONE_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
 
+        register(ASPEN_GRASS, block -> simple(name(block, "block/%s"), cross(name(block, "block/%s"))));
+        register(TALL_ASPEN_GRASS, block -> doubleBlock(name(block, "block/%s_bottom"), cross(name(block, "block/%s_bottom")), name(block, "block/%s_top"), cross(name(block, "block/%s_top"))));
+
         /*
          * POLLEN-GRACED SET
          */

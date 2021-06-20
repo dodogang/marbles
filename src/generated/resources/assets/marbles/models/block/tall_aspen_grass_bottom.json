@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "marbles:block/tall_aspen_grass_bottom"
+  }
+}

@@ -325,7 +325,10 @@ public class MarblesTagProvider implements DataProvider {
 
             POLLENATED_COBBLESTONE,
             POLLENATED_COBBLESTONE_SLAB,
-            POLLENATED_COBBLESTONE_STAIRS
+            POLLENATED_COBBLESTONE_STAIRS,
+
+            ASPEN_GRASS,
+            TALL_ASPEN_GRASS
         );
 
         // bamboo valley

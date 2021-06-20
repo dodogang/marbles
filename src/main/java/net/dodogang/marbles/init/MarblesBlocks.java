@@ -11,6 +11,7 @@ import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
 import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.dodogang.marbles.block.sapling.RedBirchSaplingGenerator;
 import net.dodogang.marbles.block.vanilla.PublicAirBlock;
+import net.dodogang.marbles.block.vanilla.PublicFernBlock;
 import net.dodogang.marbles.block.vanilla.PublicTransparentBlock;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.sound.MarblesBlockSoundGroup;
@@ -277,6 +278,9 @@ public class MarblesBlocks {
     public static final Block POLLENATED_COBBLESTONE = copyPickaxe("pollenated_cobblestone", Blocks.COBBLESTONE);
     public static final Block POLLENATED_COBBLESTONE_SLAB = createSlab(POLLENATED_COBBLESTONE);
     public static final Block POLLENATED_COBBLESTONE_STAIRS = createStairs(POLLENATED_COBBLESTONE);
+
+    public static final Block ASPEN_GRASS = register("aspen_grass", new PublicFernBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
+    public static final Block TALL_ASPEN_GRASS = register("tall_aspen_grass", new TallPlantBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS)));
 
     /*
      * POLLEN-GRACED SHEEP

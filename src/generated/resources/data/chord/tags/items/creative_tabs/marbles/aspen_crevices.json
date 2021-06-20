@@ -32,6 +32,8 @@
     "marbles:pollen_graced_bed",
     "marbles:pollenated_cobblestone",
     "marbles:pollenated_cobblestone_slab",
-    "marbles:pollenated_cobblestone_stairs"
+    "marbles:pollenated_cobblestone_stairs",
+    "marbles:aspen_grass",
+    "marbles:tall_aspen_grass"
   ]
 }

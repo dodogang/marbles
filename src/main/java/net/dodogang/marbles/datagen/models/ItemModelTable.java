@@ -128,6 +128,9 @@ public final class ItemModelTable {
         register(MarblesBlocks.POLLENATED_COBBLESTONE_SLAB, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, item -> inherit(name(item, "block/%s")));
 
+        register(MarblesBlocks.ASPEN_GRASS, item -> generated(name(item, "block/%s")));
+        register(MarblesBlocks.TALL_ASPEN_GRASS, item -> generated(name(item, "block/%s_top")));
+
         /*
          * POLLEN-GRACED SET
          */

@@ -2,9 +2,9 @@ package net.dodogang.marbles;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.reflect.Reflection;
+import me.andante.chord.util.CClientUtils;
 import net.dodogang.marbles.block.RopeBlock;
 import net.dodogang.marbles.client.config.MarblesConfigManager;
-import net.dodogang.marbles.client.init.MarblesBlocksClient;
 import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.model.entity.BouncerEntityModel;
 import net.dodogang.marbles.client.model.entity.PollenGracedSheepEntityModel;
@@ -14,16 +14,19 @@ import net.dodogang.marbles.client.particle.MarblesParticleFactories;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
 import net.dodogang.marbles.client.render.entity.PollenGracedSheepEntityRenderer;
+import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesParticles;
 import net.dodogang.marbles.mixin.hooks.CrossbowItemAccessor;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.item.*;
@@ -40,11 +43,40 @@ public class MarblesClient implements ClientModInitializer {
         Marbles.log("Initializing (CLIENT)");
 
         Reflection.initialize(
-            MarblesBlocksClient.class,
             MarblesEntityModelLayers.class,
 
             MarblesClientNetwork.class,
             MarblesConfigManager.class
+        );
+
+        CClientUtils.registerWoodBlocks(MarblesBlocks.ASPEN, MarblesBlocks.HOOPSI_SPRUCE, MarblesBlocks.RED_BIRCH);
+
+        BlockRenderLayerMap brlm = BlockRenderLayerMap.INSTANCE;
+        brlm.putBlocks(
+            RenderLayer.getCutout(),
+
+            MarblesBlocks.YELLOW_BAMBOO,
+            MarblesBlocks.YELLOW_BAMBOO_SAPLING,
+            MarblesBlocks.YELLOW_SCAFFOLDING,
+            MarblesBlocks.PINK_SALT_SPIKES,
+            MarblesBlocks.POLLEN_GRACED_WOOL,
+            MarblesBlocks.POTTED_YELLOW_BAMBOO
+        );
+
+        brlm.putBlocks(
+            RenderLayer.getTranslucent(),
+
+            MarblesBlocks.TRAVERTINE_NETHER_PORTAL,
+
+            MarblesBlocks.CUT_ICE,
+            MarblesBlocks.CHISELED_ICE,
+            MarblesBlocks.ICE_BRICKS,
+            MarblesBlocks.BLUE_ICE_BRICKS,
+            MarblesBlocks.SCALED_ICE_BRICKS,
+            MarblesBlocks.MINTED_ICE_BRICKS,
+
+            MarblesBlocks.ASPEN_GRASS,
+            MarblesBlocks.TALL_ASPEN_GRASS
         );
 
         ParticleFactoryRegistry pfrInstance = ParticleFactoryRegistry.getInstance();
