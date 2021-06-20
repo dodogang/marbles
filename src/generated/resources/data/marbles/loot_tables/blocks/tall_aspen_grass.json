@@ -27,7 +27,7 @@
                   "add": false
                 }
               ],
-              "name": "marbles:tall_aspen_grass"
+              "name": "marbles:aspen_grass"
             },
             {
               "type": "minecraft:item",
@@ -95,7 +95,7 @@
                   "add": false
                 }
               ],
-              "name": "marbles:tall_aspen_grass"
+              "name": "marbles:aspen_grass"
             },
             {
               "type": "minecraft:item",

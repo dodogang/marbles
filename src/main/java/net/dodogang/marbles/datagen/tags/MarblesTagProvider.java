@@ -257,6 +257,8 @@ public class MarblesTagProvider implements DataProvider {
             CUT_DUSK_SANDSTONE_WALL,
             SMOOTH_DUSK_SANDSTONE_WALL,
 
+            MORN_GRASS,
+
             LAPIS_SHINGLES,
             LAPIS_SHINGLE_SLAB,
             LAPIS_SHINGLE_STAIRS,

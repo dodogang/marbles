@@ -196,6 +196,8 @@ public class MarblesBlocks {
     public static final Block CUT_DUSK_SANDSTONE_WALL = createWall(CUT_DUSK_SANDSTONE);
     public static final Block SMOOTH_DUSK_SANDSTONE_WALL = createWall(SMOOTH_DUSK_SANDSTONE);
 
+    public static final Block MORN_GRASS = register("morn_grass", new PublicFernBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
+
     /*
      * LAPIS SETS
      */

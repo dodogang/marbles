@@ -1,0 +1,7 @@
+{
+  "parent": "marbles:block/octo_cross",
+  "textures": {
+    "cross": "marbles:block/morn_grass",
+    "particle": "marbles:block/morn_grass_inventory"
+  }
+}

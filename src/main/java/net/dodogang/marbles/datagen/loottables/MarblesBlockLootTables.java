@@ -199,6 +199,8 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
         addDrop(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL);
 
+        addDrop(MarblesBlocks.MORN_GRASS, MarblesBlockLootTables::dropsGrass);
+
         /*
          * GRISP
          */
@@ -217,7 +219,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS);
 
         addDrop(MarblesBlocks.ASPEN_GRASS, MarblesBlockLootTables::dropsGrass);
-        addDrop(MarblesBlocks.TALL_ASPEN_GRASS, block -> MarblesBlockLootTables.dropsDoubleGrass(block, block));
+        addDrop(MarblesBlocks.TALL_ASPEN_GRASS, block -> MarblesBlockLootTables.dropsDoubleGrass(block, MarblesBlocks.ASPEN_GRASS));
 
         /*
          * POLLEN-GRACED SET
