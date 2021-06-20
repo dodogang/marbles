@@ -250,7 +250,6 @@ public class MarblesBlocks {
                                                                               .slipperiness(0.98F)
                                                                               .strength(0.5F)
                                                                               .sounds(BlockSoundGroup.GLASS)
-                                                                              .nonOpaque()
                                                                               .breakByTool(FabricToolTags.PICKAXES)
                                                                               .requiresTool()
                                                                               .allowsSpawning((state, world, pos, entityType) -> entityType == EntityType.POLAR_BEAR);
@@ -259,20 +258,20 @@ public class MarblesBlocks {
     public static final Block SCALED_ICE = register("scaled_ice", new Block(ICE_SETTINGS));
     public static final Block MINTED_ICE = register("minted_ice", new Block(ICE_SETTINGS));
 
-    public static final Block CUT_ICE = register("cut_ice", new Block(ICE_SETTINGS));
+    public static final Block CUT_ICE = register("cut_ice", new PublicTransparentBlock(ICE_SETTINGS.nonOpaque()));
     public static final Block CUT_BLUE_ICE = register("cut_blue_ice", new Block(BLUE_ICE_SETTINGS));
     public static final Block CUT_SCALED_ICE = copyPickaxe("cut_scaled_ice", SCALED_ICE);
     public static final Block CUT_MINTED_ICE = copyPickaxe("cut_minted_ice", MINTED_ICE);
 
-    public static final Block CHISELED_ICE = register("chiseled_ice", new HorizontalFacingTransparentBlock(ICE_SETTINGS));
+    public static final Block CHISELED_ICE = register("chiseled_ice", new HorizontalFacingTransparentBlock(ICE_SETTINGS.nonOpaque()));
     public static final Block CHISELED_BLUE_ICE = register("chiseled_blue_ice", new HorizontalFacingTransparentBlock(BLUE_ICE_SETTINGS));
     public static final Block CHISELED_SCALED_ICE = register("chiseled_scaled_ice", new HorizontalFacingTransparentBlock(FabricBlockSettings.copyOf(SCALED_ICE)));
     public static final Block CHISELED_MINTED_ICE = register("chiseled_minted_ice", new HorizontalFacingTransparentBlock(FabricBlockSettings.copyOf(MINTED_ICE)));
 
-    public static final Block ICE_BRICKS = register("ice_bricks", new PublicTransparentBlock(ICE_SETTINGS.sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
-    public static final Block BLUE_ICE_BRICKS = register("blue_ice_bricks", new PublicTransparentBlock(BLUE_ICE_SETTINGS.sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
-    public static final Block SCALED_ICE_BRICKS = register("scaled_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(SCALED_ICE).sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
-    public static final Block MINTED_ICE_BRICKS = register("minted_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(MINTED_ICE).sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
+    public static final Block ICE_BRICKS = register("ice_bricks", new PublicTransparentBlock(ICE_SETTINGS.nonOpaque().sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
+    public static final Block BLUE_ICE_BRICKS = register("blue_ice_bricks", new PublicTransparentBlock(BLUE_ICE_SETTINGS.nonOpaque().sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
+    public static final Block SCALED_ICE_BRICKS = register("scaled_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(SCALED_ICE).nonOpaque().sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
+    public static final Block MINTED_ICE_BRICKS = register("minted_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(MINTED_ICE).nonOpaque().sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
 
     /*
      * GRISP SET
