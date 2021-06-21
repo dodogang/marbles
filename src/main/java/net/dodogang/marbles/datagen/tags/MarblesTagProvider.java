@@ -212,34 +212,186 @@ public class MarblesTagProvider implements DataProvider {
          * ORES
          */
 
-        add(PINK_SALT_GOLD_ORE, BlockTags.GOLD_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL);
-        add(PINK_SALT_GOLD_ORE, ItemTags.GOLD_ORES);
+        add(BlockTags.GOLD_ORES, ItemTags.GOLD_ORES, PINK_SALT_GOLD_ORE);
+        add(BlockTags.IRON_ORES, ItemTags.IRON_ORES, PINK_SALT_IRON_ORE);
+        add(BlockTags.COAL_ORES, ItemTags.COAL_ORES, PINK_SALT_COAL_ORE);
+        add(BlockTags.LAPIS_ORES, ItemTags.LAPIS_ORES, PINK_SALT_LAPIS_ORE);
+        add(MarblesBlockTags.UMBRAL_LAZULI_ORES, MarblesItemTags.UMBRAL_LAZULI_ORES, UMBRAL_LAZULI_ORE, DEEPSLATE_UMBRAL_LAZULI_ORE, PINK_SALT_UMBRAL_LAZULI_ORE);
+        add(BlockTags.DIAMOND_ORES, ItemTags.DIAMOND_ORES, PINK_SALT_DIAMOND_ORE);
+        add(BlockTags.REDSTONE_ORES, ItemTags.REDSTONE_ORES, PINK_SALT_REDSTONE_ORE);
+        add(BlockTags.EMERALD_ORES, ItemTags.EMERALD_ORES, PINK_SALT_EMERALD_ORE);
+        add(BlockTags.COPPER_ORES, ItemTags.COPPER_ORES, PINK_SALT_COPPER_ORE);
 
-        add(PINK_SALT_IRON_ORE, BlockTags.IRON_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
-        add(PINK_SALT_IRON_ORE, ItemTags.IRON_ORES);
+        /*
+         * TOOL TAGS
+         */
 
-        add(PINK_SALT_COAL_ORE, BlockTags.COAL_ORES, BlockTags.PICKAXE_MINEABLE);
-        add(PINK_SALT_COAL_ORE, ItemTags.COAL_ORES);
+        add(BlockTags.AXE_MINEABLE, YELLOW_BAMBOO, YELLOW_SCAFFOLDING, POLLEN_GRACED_BED);
+        add(
+            BlockTags.PICKAXE_MINEABLE,
 
-        add(PINK_SALT_LAPIS_ORE, BlockTags.LAPIS_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
-        add(PINK_SALT_LAPIS_ORE, ItemTags.LAPIS_ORES);
+            LIMESTONE,
+            LIMESTONE_SLAB,
+            LIMESTONE_STAIRS,
+            LIMESTONE_WALL,
 
-        add(PINK_SALT_UMBRAL_LAZULI_ORE, MarblesBlockTags.UMBRAL_LAZULI_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
-        add(PINK_SALT_UMBRAL_LAZULI_ORE, MarblesItemTags.UMBRAL_LAZULI_ORES);
-        add(DEEPSLATE_UMBRAL_LAZULI_ORE, MarblesBlockTags.UMBRAL_LAZULI_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
-        add(DEEPSLATE_UMBRAL_LAZULI_ORE, MarblesItemTags.UMBRAL_LAZULI_ORES);
+            POLISHED_LIMESTONE,
+            POLISHED_LIMESTONE_SLAB,
+            POLISHED_LIMESTONE_STAIRS,
+            POLISHED_LIMESTONE_WALL,
 
-        add(PINK_SALT_DIAMOND_ORE, BlockTags.DIAMOND_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL);
-        add(PINK_SALT_DIAMOND_ORE, ItemTags.DIAMOND_ORES);
+            PINK_SALT,
+            CRUMBLED_PINK_SALT,
+            PINK_SALT_SLAB,
+            PINK_SALT_STAIRS,
+            PINK_SALT_BRICKS,
+            PINK_SALT_BRICK_SLAB,
+            PINK_SALT_BRICK_STAIRS,
+            PINK_SALT_PILLAR,
+            PINK_SALT_SPIRE,
+            PINK_SALT_STACK,
+            PINK_SALT_STUMP,
+            PINK_SALT_SPIKES,
 
-        add(PINK_SALT_REDSTONE_ORE, BlockTags.REDSTONE_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL);
-        add(PINK_SALT_REDSTONE_ORE, ItemTags.REDSTONE_ORES);
+            PINK_SALT_GOLD_ORE,
+            PINK_SALT_IRON_ORE,
+            PINK_SALT_COAL_ORE,
+            PINK_SALT_LAPIS_ORE,
+            PINK_SALT_DIAMOND_ORE,
+            PINK_SALT_REDSTONE_ORE,
+            PINK_SALT_EMERALD_ORE,
+            PINK_SALT_COPPER_ORE,
+            PINK_SALT_UMBRAL_LAZULI_ORE,
 
-        add(PINK_SALT_EMERALD_ORE, BlockTags.EMERALD_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL);
-        add(PINK_SALT_EMERALD_ORE, ItemTags.EMERALD_ORES);
+            DAWN_SAND,
+            DAWN_SANDSTONE,
+            CHISELED_DAWN_SANDSTONE,
+            CUT_DAWN_SANDSTONE,
+            SMOOTH_DAWN_SANDSTONE,
+            DAWN_SANDSTONE_SLAB,
+            CUT_DAWN_SANDSTONE_SLAB,
+            SMOOTH_DAWN_SANDSTONE_SLAB,
+            DAWN_SANDSTONE_STAIRS,
+            CUT_DAWN_SANDSTONE_STAIRS,
+            SMOOTH_DAWN_SANDSTONE_STAIRS,
+            DAWN_SANDSTONE_WALL,
+            CUT_DAWN_SANDSTONE_WALL,
+            SMOOTH_DAWN_SANDSTONE_WALL,
 
-        add(PINK_SALT_COPPER_ORE, BlockTags.COPPER_ORES, BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_STONE_TOOL);
-        add(PINK_SALT_COPPER_ORE, ItemTags.COPPER_ORES);
+            DUSK_SAND,
+            DUSK_SANDSTONE,
+            CHISELED_DUSK_SANDSTONE,
+            CUT_DUSK_SANDSTONE,
+            SMOOTH_DUSK_SANDSTONE,
+            DUSK_SANDSTONE_SLAB,
+            CUT_DUSK_SANDSTONE_SLAB,
+            SMOOTH_DUSK_SANDSTONE_SLAB,
+            DUSK_SANDSTONE_STAIRS,
+            CUT_DUSK_SANDSTONE_STAIRS,
+            SMOOTH_DUSK_SANDSTONE_STAIRS,
+            DUSK_SANDSTONE_WALL,
+            CUT_DUSK_SANDSTONE_WALL,
+            SMOOTH_DUSK_SANDSTONE_WALL,
+
+            LAPIS_SHINGLES,
+            LAPIS_SHINGLE_SLAB,
+            LAPIS_SHINGLE_STAIRS,
+            LAPIS_SPOTLIGHT,
+            GLAZED_LAPIS,
+            UMBRAL_LAZULI_ORE,
+            DEEPSLATE_UMBRAL_LAZULI_ORE,
+            PINK_SALT_UMBRAL_LAZULI_ORE,
+            UMBRAL_LAZULI_BLOCK,
+            UMBRAL_LAZULI_SHINGLES,
+            UMBRAL_LAZULI_SHINGLE_SLAB,
+            UMBRAL_LAZULI_SHINGLE_STAIRS,
+            UMBRAL_LAZULI_SPOTLIGHT,
+            GLAZED_UMBRAL_LAZULI,
+
+            FLOESTONE,
+            POLISHED_FLOESTONE,
+            CHISELED_FLOESTONE,
+            FLOESTONE_BRICKS,
+            RILLED_FLOESTONE,
+            RINGED_FLOESTONE,
+
+            SCALED_ICE,
+            MINTED_ICE,
+            CUT_ICE,
+            CUT_BLUE_ICE,
+            CUT_SCALED_ICE,
+            CUT_MINTED_ICE,
+            CHISELED_ICE,
+            CHISELED_BLUE_ICE,
+            CHISELED_SCALED_ICE,
+            CHISELED_MINTED_ICE,
+            ICE_BRICKS,
+            BLUE_ICE_BRICKS,
+            SCALED_ICE_BRICKS,
+            MINTED_ICE_BRICKS,
+
+            POLLENATED_COBBLESTONE,
+            POLLENATED_COBBLESTONE_SLAB,
+            POLLENATED_COBBLESTONE_STAIRS,
+            POLLENATED_COBBLESTONE_WALL
+        );
+        add(
+            BlockTags.SHOVEL_MINEABLE,
+
+            DAWN_SAND, DUSK_SAND,
+
+            GRISP_PODZOL,
+            GRISP_PODZOL_PATH,
+            GRISP_DIRT,
+            GRISP_DIRT_PATH,
+            COARSE_GRISP_DIRT,
+            GRISP_FARMLAND,
+            GRISP_MYCELIUM,
+            GRISP_MYCELIUM_PATH
+        );
+
+        add(
+            BlockTags.NEEDS_STONE_TOOL,
+
+            LAPIS_SHINGLES,
+            LAPIS_SHINGLE_SLAB,
+            LAPIS_SHINGLE_STAIRS,
+            LAPIS_SPOTLIGHT,
+            GLAZED_LAPIS,
+            UMBRAL_LAZULI_ORE,
+            DEEPSLATE_UMBRAL_LAZULI_ORE,
+            PINK_SALT_UMBRAL_LAZULI_ORE,
+            UMBRAL_LAZULI_BLOCK,
+            UMBRAL_LAZULI_SHINGLES,
+            UMBRAL_LAZULI_SHINGLE_SLAB,
+            UMBRAL_LAZULI_SHINGLE_STAIRS,
+            UMBRAL_LAZULI_SPOTLIGHT,
+            GLAZED_UMBRAL_LAZULI,
+
+            FLOESTONE,
+            POLISHED_FLOESTONE,
+            CHISELED_FLOESTONE,
+            FLOESTONE_BRICKS,
+            RILLED_FLOESTONE,
+            RINGED_FLOESTONE,
+
+            PINK_SALT_IRON_ORE,
+            PINK_SALT_LAPIS_ORE,
+            PINK_SALT_COPPER_ORE
+        );
+        add(
+            BlockTags.NEEDS_IRON_TOOL,
+
+            PINK_SALT_GOLD_ORE,
+            PINK_SALT_DIAMOND_ORE,
+            PINK_SALT_REDSTONE_ORE,
+            PINK_SALT_EMERALD_ORE
+        );
+        add(
+            BlockTags.NEEDS_DIAMOND_TOOL,
+
+            TRAVERTINE_OBSIDIAN
+        );
 
         /*
          * ITEM GROUPS
