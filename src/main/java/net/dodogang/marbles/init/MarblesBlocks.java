@@ -26,6 +26,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
@@ -298,6 +299,12 @@ public class MarblesBlocks {
 
     public static final Block ASPEN_GRASS = register("aspen_grass", new PublicFernBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
     public static final Block TALL_ASPEN_GRASS = register("tall_aspen_grass", new TallPlantBlock(FabricBlockSettings.copyOf(ASPEN_GRASS)));
+
+    /*
+     * PLANTAGE
+     */
+
+    public static final Block BLUE_PEONY = register("blue_peony", new StackingPlantBlock(FabricBlockSettings.copyOf(Blocks.PEONY).mapColor(DyeColor.BLUE)));
 
     /*
      * POLLEN-GRACED SHEEP

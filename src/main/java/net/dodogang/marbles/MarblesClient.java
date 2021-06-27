@@ -58,6 +58,8 @@ public class MarblesClient implements ClientModInitializer {
             MarblesBlocks.YELLOW_BAMBOO,
             MarblesBlocks.YELLOW_BAMBOO_SAPLING,
             MarblesBlocks.YELLOW_SCAFFOLDING,
+
+            MarblesBlocks.BLUE_PEONY,
             MarblesBlocks.PINK_SALT_SPIKES,
             MarblesBlocks.POLLEN_GRACED_WOOL,
             MarblesBlocks.POTTED_YELLOW_BAMBOO,

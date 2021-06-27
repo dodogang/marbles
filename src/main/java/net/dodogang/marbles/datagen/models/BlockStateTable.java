@@ -166,6 +166,12 @@ public final class BlockStateTable {
         register(TALL_ASPEN_GRASS, block -> doubleBlock(name(block, "block/%s_bottom"), cross(name(block, "block/%s_bottom")), name(block, "block/%s_top"), cross(name(block, "block/%s_top"))));
 
         /*
+         * PLANTAGE
+         */
+
+        register(BLUE_PEONY, block -> stackingPlant(name(block, "block/%s"), cross(name(block, "block/%s_upper")), cross(name(block, "block/%s_middle")), cross(name(block, "block/%s_lower"))));
+
+        /*
          * POLLEN-GRACED SET
          */
 

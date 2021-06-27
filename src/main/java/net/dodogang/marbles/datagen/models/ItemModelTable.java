@@ -156,6 +156,12 @@ public final class ItemModelTable {
         register(MarblesBlocks.TALL_ASPEN_GRASS, item -> generated(name(item, "block/%s_top")));
 
         /*
+         * PLANTAGE
+         */
+
+        register(MarblesBlocks.BLUE_PEONY, item -> generated(name(item, "block/%s_upper")));
+
+        /*
          * POLLEN-GRACED SET
          */
 

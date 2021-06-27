@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "triple_block_part=upper": {
+      "model": "marbles:block/blue_peony_upper"
+    },
+    "triple_block_part=lower": {
+      "model": "marbles:block/blue_peony_lower"
+    },
+    "triple_block_part=middle": {
+      "model": "marbles:block/blue_peony_middle"
+    }
+  }
+}

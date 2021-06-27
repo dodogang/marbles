@@ -110,4 +110,10 @@ public abstract class SimpleBlocks {
         return VariantsBlockStateGen.variants("half=lower", ModelInfo.create(lower, lowerModel))
                                     .variant("half=upper", ModelInfo.create(upper, upperModel));
     }
+
+    public static StateGen stackingPlant(String name, ModelGen upper, ModelGen middle, ModelGen lower) {
+        return VariantsBlockStateGen.variants("triple_block_part=upper", ModelInfo.create(name + "_upper", upper))
+                                     .variant("triple_block_part=middle", ModelInfo.create(name + "_middle", middle))
+                                     .variant("triple_block_part=lower", ModelInfo.create(name + "_lower", lower));
+    }
 }

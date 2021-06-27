@@ -245,6 +245,12 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.TALL_ASPEN_GRASS, block -> MarblesBlockLootTables.dropsDoubleGrass(block, MarblesBlocks.ASPEN_GRASS));
 
         /*
+         * PLANTAGE
+         */
+
+        addDrop(MarblesBlocks.BLUE_PEONY, MarblesBlockLootTables::drops);
+
+        /*
          * POLLEN-GRACED SET
          */
         addDrop(MarblesBlocks.POLLEN_GRACED_WOOL);
