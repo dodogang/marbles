@@ -21,8 +21,6 @@ import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
 public class PinkSaltSpikeBlock extends PlantBlock implements Waterloggable {
-    public static final String id = "pink_salt_spikes";
-
     private static final VoxelShape SHAPE = createCuboidShape(0.5, 0, 0.5, 15.5, 5, 15.5);
 
     public PinkSaltSpikeBlock(Settings settings) {

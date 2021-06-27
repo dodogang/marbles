@@ -17,8 +17,6 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import java.util.Random;
 
 public class YellowBambooFeature extends Feature<ProbabilityConfig> {
-    public static final String id = "yellow_bamboo";
-
     private static final BlockState BAMBOO = MarblesBlocks.YELLOW_BAMBOO.getDefaultState().with(BambooBlock.AGE, 1).with(BambooBlock.LEAVES, BambooLeaves.NONE).with(BambooBlock.STAGE, 0);
     private static final BlockState BAMBOO_TOP_1 = BAMBOO.with(BambooBlock.LEAVES, BambooLeaves.LARGE).with(BambooBlock.STAGE, 1);
     private static final BlockState BAMBOO_TOP_2 = BAMBOO.with(BambooBlock.LEAVES, BambooLeaves.LARGE);

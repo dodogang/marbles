@@ -16,8 +16,6 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import java.util.Random;
 
 public class PinkSaltSpireFeature extends Feature<DefaultFeatureConfig> {
-    public static final String id = "pink_salt_spire";
-
     private static final BlockState SALT_SPIRE = MarblesBlocks.PINK_SALT_SPIRE.getDefaultState();
 
     public PinkSaltSpireFeature(Codec<DefaultFeatureConfig> codec) {

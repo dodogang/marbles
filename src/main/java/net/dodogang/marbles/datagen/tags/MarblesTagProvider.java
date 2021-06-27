@@ -151,7 +151,12 @@ public class MarblesTagProvider implements DataProvider {
         add(
             BlockTags.CLIMBABLE,
             YELLOW_SCAFFOLDING,
-            ROPE
+            ROPE,
+
+            CHEQUERED_BAMBOO_LATTICE,
+            CROSSED_BAMBOO_LATTICE,
+            CHEQUERED_YELLOW_BAMBOO_LATTICE,
+            CROSSED_YELLOW_BAMBOO_LATTICE
         );
 
         add(
@@ -226,7 +231,16 @@ public class MarblesTagProvider implements DataProvider {
          * TOOL TAGS
          */
 
-        add(BlockTags.AXE_MINEABLE, YELLOW_BAMBOO, YELLOW_SCAFFOLDING, POLLEN_GRACED_BED);
+        add(
+            BlockTags.AXE_MINEABLE,
+
+            CHEQUERED_BAMBOO_LATTICE, CROSSED_BAMBOO_LATTICE,
+
+            YELLOW_BAMBOO, YELLOW_SCAFFOLDING,
+            CHEQUERED_YELLOW_BAMBOO_LATTICE, CROSSED_YELLOW_BAMBOO_LATTICE,
+
+            POLLEN_GRACED_BED
+        );
         add(
             BlockTags.PICKAXE_MINEABLE,
 
@@ -564,8 +578,13 @@ public class MarblesTagProvider implements DataProvider {
         add(
             MarblesItemTags.CHORD_GROUP_BAMBOO_VALLEY,
 
+            CHEQUERED_BAMBOO_LATTICE,
+            CROSSED_BAMBOO_LATTICE,
+
             YELLOW_BAMBOO,
-            YELLOW_SCAFFOLDING
+            YELLOW_SCAFFOLDING,
+            CHEQUERED_YELLOW_BAMBOO_LATTICE,
+            CROSSED_YELLOW_BAMBOO_LATTICE
         );
 
         /*

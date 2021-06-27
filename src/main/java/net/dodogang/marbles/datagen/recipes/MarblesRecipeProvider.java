@@ -81,10 +81,20 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         generic3x2("umbral_lazuli/glazed", MarblesBlocks.UMBRAL_LAZULI_BLOCK, MarblesBlocks.GLAZED_UMBRAL_LAZULI, 6);
 
         /*
+         * BAMBOO
+         */
+
+        scaffolding("bamboo/yellow_scaffolding", MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_SCAFFOLDING, 6);
+
+        chequeredLattice("bamboo/chequered_bamboo_lattice", Items.BAMBOO, Items.STRING, MarblesBlocks.CHEQUERED_BAMBOO_LATTICE, 3);
+        crossedLattice("bamboo/crossed_bamboo_lattice", Items.BAMBOO, Items.STRING, MarblesBlocks.CROSSED_BAMBOO_LATTICE, 3);
+        chequeredLattice("bamboo/chequered_yellow_bamboo_lattice", MarblesBlocks.YELLOW_BAMBOO, Items.STRING, MarblesBlocks.CHEQUERED_YELLOW_BAMBOO_LATTICE, 3);
+        crossedLattice("bamboo/crossed_yellow_bamboo_lattice", MarblesBlocks.YELLOW_BAMBOO, Items.STRING, MarblesBlocks.CROSSED_YELLOW_BAMBOO_LATTICE, 3);
+
+        /*
          * MISC
          */
 
-        scaffolding("yellow_scaffolding", MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_SCAFFOLDING, 6);
         generic3x3("rope", Items.STRING, MarblesBlocks.ROPE, 9);
 
         /*
@@ -258,6 +268,29 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
                                .pattern("# #")
                                .pattern("###")
                                .criterion("has_ingredient", hasItem(from))
+                               .offerTo(consumer, id(id));
+    }
+
+    private void chequeredLattice(String id, ItemConvertible primary, ItemConvertible secondary, ItemConvertible to, int count) {
+        ShapedRecipeJsonFactory.create(to, count)
+                               .input('#', primary)
+                               .input('O', secondary)
+                               .pattern("#OO")
+                               .pattern("#O#")
+                               .pattern("OO#")
+                               .criterion("has_primary", hasItem(primary))
+                               .criterion("has_secondary", hasItem(secondary))
+                               .offerTo(consumer, id(id));
+    }
+    private void crossedLattice(String id, ItemConvertible primary, ItemConvertible secondary, ItemConvertible to, int count) {
+        ShapedRecipeJsonFactory.create(to, count)
+                               .input('#', primary)
+                               .input('O', secondary)
+                               .pattern("O#O")
+                               .pattern("#O#")
+                               .pattern("O#O")
+                               .criterion("has_primary", hasItem(primary))
+                               .criterion("has_secondary", hasItem(secondary))
                                .offerTo(consumer, id(id));
     }
 

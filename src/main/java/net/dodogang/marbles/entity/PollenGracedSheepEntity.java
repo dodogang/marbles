@@ -29,8 +29,6 @@ import net.minecraft.world.World;
 import java.util.function.Predicate;
 
 public class PollenGracedSheepEntity extends SheepEntity {
-    public static final String id = "pollen_graced_sheep";
-
     public PollenGracedSheepEntity(EntityType<? extends SheepEntity> entityType, World world) {
         super(entityType, world);
     }

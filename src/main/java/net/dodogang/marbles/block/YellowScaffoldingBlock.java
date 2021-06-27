@@ -10,8 +10,6 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
 public class YellowScaffoldingBlock extends CScaffoldingBlock {
-    public static final String id = "yellow_scaffolding";
-
     private static final VoxelShape NORMAL_OUTLINE_SHAPE = VoxelShapes.union(
         Block.createCuboidShape(0.0D, 13.0D, 0.0D, 16.0D, 15.0D, 16.0D),
         Block.createCuboidShape(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 3.0D),

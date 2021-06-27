@@ -3,10 +3,7 @@ package net.dodogang.marbles.init;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.dodogang.marbles.Marbles;
-import net.dodogang.marbles.world.gen.feature.PinkSaltSpireFeature;
-import net.dodogang.marbles.world.gen.feature.PinkSaltStumpClusterFeature;
 import net.dodogang.marbles.world.gen.feature.StateProvidedChanceDiskFeatureConfig;
-import net.dodogang.marbles.world.gen.feature.YellowBambooFeature;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
@@ -141,14 +138,14 @@ public class MarblesConfiguredFeatures {
      */
 
     public static final ConfiguredFeature<?, ?> YELLOW_BAMBOO = register(
-        YellowBambooFeature.id,
+        "yellow_bamboo",
         MarblesFeatures.YELLOW_BAMBOO.configure(new ProbabilityConfig(0.2F))
             .decorate(ConfiguredFeatures.Decorators.HEIGHTMAP_WORLD_SURFACE)
             .spreadHorizontally()
             .decorate(Decorator.COUNT_NOISE_BIASED.configure(new CountNoiseBiasedDecoratorConfig(160, 80.0D, 0.3D)))
     );
     public static final ConfiguredFeature<?, ?> YELLOW_BAMBOO_LIGHT = register(
-        YellowBambooFeature.id + "_light",
+        "yellow_bamboo_light",
         MarblesFeatures.YELLOW_BAMBOO.configure(new ProbabilityConfig(0.0F))
             .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
             .repeat(16)
@@ -159,7 +156,7 @@ public class MarblesConfiguredFeatures {
      */
 
     public static final ConfiguredFeature<?, ?> PINK_SALT_STUMP_CLUSTER = register(
-        PinkSaltStumpClusterFeature.id,
+        "pink_salt_stump_cluster",
         MarblesFeatures.PINK_SALT_STUMP_CLUSTER.configure(FeatureConfig.DEFAULT)
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(96)))))
             .spreadHorizontally()
@@ -168,7 +165,7 @@ public class MarblesConfiguredFeatures {
     );
 
     public static final ConfiguredFeature<?, ?> PINK_SALT_SPIRE = register(
-        PinkSaltSpireFeature.id,
+        "pink_salt_spire",
         MarblesFeatures.PINK_SALT_SPIRE.configure(FeatureConfig.DEFAULT)
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(96)))))
             .spreadHorizontally()

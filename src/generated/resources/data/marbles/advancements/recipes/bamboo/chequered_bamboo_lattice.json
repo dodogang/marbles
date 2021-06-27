@@ -2,17 +2,29 @@
   "parent": "marbles:recipes/root",
   "rewards": {
     "recipes": [
-      "marbles:yellow_scaffolding"
+      "marbles:bamboo/chequered_bamboo_lattice"
     ]
   },
   "criteria": {
-    "has_ingredient": {
+    "has_primary": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "marbles:yellow_bamboo"
+              "minecraft:bamboo"
+            ]
+          }
+        ]
+      }
+    },
+    "has_secondary": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
             ]
           }
         ]
@@ -21,13 +33,14 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "marbles:yellow_scaffolding"
+        "recipe": "marbles:bamboo/chequered_bamboo_lattice"
       }
     }
   },
   "requirements": [
     [
-      "has_ingredient",
+      "has_primary",
+      "has_secondary",
       "has_the_recipe"
     ]
   ]

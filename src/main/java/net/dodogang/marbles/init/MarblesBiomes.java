@@ -2,7 +2,6 @@ package net.dodogang.marbles.init;
 
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.world.gen.feature.MarblesDefaultBiomeFeatures;
-import net.dodogang.marbles.world.gen.feature.YellowBambooFeature;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.entity.EntityType;
@@ -33,8 +32,8 @@ public class MarblesBiomes {
      * YELLOW BAMBOO
      */
 
-    public static final RegistryKey<Biome> YELLOW_BAMBOO_JUNGLE = register(YellowBambooFeature.id + "_jungle", createNormalYellowBambooJungle());
-    public static final RegistryKey<Biome> YELLOW_BAMBOO_JUNGLE_HILLS = register(YellowBambooFeature.id + "_jungle_hills", createYellowBambooJungleHills());
+    public static final RegistryKey<Biome> YELLOW_BAMBOO_JUNGLE = register("yellow_bamboo_jungle", createNormalYellowBambooJungle());
+    public static final RegistryKey<Biome> YELLOW_BAMBOO_JUNGLE_HILLS = register("yellow_bamboo_jungle_hills", createYellowBambooJungleHills());
 
     /*
      * CAVE BIOMES

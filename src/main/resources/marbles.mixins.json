@@ -17,6 +17,7 @@
     "EntityMixin",
     "EntityShapeContextMixin",
     "FluidBlockMixin",
+    "LivingEntityMixin",
     "LlamaEntityMixin",
     "MeleeAttackGoalAccessor",
     "PlayerEntityMixin",

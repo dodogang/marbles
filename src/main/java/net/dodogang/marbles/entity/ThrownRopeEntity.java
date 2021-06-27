@@ -31,8 +31,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 public class ThrownRopeEntity extends ThrownItemEntity {
-    public static final String id = "thrown_rope";
-
     private static final TrackedData<Integer> COUNT = DataTracker.registerData(ThrownRopeEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     @SuppressWarnings("unchecked")

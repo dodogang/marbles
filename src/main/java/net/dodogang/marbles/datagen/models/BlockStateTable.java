@@ -172,6 +172,16 @@ public final class BlockStateTable {
         register(BLUE_PEONY, block -> stackingPlant(name(block, "block/%s"), cross(name(block, "block/%s_upper")), cross(name(block, "block/%s_middle")), cross(name(block, "block/%s_lower"))));
 
         /*
+         * BAMBOO
+         */
+
+        register(CHEQUERED_BAMBOO_LATTICE, block -> attaching(name(block, "block/%s"), doubleThin(name(block, "block/%s"))));
+        register(CROSSED_BAMBOO_LATTICE, block -> attaching(name(block, "block/%s"), doubleThin(name(block, "block/%s"))));
+
+        register(CHEQUERED_YELLOW_BAMBOO_LATTICE, block -> attaching(name(block, "block/%s"), doubleThin(name(block, "block/%s"))));
+        register(CROSSED_YELLOW_BAMBOO_LATTICE, block -> attaching(name(block, "block/%s"), doubleThin(name(block, "block/%s"))));
+
+        /*
          * POLLEN-GRACED SET
          */
 

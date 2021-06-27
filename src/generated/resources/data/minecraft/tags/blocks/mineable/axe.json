@@ -1,8 +1,12 @@
 {
   "replace": false,
   "values": [
+    "marbles:chequered_bamboo_lattice",
+    "marbles:crossed_bamboo_lattice",
     "marbles:yellow_bamboo",
     "marbles:yellow_scaffolding",
+    "marbles:chequered_yellow_bamboo_lattice",
+    "marbles:crossed_yellow_bamboo_lattice",
     "marbles:pollen_graced_bed"
   ]
 }

@@ -16,8 +16,6 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import java.util.Random;
 
 public class PinkSaltStumpClusterFeature extends Feature<DefaultFeatureConfig> {
-    public static final String id = "pink_salt_stump_cluster";
-
     private static final BlockState SALT_STUMP = MarblesBlocks.PINK_SALT_STUMP.getDefaultState();
     private static final BlockState SALT_STACK = MarblesBlocks.PINK_SALT_STACK.getDefaultState();
 

@@ -94,7 +94,7 @@ public class MarblesBlocks {
     public static final Block PINK_SALT_PILLAR = register("pink_salt_pillar", new PillarBlock(FabricBlockSettings.copyOf(PINK_SALT).sounds(MarblesSoundGroups.PINK_SALT_BRICKS)));
 
     public static final Block PINK_SALT_SPIRE = register(
-        PinkSaltSpireBlock.id, new PinkSaltSpireBlock(
+        "pink_salt_spire", new PinkSaltSpireBlock(
             FabricBlockSettings.of(MarblesMaterial.PINK_SALT_ROCK, MapColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .strength(0.9f, 3.0f)
@@ -104,7 +104,7 @@ public class MarblesBlocks {
         )
     );
     public static final Block PINK_SALT_STACK = register(
-        PinkSaltStackBlock.id, new PinkSaltStackBlock(
+        "pink_salt_stack", new PinkSaltStackBlock(
             FabricBlockSettings.of(MarblesMaterial.PINK_SALT_ROCK, MapColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .strength(0.15f, 1.0f)
@@ -113,7 +113,7 @@ public class MarblesBlocks {
         )
     );
     public static final Block PINK_SALT_STUMP = register(
-        PinkSaltStumpBlock.id, new PinkSaltStumpBlock(
+        "pink_salt_stump", new PinkSaltStumpBlock(
             FabricBlockSettings.of(Material.PLANT, MapColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .strength(0.05f, 1.0f)
@@ -122,7 +122,7 @@ public class MarblesBlocks {
         )
     );
     public static final Block PINK_SALT_SPIKES = register(
-        PinkSaltSpikeBlock.id, new PinkSaltSpikeBlock(
+        "pink_salt_spikes", new PinkSaltSpikeBlock(
             FabricBlockSettings.of(Material.PLANT, MapColor.ORANGE)
                 .sounds(MarblesSoundGroups.PINK_SALT)
                 .breakInstantly()
@@ -146,14 +146,24 @@ public class MarblesBlocks {
     public static final Block ROPE = register("rope", new RopeBlock(FabricBlockSettings.of(Material.WOOL, MapColor.WHITE).breakInstantly().sounds(BlockSoundGroup.WOOL)));
 
     /*
-     * YELLOW BAMBOO
+     * BAMBOO
      */
+
+    private static final FabricBlockSettings BAMBOO_LATTICE_SETTINGS = FabricBlockSettings.of(Material.WOOD, MapColor.PALE_YELLOW)
+                                                                                          .nonOpaque()
+                                                                                          .sounds(BlockSoundGroup.SCAFFOLDING);
+
+    public static final Block CHEQUERED_BAMBOO_LATTICE = register("chequered_bamboo_lattice", new BambooLatticeBlock(BAMBOO_LATTICE_SETTINGS));
+    public static final Block CROSSED_BAMBOO_LATTICE = register("crossed_bamboo_lattice", new BambooLatticeBlock(BAMBOO_LATTICE_SETTINGS));
 
     public static final Block YELLOW_BAMBOO = register("yellow_bamboo", new CBambooBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO)));
     public static final Block YELLOW_BAMBOO_SAPLING = register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO_SAPLING)), false);
     public static final Block POTTED_YELLOW_BAMBOO = register("potted_yellow_bamboo", new FlowerPotBlock(YELLOW_BAMBOO, FabricBlockSettings.of(Material.DECORATION).breakInstantly().nonOpaque()), false);
 
-    public static final Block YELLOW_SCAFFOLDING = register(YellowScaffoldingBlock.id, new YellowScaffoldingBlock(FabricBlockSettings.copyOf(Blocks.SCAFFOLDING)), false);
+    public static final Block YELLOW_SCAFFOLDING = register("yellow_scaffolding", new YellowScaffoldingBlock(FabricBlockSettings.copyOf(Blocks.SCAFFOLDING)), false);
+
+    public static final Block CHEQUERED_YELLOW_BAMBOO_LATTICE = register("chequered_yellow_bamboo_lattice", new BambooLatticeBlock(FabricBlockSettings.copyOf(CHEQUERED_BAMBOO_LATTICE)));
+    public static final Block CROSSED_YELLOW_BAMBOO_LATTICE = register("crossed_yellow_bamboo_lattice", new BambooLatticeBlock(FabricBlockSettings.copyOf(CROSSED_BAMBOO_LATTICE)));
 
     /*
      * SANDS

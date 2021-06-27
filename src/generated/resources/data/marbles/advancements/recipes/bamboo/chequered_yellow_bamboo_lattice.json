@@ -1,0 +1,47 @@
+{
+  "parent": "marbles:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:bamboo/chequered_yellow_bamboo_lattice"
+    ]
+  },
+  "criteria": {
+    "has_primary": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "marbles:yellow_bamboo"
+            ]
+          }
+        ]
+      }
+    },
+    "has_secondary": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:bamboo/chequered_yellow_bamboo_lattice"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_primary",
+      "has_secondary",
+      "has_the_recipe"
+    ]
+  ]
+}

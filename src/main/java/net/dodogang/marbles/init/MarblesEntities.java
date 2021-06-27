@@ -24,7 +24,7 @@ import net.minecraft.util.registry.Registry;
 @SuppressWarnings("unused")
 public class MarblesEntities {
     public static final EntityType<BouncerEntity> BOUNCER = register(
-        BouncerEntity.id,
+        "bouncer",
         FabricEntityTypeBuilder.createMob()
             .entityFactory(BouncerEntity::new)
             .defaultAttributes(() -> MobEntity.createMobAttributes()
@@ -40,7 +40,7 @@ public class MarblesEntities {
         , createSpawnEggColors(0x555c50, 0x967543)
     );
     public static final EntityType<PollenGracedSheepEntity> POLLEN_GRACED_SHEEP = register(
-        PollenGracedSheepEntity.id,
+        "pollen_graced_sheep",
         FabricEntityTypeBuilder.createMob()
             .entityFactory(PollenGracedSheepEntity::new)
             .defaultAttributes(SheepEntity::createSheepAttributes)
@@ -50,7 +50,7 @@ public class MarblesEntities {
         , createSpawnEggColors(0xFFFBF0, 0xEACA15)
     );
     public static final EntityType<ThrownRopeEntity> THROWN_ROPE = register(
-        ThrownRopeEntity.id,
+        "thrown_rope",
         FabricEntityTypeBuilder.<ThrownRopeEntity>create(SpawnGroup.MISC, ThrownRopeEntity::new)
             .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
             .trackRangeBlocks(4).trackedUpdateRate(10)

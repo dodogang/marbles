@@ -35,8 +35,6 @@ import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class PinkSaltSpireBlock extends FallingBlock implements Waterloggable {
-    public static final String id = "pink_salt_spire";
-
     public static final DirectionProperty VERTICAL_DIRECTION = MarblesProperties.VERTICAL_DIRECTION;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 

@@ -281,10 +281,15 @@
 
   "block.marbles.blue_peony": "Blue Peony",
 
+  "block.marbles.chequered_bamboo_lattice": "Chequered Bamboo Lattice",
+  "block.marbles.crossed_bamboo_lattice": "Crossed Bamboo Lattice",
+
   "block.marbles.yellow_bamboo": "Yellow Bamboo",
   "block.marbles.yellow_bamboo_sapling": "Yellow Bamboo Sapling",
   "block.marbles.potted_yellow_bamboo": "Potted Yellow Bamboo",
   "block.marbles.yellow_scaffolding": "Yellow Scaffolding",
+  "block.marbles.chequered_yellow_bamboo_lattice": "Chequered Yellow Bamboo Lattice",
+  "block.marbles.crossed_yellow_bamboo_lattice": "Crossed Yellow Bamboo Lattice",
 
   "biome.marbles.travertine_straws": "Travertine Straws",
   "biome.marbles.yellow_bamboo_jungle": "Yellow Bamboo Jungle",

@@ -16,8 +16,6 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import java.util.Random;
 
 public class PinkSaltSpikesFeature extends Feature<DefaultFeatureConfig> {
-    public static final String id = "pink_salt_spikes";
-
     public PinkSaltSpikesFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }

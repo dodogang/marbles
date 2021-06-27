@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class PollenGracedSheepEntityRenderer extends MobEntityRenderer<PollenGracedSheepEntity, PollenGracedSheepEntityModel<PollenGracedSheepEntity>> {
-    private static final Identifier TEXTURE = MarblesEntities.texture(PollenGracedSheepEntity.id + "/" + PollenGracedSheepEntity.id);
+    private static final Identifier TEXTURE = MarblesEntities.texture("pollen_graced_sheep/pollen_graced_sheep");
 
     public PollenGracedSheepEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx, new PollenGracedSheepEntityModel<>(ctx.getPart(MarblesEntityModelLayers.POLLEN_GRACED_SHEEP)), 0.7F);

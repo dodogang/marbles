@@ -1,0 +1,6 @@
+{
+  "parent": "marbles:block/template_double_thin_block",
+  "textures": {
+    "texture": "marbles:block/chequered_yellow_bamboo_lattice"
+  }
+}

@@ -406,4 +406,12 @@ public class InheritingModelGen implements ModelGen {
                    .texture("texture", texture)
                    .texture("side", side);
     }
+
+    public static InheritingModelGen doubleThin(String texture, String side) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_double_thin_block"))
+                   .texture("texture", texture);
+    }
+    public static InheritingModelGen doubleThin(String texture) {
+        return doubleThin(texture, texture);
+    }
 }

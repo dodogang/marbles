@@ -14,7 +14,7 @@ import net.minecraft.util.math.Vec3f;
 
 @Environment(EnvType.CLIENT)
 public class BouncerEntityRenderer extends MobEntityRenderer<BouncerEntity, BouncerEntityModel> {
-    private static final Identifier TEXTURE = MarblesEntities.texture(BouncerEntity.id + "/" + BouncerEntity.id);
+    private static final Identifier TEXTURE = MarblesEntities.texture("bouncer/bouncer");
 
     public BouncerEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx, new BouncerEntityModel(ctx.getPart(MarblesEntityModelLayers.BOUNCER)), 0.7F);

@@ -44,8 +44,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.UUID;
 
 public class BouncerEntity extends PathAwareEntity implements Angerable {
-    public static final String id = "bouncer";
-
     public static final TrackedData<Integer> SIZE = DataTracker.registerData(BouncerEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     protected int cachedSize = 1;
@@ -276,7 +274,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
         float attackDamage = this.getAttackDamage();
         float damage = attackDamage > 0 ? (attackDamage / 1.5F) + (this.random.nextInt((int) (attackDamage / 1.3f)) / 3f) : attackDamage;
 
-        boolean damageTarget = fromShield || target.damage(new EntityDamageSource(Marbles.MOD_ID + "." + BouncerEntity.id, this), target instanceof PlayerEntity ? damage / 2.3f : 0.1f);
+        boolean damageTarget = fromShield || target.damage(new EntityDamageSource(Marbles.MOD_ID + ".bouncer", this), target instanceof PlayerEntity ? damage / 2.3f : 0.1f);
         if (damageTarget) {
             int size = this.getSize();
 

@@ -18,8 +18,6 @@ import net.minecraft.world.WorldView;
 
 @SuppressWarnings("deprecation")
 public class PinkSaltStackBlock extends AbstractLightRetainingBlock {
-    public static final String id = "pink_salt_stack";
-
     private static final VoxelShape SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 14.0D, 12.0D);
 
     public PinkSaltStackBlock(Settings settings) {

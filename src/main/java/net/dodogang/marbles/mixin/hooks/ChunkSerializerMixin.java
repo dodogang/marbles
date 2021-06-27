@@ -28,7 +28,7 @@ public class ChunkSerializerMixin {
     @Inject(
         method = "deserialize",
         at = @At(value = "INVOKE", target = "Lnet/minecraft/world/chunk/ChunkSection;calculateCounts()V"),
-        locals = LocalCapture.CAPTURE_FAILEXCEPTION
+        locals = LocalCapture.CAPTURE_FAILHARD
     )
     private static void onDeserializeChunkSection(
         // Thank you mixin, very funny
@@ -74,7 +74,7 @@ public class ChunkSerializerMixin {
             target = "Lnet/minecraft/world/chunk/PalettedContainer;write(Lnet/minecraft/nbt/NbtCompound;Ljava/lang/String;Ljava/lang/String;)V",
             shift = At.Shift.AFTER
         ),
-        locals = LocalCapture.CAPTURE_FAILEXCEPTION
+        locals = LocalCapture.CAPTURE_FAILHARD
     )
     private static void onSerializeChunkSection(
         ServerWorld world,

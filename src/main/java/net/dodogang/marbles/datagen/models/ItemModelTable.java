@@ -169,11 +169,20 @@ public final class ItemModelTable {
         register(MarblesBlocks.POLLEN_GRACED_CARPET, item -> inherit(name(item, "block/%s")));
 
         /*
-         * MISC
+         * BAMBOO
          */
+
+        register(MarblesBlocks.CHEQUERED_BAMBOO_LATTICE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.CROSSED_BAMBOO_LATTICE, item -> inherit(name(item, "block/%s")));
 
         register(MarblesItems.YELLOW_SCAFFOLDING, item -> inherit(new Identifier(Marbles.MOD_ID, "block/yellow_scaffolding_stable")));
         register(MarblesBlocks.YELLOW_BAMBOO, item -> generated(name(item, "item/%s")));
+        register(MarblesBlocks.CHEQUERED_YELLOW_BAMBOO_LATTICE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.CROSSED_YELLOW_BAMBOO_LATTICE, item -> inherit(name(item, "block/%s")));
+
+        /*
+         * MISC
+         */
 
         register(MarblesBlocks.ROPE, item -> generated(name(item, "item/%s")));
         register(MarblesItems.PINK_SALT_SHARD, item -> generated(name(item, "item/%s")));

@@ -55,9 +55,14 @@ public class MarblesClient implements ClientModInitializer {
         brlm.putBlocks(
             RenderLayer.getCutout(),
 
+            MarblesBlocks.CHEQUERED_BAMBOO_LATTICE,
+            MarblesBlocks.CROSSED_BAMBOO_LATTICE,
+
             MarblesBlocks.YELLOW_BAMBOO,
             MarblesBlocks.YELLOW_BAMBOO_SAPLING,
             MarblesBlocks.YELLOW_SCAFFOLDING,
+            MarblesBlocks.CHEQUERED_YELLOW_BAMBOO_LATTICE,
+            MarblesBlocks.CROSSED_YELLOW_BAMBOO_LATTICE,
 
             MarblesBlocks.BLUE_PEONY,
             MarblesBlocks.PINK_SALT_SPIKES,

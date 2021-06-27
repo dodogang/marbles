@@ -181,10 +181,15 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
          * BAMBOO
          */
 
+        addDrop(MarblesBlocks.CHEQUERED_BAMBOO_LATTICE);
+        addDrop(MarblesBlocks.CROSSED_BAMBOO_LATTICE);
+
         addDrop(MarblesBlocks.YELLOW_BAMBOO, MarblesBlocks.YELLOW_BAMBOO);
         addDrop(MarblesBlocks.YELLOW_BAMBOO_SAPLING, MarblesBlocks.YELLOW_BAMBOO);
         addPottedPlantDrop(MarblesBlocks.POTTED_YELLOW_BAMBOO);
         addDrop(MarblesBlocks.YELLOW_SCAFFOLDING);
+        addDrop(MarblesBlocks.CHEQUERED_YELLOW_BAMBOO_LATTICE);
+        addDrop(MarblesBlocks.CROSSED_YELLOW_BAMBOO_LATTICE);
 
         /*
          * SANDSTONE SETS
@@ -253,6 +258,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         /*
          * POLLEN-GRACED SET
          */
+
         addDrop(MarblesBlocks.POLLEN_GRACED_WOOL);
         addDrop(MarblesBlocks.POLLEN_GRACED_CARPET);
         addDrop(MarblesBlocks.POLLEN_GRACED_BED, block -> dropsWithProperty(block, BedBlock.PART, BedPart.HEAD));

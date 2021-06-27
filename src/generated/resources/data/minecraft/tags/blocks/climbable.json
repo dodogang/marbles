@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "marbles:yellow_scaffolding",
-    "marbles:rope"
+    "marbles:rope",
+    "marbles:chequered_bamboo_lattice",
+    "marbles:crossed_bamboo_lattice",
+    "marbles:chequered_yellow_bamboo_lattice",
+    "marbles:crossed_yellow_bamboo_lattice"
   ]
 }
