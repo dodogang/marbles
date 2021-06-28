@@ -20,6 +20,10 @@
     "marbles:ice_bricks",
     "marbles:blue_ice_bricks",
     "marbles:scaled_ice_bricks",
-    "marbles:minted_ice_bricks"
+    "marbles:minted_ice_bricks",
+    "marbles:slush",
+    "marbles:blue_slush",
+    "marbles:scaled_slush",
+    "marbles:minted_slush"
   ]
 }

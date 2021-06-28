@@ -263,13 +263,13 @@ public class MarblesBlocks {
     /**
      * Modification of vanilla ice without {@link AbstractBlock.Settings#ticksRandomly}
      */
-    public static final FabricBlockSettings ICE_SETTINGS = FabricBlockSettings.of(Material.ICE)
+    private static final FabricBlockSettings ICE_SETTINGS = FabricBlockSettings.of(Material.ICE)
                                                                               .slipperiness(0.98F)
                                                                               .strength(0.5F)
                                                                               .sounds(BlockSoundGroup.GLASS)
                                                                               .requiresTool()
                                                                               .allowsSpawning((state, world, pos, entityType) -> entityType == EntityType.POLAR_BEAR);
-    public static final FabricBlockSettings BLUE_ICE_SETTINGS = FabricBlockSettings.copyOf(ICE_SETTINGS).slipperiness(0.989F);
+    private static final FabricBlockSettings BLUE_ICE_SETTINGS = FabricBlockSettings.copyOf(ICE_SETTINGS).slipperiness(0.989F);
 
     public static final Block SCALED_ICE = register("scaled_ice", new Block(ICE_SETTINGS));
     public static final Block MINTED_ICE = register("minted_ice", new Block(ICE_SETTINGS));
@@ -288,6 +288,12 @@ public class MarblesBlocks {
     public static final Block BLUE_ICE_BRICKS = register("blue_ice_bricks", new PublicTransparentBlock(BLUE_ICE_SETTINGS.nonOpaque().sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
     public static final Block SCALED_ICE_BRICKS = register("scaled_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(SCALED_ICE).nonOpaque().sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
     public static final Block MINTED_ICE_BRICKS = register("minted_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(MINTED_ICE).nonOpaque().sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
+
+    private static final FabricBlockSettings SLUSH_SETTINGS = FabricBlockSettings.copyOf(Blocks.GRAVEL).nonOpaque().velocityMultiplier(0.8f);
+    public static final Block SLUSH = register("slush", new TransparentFallingBlock(SLUSH_SETTINGS));
+    public static final Block BLUE_SLUSH = register("blue_slush", new TransparentFallingBlock(SLUSH_SETTINGS));
+    public static final Block SCALED_SLUSH = register("scaled_slush", new TransparentFallingBlock(SLUSH_SETTINGS));
+    public static final Block MINTED_SLUSH = register("minted_slush", new TransparentFallingBlock(SLUSH_SETTINGS));
 
     /*
      * GRISP SET

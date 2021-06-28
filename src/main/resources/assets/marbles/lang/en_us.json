@@ -276,6 +276,11 @@
   "block.marbles.scaled_ice_bricks": "Scaled Ice Bricks",
   "block.marbles.minted_ice_bricks": "Minted Ice Bricks",
 
+  "block.marbles.slush": "Slush",
+  "block.marbles.blue_slush": "Blue Slush",
+  "block.marbles.scaled_slush": "Scaled Slush",
+  "block.marbles.minted_slush": "Minted Slush",
+
   "block.marbles.rope": "Rope",
   "block.marbles.rope.crossbow": "Rope x%s",
 
@@ -294,8 +299,11 @@
   "biome.marbles.travertine_straws": "Travertine Straws",
   "biome.marbles.yellow_bamboo_jungle": "Yellow Bamboo Jungle",
   "biome.marbles.yellow_bamboo_jungle_hills": "Yellow Bamboo Jungle Hills",
-  "biome.marbles.pink_salt_cave": "Pink Salt Cave",
-  "biome.marbles.ice_cave": "Ice Cave",
+  "biome.marbles.pink_salt_cave": "[TECH] Pink Salt Cave",
+  "biome.marbles.ice_cave": "[TECH] Ice Cave",
+  "biome.marbles.blue_ice_cave": "[TECH] Blue Ice Cave",
+  "biome.marbles.scaled_ice_cave": "[TECH] Scaled Ice Cave",
+  "biome.marbles.minted_ice_cave": "[TECH] Minted Ice Cave",
   "biome.marbles.aspen_forest": "[TEST] Aspen Forest",
   "biome.marbles.hoopsi_spruce_forest": "[TEST] Hoopsi Spruce Forest",
   "biome.marbles.red_birch_forest": "[TEST] Red Birch Forest",

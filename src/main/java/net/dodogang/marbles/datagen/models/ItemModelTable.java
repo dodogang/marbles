@@ -215,6 +215,11 @@ public final class ItemModelTable {
         register(MarblesBlocks.BLUE_ICE_BRICKS, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.SCALED_ICE_BRICKS, item -> inherit(name(item, "block/%s")));
         register(MarblesBlocks.MINTED_ICE_BRICKS, item -> inherit(name(item, "block/%s")));
+
+        register(MarblesBlocks.SLUSH, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.BLUE_SLUSH, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.SCALED_SLUSH, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.MINTED_SLUSH, item -> inherit(name(item, "block/%s")));
     }
 
     private static void registerTravertineBlocks(TravertineBlocks blocks) {

@@ -85,10 +85,16 @@ public class MarblesClient implements ClientModInitializer {
 
             MarblesBlocks.CUT_ICE,
             MarblesBlocks.CHISELED_ICE,
+
             MarblesBlocks.ICE_BRICKS,
             MarblesBlocks.BLUE_ICE_BRICKS,
             MarblesBlocks.SCALED_ICE_BRICKS,
-            MarblesBlocks.MINTED_ICE_BRICKS
+            MarblesBlocks.MINTED_ICE_BRICKS,
+
+            MarblesBlocks.SLUSH,
+            MarblesBlocks.BLUE_SLUSH,
+            MarblesBlocks.SCALED_SLUSH,
+            MarblesBlocks.MINTED_SLUSH
         );
 
         ParticleFactoryRegistry pfrInstance = ParticleFactoryRegistry.getInstance();

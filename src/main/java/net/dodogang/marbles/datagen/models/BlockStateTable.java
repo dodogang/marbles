@@ -218,6 +218,11 @@ public final class BlockStateTable {
         register(BLUE_ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(SCALED_ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
         register(MINTED_ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+
+        register(SLUSH, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(BLUE_SLUSH, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(SCALED_SLUSH, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(MINTED_SLUSH, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
     }
 
     private static void registerTravertineBlocks(TravertineBlocks blocks) {

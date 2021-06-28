@@ -543,7 +543,12 @@ public class MarblesTagProvider implements DataProvider {
             ICE_BRICKS,
             BLUE_ICE_BRICKS,
             SCALED_ICE_BRICKS,
-            MINTED_ICE_BRICKS
+            MINTED_ICE_BRICKS,
+
+            SLUSH,
+            BLUE_SLUSH,
+            SCALED_SLUSH,
+            MINTED_SLUSH
         );
 
         // aspen crevices
