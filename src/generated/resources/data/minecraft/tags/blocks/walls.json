@@ -10,6 +10,9 @@
     "marbles:dusk_sandstone_wall",
     "marbles:cut_dusk_sandstone_wall",
     "marbles:smooth_dusk_sandstone_wall",
-    "marbles:pollenated_cobblestone_wall"
+    "marbles:pollenated_cobblestone_wall",
+    "marbles:floestone_wall",
+    "marbles:polished_floestone_wall",
+    "marbles:floestone_brick_wall"
   ]
 }

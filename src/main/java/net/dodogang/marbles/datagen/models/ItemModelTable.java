@@ -40,94 +40,94 @@ public final class ItemModelTable {
         registerTravertineBlocks(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
         registerTravertineBlocks(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
 
-        register(MarblesBlocks.TRAVERTINE_OBSIDIAN, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.TRAVERTINE_OBSIDIAN, ItemModelTable::inheritBlockFunc);
 
-        register(MarblesBlocks.LIMESTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LIMESTONE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LIMESTONE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LIMESTONE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(MarblesBlocks.POLISHED_LIMESTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_LIMESTONE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_LIMESTONE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_LIMESTONE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
+        register(MarblesBlocks.LIMESTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.LIMESTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.LIMESTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.LIMESTONE_WALL, ItemModelTable::wallSidedTopFunc);
+        register(MarblesBlocks.POLISHED_LIMESTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLISHED_LIMESTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLISHED_LIMESTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLISHED_LIMESTONE_WALL, ItemModelTable::wallSidedTopFunc);
 
         /*
          * PINK SALT
          */
 
-        register(MarblesBlocks.PINK_SALT, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CRUMBLED_PINK_SALT, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_BRICKS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_BRICK_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_BRICK_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_PILLAR, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_SPIRE, item -> generated(name(item, "item/%s")));
-        register(MarblesBlocks.PINK_SALT_STACK, item -> generated(name(item, "item/%s")));
-        register(MarblesBlocks.PINK_SALT_STUMP, item -> generated(name(item, "item/%s")));
-        register(MarblesBlocks.PINK_SALT_SPIKES, item -> generated(name(item, "item/%s")));
+        register(MarblesBlocks.PINK_SALT, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CRUMBLED_PINK_SALT, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_BRICKS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_BRICK_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_BRICK_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_PILLAR, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_SPIRE, ItemModelTable::generatedItemFunc);
+        register(MarblesBlocks.PINK_SALT_STACK, ItemModelTable::generatedItemFunc);
+        register(MarblesBlocks.PINK_SALT_STUMP, ItemModelTable::generatedItemFunc);
+        register(MarblesBlocks.PINK_SALT_SPIKES, ItemModelTable::generatedItemFunc);
 
-        register(MarblesBlocks.PINK_SALT_GOLD_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_IRON_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_COAL_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_LAPIS_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_DIAMOND_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_REDSTONE_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_EMERALD_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_COPPER_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.PINK_SALT_UMBRAL_LAZULI_ORE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.PINK_SALT_GOLD_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_IRON_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_COAL_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_LAPIS_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_DIAMOND_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_REDSTONE_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_EMERALD_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_COPPER_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PINK_SALT_UMBRAL_LAZULI_ORE, ItemModelTable::inheritBlockFunc);
 
         /*
          * LAPIS SETS
          */
 
-        register(MarblesBlocks.LAPIS_SHINGLES, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LAPIS_SHINGLE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LAPIS_SHINGLE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.LAPIS_SPOTLIGHT, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GLAZED_LAPIS, item -> inherit(name(item, "block/%s")));
-        register(MarblesItems.UMBRAL_LAZULI, item -> generated(name(item, "item/%s")));
-        register(MarblesBlocks.UMBRAL_LAZULI_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.DEEPSLATE_UMBRAL_LAZULI_ORE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.UMBRAL_LAZULI_BLOCK, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.UMBRAL_LAZULI_SPOTLIGHT, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GLAZED_UMBRAL_LAZULI, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.LAPIS_SHINGLES, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.LAPIS_SHINGLE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.LAPIS_SHINGLE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.LAPIS_SPOTLIGHT, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.GLAZED_LAPIS, ItemModelTable::inheritBlockFunc);
+        register(MarblesItems.UMBRAL_LAZULI, ItemModelTable::generatedItemFunc);
+        register(MarblesBlocks.UMBRAL_LAZULI_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DEEPSLATE_UMBRAL_LAZULI_ORE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.UMBRAL_LAZULI_BLOCK, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLES, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.UMBRAL_LAZULI_SHINGLE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.UMBRAL_LAZULI_SPOTLIGHT, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.GLAZED_UMBRAL_LAZULI, ItemModelTable::inheritBlockFunc);
 
         /*
          * SANDSTONE SETS
          */
 
-        register(MarblesBlocks.DAWN_SAND, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.DAWN_SANDSTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CHISELED_DAWN_SANDSTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.DAWN_SANDSTONE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.DAWN_SANDSTONE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.DAWN_SANDSTONE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_bottom", n + "_top", n)));
+        register(MarblesBlocks.DAWN_SAND, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CHISELED_DAWN_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CUT_DAWN_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CUT_DAWN_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CUT_DAWN_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN_SANDSTONE_WALL, ItemModelTable::wallSidedTopBottomFunc);
         register(MarblesBlocks.CUT_DAWN_SANDSTONE_WALL, item -> using(name(item, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallSidedInventory(n + "_bottom", n + "_top", n)));
         register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_WALL, item -> wallInventory(name(item, "block/%s_top", "(^smooth_)|(_wall$)", "")));
 
-        register(MarblesBlocks.DUSK_SAND, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.DUSK_SANDSTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CHISELED_DUSK_SANDSTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.DUSK_SANDSTONE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.DUSK_SANDSTONE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.DUSK_SANDSTONE_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_bottom", n + "_top", n)));
+        register(MarblesBlocks.DUSK_SAND, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CHISELED_DUSK_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CUT_DUSK_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CUT_DUSK_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK_SANDSTONE_WALL, ItemModelTable::wallSidedTopBottomFunc);
         register(MarblesBlocks.CUT_DUSK_SANDSTONE_WALL, item -> using(name(item, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallSidedInventory(n + "_bottom", n + "_top", n)));
         register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, item -> wallInventory(name(item, "block/%s_top", "(^smooth_)|(_wall$)", "")));
 
@@ -138,21 +138,21 @@ public final class ItemModelTable {
          * GRISP SET
          */
 
-        register(MarblesBlocks.GRISP_DIRT, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.COARSE_GRISP_DIRT, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GRISP_PODZOL, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GRISP_MYCELIUM, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GRISP_DIRT_PATH, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GRISP_PODZOL_PATH, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GRISP_MYCELIUM_PATH, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.GRISP_FARMLAND, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.GRISP_DIRT, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.COARSE_GRISP_DIRT, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.GRISP_PODZOL, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.GRISP_MYCELIUM, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.GRISP_DIRT_PATH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.GRISP_PODZOL_PATH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.GRISP_MYCELIUM_PATH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.GRISP_FARMLAND, ItemModelTable::inheritBlockFunc);
 
-        register(MarblesBlocks.POLLENATED_COBBLESTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLLENATED_COBBLESTONE_SLAB, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLLENATED_COBBLESTONE_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
+        register(MarblesBlocks.POLLENATED_COBBLESTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLLENATED_COBBLESTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLLENATED_COBBLESTONE_WALL, ItemModelTable::wallFunc);
 
-        register(MarblesBlocks.ASPEN_GRASS, item -> generated(name(item, "block/%s")));
+        register(MarblesBlocks.ASPEN_GRASS, ItemModelTable::generatedBlockFunc);
         register(MarblesBlocks.TALL_ASPEN_GRASS, item -> generated(name(item, "block/%s_top")));
 
         /*
@@ -165,101 +165,117 @@ public final class ItemModelTable {
          * POLLEN-GRACED SET
          */
 
-        register(MarblesBlocks.POLLEN_GRACED_WOOL, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLLEN_GRACED_CARPET, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.POLLEN_GRACED_WOOL, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLLEN_GRACED_CARPET, ItemModelTable::inheritBlockFunc);
 
         /*
          * BAMBOO
          */
 
-        register(MarblesBlocks.CHEQUERED_BAMBOO_LATTICE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CROSSED_BAMBOO_LATTICE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.CHEQUERED_BAMBOO_LATTICE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CROSSED_BAMBOO_LATTICE, ItemModelTable::inheritBlockFunc);
 
         register(MarblesItems.YELLOW_SCAFFOLDING, item -> inherit(new Identifier(Marbles.MOD_ID, "block/yellow_scaffolding_stable")));
-        register(MarblesBlocks.YELLOW_BAMBOO, item -> generated(name(item, "item/%s")));
-        register(MarblesBlocks.CHEQUERED_YELLOW_BAMBOO_LATTICE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CROSSED_YELLOW_BAMBOO_LATTICE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.YELLOW_BAMBOO, ItemModelTable::generatedItemFunc);
+        register(MarblesBlocks.CHEQUERED_YELLOW_BAMBOO_LATTICE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CROSSED_YELLOW_BAMBOO_LATTICE, ItemModelTable::inheritBlockFunc);
 
         /*
          * MISC
          */
 
-        register(MarblesBlocks.ROPE, item -> generated(name(item, "item/%s")));
-        register(MarblesItems.PINK_SALT_SHARD, item -> generated(name(item, "item/%s")));
+        register(MarblesBlocks.ROPE, ItemModelTable::generatedItemFunc);
+        register(MarblesItems.PINK_SALT_SHARD, ItemModelTable::generatedItemFunc);
+
+        /*
+         * FLOESTONE
+         */
+
+        register(MarblesBlocks.FLOESTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.FLOESTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.FLOESTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.FLOESTONE_WALL, ItemModelTable::wallFunc);
+
+        register(MarblesBlocks.POLISHED_FLOESTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLISHED_FLOESTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLISHED_FLOESTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLISHED_FLOESTONE_WALL, ItemModelTable::wallFunc);
+
+        register(MarblesBlocks.FLOESTONE_BRICKS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.FLOESTONE_BRICK_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.FLOESTONE_BRICK_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.FLOESTONE_BRICK_WALL, item -> wallInventory(name(item, "block/%ss", "_wall")));
+
+        register(MarblesBlocks.CHISELED_FLOESTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.RILLED_FLOESTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.RINGED_FLOESTONE, ItemModelTable::inheritBlockFunc);
 
         /*
          * ICE
          */
 
-        register(MarblesBlocks.FLOESTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.POLISHED_FLOESTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CHISELED_FLOESTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.FLOESTONE_BRICKS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.RILLED_FLOESTONE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.RINGED_FLOESTONE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.SCALED_ICE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.MINTED_ICE, ItemModelTable::inheritBlockFunc);
 
-        register(MarblesBlocks.SCALED_ICE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.MINTED_ICE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.CUT_ICE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CUT_BLUE_ICE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CUT_SCALED_ICE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CUT_MINTED_ICE, ItemModelTable::inheritBlockFunc);
 
-        register(MarblesBlocks.CUT_ICE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CUT_BLUE_ICE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CUT_SCALED_ICE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CUT_MINTED_ICE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.CHISELED_ICE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CHISELED_BLUE_ICE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CHISELED_SCALED_ICE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.CHISELED_MINTED_ICE, ItemModelTable::inheritBlockFunc);
 
-        register(MarblesBlocks.CHISELED_ICE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CHISELED_BLUE_ICE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CHISELED_SCALED_ICE, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.CHISELED_MINTED_ICE, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.ICE_BRICKS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.BLUE_ICE_BRICKS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.SCALED_ICE_BRICKS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.MINTED_ICE_BRICKS, ItemModelTable::inheritBlockFunc);
 
-        register(MarblesBlocks.ICE_BRICKS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.BLUE_ICE_BRICKS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.SCALED_ICE_BRICKS, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.MINTED_ICE_BRICKS, item -> inherit(name(item, "block/%s")));
-
-        register(MarblesBlocks.SLUSH, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.BLUE_SLUSH, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.SCALED_SLUSH, item -> inherit(name(item, "block/%s")));
-        register(MarblesBlocks.MINTED_SLUSH, item -> inherit(name(item, "block/%s")));
+        register(MarblesBlocks.SLUSH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.BLUE_SLUSH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.SCALED_SLUSH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.MINTED_SLUSH, ItemModelTable::inheritBlockFunc);
     }
 
     private static void registerTravertineBlocks(TravertineBlocks blocks) {
-        register(blocks.RAW, item -> inherit(name(item, "block/%s")));
-        register(blocks.BRICKS, item -> inherit(name(item, "block/%s")));
-        register(blocks.CAPPED, item -> inherit(name(item, "block/%s")));
-        register(blocks.POLISHED, item -> inherit(name(item, "block/%s")));
-        register(blocks.SLAB, item -> inherit(name(item, "block/%s")));
-        register(blocks.BRICK_SLAB, item -> inherit(name(item, "block/%s")));
-        register(blocks.CAPPED_SLAB, item -> inherit(name(item, "block/%s")));
-        register(blocks.POLISHED_SLAB, item -> inherit(name(item, "block/%s")));
-        register(blocks.STAIRS, item -> inherit(name(item, "block/%s")));
-        register(blocks.BRICK_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(blocks.CAPPED_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(blocks.POLISHED_STAIRS, item -> inherit(name(item, "block/%s")));
-        register(blocks.WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
+        register(blocks.RAW, ItemModelTable::inheritBlockFunc);
+        register(blocks.BRICKS, ItemModelTable::inheritBlockFunc);
+        register(blocks.CAPPED, ItemModelTable::inheritBlockFunc);
+        register(blocks.POLISHED, ItemModelTable::inheritBlockFunc);
+        register(blocks.SLAB, ItemModelTable::inheritBlockFunc);
+        register(blocks.BRICK_SLAB, ItemModelTable::inheritBlockFunc);
+        register(blocks.CAPPED_SLAB, ItemModelTable::inheritBlockFunc);
+        register(blocks.POLISHED_SLAB, ItemModelTable::inheritBlockFunc);
+        register(blocks.STAIRS, ItemModelTable::inheritBlockFunc);
+        register(blocks.BRICK_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(blocks.CAPPED_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(blocks.POLISHED_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(blocks.WALL, ItemModelTable::wallSidedTopFunc);
         register(blocks.BRICK_WALL, item -> using(name(item, "block/%s_bricks", "_brick_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(blocks.CAPPED_WALL, item -> using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n)));
-        register(blocks.POLISHED_WALL, item -> wallInventory(name(item, "block/%s", "_wall")));
-        register(blocks.SALT_LAMP, item -> inherit(name(item, "block/%s")));
+        register(blocks.CAPPED_WALL, ItemModelTable::wallSidedTopFunc);
+        register(blocks.POLISHED_WALL, ItemModelTable::wallFunc);
+        register(blocks.SALT_LAMP, ItemModelTable::inheritBlockFunc);
     }
 
     private static void registerWoodBlocks(WoodBlocks blocks) {
-        register(blocks.PLANKS, item -> inherit(name(item, "block/%s")));
-        register(blocks.SAPLING, item -> generated(name(item, "block/%s")));
-        register(blocks.LOG, item -> inherit(name(item, "block/%s")));
-        register(blocks.STRIPPED_LOG, item -> inherit(name(item, "block/%s")));
-        register(blocks.WOOD, item -> inherit(name(item, "block/%s")));
-        register(blocks.STRIPPED_WOOD, item -> inherit(name(item, "block/%s")));
-        register(blocks.LEAVES, item -> inherit(name(item, "block/%s")));
-        register(blocks.SLAB, item -> inherit(name(item, "block/%s")));
-        register(blocks.STAIRS, item -> inherit(name(item, "block/%s")));
+        register(blocks.PLANKS, ItemModelTable::inheritBlockFunc);
+        register(blocks.SAPLING, ItemModelTable::generatedBlockFunc);
+        register(blocks.LOG, ItemModelTable::inheritBlockFunc);
+        register(blocks.STRIPPED_LOG, ItemModelTable::inheritBlockFunc);
+        register(blocks.WOOD, ItemModelTable::inheritBlockFunc);
+        register(blocks.STRIPPED_WOOD, ItemModelTable::inheritBlockFunc);
+        register(blocks.LEAVES, ItemModelTable::inheritBlockFunc);
+        register(blocks.SLAB, ItemModelTable::inheritBlockFunc);
+        register(blocks.STAIRS, ItemModelTable::inheritBlockFunc);
         register(blocks.FENCE, item -> fenceInventory(name(item, "block/%s_planks", "_fence")));
-        register(blocks.DOOR, item -> generated(name(item, "item/%s")));
+        register(blocks.DOOR, ItemModelTable::generatedItemFunc);
         register(blocks.TRAPDOOR, item -> inherit(name(item, "block/%s_bottom")));
-        register(blocks.FENCE_GATE, item -> inherit(name(item, "block/%s")));
-        register(blocks.PRESSURE_PLATE, item -> inherit(name(item, "block/%s")));
+        register(blocks.FENCE_GATE, ItemModelTable::inheritBlockFunc);
+        register(blocks.PRESSURE_PLATE, ItemModelTable::inheritBlockFunc);
         register(blocks.BUTTON, item -> buttonInventory(name(item, "block/%s_planks", "_button")));
-        register(blocks.SIGN_ITEM, item -> generated(name(item, "item/%s")));
-        register(blocks.BOAT_ITEM, item -> generated(name(item, "item/%s")));
+        register(blocks.SIGN_ITEM, ItemModelTable::generatedItemFunc);
+        register(blocks.BOAT_ITEM, ItemModelTable::generatedItemFunc);
     }
 
     private static void register(ItemConvertible provider, Function<Item, ModelGen> genFactory) {
@@ -300,6 +316,25 @@ public final class ItemModelTable {
 
     private static <T> T using(String name, Function<String, T> func) {
         return func.apply(name);
+    }
+
+    private static ModelGen generatedItemFunc(Item item) {
+        return generated(name(item, "item/%s"));
+    }
+    private static ModelGen generatedBlockFunc(Item item) {
+        return generated(name(item, "block/%s"));
+    }
+    private static ModelGen inheritBlockFunc(Item item) {
+        return inherit(name(item, "block/%s"));
+    }
+    private static ModelGen wallFunc(Item item) {
+        return wallInventory(name(item, "block/%s", "_wall"));
+    }
+    private static ModelGen wallSidedTopFunc(Item item) {
+        return using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_top", n + "_top", n));
+    }
+    private static ModelGen wallSidedTopBottomFunc(Item item) {
+        return using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_bottom", n + "_top", n));
     }
 
     private ItemModelTable() {

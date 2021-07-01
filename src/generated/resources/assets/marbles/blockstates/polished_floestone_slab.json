@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "marbles:block/polished_floestone_slab"
+    },
+    "type=double": {
+      "model": "marbles:block/polished_floestone"
+    },
+    "type=top": {
+      "model": "marbles:block/polished_floestone_slab_top"
+    }
+  }
+}

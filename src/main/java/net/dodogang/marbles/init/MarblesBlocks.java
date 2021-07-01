@@ -254,9 +254,21 @@ public class MarblesBlocks {
     public static final Block ICE_CAVE_AIR = register("ice_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
 
     public static final Block FLOESTONE = register("floestone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.BROWN).requiresTool().strength(1.5F, 6.0F)));
+    public static final Block FLOESTONE_SLAB = createSlab(FLOESTONE);
+    public static final Block FLOESTONE_STAIRS = createStairs(FLOESTONE);
+    public static final Block FLOESTONE_WALL = createWall(FLOESTONE);
+
     public static final Block POLISHED_FLOESTONE = copy("polished_floestone", FLOESTONE);
-    public static final Block CHISELED_FLOESTONE = copy("chiseled_floestone", FLOESTONE);
+    public static final Block POLISHED_FLOESTONE_SLAB = createSlab(POLISHED_FLOESTONE);
+    public static final Block POLISHED_FLOESTONE_STAIRS = createStairs(POLISHED_FLOESTONE);
+    public static final Block POLISHED_FLOESTONE_WALL = createWall(POLISHED_FLOESTONE);
+
     public static final Block FLOESTONE_BRICKS = copy("floestone_bricks", FLOESTONE);
+    public static final Block FLOESTONE_BRICK_SLAB = createSlab("floestone_brick", FLOESTONE_BRICKS);
+    public static final Block FLOESTONE_BRICK_STAIRS = createStairs("floestone_brick", FLOESTONE_BRICKS);
+    public static final Block FLOESTONE_BRICK_WALL = createWall("floestone_brick", FLOESTONE_BRICKS);
+
+    public static final Block CHISELED_FLOESTONE = copy("chiseled_floestone", FLOESTONE);
     public static final Block RILLED_FLOESTONE = register("rilled_floestone", new RilledFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).emissiveLighting((state, world, pos) -> true).luminance(11).slipperiness(0.85F)));
     public static final Block RINGED_FLOESTONE = register("ringed_floestone", new RingedFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).nonOpaque()));
 

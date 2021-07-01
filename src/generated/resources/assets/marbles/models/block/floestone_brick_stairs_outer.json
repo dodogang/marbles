@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "marbles:block/floestone_bricks",
+    "top": "marbles:block/floestone_bricks",
+    "side": "marbles:block/floestone_bricks"
+  }
+}

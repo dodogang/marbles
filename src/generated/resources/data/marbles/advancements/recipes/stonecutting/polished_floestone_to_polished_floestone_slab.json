@@ -1,0 +1,34 @@
+{
+  "parent": "marbles:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:stonecutting/polished_floestone_to_polished_floestone_slab"
+    ]
+  },
+  "criteria": {
+    "has_polished_floestone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "marbles:polished_floestone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:stonecutting/polished_floestone_to_polished_floestone_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_floestone",
+      "has_the_recipe"
+    ]
+  ]
+}

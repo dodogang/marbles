@@ -130,13 +130,29 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         register(MarblesBlocks.PINK_SALT_BRICKS, MarblesBlocks.PINK_SALT_BRICK_STAIRS);
 
         /*
-         * ICE
+         * FLOESTONE
          */
 
+        register(MarblesBlocks.FLOESTONE, MarblesBlocks.FLOESTONE_SLAB, 2);
+        register(MarblesBlocks.FLOESTONE, MarblesBlocks.FLOESTONE_STAIRS);
+        register(MarblesBlocks.FLOESTONE, MarblesBlocks.FLOESTONE_WALL);
+
+        register(MarblesBlocks.POLISHED_FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE_SLAB, 2);
+        register(MarblesBlocks.POLISHED_FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE_STAIRS);
+        register(MarblesBlocks.POLISHED_FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE_WALL);
+
+        register(MarblesBlocks.FLOESTONE_BRICKS, MarblesBlocks.FLOESTONE_BRICK_SLAB, 2);
+        register(MarblesBlocks.FLOESTONE_BRICKS, MarblesBlocks.FLOESTONE_BRICK_STAIRS);
+        register(MarblesBlocks.FLOESTONE_BRICKS, MarblesBlocks.FLOESTONE_BRICK_WALL);
+
         register(MarblesBlocks.FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE);
-        register(MarblesBlocks.FLOESTONE, MarblesBlocks.CHISELED_FLOESTONE);
         register(MarblesBlocks.FLOESTONE, MarblesBlocks.FLOESTONE_BRICKS);
+        register(MarblesBlocks.FLOESTONE, MarblesBlocks.CHISELED_FLOESTONE);
         register(MarblesBlocks.FLOESTONE, MarblesBlocks.RINGED_FLOESTONE);
+
+        /*
+         * ICE
+         */
 
         register(Blocks.ICE, MarblesBlocks.CUT_ICE);
         register(Blocks.BLUE_ICE, MarblesBlocks.CUT_BLUE_ICE);

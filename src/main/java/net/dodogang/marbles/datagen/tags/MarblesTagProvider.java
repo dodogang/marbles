@@ -63,23 +63,6 @@ public class MarblesTagProvider implements DataProvider {
         items.factory(ItemTags.WALLS).add(MarblesItemTags.TRAVERTINE_WALLS);
 
         add(
-            BlockTags.SLABS, ItemTags.SLABS,
-            LAPIS_SHINGLE_SLAB
-        );
-        add(
-            BlockTags.STAIRS, ItemTags.STAIRS,
-            LAPIS_SHINGLE_STAIRS
-        );
-        add(
-            BlockTags.SLABS, ItemTags.SLABS,
-            UMBRAL_LAZULI_SHINGLE_SLAB
-        );
-        add(
-            BlockTags.STAIRS, ItemTags.STAIRS,
-            UMBRAL_LAZULI_SHINGLE_STAIRS
-        );
-
-        add(
             MarblesItemTags.HIGH_LIGHT_BLOCKS,
             Blocks.GLOWSTONE,
             Blocks.SEA_LANTERN,
@@ -93,6 +76,9 @@ public class MarblesTagProvider implements DataProvider {
 
         add(
             BlockTags.SLABS, ItemTags.SLABS,
+
+            LAPIS_SHINGLE_SLAB,
+            UMBRAL_LAZULI_SHINGLE_SLAB,
 
             LIMESTONE_SLAB,
             POLISHED_LIMESTONE_SLAB,
@@ -108,11 +94,18 @@ public class MarblesTagProvider implements DataProvider {
             PINK_SALT_SLAB,
             PINK_SALT_BRICK_SLAB,
 
-            POLLENATED_COBBLESTONE_SLAB
+            POLLENATED_COBBLESTONE_SLAB,
+
+            FLOESTONE_SLAB,
+            POLISHED_FLOESTONE_SLAB,
+            FLOESTONE_BRICK_SLAB
         );
 
         add(
             BlockTags.STAIRS, ItemTags.STAIRS,
+
+            LAPIS_SHINGLE_STAIRS,
+            UMBRAL_LAZULI_SHINGLE_STAIRS,
 
             LIMESTONE_STAIRS,
             POLISHED_LIMESTONE_STAIRS,
@@ -128,7 +121,11 @@ public class MarblesTagProvider implements DataProvider {
             PINK_SALT_STAIRS,
             PINK_SALT_BRICK_STAIRS,
 
-            POLLENATED_COBBLESTONE_STAIRS
+            POLLENATED_COBBLESTONE_STAIRS,
+
+            FLOESTONE_STAIRS,
+            POLISHED_FLOESTONE_STAIRS,
+            FLOESTONE_BRICK_STAIRS
         );
 
         add(
@@ -145,7 +142,11 @@ public class MarblesTagProvider implements DataProvider {
             CUT_DUSK_SANDSTONE_WALL,
             SMOOTH_DUSK_SANDSTONE_WALL,
 
-            POLLENATED_COBBLESTONE_WALL
+            POLLENATED_COBBLESTONE_WALL,
+
+            FLOESTONE_WALL,
+            POLISHED_FLOESTONE_WALL,
+            FLOESTONE_BRICK_WALL
         );
 
         add(
@@ -323,9 +324,18 @@ public class MarblesTagProvider implements DataProvider {
             GLAZED_UMBRAL_LAZULI,
 
             FLOESTONE,
+            FLOESTONE_SLAB,
+            FLOESTONE_STAIRS,
+            FLOESTONE_WALL,
             POLISHED_FLOESTONE,
-            CHISELED_FLOESTONE,
+            POLISHED_FLOESTONE_SLAB,
+            POLISHED_FLOESTONE_STAIRS,
+            POLISHED_FLOESTONE_WALL,
             FLOESTONE_BRICKS,
+            FLOESTONE_BRICK_SLAB,
+            FLOESTONE_BRICK_STAIRS,
+            FLOESTONE_BRICK_WALL,
+            CHISELED_FLOESTONE,
             RILLED_FLOESTONE,
             RINGED_FLOESTONE,
 
@@ -383,9 +393,18 @@ public class MarblesTagProvider implements DataProvider {
             GLAZED_UMBRAL_LAZULI,
 
             FLOESTONE,
+            FLOESTONE_SLAB,
+            FLOESTONE_STAIRS,
+            FLOESTONE_WALL,
             POLISHED_FLOESTONE,
-            CHISELED_FLOESTONE,
+            POLISHED_FLOESTONE_SLAB,
+            POLISHED_FLOESTONE_STAIRS,
+            POLISHED_FLOESTONE_WALL,
             FLOESTONE_BRICKS,
+            FLOESTONE_BRICK_SLAB,
+            FLOESTONE_BRICK_STAIRS,
+            FLOESTONE_BRICK_WALL,
+            CHISELED_FLOESTONE,
             RILLED_FLOESTONE,
             RINGED_FLOESTONE,
 
@@ -521,9 +540,18 @@ public class MarblesTagProvider implements DataProvider {
             MarblesItemTags.CHORD_GROUP_ICE,
 
             FLOESTONE,
+            FLOESTONE_SLAB,
+            FLOESTONE_STAIRS,
+            FLOESTONE_WALL,
             POLISHED_FLOESTONE,
-            CHISELED_FLOESTONE,
+            POLISHED_FLOESTONE_SLAB,
+            POLISHED_FLOESTONE_STAIRS,
+            POLISHED_FLOESTONE_WALL,
             FLOESTONE_BRICKS,
+            FLOESTONE_BRICK_SLAB,
+            FLOESTONE_BRICK_STAIRS,
+            FLOESTONE_BRICK_WALL,
+            CHISELED_FLOESTONE,
             RILLED_FLOESTONE,
             RINGED_FLOESTONE,
 

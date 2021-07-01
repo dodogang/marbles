@@ -268,9 +268,21 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
          */
 
         addDrop(MarblesBlocks.FLOESTONE);
+        addSlabDrop(MarblesBlocks.FLOESTONE_SLAB);
+        addDrop(MarblesBlocks.FLOESTONE_STAIRS);
+        addDrop(MarblesBlocks.FLOESTONE_WALL);
+
         addDrop(MarblesBlocks.POLISHED_FLOESTONE);
-        addDrop(MarblesBlocks.CHISELED_FLOESTONE);
+        addSlabDrop(MarblesBlocks.POLISHED_FLOESTONE_SLAB);
+        addDrop(MarblesBlocks.POLISHED_FLOESTONE_STAIRS);
+        addDrop(MarblesBlocks.POLISHED_FLOESTONE_WALL);
+
         addDrop(MarblesBlocks.FLOESTONE_BRICKS);
+        addSlabDrop(MarblesBlocks.FLOESTONE_BRICK_SLAB);
+        addDrop(MarblesBlocks.FLOESTONE_BRICK_STAIRS);
+        addDrop(MarblesBlocks.FLOESTONE_BRICK_WALL);
+
+        addDrop(MarblesBlocks.CHISELED_FLOESTONE);
         addDrop(MarblesBlocks.RILLED_FLOESTONE, MarblesBlockLootTables::dropsWithSilkTouch);
         addDrop(MarblesBlocks.RINGED_FLOESTONE);
 

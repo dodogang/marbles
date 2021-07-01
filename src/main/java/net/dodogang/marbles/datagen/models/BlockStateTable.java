@@ -50,7 +50,7 @@ public final class BlockStateTable {
 
         String _netherPortalTexture = new Identifier("block/nether_portal").toString();
         register(TRAVERTINE_NETHER_PORTAL, block -> netherPortal(name(block, "block/%s"), netherPortalNs(_netherPortalTexture), netherPortalEw(_netherPortalTexture)));
-        register(TRAVERTINE_OBSIDIAN, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(TRAVERTINE_OBSIDIAN, BlockStateTable::cubeAllFunc);
 
         register(LIMESTONE, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(LIMESTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
@@ -65,43 +65,43 @@ public final class BlockStateTable {
          * PINK SALT
          */
 
-        register(PINK_SALT_CAVE_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
-        register(PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
-        register(PINK_SALT_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
-        register(CRUMBLED_PINK_SALT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_CAVE_AIR, BlockStateTable::emptyFunc);
+        register(PINK_SALT, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_SLAB, BlockStateTable::slabAllFunc);
+        register(PINK_SALT_STAIRS, BlockStateTable::stairsAllFunc);
+        register(CRUMBLED_PINK_SALT, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_BRICKS, BlockStateTable::cubeAllFunc);
         register(PINK_SALT_BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
         register(PINK_SALT_BRICK_STAIRS, block -> using(name(block, "block/%s_bricks", "_brick_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
         register(PINK_SALT_PILLAR, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(PINK_SALT_SPIRE, block -> predefined(name(block, "block/%s")));
-        register(PINK_SALT_STACK, block -> predefined(name(block, "block/%s")));
-        register(PINK_SALT_STUMP, block -> predefined(name(block, "block/%s")));
+        register(PINK_SALT_SPIRE, BlockStateTable::predefinedFunc);
+        register(PINK_SALT_STACK, BlockStateTable::predefinedFunc);
+        register(PINK_SALT_STUMP, BlockStateTable::predefinedFunc);
         register(PINK_SALT_SPIKES, block -> using(name(block, "block/%s"), name -> alternate(name, doubleCross(name + "_1"), doubleCross(name + "_2"))));
 
-        register(PINK_SALT_GOLD_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_IRON_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_COAL_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_LAPIS_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_DIAMOND_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_REDSTONE_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_EMERALD_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_COPPER_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(PINK_SALT_UMBRAL_LAZULI_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(PINK_SALT_GOLD_ORE, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_IRON_ORE, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_COAL_ORE, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_LAPIS_ORE, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_DIAMOND_ORE, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_REDSTONE_ORE, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_EMERALD_ORE, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_COPPER_ORE, BlockStateTable::cubeAllFunc);
+        register(PINK_SALT_UMBRAL_LAZULI_ORE, BlockStateTable::cubeAllFunc);
 
         /*
          * LAPIS SETS
          */
 
-        register(LAPIS_SHINGLES, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(LAPIS_SHINGLES, BlockStateTable::cubeAllFunc);
         register(LAPIS_SHINGLE_SLAB, block -> using(name(block, "block/%s_shingles", "_shingle_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
         register(LAPIS_SHINGLE_STAIRS, block -> using(name(block, "block/%s_shingles", "_shingle_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
         register(LAPIS_SPOTLIGHT, block -> facingRotated(name(block, "block/%s"), cubeSeparateSided(name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_front"), name(block, "block/%s_back"))));
         register(GLAZED_LAPIS, block -> dualConnecting(name(block, "block/%s")));
-        register(UMBRAL_LAZULI_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(DEEPSLATE_UMBRAL_LAZULI_ORE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(UMBRAL_LAZULI_BLOCK, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(UMBRAL_LAZULI_SHINGLES, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(UMBRAL_LAZULI_ORE, BlockStateTable::cubeAllFunc);
+        register(DEEPSLATE_UMBRAL_LAZULI_ORE, BlockStateTable::cubeAllFunc);
+        register(UMBRAL_LAZULI_BLOCK, BlockStateTable::cubeAllFunc);
+        register(UMBRAL_LAZULI_SHINGLES, BlockStateTable::cubeAllFunc);
         register(UMBRAL_LAZULI_SHINGLE_SLAB, block -> using(name(block, "block/%s_shingles", "_shingle_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
         register(UMBRAL_LAZULI_SHINGLE_STAIRS, block -> using(name(block, "block/%s_shingles", "_shingle_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
         register(UMBRAL_LAZULI_SPOTLIGHT, block -> facingRotated(name(block, "block/%s"), cubeSeparateSided(name(block, "block/%s_top"), name(block, "block/%s_side"), name(block, "block/%s_front"), name(block, "block/%s_back"))));
@@ -111,7 +111,7 @@ public final class BlockStateTable {
          * SANDSTONE SETS
          */
 
-        register(DAWN_SAND, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(DAWN_SAND, BlockStateTable::cubeAllFunc);
         register(DAWN_SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));
         register(CHISELED_DAWN_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^chiseled_", ""), name(block, "block/%s"))));
         register(CUT_DAWN_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^cut_", ""), name(block, "block/%s"))));
@@ -126,7 +126,7 @@ public final class BlockStateTable {
         register(CUT_DAWN_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_wall"))));
         register(SMOOTH_DAWN_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
 
-        register(DUSK_SAND, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(DUSK_SAND, BlockStateTable::cubeAllFunc);
         register(DUSK_SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));
         register(CHISELED_DUSK_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^chiseled_", ""), name(block, "block/%s"))));
         register(CUT_DUSK_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^cut_", ""), name(block, "block/%s"))));
@@ -148,8 +148,8 @@ public final class BlockStateTable {
          * GRISP SET
          */
 
-        register(GRISP_DIRT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(COARSE_GRISP_DIRT, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(GRISP_DIRT, BlockStateTable::cubeAllFunc);
+        register(COARSE_GRISP_DIRT, BlockStateTable::cubeAllFunc);
         register(GRISP_PODZOL, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(block, "block/grisp_dirt"), "block/snow", name(block, "block/%s_side_snowy"))));
         register(GRISP_MYCELIUM, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(block, "block/grisp_dirt"), "block/snow", name(block, "block/%s_side_snowy"))));
         register(GRISP_DIRT_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
@@ -157,10 +157,10 @@ public final class BlockStateTable {
         register(GRISP_MYCELIUM_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
         register(GRISP_FARMLAND, block -> farmland(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s"), name(block, "block/grisp_dirt")), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_moist"), name(block, "block/grisp_dirt"))));
 
-        register(POLLENATED_COBBLESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(POLLENATED_COBBLESTONE_SLAB, block -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab")));
-        register(POLLENATED_COBBLESTONE_STAIRS, block -> stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs")));
-        register(POLLENATED_COBBLESTONE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallAll(name(block, "block/%s"), n)));
+        register(POLLENATED_COBBLESTONE, BlockStateTable::cubeAllFunc);
+        register(POLLENATED_COBBLESTONE_SLAB, BlockStateTable::slabAllFunc);
+        register(POLLENATED_COBBLESTONE_STAIRS, BlockStateTable::stairsAllFunc);
+        register(POLLENATED_COBBLESTONE_WALL, BlockStateTable::wallAllFunc);
 
         register(ASPEN_GRASS, block -> simple(name(block, "block/%s"), cross(name(block, "block/%s"))));
         register(TALL_ASPEN_GRASS, block -> doubleBlock(name(block, "block/%s_bottom"), cross(name(block, "block/%s_bottom")), name(block, "block/%s_top"), cross(name(block, "block/%s_top"))));
@@ -185,51 +185,67 @@ public final class BlockStateTable {
          * POLLEN-GRACED SET
          */
 
-        register(POLLEN_GRACED_WOOL, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(POLLEN_GRACED_WOOL, BlockStateTable::cubeAllFunc);
         register(POLLEN_GRACED_CARPET, block -> simple(name(block, "block/%s"), carpet(name(POLLEN_GRACED_WOOL, "block/%s"))));
+
+        /*
+         * FLOESTONE
+         */
+
+        register(FLOESTONE, BlockStateTable::cubeAllFunc);
+        register(FLOESTONE_SLAB, BlockStateTable::slabAllFunc);
+        register(FLOESTONE_STAIRS, BlockStateTable::stairsAllFunc);
+        register(FLOESTONE_WALL, BlockStateTable::wallAllFunc);
+
+        register(POLISHED_FLOESTONE, BlockStateTable::cubeAllFunc);
+        register(POLISHED_FLOESTONE_SLAB, BlockStateTable::slabAllFunc);
+        register(POLISHED_FLOESTONE_STAIRS, BlockStateTable::stairsAllFunc);
+        register(POLISHED_FLOESTONE_WALL, BlockStateTable::wallAllFunc);
+
+        register(FLOESTONE_BRICKS, BlockStateTable::cubeAllFunc);
+        register(FLOESTONE_BRICK_SLAB, block -> using(name(block, "block/%ss", "_slab"), n -> slabAll(name(block, "block/%s"), n, n)));
+        register(FLOESTONE_BRICK_STAIRS, block -> using(name(block, "block/%ss", "_stairs"), n -> stairsAll(name(block, "block/%s"), n)));
+        register(FLOESTONE_BRICK_WALL, block -> using(name(block, "block/%ss", "_wall"), n -> wallAll(name(block, "block/%s"), n)));
+
+        register(CHISELED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s", "^chiseled_", ""), name(block, "block/%s"))));
+        register(RILLED_FLOESTONE, BlockStateTable::cubeAllFunc);
+        register(RINGED_FLOESTONE, block -> attaching(name(block, "block/%s"), thickRing(name(block, "block/%s"), name(block, "block/%s_side"))));
 
         /*
          * ICE
          */
 
-        register(ICE_CAVE_AIR, block -> simple(name(block, "block/%s"), ModelGen.EMPTY));
+        register(ICE_CAVE_AIR, BlockStateTable::emptyFunc);
 
-        register(FLOESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(POLISHED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(CHISELED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s", "^chiseled_", ""), name(block, "block/%s"))));
-        register(FLOESTONE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(RILLED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(RINGED_FLOESTONE, block -> attaching(name(block, "block/%s"), thickRing(name(block, "block/%s"), name(block, "block/%s_side"))));
+        register(SCALED_ICE, BlockStateTable::cubeAllFunc);
+        register(MINTED_ICE, BlockStateTable::cubeAllFunc);
 
-        register(SCALED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MINTED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-
-        register(CUT_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(CUT_BLUE_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(CUT_SCALED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(CUT_MINTED_ICE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(CUT_ICE, BlockStateTable::cubeAllFunc);
+        register(CUT_BLUE_ICE, BlockStateTable::cubeAllFunc);
+        register(CUT_SCALED_ICE, BlockStateTable::cubeAllFunc);
+        register(CUT_MINTED_ICE, BlockStateTable::cubeAllFunc);
 
         register(CHISELED_ICE, block -> facingHorizontalRotated(name(block, "block/%s"), horizontalOrientable(name(block, "block/%s"), name(Blocks.ICE, "block/%s"))));
         register(CHISELED_BLUE_ICE, block -> facingHorizontalRotated(name(block, "block/%s"), horizontalOrientable(name(block, "block/%s"), name(Blocks.BLUE_ICE, "block/%s"))));
         register(CHISELED_SCALED_ICE, block -> facingHorizontalRotated(name(block, "block/%s"), horizontalOrientable(name(block, "block/%s"), name(SCALED_ICE, "block/%s"))));
         register(CHISELED_MINTED_ICE, block -> facingHorizontalRotated(name(block, "block/%s"), horizontalOrientable(name(block, "block/%s"), name(MINTED_ICE, "block/%s"))));
 
-        register(ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(BLUE_ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(SCALED_ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MINTED_ICE_BRICKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(ICE_BRICKS, BlockStateTable::cubeAllFunc);
+        register(BLUE_ICE_BRICKS, BlockStateTable::cubeAllFunc);
+        register(SCALED_ICE_BRICKS, BlockStateTable::cubeAllFunc);
+        register(MINTED_ICE_BRICKS, BlockStateTable::cubeAllFunc);
 
-        register(SLUSH, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(BLUE_SLUSH, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(SCALED_SLUSH, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
-        register(MINTED_SLUSH, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(SLUSH, BlockStateTable::cubeAllFunc);
+        register(BLUE_SLUSH, BlockStateTable::cubeAllFunc);
+        register(SCALED_SLUSH, BlockStateTable::cubeAllFunc);
+        register(MINTED_SLUSH, BlockStateTable::cubeAllFunc);
     }
 
     private static void registerTravertineBlocks(TravertineBlocks blocks) {
         register(blocks.RAW, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(blocks.BRICKS, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(blocks.CAPPED, block -> facingRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(blocks.POLISHED, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(blocks.POLISHED, BlockStateTable::cubeAllFunc);
         register(blocks.SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
         register(blocks.BRICK_SLAB, block -> using(name(block, "block/%s_bricks", "_brick_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
         register(blocks.CAPPED_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
@@ -241,12 +257,12 @@ public final class BlockStateTable {
         register(blocks.WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
         register(blocks.BRICK_WALL, block -> using(name(block, "block/%s_bricks", "_brick_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
         register(blocks.CAPPED_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(blocks.POLISHED_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallAll(name(block, "block/%s"), n)));
-        register(blocks.SALT_LAMP, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(blocks.POLISHED_WALL, BlockStateTable::wallAllFunc);
+        register(blocks.SALT_LAMP, BlockStateTable::cubeAllFunc);
     }
 
     private static void registerWoodBlocks(WoodBlocks blocks) {
-        register(blocks.PLANKS, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s"))));
+        register(blocks.PLANKS, BlockStateTable::cubeAllFunc);
         register(blocks.SAPLING, block -> simple(name(block, "block/%s"), cross(name(block, "block/%s"))));
         register(blocks.POTTED_SAPLING, block -> simple(name(block, "block/%s"), flowerPotCross(name(blocks.SAPLING, "block/%s"))));
         register(blocks.LOG, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
@@ -303,6 +319,25 @@ public final class BlockStateTable {
 
     private static <T> T using(String name, Function<String, T> func) {
         return func.apply(name);
+    }
+
+    private static StateGen cubeAllFunc(Block block) {
+        return simple(name(block, "block/%s"), cubeAll(name(block, "block/%s")));
+    }
+    private static StateGen slabAllFunc(Block block) {
+        return slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), name(block, "block/%s", "_slab"));
+    }
+    private static StateGen stairsAllFunc(Block block) {
+        return stairsAll(name(block, "block/%s"), name(block, "block/%s", "_stairs"));
+    }
+    private static StateGen wallAllFunc(Block block) {
+        return using(name(block, "block/%s", "_wall"), n -> wallAll(name(block, "block/%s"), n));
+    }
+    private static StateGen emptyFunc(Block block) {
+        return simple(name(block, "block/%s"), ModelGen.EMPTY);
+    }
+    private static StateGen predefinedFunc(Block block) {
+        return predefined(name(block, "block/%s"));
     }
 
 

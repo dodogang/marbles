@@ -174,11 +174,26 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         blasting("pink_salt/ores/emerald_from_blasting", MarblesBlocks.PINK_SALT_EMERALD_ORE, Items.EMERALD, 1.0F);
 
         /*
-         * ICE
+         * FLOESTONE
          */
+
+        generic3x1("floestone/slab", MarblesBlocks.FLOESTONE, MarblesBlocks.FLOESTONE_SLAB, 6);
+        stairs("floestone/stairs", MarblesBlocks.FLOESTONE, MarblesBlocks.FLOESTONE_STAIRS, 4);
+        generic3x2("floestone/wall", MarblesBlocks.FLOESTONE, MarblesBlocks.FLOESTONE_WALL, 6);
+        generic3x1("floestone/polished_slab", MarblesBlocks.POLISHED_FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE_SLAB, 6);
+        stairs("floestone/polished_stairs", MarblesBlocks.POLISHED_FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE_STAIRS, 4);
+        generic3x2("floestone/polished_wall", MarblesBlocks.POLISHED_FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE_WALL, 6);
+        generic3x1("floestone/brick_slab", MarblesBlocks.FLOESTONE_BRICKS, MarblesBlocks.FLOESTONE_BRICK_SLAB, 6);
+        stairs("floestone/brick_stairs", MarblesBlocks.FLOESTONE_BRICKS, MarblesBlocks.FLOESTONE_BRICK_STAIRS, 4);
+        generic3x2("floestone/brick_wall", MarblesBlocks.FLOESTONE_BRICKS, MarblesBlocks.FLOESTONE_BRICK_WALL, 6);
 
         generic2x2("floestone/polished", MarblesBlocks.FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE, 4);
         ring("floestone/ringed", MarblesBlocks.FLOESTONE, MarblesBlocks.RINGED_FLOESTONE, 8);
+
+        /*
+         * ICE
+         */
+
         generic2x2("ice_bricks/ice", Blocks.ICE, MarblesBlocks.ICE_BRICKS, 4);
         generic2x2("ice_bricks/blue_ice", Blocks.BLUE_ICE, MarblesBlocks.BLUE_ICE_BRICKS, 4);
         generic2x2("ice_bricks/scaled_ice", MarblesBlocks.SCALED_ICE, MarblesBlocks.SCALED_ICE_BRICKS, 4);
