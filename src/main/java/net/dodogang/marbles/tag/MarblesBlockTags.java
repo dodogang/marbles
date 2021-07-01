@@ -25,6 +25,7 @@ public class MarblesBlockTags {
 
     public static final Tag.Identified<Block> GRISP_COLOR_SOURCE = register("grisp_color_source");
     public static final Tag.Identified<Block> SPECIAL_ROPE_SUPPORTS = register("special_rope_supports");
+    public static final Tag.Identified<Block> CROSSED_LATTICE = register("crossed_lattice");
 
     public static final Tag.Identified<Block> UMBRAL_LAZULI_ORES = register("umbral_lazuli_ores");
 

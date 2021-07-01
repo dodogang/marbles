@@ -73,6 +73,12 @@ public class MarblesTagProvider implements DataProvider {
             Blocks.BEACON,
             Blocks.JACK_O_LANTERN
         );
+        add(
+            MarblesBlockTags.CROSSED_LATTICE,
+
+            CROSSED_BAMBOO_LATTICE,
+            CROSSED_YELLOW_BAMBOO_LATTICE
+        );
 
         add(
             BlockTags.SLABS, ItemTags.SLABS,
@@ -633,6 +639,12 @@ public class MarblesTagProvider implements DataProvider {
             EntityType.WANDERING_TRADER,
             EntityType.TRADER_LLAMA
         );
+        add(
+            MarblesEntityTypeTags.CROSSED_LATICE_FALL_THROUGHABLES,
+
+            EntityType.ITEM
+        );
+
         add(MarblesEntities.THROWN_ROPE, MarblesEntityTypeTags.FALLING_BLOCK_TWEAKS_TRIGGER_FALL_ENTITIES);
 
 
