@@ -152,6 +152,7 @@ public final class ItemModelTable {
         register(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.POLLENATED_COBBLESTONE_WALL, ItemModelTable::wallFunc);
 
+        register(MarblesBlocks.ASPEN_SPROUTS, ItemModelTable::generatedBlockFunc);
         register(MarblesBlocks.ASPEN_GRASS, ItemModelTable::generatedBlockFunc);
         register(MarblesBlocks.TALL_ASPEN_GRASS, item -> generated(name(item, "block/%s_top")));
 

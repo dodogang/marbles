@@ -72,6 +72,7 @@ public class MarblesClient implements ClientModInitializer {
             MarblesBlocks.MORN_GRASS,
             MarblesBlocks.TALL_MORN_GRASS,
 
+            MarblesBlocks.ASPEN_SPROUTS,
             MarblesBlocks.ASPEN_GRASS,
             MarblesBlocks.TALL_ASPEN_GRASS,
 

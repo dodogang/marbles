@@ -609,6 +609,7 @@ public class MarblesTagProvider implements DataProvider {
             POLLENATED_COBBLESTONE_STAIRS,
             POLLENATED_COBBLESTONE_WALL,
 
+            ASPEN_SPROUTS,
             ASPEN_GRASS,
             TALL_ASPEN_GRASS
         );
