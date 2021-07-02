@@ -8,6 +8,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -23,6 +24,11 @@ public class BambooLatticeBlock extends AbstractAttachingBlock {
 
     public BambooLatticeBlock(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
+        return (stateFrom.isOf(this) && stateFrom.get(AbstractAttachingBlock.FACING) == state.get(AbstractAttachingBlock.FACING)) || super.isSideInvisible(state, stateFrom, direction);
     }
 
     @Override
