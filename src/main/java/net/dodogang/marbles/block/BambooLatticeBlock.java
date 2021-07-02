@@ -28,7 +28,10 @@ public class BambooLatticeBlock extends AbstractAttachingBlock {
 
     @Override
     public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
-        return (stateFrom.isOf(this) && stateFrom.get(AbstractAttachingBlock.FACING) == state.get(AbstractAttachingBlock.FACING)) || super.isSideInvisible(state, stateFrom, direction);
+        return (
+            stateFrom.isOf(this) && stateFrom.get(AbstractAttachingBlock.FACING) == state.get(AbstractAttachingBlock.FACING)
+            && direction.getOpposite() != state.get(AbstractAttachingBlock.FACING)
+        ) || super.isSideInvisible(state, stateFrom, direction);
     }
 
     @Override
