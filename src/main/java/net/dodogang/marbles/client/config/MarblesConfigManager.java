@@ -70,8 +70,7 @@ public class MarblesConfigManager {
                 JsonObject jsonObject = (JsonObject) new JsonParser().parse(json);
                 loaded = jsonObject;
 
-                MarblesConfig.Graphics.additionalCloudLayers.value = load(jsonObject, MarblesConfig.Graphics.additionalCloudLayers);
-                MarblesConfig.Graphics.onlyMarblesSplashTexts.value = load(jsonObject, MarblesConfig.Graphics.onlyMarblesSplashTexts);
+                OPTIONS.forEach(option -> option.value = load(jsonObject, option));
             }
         } catch (IOException ignored) {
             Marbles.log(Level.WARN, "Could not load configuration file! Saving and loading default values.");
@@ -80,7 +79,7 @@ public class MarblesConfigManager {
             Marbles.log(Level.WARN, "Configuration failed to load fully from file due to " + e + ". This is probably just a configuration update.");
         } catch (IllegalArgumentException e) {
             Marbles.log(Level.ERROR, "Configuration option failed to load: " + e);
-        }
+        } catch (Exception ignored) {}
     }
     private static JsonPrimitive load(JsonObject jsonObject, Option<JsonPrimitive> option) {
         try {
