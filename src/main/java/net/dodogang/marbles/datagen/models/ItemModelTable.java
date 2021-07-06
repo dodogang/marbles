@@ -131,8 +131,8 @@ public final class ItemModelTable {
         register(MarblesBlocks.CUT_DUSK_SANDSTONE_WALL, item -> using(name(item, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallSidedInventory(n + "_bottom", n + "_top", n)));
         register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, item -> wallInventory(name(item, "block/%s_top", "(^smooth_)|(_wall$)", "")));
 
-        register(MarblesBlocks.MORN_GRASS, item -> generated(name(item, "block/%s_inventory")));
-        register(MarblesBlocks.TALL_MORN_GRASS, item -> generated(name(item, "block/%s_inventory")));
+        register(MarblesBlocks.MORN_GRASS, ItemModelTable::generatedItemFunc);
+        register(MarblesBlocks.TALL_MORN_GRASS, ItemModelTable::generatedItemFunc);
 
         /*
          * GRISP SET

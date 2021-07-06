@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "marbles:block/tall_morn_grass_inventory"
+    "layer0": "marbles:item/tall_morn_grass"
   }
 }

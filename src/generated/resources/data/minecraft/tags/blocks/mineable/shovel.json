@@ -10,6 +10,10 @@
     "marbles:coarse_grisp_dirt",
     "marbles:grisp_farmland",
     "marbles:grisp_mycelium",
-    "marbles:grisp_mycelium_path"
+    "marbles:grisp_mycelium_path",
+    "marbles:slush",
+    "marbles:blue_slush",
+    "marbles:scaled_slush",
+    "marbles:minted_slush"
   ]
 }

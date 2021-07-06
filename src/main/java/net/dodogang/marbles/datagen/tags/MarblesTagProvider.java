@@ -377,7 +377,12 @@ public class MarblesTagProvider implements DataProvider {
             COARSE_GRISP_DIRT,
             GRISP_FARMLAND,
             GRISP_MYCELIUM,
-            GRISP_MYCELIUM_PATH
+            GRISP_MYCELIUM_PATH,
+
+            SLUSH,
+            BLUE_SLUSH,
+            SCALED_SLUSH,
+            MINTED_SLUSH
         );
 
         add(
