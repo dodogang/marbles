@@ -1,8 +1,6 @@
 package net.dodogang.marbles.mixin.hooks.client;
 
-import net.dodogang.marbles.block.RilledFloestoneBlock;
 import net.dodogang.marbles.client.config.MarblesConfig;
-import net.dodogang.marbles.sound.MarblesBlockSoundGroup;
 import net.dodogang.marbles.util.Util;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -12,10 +10,6 @@ import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Matrix4f;
 import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;
@@ -45,13 +39,12 @@ public abstract class WorldRendererMixin {
         }
     }
 
-    @Inject(method = "processGlobalEvent", at = @At("HEAD"), cancellable = true)
+    /*@Inject(method = "processGlobalEvent", at = @At("HEAD"), cancellable = true)
     private void checkCustomEvents(int eventId, BlockPos pos, int data, CallbackInfo ci) {
-        if (eventId == RilledFloestoneBlock.BREAK_WITHOUT_SILK_TOUCH_EVENT) {
-            BlockSoundGroup blockSoundGroup = MarblesBlockSoundGroup.ICE_BRICKS;
-            this.world.playSound(pos, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, (blockSoundGroup.getVolume() + 1.0F) / 9.0F, blockSoundGroup.getPitch() * 0.8F, false);
+        if (eventId == <a constant event id>) {
+            <thing>
 
             ci.cancel();
         }
-    }
+    }*/
 }

@@ -94,8 +94,6 @@
     ]
   },
 
-
-
   "block.pink_salt_bricks.break": {
     "category": "block",
     "subtitle": "subtitles.block.generic.break",
@@ -146,6 +144,86 @@
     ]
   },
 
+  "block.floestone.break": {
+    "sounds": [
+      { "name": "marbles:block/floestone/soft1", "pitch": 0.8, "volume": 1},
+      { "name": "marbles:block/floestone/soft2", "pitch": 0.8, "volume": 1},
+      { "name": "marbles:block/floestone/soft3", "pitch": 0.8, "volume": 1}
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.floestone.fall": {
+    "sounds": [
+      { "name": "marbles:block/floestone/hard1", "pitch": 0.75 },
+      { "name": "marbles:block/floestone/hard2", "pitch": 0.75 },
+      { "name": "marbles:block/floestone/hard3", "pitch": 0.75 }
+    ]
+  },
+  "block.floestone.hit": {
+    "sounds": [
+      { "name": "marbles:block/floestone/hard1", "pitch": 0.5, "volume": 0.25 },
+      { "name": "marbles:block/floestone/hard2", "pitch": 0.5, "volume": 0.25 },
+      { "name": "marbles:block/floestone/hard3", "pitch": 0.5, "volume": 0.25 }
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.floestone.place": {
+    "sounds": [
+      { "name": "marbles:block/floestone/soft1", "pitch": 1, "volume": 0.8},
+      { "name": "marbles:block/floestone/soft2", "pitch": 1, "volume": 0.8},
+      { "name": "marbles:block/floestone/soft3", "pitch": 1, "volume": 0.8}
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.floestone.step": {
+    "sounds": [
+      { "name": "marbles:block/floestone/hard1", "pitch": 0.8, "volume": 0.4 },
+      { "name": "marbles:block/floestone/hard2", "pitch": 0.8, "volume": 0.4 },
+      { "name": "marbles:block/floestone/hard3", "pitch": 0.8, "volume": 0.4 }
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+
+  "block.rilled_floestone.break": {
+    "sounds": [
+      "marbles:block/rilled_floestone/soft1",
+      "marbles:block/rilled_floestone/soft2",
+      "marbles:block/rilled_floestone/soft3"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.rilled_floestone.fall": {
+    "sounds": [
+      "marbles:block/rilled_floestone/hard1",
+      "marbles:block/rilled_floestone/hard2",
+      "marbles:block/rilled_floestone/hard3"
+    ]
+  },
+  "block.rilled_floestone.hit": {
+    "sounds": [
+      "marbles:block/rilled_floestone/hard1",
+      "marbles:block/rilled_floestone/hard2",
+      "marbles:block/rilled_floestone/hard3"
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.rilled_floestone.place": {
+    "sounds": [
+      "marbles:block/rilled_floestone/soft1",
+      "marbles:block/rilled_floestone/soft2",
+      "marbles:block/rilled_floestone/soft3"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.rilled_floestone.step": {
+    "sounds": [
+      "marbles:block/rilled_floestone/hard1",
+      "marbles:block/rilled_floestone/hard2",
+      "marbles:block/rilled_floestone/hard3"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+
   "block.ice_bricks.break": {
     "sounds": [
       "marbles:block/ice_bricks/soft1",
@@ -182,6 +260,46 @@
       "marbles:block/ice_bricks/hard1",
       "marbles:block/ice_bricks/hard2",
       "marbles:block/ice_bricks/hard3"
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
+  },
+
+  "block.slush.break": {
+    "sounds": [
+      { "name": "marbles:block/slush/soft1", "pitch": 1.15, "volume": 1},
+      { "name": "marbles:block/slush/soft2", "pitch": 1.15, "volume": 1},
+      { "name": "marbles:block/slush/soft3", "pitch": 1.15, "volume": 1}
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "block.slush.fall": {
+    "sounds": [
+      { "name": "marbles:block/slush/hard1", "pitch": 0.86 },
+      { "name": "marbles:block/slush/hard2", "pitch": 0.86 },
+      { "name": "marbles:block/slush/hard3", "pitch": 0.86 }
+    ]
+  },
+  "block.slush.hit": {
+    "sounds": [
+      { "name": "marbles:block/slush/soft1", "pitch": 1.15, "volume": 0.25 },
+      { "name": "marbles:block/slush/soft2", "pitch": 1.15, "volume": 0.25 },
+      { "name": "marbles:block/slush/soft3", "pitch": 1.15, "volume": 0.25 }
+    ],
+    "subtitle": "subtitles.block.generic.hit"
+  },
+  "block.slush.place": {
+    "sounds": [
+      { "name": "marbles:block/slush/hard1", "pitch": 1.05, "volume": 0.8},
+      { "name": "marbles:block/slush/hard2", "pitch": 1.05, "volume": 0.8},
+      { "name": "marbles:block/slush/hard3", "pitch": 1.05, "volume": 0.8}
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "block.slush.step": {
+    "sounds": [
+      { "name": "marbles:block/slush/hard1", "pitch": 1.38, "volume": 0.15 },
+      { "name": "marbles:block/slush/hard2", "pitch": 1.38, "volume": 0.15 },
+      { "name": "marbles:block/slush/hard3", "pitch": 1.38, "volume": 0.15 }
     ],
     "subtitle": "subtitles.block.generic.footsteps"
   },

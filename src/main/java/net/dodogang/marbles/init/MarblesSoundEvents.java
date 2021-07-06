@@ -43,6 +43,33 @@ public class MarblesSoundEvents {
         return block("ice_bricks", type);
     }
 
+    public static final SoundEvent BLOCK_SLUSH_BREAK = slush("break");
+    public static final SoundEvent BLOCK_SLUSH_STEP = slush("step");
+    public static final SoundEvent BLOCK_SLUSH_HIT = slush("hit");
+    public static final SoundEvent BLOCK_SLUSH_PLACE = slush("place");
+    public static final SoundEvent BLOCK_SLUSH_FALL = slush("fall");
+    private static SoundEvent slush(String type) {
+        return block("slush", type);
+    }
+
+    public static final SoundEvent BLOCK_FLOESTONE_BREAK = floestone("break");
+    public static final SoundEvent BLOCK_FLOESTONE_STEP = floestone("step");
+    public static final SoundEvent BLOCK_FLOESTONE_HIT = floestone("hit");
+    public static final SoundEvent BLOCK_FLOESTONE_PLACE = floestone("place");
+    public static final SoundEvent BLOCK_FLOESTONE_FALL = floestone("fall");
+    private static SoundEvent floestone(String type) {
+        return block("floestone", type);
+    }
+
+    public static final SoundEvent BLOCK_RILLED_FLOESTONE_BREAK = rilledFloestone("break");
+    public static final SoundEvent BLOCK_RILLED_FLOESTONE_STEP = rilledFloestone("step");
+    public static final SoundEvent BLOCK_RILLED_FLOESTONE_HIT = rilledFloestone("hit");
+    public static final SoundEvent BLOCK_RILLED_FLOESTONE_PLACE = rilledFloestone("place");
+    public static final SoundEvent BLOCK_RILLED_FLOESTONE_FALL = rilledFloestone("fall");
+    private static SoundEvent rilledFloestone(String type) {
+        return block("rilled_floestone", type);
+    }
+
     public static final SoundEvent AMBIENT_PINK_SALT_CAVE_LOOP = pinkSaltCaveAmbient("loop");
     public static final SoundEvent AMBIENT_PINK_SALT_CAVE_ADDITIONS = pinkSaltCaveAmbient("additions");
     public static final SoundEvent MUSIC_PINK_SALT_CAVE = register("music.pink_salt_cave");

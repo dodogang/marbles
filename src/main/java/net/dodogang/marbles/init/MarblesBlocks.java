@@ -17,6 +17,7 @@ import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.sound.MarblesBlockSoundGroup;
 import net.dodogang.marbles.sound.MarblesSoundGroups;
 import net.dodogang.marbles.state.property.MarblesProperties;
+import net.dodogang.marbles.util.ModLoaded;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
@@ -226,7 +227,7 @@ public class MarblesBlocks {
      * LAPIS SETS
      */
 
-    public static final Block LAPIS_SHINGLES = register("lapis_shingles", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK)));
+    public static final Block LAPIS_SHINGLES = copy("lapis_shingles", Blocks.LAPIS_BLOCK);
     public static final Block LAPIS_SHINGLE_SLAB = createSlab("lapis_shingle", LAPIS_SHINGLES);
     public static final Block LAPIS_SHINGLE_STAIRS = createStairs("lapis_shingle", LAPIS_SHINGLES);
     public static final Block LAPIS_SPOTLIGHT = register("lapis_spotlight", new SpotlightBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK)));
@@ -236,7 +237,7 @@ public class MarblesBlocks {
     public static final Block UMBRAL_LAZULI_ORE = register("umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE)));
     public static final Block DEEPSLATE_UMBRAL_LAZULI_ORE = register("deepslate_umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(UMBRAL_LAZULI_ORE).mapColor(MapColor.DEEPSLATE_GRAY).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE), UniformIntProvider.create(2, 5)));
     public static final Block PINK_SALT_UMBRAL_LAZULI_ORE = register("pink_salt_umbral_lazuli_ore", new OreBlock(FabricBlockSettings.copyOf(UMBRAL_LAZULI_ORE).mapColor(MapColor.ORANGE).sounds(MarblesSoundGroups.PINK_SALT), UniformIntProvider.create(2, 5)));
-    public static final Block UMBRAL_LAZULI_BLOCK = register("umbral_lazuli_block", new Block(FabricBlockSettings.copyOf(Blocks.LAPIS_BLOCK)));
+    public static final Block UMBRAL_LAZULI_BLOCK = copy("umbral_lazuli_block", Blocks.LAPIS_BLOCK);
     public static final Block UMBRAL_LAZULI_SHINGLES = copy("umbral_lazuli_shingles", LAPIS_SHINGLES);
     public static final Block UMBRAL_LAZULI_SHINGLE_SLAB = createSlab("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
     public static final Block UMBRAL_LAZULI_SHINGLE_STAIRS = createStairs("umbral_lazuli_shingle", UMBRAL_LAZULI_SHINGLES);
@@ -253,7 +254,7 @@ public class MarblesBlocks {
      */
     public static final Block ICE_CAVE_AIR = register("ice_cave_air", new PublicAirBlock(FabricBlockSettings.copyOf(Blocks.AIR)), false);
 
-    public static final Block FLOESTONE = register("floestone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.BROWN).requiresTool().strength(1.5F, 6.0F)));
+    public static final Block FLOESTONE = register("floestone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.BROWN).sounds(MarblesBlockSoundGroup.FLOESTONE).requiresTool().strength(1.5F, 6.0F)));
     public static final Block FLOESTONE_SLAB = createSlab(FLOESTONE);
     public static final Block FLOESTONE_STAIRS = createStairs(FLOESTONE);
     public static final Block FLOESTONE_WALL = createWall(FLOESTONE);
@@ -269,7 +270,7 @@ public class MarblesBlocks {
     public static final Block FLOESTONE_BRICK_WALL = createWall("floestone_brick", FLOESTONE_BRICKS);
 
     public static final Block CHISELED_FLOESTONE = copy("chiseled_floestone", FLOESTONE);
-    public static final Block RILLED_FLOESTONE = register("rilled_floestone", new RilledFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).emissiveLighting((state, world, pos) -> true).luminance(11).slipperiness(0.85F)));
+    public static final Block RILLED_FLOESTONE = register("rilled_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE).emissiveLighting((state, world, pos) -> !ModLoaded.CANVAS).postProcess((state, world, pos) -> !ModLoaded.CANVAS).luminance(8).slipperiness(0.85F)));
     public static final Block RINGED_FLOESTONE = register("ringed_floestone", new RingedFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).nonOpaque()));
 
     /**
@@ -301,11 +302,11 @@ public class MarblesBlocks {
     public static final Block SCALED_ICE_BRICKS = register("scaled_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(SCALED_ICE).nonOpaque().sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
     public static final Block MINTED_ICE_BRICKS = register("minted_ice_bricks", new PublicTransparentBlock(FabricBlockSettings.copyOf(MINTED_ICE).nonOpaque().sounds(MarblesBlockSoundGroup.ICE_BRICKS)));
 
-    private static final FabricBlockSettings SLUSH_SETTINGS = FabricBlockSettings.copyOf(Blocks.GRAVEL).nonOpaque().velocityMultiplier(0.8f);
-    public static final Block SLUSH = register("slush", new TransparentFallingBlock(SLUSH_SETTINGS));
-    public static final Block BLUE_SLUSH = register("blue_slush", new TransparentFallingBlock(SLUSH_SETTINGS));
-    public static final Block SCALED_SLUSH = register("scaled_slush", new TransparentFallingBlock(SLUSH_SETTINGS));
-    public static final Block MINTED_SLUSH = register("minted_slush", new TransparentFallingBlock(SLUSH_SETTINGS));
+    private static final FabricBlockSettings SLUSH_SETTINGS = FabricBlockSettings.copyOf(Blocks.GRAVEL).sounds(MarblesBlockSoundGroup.SLUSH).slipperiness(0.85F);
+    public static final Block SLUSH = register("slush", new FallingBlock(SLUSH_SETTINGS));
+    public static final Block BLUE_SLUSH = register("blue_slush", new FallingBlock(SLUSH_SETTINGS));
+    public static final Block SCALED_SLUSH = register("scaled_slush", new FallingBlock(SLUSH_SETTINGS));
+    public static final Block MINTED_SLUSH = register("minted_slush", new FallingBlock(SLUSH_SETTINGS));
 
     /*
      * GRISP SET
