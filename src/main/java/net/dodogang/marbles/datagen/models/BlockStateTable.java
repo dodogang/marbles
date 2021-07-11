@@ -141,8 +141,8 @@ public final class BlockStateTable {
         register(CUT_DUSK_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_wall"))));
         register(SMOOTH_DUSK_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
 
-        register(MORN_GRASS, block -> simple(name(block, "block/%s"), octoCross(name(block, "block/%s")).texture("particle", name(block, "block/%s_inventory"))));
-        register(TALL_MORN_GRASS, block -> doubleBlock(name(block, "block/%s_bottom"), tallOctoCrossBottom(name(block, "block/%s")).texture("particle", name(block, "block/%s_inventory")), name(block, "block/%s_top"), tallOctoCrossTop(name(block, "block/%s")).texture("particle", name(block, "block/%s_inventory"))));
+        register(MORN_GRASS, block -> simple(name(block, "block/%s"), octoCross(name(block, "block/%s")).texture("particle", name(block, "item/%s"))));
+        register(TALL_MORN_GRASS, block -> doubleBlock(name(block, "block/%s_bottom"), tallOctoCrossBottom(name(block, "block/%s")).texture("particle", name(block, "item/%s")), name(block, "block/%s_top"), tallOctoCrossTop(name(block, "block/%s")).texture("particle", name(block, "item/%s"))));
 
         /*
          * GRISP SET
@@ -181,6 +181,12 @@ public final class BlockStateTable {
 
         register(CHEQUERED_YELLOW_BAMBOO_LATTICE, block -> attaching(name(block, "block/%s"), doubleThin(name(block, "block/%s"))));
         register(CROSSED_YELLOW_BAMBOO_LATTICE, block -> attaching(name(block, "block/%s"), doubleThin(name(block, "block/%s"))));
+
+        register(BAMBOO_TIKI_TORCH, block -> simple(name(block, "block/%s"), torch(name(block, "block/%s"))));
+        register(BAMBOO_TIKI_POLE, block -> simple(name(block, "block/%s"), standingPole(name(block, "block/%s"))));
+
+        register(YELLOW_BAMBOO_TIKI_TORCH, block -> simple(name(block, "block/%s"), thickTorch(name(block, "block/%s"))));
+        register(YELLOW_BAMBOO_TIKI_POLE, block -> simple(name(block, "block/%s"), thickStandingPole(name(block, "block/%s"))));
 
         /*
          * POLLEN-GRACED SET

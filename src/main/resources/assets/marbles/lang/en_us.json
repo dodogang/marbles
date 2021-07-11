@@ -306,6 +306,11 @@
   "block.marbles.chequered_yellow_bamboo_lattice": "Chequered Yellow Bamboo Lattice",
   "block.marbles.crossed_yellow_bamboo_lattice": "Crossed Yellow Bamboo Lattice",
 
+  "block.marbles.bamboo_tiki_torch": "Bamboo Tiki Torch",
+  "block.marbles.bamboo_tiki_pole": "Bamboo Tiki Pole",
+  "block.marbles.yellow_bamboo_tiki_torch": "Yellow Bamboo Tiki Torch",
+  "block.marbles.yellow_bamboo_tiki_pole": "Yellow Bamboo Tiki Pole",
+
   "biome.marbles.travertine_straws": "Travertine Straws",
   "biome.marbles.yellow_bamboo_jungle": "Yellow Bamboo Jungle",
   "biome.marbles.yellow_bamboo_jungle_hills": "Yellow Bamboo Jungle Hills",

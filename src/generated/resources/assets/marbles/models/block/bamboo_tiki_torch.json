@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_torch",
+  "textures": {
+    "torch": "marbles:block/bamboo_tiki_torch"
+  }
+}

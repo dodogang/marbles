@@ -181,6 +181,12 @@ public final class ItemModelTable {
         register(MarblesBlocks.CHEQUERED_YELLOW_BAMBOO_LATTICE, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.CROSSED_YELLOW_BAMBOO_LATTICE, ItemModelTable::inheritBlockFunc);
 
+        register(MarblesBlocks.BAMBOO_TIKI_TORCH, ItemModelTable::generatedBlockFunc);
+        register(MarblesBlocks.BAMBOO_TIKI_POLE, ItemModelTable::inheritBlockFunc);
+
+        register(MarblesBlocks.YELLOW_BAMBOO_TIKI_TORCH, ItemModelTable::generatedBlockFunc);
+        register(MarblesBlocks.YELLOW_BAMBOO_TIKI_POLE, ItemModelTable::inheritBlockFunc);
+
         /*
          * MISC
          */

@@ -64,10 +64,16 @@ public class MarblesClient implements ClientModInitializer {
             MarblesBlocks.CHEQUERED_YELLOW_BAMBOO_LATTICE,
             MarblesBlocks.CROSSED_YELLOW_BAMBOO_LATTICE,
 
+            MarblesBlocks.BAMBOO_TIKI_TORCH,
+            MarblesBlocks.BAMBOO_TIKI_POLE,
+
             MarblesBlocks.BLUE_PEONY,
             MarblesBlocks.PINK_SALT_SPIKES,
             MarblesBlocks.POLLEN_GRACED_WOOL,
             MarblesBlocks.POTTED_YELLOW_BAMBOO,
+
+            MarblesBlocks.YELLOW_BAMBOO_TIKI_TORCH,
+            MarblesBlocks.YELLOW_BAMBOO_TIKI_POLE,
 
             MarblesBlocks.MORN_GRASS,
             MarblesBlocks.TALL_MORN_GRASS,

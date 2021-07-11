@@ -191,6 +191,12 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.CHEQUERED_YELLOW_BAMBOO_LATTICE);
         addDrop(MarblesBlocks.CROSSED_YELLOW_BAMBOO_LATTICE);
 
+        addDrop(MarblesBlocks.BAMBOO_TIKI_TORCH);
+        addDrop(MarblesBlocks.BAMBOO_TIKI_POLE);
+
+        addDrop(MarblesBlocks.YELLOW_BAMBOO_TIKI_TORCH);
+        addDrop(MarblesBlocks.YELLOW_BAMBOO_TIKI_POLE);
+
         /*
          * SANDSTONE SETS
          */

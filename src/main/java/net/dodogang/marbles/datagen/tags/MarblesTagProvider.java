@@ -246,6 +246,8 @@ public class MarblesTagProvider implements DataProvider {
             YELLOW_BAMBOO, YELLOW_SCAFFOLDING,
             CHEQUERED_YELLOW_BAMBOO_LATTICE, CROSSED_YELLOW_BAMBOO_LATTICE,
 
+            BAMBOO_TIKI_POLE,
+
             POLLEN_GRACED_BED
         );
         add(
@@ -629,7 +631,13 @@ public class MarblesTagProvider implements DataProvider {
             YELLOW_BAMBOO,
             YELLOW_SCAFFOLDING,
             CHEQUERED_YELLOW_BAMBOO_LATTICE,
-            CROSSED_YELLOW_BAMBOO_LATTICE
+            CROSSED_YELLOW_BAMBOO_LATTICE,
+
+            BAMBOO_TIKI_TORCH,
+            BAMBOO_TIKI_POLE,
+
+            YELLOW_BAMBOO_TIKI_TORCH,
+            YELLOW_BAMBOO_TIKI_POLE
         );
 
         /*

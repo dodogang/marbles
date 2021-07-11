@@ -6,6 +6,10 @@
     "marbles:yellow_bamboo",
     "marbles:yellow_scaffolding",
     "marbles:chequered_yellow_bamboo_lattice",
-    "marbles:crossed_yellow_bamboo_lattice"
+    "marbles:crossed_yellow_bamboo_lattice",
+    "marbles:bamboo_tiki_torch",
+    "marbles:bamboo_tiki_pole",
+    "marbles:yellow_bamboo_tiki_torch",
+    "marbles:yellow_bamboo_tiki_pole"
   ]
 }

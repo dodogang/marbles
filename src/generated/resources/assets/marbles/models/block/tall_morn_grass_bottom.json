@@ -2,6 +2,6 @@
   "parent": "marbles:block/template_tall_octo_cross_bottom",
   "textures": {
     "cross": "marbles:block/tall_morn_grass",
-    "particle": "marbles:block/tall_morn_grass_inventory"
+    "particle": "marbles:item/tall_morn_grass"
   }
 }

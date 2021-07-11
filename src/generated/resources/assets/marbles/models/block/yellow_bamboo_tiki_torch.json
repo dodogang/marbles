@@ -1,0 +1,6 @@
+{
+  "parent": "marbles:block/template_thick_torch",
+  "textures": {
+    "torch": "marbles:block/yellow_bamboo_tiki_torch"
+  }
+}

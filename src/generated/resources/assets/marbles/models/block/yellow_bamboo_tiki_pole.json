@@ -1,0 +1,6 @@
+{
+  "parent": "marbles:block/thick_standing_pole",
+  "textures": {
+    "texture": "marbles:block/yellow_bamboo_tiki_pole"
+  }
+}

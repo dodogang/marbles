@@ -414,4 +414,22 @@ public class InheritingModelGen implements ModelGen {
     public static InheritingModelGen doubleThin(String texture) {
         return doubleThin(texture, texture);
     }
+
+    public static InheritingModelGen torch(String texture) {
+        return new InheritingModelGen(new Identifier("block/template_torch"))
+            .texture("torch", texture);
+    }
+    public static InheritingModelGen thickTorch(String texture) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_thick_torch"))
+            .texture("torch", texture);
+    }
+
+    public static InheritingModelGen standingPole(String texture) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/standing_pole"))
+            .texture("texture", texture);
+    }
+    public static InheritingModelGen thickStandingPole(String texture) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/thick_standing_pole"))
+            .texture("texture", texture);
+    }
 }

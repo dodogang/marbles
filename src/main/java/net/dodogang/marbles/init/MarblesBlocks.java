@@ -2,6 +2,7 @@ package net.dodogang.marbles.init;
 
 import me.andante.chord.block.CBambooBlock;
 import me.andante.chord.block.CBambooSaplingBlock;
+import me.andante.chord.block.enums.TripleBlockPart;
 import me.andante.chord.block.helper.WoodBlocks;
 import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.marbles.Marbles;
@@ -12,6 +13,7 @@ import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.dodogang.marbles.block.sapling.RedBirchSaplingGenerator;
 import net.dodogang.marbles.block.vanilla.PublicAirBlock;
 import net.dodogang.marbles.block.vanilla.PublicFernBlock;
+import net.dodogang.marbles.block.vanilla.PublicTorchBlock;
 import net.dodogang.marbles.block.vanilla.PublicTransparentBlock;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.sound.MarblesBlockSoundGroup;
@@ -25,6 +27,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.DyeColor;
@@ -157,14 +160,20 @@ public class MarblesBlocks {
     public static final Block CHEQUERED_BAMBOO_LATTICE = register("chequered_bamboo_lattice", new BambooLatticeBlock(BAMBOO_LATTICE_SETTINGS));
     public static final Block CROSSED_BAMBOO_LATTICE = register("crossed_bamboo_lattice", new BambooLatticeBlock(BAMBOO_LATTICE_SETTINGS));
 
+    public static final Block CHEQUERED_YELLOW_BAMBOO_LATTICE = register("chequered_yellow_bamboo_lattice", new BambooLatticeBlock(FabricBlockSettings.copyOf(CHEQUERED_BAMBOO_LATTICE)));
+    public static final Block CROSSED_YELLOW_BAMBOO_LATTICE = register("crossed_yellow_bamboo_lattice", new BambooLatticeBlock(FabricBlockSettings.copyOf(CROSSED_BAMBOO_LATTICE)));
+
+    public static final Block BAMBOO_TIKI_TORCH = register("bamboo_tiki_torch", new PublicTorchBlock(FabricBlockSettings.copyOf(Blocks.TORCH), ParticleTypes.FLAME));
+    public static final Block YELLOW_BAMBOO_TIKI_TORCH = register("yellow_bamboo_tiki_torch", new PublicTorchBlock(FabricBlockSettings.copyOf(BAMBOO_TIKI_TORCH), ParticleTypes.FLAME));
+
+    public static final Block BAMBOO_TIKI_POLE = register("bamboo_tiki_pole", new SupportingPoleBlock(state -> state.getBlock() instanceof TorchBlock, FabricBlockSettings.of(Material.DECORATION).luminance(state -> state.get(SupportingPoleBlock.PART) == TripleBlockPart.UPPER ? 14 : 0).nonOpaque()));
+    public static final Block YELLOW_BAMBOO_TIKI_POLE = register("yellow_bamboo_tiki_pole", new SupportingPoleBlock(state -> state.getBlock() instanceof TorchBlock, FabricBlockSettings.copyOf(BAMBOO_TIKI_POLE)));
+
     public static final Block YELLOW_BAMBOO = register("yellow_bamboo", new CBambooBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO)));
     public static final Block YELLOW_BAMBOO_SAPLING = register("yellow_bamboo_sapling", new CBambooSaplingBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO_SAPLING)), false);
     public static final Block POTTED_YELLOW_BAMBOO = register("potted_yellow_bamboo", new FlowerPotBlock(YELLOW_BAMBOO, FabricBlockSettings.of(Material.DECORATION).breakInstantly().nonOpaque()), false);
 
     public static final Block YELLOW_SCAFFOLDING = register("yellow_scaffolding", new YellowScaffoldingBlock(FabricBlockSettings.copyOf(Blocks.SCAFFOLDING)), false);
-
-    public static final Block CHEQUERED_YELLOW_BAMBOO_LATTICE = register("chequered_yellow_bamboo_lattice", new BambooLatticeBlock(FabricBlockSettings.copyOf(CHEQUERED_BAMBOO_LATTICE)));
-    public static final Block CROSSED_YELLOW_BAMBOO_LATTICE = register("crossed_yellow_bamboo_lattice", new BambooLatticeBlock(FabricBlockSettings.copyOf(CROSSED_BAMBOO_LATTICE)));
 
     /*
      * SANDS
