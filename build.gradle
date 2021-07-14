@@ -21,13 +21,15 @@ minecraft {}
 repositories {
     maven { url "https://jitpack.io/" }
     maven { url "https://maven.dblsaiko.net/" }
-    maven { url "https://maven.terraformersmc.com/releases/" }
     maven { url "https://server.bbkr.space/artifactory/libs-release/" }
     maven { url 'https://maven.blamejared.com/' }
     maven { url "https://maven.fabricmc.net/" }
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.shadew.net/" }
     maven { url "https://maven.enginehub.org/repo/" }
+
+    maven { url "https://maven.terraformersmc.com/releases/" }
+    maven { url 'https://raw.githubusercontent.com/TerraformersMC/Archive/main/releases/' }
 }
 
 dependencies {
