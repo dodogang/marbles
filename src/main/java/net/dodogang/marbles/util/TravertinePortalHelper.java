@@ -12,8 +12,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.BlockLocating;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.PortalUtil;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
@@ -182,7 +182,7 @@ public class TravertinePortalHelper {
         return isValid() && foundPortalBlocks == width * height;
     }
 
-    public static Vec3d computeInterpolator(PortalUtil.Rectangle arg, Direction.Axis axis, Vec3d vec3d, EntityDimensions entityDimensions) {
+    public static Vec3d computeInterpolator(BlockLocating.Rectangle arg, Direction.Axis axis, Vec3d vec3d, EntityDimensions entityDimensions) {
         double d = (double) arg.width - (double) entityDimensions.width;
         double e = (double) arg.height - (double) entityDimensions.height;
         BlockPos blockPos = arg.lowerLeft;
@@ -208,7 +208,7 @@ public class TravertinePortalHelper {
         return new Vec3d(h, j, k);
     }
 
-    public static TeleportTarget computeTeleportTarget(ServerWorld world, PortalUtil.Rectangle portal, Direction.Axis axis, Vec3d posInterpolator, EntityDimensions size, Vec3d velocity, float f, float g) {
+    public static TeleportTarget computeTeleportTarget(ServerWorld world, BlockLocating.Rectangle portal, Direction.Axis axis, Vec3d posInterpolator, EntityDimensions size, Vec3d velocity, float f, float g) {
         BlockPos portalPos = portal.lowerLeft;
         BlockState portalBlock = world.getBlockState(portalPos);
         Direction.Axis portalAxis = portalBlock.get(Properties.HORIZONTAL_AXIS);

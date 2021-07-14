@@ -12,8 +12,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.BlockLocating;
 import net.minecraft.world.Heightmap;
-import net.minecraft.world.PortalUtil;
 import net.minecraft.world.border.WorldBorder;
 import net.minecraft.world.poi.PointOfInterest;
 import net.minecraft.world.poi.PointOfInterestStorage;
@@ -22,7 +22,7 @@ import java.util.Comparator;
 import java.util.Optional;
 
 public class TravertinePortalForcer {
-    public static Optional<PortalUtil.Rectangle> findPortal(ServerWorld world, BlockPos source, boolean isNether) {
+    public static Optional<BlockLocating.Rectangle> findPortal(ServerWorld world, BlockPos source, boolean isNether) {
         PointOfInterestStorage pois = world.getPointOfInterestStorage();
         int searchRange = isNether ? 16 : 128;
         pois.preloadChunks(world, source, searchRange);
@@ -46,7 +46,7 @@ public class TravertinePortalForcer {
             BlockPos pos = poi.getPos();
             world.getChunkManager().addTicket(ChunkTicketType.PORTAL, new ChunkPos(pos), 3, pos);
             BlockState portalState = world.getBlockState(pos);
-            return PortalUtil.getLargestRectangle(
+            return BlockLocating.getLargestRectangle(
                 pos,
                 portalState.get(Properties.HORIZONTAL_AXIS),
                 TravertinePortalHelper.MAX_WIDTH,
@@ -57,7 +57,7 @@ public class TravertinePortalForcer {
         });
     }
 
-    public static Optional<PortalUtil.Rectangle> createNewPortal(ServerWorld world, BlockPos pos, Direction.Axis axis) {
+    public static Optional<BlockLocating.Rectangle> createNewPortal(ServerWorld world, BlockPos pos, Direction.Axis axis) {
         Direction tangent = Direction.get(Direction.AxisDirection.POSITIVE, axis);
 
         double optimalDsq = -1;
@@ -175,7 +175,7 @@ public class TravertinePortalForcer {
             }
         }
 
-        return Optional.of(new PortalUtil.Rectangle(portalPos.toImmutable(), 2, 3));
+        return Optional.of(new BlockLocating.Rectangle(portalPos.toImmutable(), 2, 3));
     }
 
     private static boolean checkPortalSpaceLayer(ServerWorld world, BlockPos pos, BlockPos.Mutable mutable, Direction tangent, int nrmOff) {

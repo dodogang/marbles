@@ -11,7 +11,7 @@ import java.util.Random;
 public class RedBirchSaplingGenerator extends SaplingGenerator {
     @Nullable
     @Override
-    protected ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bees) {
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bees) {
         return MarblesConfiguredFeatures.RED_BIRCH;
     }
 }

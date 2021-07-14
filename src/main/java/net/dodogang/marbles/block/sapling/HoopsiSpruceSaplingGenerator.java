@@ -9,12 +9,12 @@ import java.util.Random;
 
 public class HoopsiSpruceSaplingGenerator extends LargeTreeSaplingGenerator {
     @Override
-    protected ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bl) {
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bl) {
         return MarblesConfiguredFeatures.HOOPSI_SPRUCE;
     }
 
     @Override
-    protected ConfiguredFeature<TreeFeatureConfig, ?> createLargeTreeFeature(Random random) {
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getLargeTreeFeature(Random random) {
         return MarblesConfiguredFeatures.MEGA_HOOPSI_SPRUCE;
     }
 }

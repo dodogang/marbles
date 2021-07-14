@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class AspenSaplingGenerator extends SaplingGenerator {
     @Override
-    protected ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bl) {
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bl) {
         return MarblesConfiguredFeatures.ASPEN;
     }
 }
