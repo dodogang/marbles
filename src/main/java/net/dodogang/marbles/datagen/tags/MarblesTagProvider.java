@@ -443,14 +443,14 @@ public class MarblesTagProvider implements DataProvider {
          * ITEM GROUPS
          */
 
-        // pink salt and travertine
-        items.factory(MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE).add(MarblesItemTags.TRAVERTINE_BLOCKS)
-                                                                           .add(MarblesItemTags.TRAVERTINE_LAMPS)
-                                                                           .add(MarblesItemTags.TRAVERTINE_SLABS)
-                                                                           .add(MarblesItemTags.TRAVERTINE_STAIRS)
-                                                                           .add(MarblesItemTags.TRAVERTINE_WALLS);
+        // travertine straws
+        items.factory(MarblesItemTags.CHORD_GROUP_TRAVERTINE_STRAWS).add(MarblesItemTags.TRAVERTINE_BLOCKS)
+             .add(MarblesItemTags.TRAVERTINE_LAMPS)
+             .add(MarblesItemTags.TRAVERTINE_SLABS)
+             .add(MarblesItemTags.TRAVERTINE_STAIRS)
+             .add(MarblesItemTags.TRAVERTINE_WALLS);
         add(
-            MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE,
+            MarblesItemTags.CHORD_GROUP_TRAVERTINE_STRAWS,
 
             TRAVERTINE_OBSIDIAN,
 
@@ -461,7 +461,12 @@ public class MarblesTagProvider implements DataProvider {
             POLISHED_LIMESTONE,
             POLISHED_LIMESTONE_SLAB,
             POLISHED_LIMESTONE_STAIRS,
-            POLISHED_LIMESTONE_WALL,
+            POLISHED_LIMESTONE_WALL
+        );
+
+        // pink salt caves
+        add(
+            MarblesItemTags.CHORD_GROUP_PINK_SALT_CAVES,
 
             PINK_SALT,
             CRUMBLED_PINK_SALT,
@@ -548,50 +553,6 @@ public class MarblesTagProvider implements DataProvider {
             SpawnEggItem.forEntity(MarblesEntities.BOUNCER)
         );
 
-        // ice
-        add(
-            MarblesItemTags.CHORD_GROUP_ICE,
-
-            FLOESTONE,
-            FLOESTONE_SLAB,
-            FLOESTONE_STAIRS,
-            FLOESTONE_WALL,
-            POLISHED_FLOESTONE,
-            POLISHED_FLOESTONE_SLAB,
-            POLISHED_FLOESTONE_STAIRS,
-            POLISHED_FLOESTONE_WALL,
-            FLOESTONE_BRICKS,
-            FLOESTONE_BRICK_SLAB,
-            FLOESTONE_BRICK_STAIRS,
-            FLOESTONE_BRICK_WALL,
-            CHISELED_FLOESTONE,
-            RILLED_FLOESTONE,
-            RINGED_FLOESTONE,
-
-            SCALED_ICE,
-            MINTED_ICE,
-
-            CUT_ICE,
-            CUT_BLUE_ICE,
-            CUT_SCALED_ICE,
-            CUT_MINTED_ICE,
-
-            CHISELED_ICE,
-            CHISELED_BLUE_ICE,
-            CHISELED_SCALED_ICE,
-            CHISELED_MINTED_ICE,
-
-            ICE_BRICKS,
-            BLUE_ICE_BRICKS,
-            SCALED_ICE_BRICKS,
-            MINTED_ICE_BRICKS,
-
-            SLUSH,
-            BLUE_SLUSH,
-            SCALED_SLUSH,
-            MINTED_SLUSH
-        );
-
         // aspen crevices
         addWoodSet(ASPEN, MarblesItemTags.CHORD_GROUP_ASPEN_CREVICES);
         add(
@@ -638,6 +599,50 @@ public class MarblesTagProvider implements DataProvider {
 
             YELLOW_BAMBOO_TIKI_TORCH,
             YELLOW_BAMBOO_TIKI_POLE
+        );
+
+        // ice
+        add(
+            MarblesItemTags.CHORD_GROUP_ICE,
+
+            FLOESTONE,
+            FLOESTONE_SLAB,
+            FLOESTONE_STAIRS,
+            FLOESTONE_WALL,
+            POLISHED_FLOESTONE,
+            POLISHED_FLOESTONE_SLAB,
+            POLISHED_FLOESTONE_STAIRS,
+            POLISHED_FLOESTONE_WALL,
+            FLOESTONE_BRICKS,
+            FLOESTONE_BRICK_SLAB,
+            FLOESTONE_BRICK_STAIRS,
+            FLOESTONE_BRICK_WALL,
+            CHISELED_FLOESTONE,
+            RILLED_FLOESTONE,
+            RINGED_FLOESTONE,
+
+            SCALED_ICE,
+            MINTED_ICE,
+
+            CUT_ICE,
+            CUT_BLUE_ICE,
+            CUT_SCALED_ICE,
+            CUT_MINTED_ICE,
+
+            CHISELED_ICE,
+            CHISELED_BLUE_ICE,
+            CHISELED_SCALED_ICE,
+            CHISELED_MINTED_ICE,
+
+            ICE_BRICKS,
+            BLUE_ICE_BRICKS,
+            SCALED_ICE_BRICKS,
+            MINTED_ICE_BRICKS,
+
+            SLUSH,
+            BLUE_SLUSH,
+            SCALED_SLUSH,
+            MINTED_SLUSH
         );
 
         /*

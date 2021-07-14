@@ -5,11 +5,13 @@
   "itemGroup.marbles": "Marbles (%s)",
   "itemGroup.marbles.title": "Marbles",
   "itemGroup.tab.marbles:all": "All",
-  "itemGroup.tab.marbles:pink_salt_and_travertine": "Pink Salt & Travertine",
-  "itemGroup.tab.marbles:ice": "Ice",
+
+  "itemGroup.tab.marbles:travertine_straws": "Travertine Straws",
+  "itemGroup.tab.marbles:pink_salt_caves": "Pink Salt Caves",
   "itemGroup.tab.marbles:sunset_grotto": "Sunset Grotto",
   "itemGroup.tab.marbles:aspen_crevices": "Aspen Crevices",
   "itemGroup.tab.marbles:bamboo_valley": "Bamboo Valley",
+  "itemGroup.tab.marbles:ice": "Ice",
 
   "block.marbles.travertine": "Travertine",
   "block.marbles.travertine_wall": "Travertine Wall",

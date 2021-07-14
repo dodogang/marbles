@@ -28,7 +28,8 @@ public class MarblesItemTags {
 
     public static final Tag.Identified<Item> UMBRAL_LAZULI_ORES = register("umbral_lazuli_ores");
 
-    public static final Tag.Identified<Item> CHORD_GROUP_PINK_SALT_AND_TRAVERTINE = chordGroup("pink_salt_and_travertine");
+    public static final Tag.Identified<Item> CHORD_GROUP_TRAVERTINE_STRAWS = chordGroup("travertine_straws");
+    public static final Tag.Identified<Item> CHORD_GROUP_PINK_SALT_CAVES = chordGroup("pink_salt_caves");
     public static final Tag.Identified<Item> CHORD_GROUP_SUNSET_GROTTO = chordGroup("sunset_grotto");
     public static final Tag.Identified<Item> CHORD_GROUP_ICE = chordGroup("ice");
     public static final Tag.Identified<Item> CHORD_GROUP_ASPEN_CREVICES = chordGroup("aspen_crevices");

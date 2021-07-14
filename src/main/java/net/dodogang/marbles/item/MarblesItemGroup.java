@@ -31,11 +31,12 @@ public class MarblesItemGroup extends AbstractTabbedItemGroup {
     @Override
     public List<ItemGroupTab> initTabs() {
         return ImmutableList.of(
-            createTab(MarblesBlocks.PINK_SALT, MarblesItemTags.CHORD_GROUP_PINK_SALT_AND_TRAVERTINE),
+            createTab(MarblesBlocks.TRAVERTINE_BLOCKS.RAW, MarblesItemTags.CHORD_GROUP_TRAVERTINE_STRAWS),
+            createTab(MarblesBlocks.PINK_SALT, MarblesItemTags.CHORD_GROUP_PINK_SALT_CAVES),
             createTab(MarblesBlocks.DAWN_SAND, MarblesItemTags.CHORD_GROUP_SUNSET_GROTTO),
-            createTab(MarblesBlocks.CUT_ICE, MarblesItemTags.CHORD_GROUP_ICE),
             createTab(MarblesBlocks.GRISP_PODZOL, MarblesItemTags.CHORD_GROUP_ASPEN_CREVICES),
-            createTab(MarblesBlocks.YELLOW_BAMBOO, MarblesItemTags.CHORD_GROUP_BAMBOO_VALLEY)
+            createTab(MarblesBlocks.YELLOW_BAMBOO, MarblesItemTags.CHORD_GROUP_BAMBOO_VALLEY),
+            createTab(MarblesBlocks.CUT_ICE, MarblesItemTags.CHORD_GROUP_ICE)
         );
     }
 
