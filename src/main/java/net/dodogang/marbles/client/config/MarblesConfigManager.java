@@ -46,7 +46,7 @@ public class MarblesConfigManager {
     }
 
     public static void save() {
-        JsonObject jsonObject = loaded;
+        JsonObject jsonObject = loaded == null ? new JsonObject() : loaded;
         OPTIONS.forEach(option -> jsonObject.add(option.getId(), option.value));
 
         try (PrintWriter out = new PrintWriter(FILE)) {
