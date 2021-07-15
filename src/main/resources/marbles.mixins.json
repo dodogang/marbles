@@ -16,6 +16,7 @@
     "EatGrassGoalAccessor",
     "EntityMixin",
     "EntityShapeContextMixin",
+    "FallingBlockMixin",
     "FluidBlockMixin",
     "LivingEntityMixin",
     "LlamaEntityMixin",

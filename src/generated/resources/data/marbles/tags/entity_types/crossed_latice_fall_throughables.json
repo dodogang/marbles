@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:item"
+    "minecraft:item",
+    "minecraft:falling_block"
   ]
 }

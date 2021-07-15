@@ -661,7 +661,8 @@ public class MarblesTagProvider implements DataProvider {
         add(
             MarblesEntityTypeTags.CROSSED_LATICE_FALL_THROUGHABLES,
 
-            EntityType.ITEM
+            EntityType.ITEM,
+            EntityType.FALLING_BLOCK
         );
 
         add(MarblesEntities.THROWN_ROPE, MarblesEntityTypeTags.FALLING_BLOCK_TWEAKS_TRIGGER_FALL_ENTITIES);
