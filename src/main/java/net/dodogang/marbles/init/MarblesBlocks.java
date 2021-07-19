@@ -166,7 +166,7 @@ public class MarblesBlocks {
     public static final Block BAMBOO_TIKI_TORCH = register("bamboo_tiki_torch", new PublicTorchBlock(FabricBlockSettings.copyOf(Blocks.TORCH), ParticleTypes.FLAME));
     public static final Block YELLOW_BAMBOO_TIKI_TORCH = register("yellow_bamboo_tiki_torch", new PublicTorchBlock(FabricBlockSettings.copyOf(BAMBOO_TIKI_TORCH), ParticleTypes.FLAME));
 
-    public static final Block BAMBOO_TIKI_POLE = register("bamboo_tiki_pole", new SupportingPoleBlock(state -> state.getBlock() instanceof TorchBlock, FabricBlockSettings.of(Material.DECORATION).luminance(state -> state.get(SupportingPoleBlock.PART) == TripleBlockPart.UPPER ? 14 : 0).nonOpaque()));
+    public static final Block BAMBOO_TIKI_POLE = register("bamboo_tiki_pole", new SupportingPoleBlock(state -> state.getBlock() instanceof TorchBlock, FabricBlockSettings.of(Material.DECORATION).luminance(state -> state.get(SupportingPoleBlock.PART) == TripleBlockPart.UPPER ? 14 : 0).nonOpaque().sounds(BlockSoundGroup.BAMBOO)));
     public static final Block YELLOW_BAMBOO_TIKI_POLE = register("yellow_bamboo_tiki_pole", new SupportingPoleBlock(state -> state.getBlock() instanceof TorchBlock, FabricBlockSettings.copyOf(BAMBOO_TIKI_POLE)));
 
     public static final Block YELLOW_BAMBOO = register("yellow_bamboo", new CBambooBlock(() -> (CBambooBlock) MarblesBlocks.YELLOW_BAMBOO, () -> (CBambooSaplingBlock) MarblesBlocks.YELLOW_BAMBOO_SAPLING, FabricBlockSettings.copyOf(Blocks.BAMBOO)));
