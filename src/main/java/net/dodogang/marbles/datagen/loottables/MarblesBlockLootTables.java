@@ -5,6 +5,8 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import me.andante.chord.block.helper.WoodBlocks;
 import net.dodogang.marbles.Marbles;
+import net.dodogang.marbles.block.QuadAttachingBlock;
+import net.dodogang.marbles.block.enums.QuadBlockPart;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesItems;
@@ -21,6 +23,7 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.*;
+import net.minecraft.loot.entry.AlternativeEntry;
 import net.minecraft.loot.entry.DynamicEntry;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
@@ -125,7 +128,7 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.LIMESTONE_SLAB);
         addDrop(MarblesBlocks.LIMESTONE_STAIRS);
         addDrop(MarblesBlocks.LIMESTONE_WALL);
-        addDrop(MarblesBlocks.POLISHED_LIMESTONE);
+        addDrop(MarblesBlocks.POLISHED_LIMESTONE, MarblesBlockLootTables::dropsAttachingQuad);
         addDrop(MarblesBlocks.POLISHED_LIMESTONE_SLAB);
         addDrop(MarblesBlocks.POLISHED_LIMESTONE_STAIRS);
         addDrop(MarblesBlocks.POLISHED_LIMESTONE_WALL);
@@ -763,6 +766,35 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
             pool().with(seeds)
                   .conditionally(stateCond(plant, TallPlantBlock.HALF, DoubleBlockHalf.UPPER))
                   .conditionally(checkDoublePlantHalf(plant, DoubleBlockHalf.LOWER))
+        );
+    }
+
+    protected static LootTable.Builder dropsAttachingQuad(Block block) {
+        return LootTable.builder().pool(
+            pool().with(
+                AlternativeEntry.builder(
+                    AlternativeEntry.builder(
+                        ItemEntry.builder(block)
+                                 .conditionally(
+                                     BlockStatePropertyLootCondition.builder(block)
+                                                                    .properties(StatePredicate.Builder.create().exactMatch(QuadAttachingBlock.PART, QuadBlockPart.SECOND))
+                                 )
+                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))),
+                        ItemEntry.builder(block)
+                                 .conditionally(
+                                     BlockStatePropertyLootCondition.builder(block)
+                                                                    .properties(StatePredicate.Builder.create().exactMatch(QuadAttachingBlock.PART, QuadBlockPart.THIRD))
+                                 )
+                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(3.0F))),
+                        ItemEntry.builder(block)
+                                 .conditionally(
+                                     BlockStatePropertyLootCondition.builder(block)
+                                                                    .properties(StatePredicate.Builder.create().exactMatch(QuadAttachingBlock.PART, QuadBlockPart.FOURTH))
+                                 )
+                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(4.0F)))),
+                        ItemEntry.builder(block)
+                )
+            )
         );
     }
 

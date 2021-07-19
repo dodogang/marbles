@@ -6,13 +6,78 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "marbles:polished_limestone"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:alternatives",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:block_state_property",
+                      "block": "marbles:polished_limestone",
+                      "properties": {
+                        "quad": "second"
+                      }
+                    }
+                  ],
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": 2.0,
+                      "add": false
+                    }
+                  ],
+                  "name": "marbles:polished_limestone"
+                },
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:block_state_property",
+                      "block": "marbles:polished_limestone",
+                      "properties": {
+                        "quad": "third"
+                      }
+                    }
+                  ],
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": 3.0,
+                      "add": false
+                    }
+                  ],
+                  "name": "marbles:polished_limestone"
+                },
+                {
+                  "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "condition": "minecraft:block_state_property",
+                      "block": "marbles:polished_limestone",
+                      "properties": {
+                        "quad": "fourth"
+                      }
+                    }
+                  ],
+                  "functions": [
+                    {
+                      "function": "minecraft:set_count",
+                      "count": 4.0,
+                      "add": false
+                    }
+                  ],
+                  "name": "marbles:polished_limestone"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "marbles:polished_limestone"
+            }
+          ]
         }
       ]
     }

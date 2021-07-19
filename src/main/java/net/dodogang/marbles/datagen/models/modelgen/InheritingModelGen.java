@@ -432,4 +432,30 @@ public class InheritingModelGen implements ModelGen {
         return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/thick_standing_pole"))
             .texture("texture", texture);
     }
+
+    public static InheritingModelGen quadFirstSided(String side, String top) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_quad_first"))
+            .texture("side", side)
+            .texture("top", top);
+    }
+    public static InheritingModelGen quadSecondSided(String side, String top) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_quad_second"))
+            .texture("side", side)
+            .texture("top", top);
+    }
+    public static InheritingModelGen quadThirdSided(String side, String top) {
+        return new InheritingModelGen(new Identifier(Marbles.MOD_ID, "block/template_quad_third"))
+            .texture("side", side)
+            .texture("top", top);
+    }
+
+    public static InheritingModelGen quadFirst(String texture) {
+        return quadFirstSided(texture, texture);
+    }
+    public static InheritingModelGen quadSecond(String texture) {
+        return quadSecondSided(texture, texture);
+    }
+    public static InheritingModelGen quadThird(String texture) {
+        return quadThirdSided(texture, texture);
+    }
 }

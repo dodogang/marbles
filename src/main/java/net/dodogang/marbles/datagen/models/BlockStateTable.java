@@ -53,12 +53,12 @@ public final class BlockStateTable {
         register(TRAVERTINE_OBSIDIAN, BlockStateTable::cubeAllFunc);
 
         register(LIMESTONE, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(LIMESTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
         register(LIMESTONE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
+        register(LIMESTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
         register(LIMESTONE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(POLISHED_LIMESTONE, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(POLISHED_LIMESTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
+        register(POLISHED_LIMESTONE, block -> fourPartAttaching(name(block, "block/%s"), quadFirstSided(name(block, "block/%s"), name(block, "block/%s_top")), quadSecondSided(name(block, "block/%s"), name(block, "block/%s_top")), quadThirdSided(name(block, "block/%s"), name(block, "block/%s_top")), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(POLISHED_LIMESTONE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
+        register(POLISHED_LIMESTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
         register(POLISHED_LIMESTONE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
 
         /*

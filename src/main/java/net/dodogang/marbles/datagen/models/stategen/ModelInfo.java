@@ -82,4 +82,8 @@ public final class ModelInfo {
     public static ModelInfo create(String model, ModelGen gen) {
         return new ModelInfo(model).modelGen(gen);
     }
+
+    public ModelInfo copy() {
+        return new ModelInfo(this.model).modelGen(this.modelgen);
+    }
 }

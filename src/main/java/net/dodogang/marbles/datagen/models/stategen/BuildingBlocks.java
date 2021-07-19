@@ -1,5 +1,7 @@
 package net.dodogang.marbles.datagen.models.stategen;
 
+import net.dodogang.marbles.block.QuadAttachingBlock;
+import net.dodogang.marbles.block.enums.QuadBlockPart;
 import net.dodogang.marbles.datagen.models.modelgen.InheritingModelGen;
 import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 import net.minecraft.block.enums.BlockHalf;
@@ -189,5 +191,38 @@ public abstract class BuildingBlocks {
                                     .variant("facing=east", ModelInfo.create(name, model).rotate(90, 90))
                                     .variant("facing=south", ModelInfo.create(name, model).rotate(90, 180))
                                     .variant("facing=west", ModelInfo.create(name, model).rotate(90, 270));
+    }
+    public static StateGen fourPartAttaching(String name, ModelGen first, ModelGen second, ModelGen third, ModelGen fourth) {
+        VariantsBlockStateGen state = new VariantsBlockStateGen();
+
+        ModelInfo firstModel = ModelInfo.create(name + "_first", first);
+        ModelInfo secondModel = ModelInfo.create(name + "_second", second);
+        ModelInfo thirdModel = ModelInfo.create(name + "_third", third);
+        ModelInfo fourthModel = ModelInfo.create(name, fourth);
+
+        for (Direction dir : QuadAttachingBlock.FACING.getValues()) {
+            for (QuadBlockPart part : QuadAttachingBlock.PART.getValues()) {
+                ModelInfo model = switch (part) {
+                    default -> firstModel;
+                    case SECOND -> secondModel;
+                    case THIRD -> thirdModel;
+                    case FOURTH -> fourthModel;
+                };
+
+                state.variant(
+                    String.format("facing=%s,quad=%s", dir.asString(), part.asString()),
+                    switch (dir) {
+                        default -> model.copy().rotate(0, 270);
+                        case DOWN -> model.copy().rotate(180, 0);
+                        case NORTH -> model.copy().rotate(90, 0);
+                        case EAST -> model.copy().rotate(90, 90);
+                        case SOUTH -> model.copy().rotate(90, 180);
+                        case WEST -> model.copy().rotate(90, 270);
+                    }
+                );
+            }
+        }
+
+        return state;
     }
 }

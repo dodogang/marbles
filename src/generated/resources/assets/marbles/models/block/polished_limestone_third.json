@@ -1,0 +1,7 @@
+{
+  "parent": "marbles:block/template_quad_third",
+  "textures": {
+    "side": "marbles:block/polished_limestone",
+    "top": "marbles:block/polished_limestone_top"
+  }
+}
