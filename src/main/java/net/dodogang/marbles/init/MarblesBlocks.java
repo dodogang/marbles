@@ -343,7 +343,7 @@ public class MarblesBlocks {
      * PLANTAGE
      */
 
-    public static final Block BLUE_PEONY = register("blue_peony", new StackingPlantBlock(FabricBlockSettings.copyOf(Blocks.PEONY).mapColor(DyeColor.BLUE)));
+    public static final Block BLUE_PEONY = register("blue_peony", new StackingPlantBlock(FabricBlockSettings.copyOf(Blocks.PEONY).mapColor(DyeColor.BLUE).sounds(BlockSoundGroup.CAVE_VINES)));
 
     /*
      * POLLEN-GRACED SHEEP
