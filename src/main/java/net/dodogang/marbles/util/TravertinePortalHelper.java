@@ -208,7 +208,7 @@ public class TravertinePortalHelper {
         return new Vec3d(h, j, k);
     }
 
-    public static TeleportTarget computeTeleportTarget(ServerWorld world, BlockLocating.Rectangle portal, Direction.Axis axis, Vec3d posInterpolator, EntityDimensions size, Vec3d velocity, float f, float g) {
+    public static TeleportTarget computeTeleportTarget(ServerWorld world, BlockLocating.Rectangle portal, Direction.Axis axis, Vec3d posInterpolator, EntityDimensions size, Vec3d velocity, float yaw, float pitch) {
         BlockPos portalPos = portal.lowerLeft;
         BlockState portalBlock = world.getBlockState(portalPos);
         Direction.Axis portalAxis = portalBlock.get(Properties.HORIZONTAL_AXIS);
@@ -232,6 +232,6 @@ public class TravertinePortalHelper {
             portalPos.getY() + heightOffset,
             portalPos.getZ() + (xAxis ? normalOffset : tangentOffset)
         );
-        return new TeleportTarget(location, portalOffset, f + (float) rotationDelta, g);
+        return new TeleportTarget(location, portalOffset, yaw + (float) rotationDelta, pitch);
     }
 }

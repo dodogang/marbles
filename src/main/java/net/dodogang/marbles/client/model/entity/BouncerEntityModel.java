@@ -100,7 +100,7 @@ public class BouncerEntityModel extends SinglePartEntityModel<BouncerEntity> {
     }
 
     @Override
-    public void setAngles(BouncerEntity ironGolemEntity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+    public void setAngles(BouncerEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         this.head.yaw = headYaw * 0.017453292F;
         this.head.pitch = headPitch * 0.017453292F;
 

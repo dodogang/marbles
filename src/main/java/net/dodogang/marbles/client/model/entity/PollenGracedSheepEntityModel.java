@@ -143,10 +143,10 @@ public class PollenGracedSheepEntityModel<E extends PollenGracedSheepEntity> ext
     }
 
     @Override
-    public void animateModel(E entity, float f, float g, float h) {
-        super.animateModel(entity, f, g, h);
-        this.head.pivotY = 6.0F + entity.getNeckAngle(h) * 9.0F;
-        this.headPitchModifier = entity.getHeadAngle(h);
+    public void animateModel(E entity, float limbAngle, float limbDistance, float tickDelta) {
+        super.animateModel(entity, limbAngle, limbDistance, tickDelta);
+        this.head.pivotY = 6.0F + entity.getNeckAngle(tickDelta) * 9.0F;
+        this.headPitchModifier = entity.getHeadAngle(tickDelta);
     }
 
     @Override
