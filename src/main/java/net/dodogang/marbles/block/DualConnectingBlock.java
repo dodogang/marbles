@@ -1,6 +1,7 @@
 package net.dodogang.marbles.block;
 
 import net.dodogang.marbles.block.enums.OptionalDirection;
+import net.dodogang.marbles.state.property.MarblesProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
@@ -13,7 +14,7 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
 public class DualConnectingBlock extends Block {
-    public static final EnumProperty<OptionalDirection> CONNECTION = EnumProperty.of("connection", OptionalDirection.class);
+    public static final EnumProperty<OptionalDirection> CONNECTION = MarblesProperties.CONNECTION;
 
     public DualConnectingBlock(Settings settings) {
         super(settings);
