@@ -257,11 +257,12 @@ public class MarblesTagProvider implements DataProvider {
             LIMESTONE_SLAB,
             LIMESTONE_STAIRS,
             LIMESTONE_WALL,
+            QUARTERED_LIMESTONE,
 
-            POLISHED_LIMESTONE,
             POLISHED_LIMESTONE_SLAB,
             POLISHED_LIMESTONE_STAIRS,
             POLISHED_LIMESTONE_WALL,
+            QUARTERED_POLISHED_LIMESTONE,
 
             PINK_SALT,
             CRUMBLED_PINK_SALT,
@@ -460,10 +461,13 @@ public class MarblesTagProvider implements DataProvider {
             LIMESTONE_SLAB,
             LIMESTONE_STAIRS,
             LIMESTONE_WALL,
+            QUARTERED_LIMESTONE,
+
             POLISHED_LIMESTONE,
             POLISHED_LIMESTONE_SLAB,
             POLISHED_LIMESTONE_STAIRS,
-            POLISHED_LIMESTONE_WALL
+            POLISHED_LIMESTONE_WALL,
+            QUARTERED_POLISHED_LIMESTONE
         );
 
         // pink salt caves

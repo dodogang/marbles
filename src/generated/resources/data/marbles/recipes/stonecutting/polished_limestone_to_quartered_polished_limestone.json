@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "marbles:polished_limestone"
+  },
+  "result": "marbles:quartered_polished_limestone",
+  "count": 4
+}

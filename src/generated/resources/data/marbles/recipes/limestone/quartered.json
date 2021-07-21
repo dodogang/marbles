@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "marbles:limestone"
+    }
+  ],
+  "result": {
+    "item": "marbles:quartered_limestone",
+    "count": 4
+  }
+}

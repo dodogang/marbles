@@ -1,0 +1,112 @@
+{
+  "variants": {
+    "facing=down,quad=second": {
+      "model": "marbles:block/quartered_limestone_second",
+      "x": 180
+    },
+    "facing=down,quad=fourth": {
+      "model": "marbles:block/quartered_limestone",
+      "x": 180
+    },
+    "facing=down,quad=first": {
+      "model": "marbles:block/quartered_limestone_first",
+      "x": 180
+    },
+    "facing=south,quad=third": {
+      "model": "marbles:block/quartered_limestone_third",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,quad=second": {
+      "model": "marbles:block/quartered_limestone_second",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,quad=third": {
+      "model": "marbles:block/quartered_limestone_third",
+      "y": 270
+    },
+    "facing=north,quad=second": {
+      "model": "marbles:block/quartered_limestone_second",
+      "x": 90
+    },
+    "facing=south,quad=first": {
+      "model": "marbles:block/quartered_limestone_first",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west,quad=third": {
+      "model": "marbles:block/quartered_limestone_third",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,quad=second": {
+      "model": "marbles:block/quartered_limestone_second",
+      "x": 90,
+      "y": 270
+    },
+    "facing=down,quad=third": {
+      "model": "marbles:block/quartered_limestone_third",
+      "x": 180
+    },
+    "facing=east,quad=second": {
+      "model": "marbles:block/quartered_limestone_second",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,quad=fourth": {
+      "model": "marbles:block/quartered_limestone",
+      "x": 90,
+      "y": 90
+    },
+    "facing=up,quad=fourth": {
+      "model": "marbles:block/quartered_limestone",
+      "y": 270
+    },
+    "facing=west,quad=fourth": {
+      "model": "marbles:block/quartered_limestone",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,quad=first": {
+      "model": "marbles:block/quartered_limestone_first",
+      "x": 90,
+      "y": 270
+    },
+    "facing=up,quad=second": {
+      "model": "marbles:block/quartered_limestone_second",
+      "y": 270
+    },
+    "facing=north,quad=fourth": {
+      "model": "marbles:block/quartered_limestone",
+      "x": 90
+    },
+    "facing=north,quad=third": {
+      "model": "marbles:block/quartered_limestone_third",
+      "x": 90
+    },
+    "facing=up,quad=first": {
+      "model": "marbles:block/quartered_limestone_first",
+      "y": 270
+    },
+    "facing=north,quad=first": {
+      "model": "marbles:block/quartered_limestone_first",
+      "x": 90
+    },
+    "facing=south,quad=fourth": {
+      "model": "marbles:block/quartered_limestone",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east,quad=first": {
+      "model": "marbles:block/quartered_limestone_first",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,quad=third": {
+      "model": "marbles:block/quartered_limestone_third",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

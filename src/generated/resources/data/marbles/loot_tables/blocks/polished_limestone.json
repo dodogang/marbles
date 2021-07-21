@@ -6,57 +6,13 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "functions": [
-                {
-                  "function": "minecraft:set_count",
-                  "conditions": [
-                    {
-                      "condition": "minecraft:block_state_property",
-                      "block": "marbles:polished_limestone",
-                      "properties": {
-                        "quad": "second"
-                      }
-                    }
-                  ],
-                  "count": 1.0,
-                  "add": true
-                },
-                {
-                  "function": "minecraft:set_count",
-                  "conditions": [
-                    {
-                      "condition": "minecraft:block_state_property",
-                      "block": "marbles:polished_limestone",
-                      "properties": {
-                        "quad": "third"
-                      }
-                    }
-                  ],
-                  "count": 2.0,
-                  "add": true
-                },
-                {
-                  "function": "minecraft:set_count",
-                  "conditions": [
-                    {
-                      "condition": "minecraft:block_state_property",
-                      "block": "marbles:polished_limestone",
-                      "properties": {
-                        "quad": "fourth"
-                      }
-                    }
-                  ],
-                  "count": 3.0,
-                  "add": true
-                }
-              ],
-              "name": "marbles:polished_limestone"
-            }
-          ]
+          "type": "minecraft:item",
+          "name": "marbles:polished_limestone"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
         }
       ]
     }

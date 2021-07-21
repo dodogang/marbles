@@ -128,10 +128,12 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.LIMESTONE_SLAB);
         addDrop(MarblesBlocks.LIMESTONE_STAIRS);
         addDrop(MarblesBlocks.LIMESTONE_WALL);
-        addDrop(MarblesBlocks.POLISHED_LIMESTONE, MarblesBlockLootTables::dropsAttachingQuad);
+        addDrop(MarblesBlocks.QUARTERED_LIMESTONE, MarblesBlockLootTables::dropsAttachingQuad);
+        addDrop(MarblesBlocks.POLISHED_LIMESTONE);
         addDrop(MarblesBlocks.POLISHED_LIMESTONE_SLAB);
         addDrop(MarblesBlocks.POLISHED_LIMESTONE_STAIRS);
         addDrop(MarblesBlocks.POLISHED_LIMESTONE_WALL);
+        addDrop(MarblesBlocks.QUARTERED_POLISHED_LIMESTONE, MarblesBlockLootTables::dropsAttachingQuad);
 
         /*
          * PINK SALT

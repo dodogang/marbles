@@ -56,10 +56,13 @@ public final class BlockStateTable {
         register(LIMESTONE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
         register(LIMESTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
         register(LIMESTONE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
-        register(POLISHED_LIMESTONE, block -> fourPartAttaching(name(block, "block/%s"), quadFirstSided(name(block, "block/%s"), name(block, "block/%s_top")), quadSecondSided(name(block, "block/%s"), name(block, "block/%s_top")), quadThirdSided(name(block, "block/%s"), name(block, "block/%s_top")), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
+        register(QUARTERED_LIMESTONE, block -> fourPartAttaching(name(block, "block/%s"), quadFirstSided(name(LIMESTONE, "block/%s"), name(LIMESTONE, "block/%s_top")), quadSecondSided(name(LIMESTONE, "block/%s"), name(LIMESTONE, "block/%s_top")), quadThirdSided(name(LIMESTONE, "block/%s"), name(LIMESTONE, "block/%s_top")), cubeColumn(name(LIMESTONE, "block/%s_top"), name(LIMESTONE, "block/%s"))));
+
+        register(POLISHED_LIMESTONE, block -> axisRotated(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top"), name(block, "block/%s"))));
         register(POLISHED_LIMESTONE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabColumn(name(block, "block/%s"), n, n + "_top", n)));
         register(POLISHED_LIMESTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsColumn(name(block, "block/%s"), n + "_top", n)));
         register(POLISHED_LIMESTONE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallColumn(name(block, "block/%s"), n + "_top", n)));
+        register(QUARTERED_POLISHED_LIMESTONE, block -> fourPartAttaching(name(block, "block/%s"), quadFirstSided(name(POLISHED_LIMESTONE, "block/%s"), name(POLISHED_LIMESTONE, "block/%s_top")), quadSecondSided(name(POLISHED_LIMESTONE, "block/%s"), name(POLISHED_LIMESTONE, "block/%s_top")), quadThirdSided(name(POLISHED_LIMESTONE, "block/%s"), name(POLISHED_LIMESTONE, "block/%s_top")), cubeColumn(name(POLISHED_LIMESTONE, "block/%s_top"), name(POLISHED_LIMESTONE, "block/%s"))));
 
         /*
          * PINK SALT

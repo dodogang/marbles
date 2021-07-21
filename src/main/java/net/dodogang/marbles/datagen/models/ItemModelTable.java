@@ -46,10 +46,12 @@ public final class ItemModelTable {
         register(MarblesBlocks.LIMESTONE_SLAB, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.LIMESTONE_STAIRS, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.LIMESTONE_WALL, ItemModelTable::wallSidedTopFunc);
-        register(MarblesBlocks.POLISHED_LIMESTONE, item -> inherit(name(item, "block/%s_first")));
+        register(MarblesBlocks.QUARTERED_LIMESTONE, item -> inherit(name(item, "block/%s_first")));
+        register(MarblesBlocks.POLISHED_LIMESTONE, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.POLISHED_LIMESTONE_SLAB, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.POLISHED_LIMESTONE_STAIRS, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.POLISHED_LIMESTONE_WALL, ItemModelTable::wallSidedTopFunc);
+        register(MarblesBlocks.QUARTERED_POLISHED_LIMESTONE, item -> inherit(name(item, "block/%s_first")));
 
         /*
          * PINK SALT

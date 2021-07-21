@@ -55,10 +55,12 @@ public class MarblesBlocks {
     public static final Block LIMESTONE_SLAB = createSlab(LIMESTONE);
     public static final Block LIMESTONE_STAIRS = createStairs(LIMESTONE);
     public static final Block LIMESTONE_WALL = createWall(LIMESTONE);
-    public static final Block POLISHED_LIMESTONE = register("polished_limestone", new QuadAttachingBlock(FabricBlockSettings.copyOf(LIMESTONE).nonOpaque()));
+    public static final Block QUARTERED_LIMESTONE = register("quartered_limestone", new QuadAttachingBlock(FabricBlockSettings.copyOf(LIMESTONE).nonOpaque()));
+    public static final Block POLISHED_LIMESTONE = register("polished_limestone", new PillarBlock(FabricBlockSettings.copyOf(LIMESTONE)));
     public static final Block POLISHED_LIMESTONE_SLAB = createSlab(POLISHED_LIMESTONE);
     public static final Block POLISHED_LIMESTONE_STAIRS = createStairs(POLISHED_LIMESTONE);
     public static final Block POLISHED_LIMESTONE_WALL = createWall(POLISHED_LIMESTONE);
+    public static final Block QUARTERED_POLISHED_LIMESTONE = register("quartered_polished_limestone", new QuadAttachingBlock(FabricBlockSettings.copyOf(POLISHED_LIMESTONE).nonOpaque()));
 
     /*
      * PINK SALT

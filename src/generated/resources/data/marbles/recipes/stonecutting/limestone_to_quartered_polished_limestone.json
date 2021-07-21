@@ -3,6 +3,6 @@
   "ingredient": {
     "item": "marbles:limestone"
   },
-  "result": "marbles:polished_limestone",
-  "count": 1
+  "result": "marbles:quartered_polished_limestone",
+  "count": 4
 }
