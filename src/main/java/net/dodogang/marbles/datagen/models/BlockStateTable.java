@@ -185,10 +185,10 @@ public final class BlockStateTable {
         register(CHEQUERED_YELLOW_BAMBOO_LATTICE, block -> attaching(name(block, "block/%s"), doubleThin(name(block, "block/%s"))));
         register(CROSSED_YELLOW_BAMBOO_LATTICE, block -> attaching(name(block, "block/%s"), doubleThin(name(block, "block/%s"))));
 
-        register(BAMBOO_TIKI_TORCH, block -> simple(name(block, "block/%s"), torch(name(block, "block/%s"))));
+        register(BAMBOO_TIKI_TORCH, block -> simple(name(block, "block/%s"), torchNoShade(name(block, "block/%s"))));
         register(BAMBOO_TIKI_POLE, block -> simple(name(block, "block/%s"), standingPole(name(block, "block/%s"))));
 
-        register(YELLOW_BAMBOO_TIKI_TORCH, block -> simple(name(block, "block/%s"), thickTorch(name(block, "block/%s"))));
+        register(YELLOW_BAMBOO_TIKI_TORCH, block -> simple(name(block, "block/%s"), thickTorchNoShade(name(block, "block/%s"))));
         register(YELLOW_BAMBOO_TIKI_POLE, block -> simple(name(block, "block/%s"), thickStandingPole(name(block, "block/%s"))));
 
         /*

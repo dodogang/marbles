@@ -1,5 +1,5 @@
 {
-  "parent": "marbles:block/template_thick_torch",
+  "parent": "marbles:block/template_thick_torch_noshade",
   "textures": {
     "torch": "marbles:block/yellow_bamboo_tiki_torch"
   }
