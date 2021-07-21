@@ -774,29 +774,19 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         return LootTable.builder().pool(
             pool().with(
                 AlternativeEntry.builder(
-                    AlternativeEntry.builder(
-                        ItemEntry.builder(block)
-                                 .conditionally(
-                                     BlockStatePropertyLootCondition.builder(block)
-                                                                    .properties(StatePredicate.Builder.create().exactMatch(QuadAttachingBlock.PART, QuadBlockPart.SECOND))
-                                 )
-                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))),
-                        ItemEntry.builder(block)
-                                 .conditionally(
-                                     BlockStatePropertyLootCondition.builder(block)
-                                                                    .properties(StatePredicate.Builder.create().exactMatch(QuadAttachingBlock.PART, QuadBlockPart.THIRD))
-                                 )
-                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(3.0F))),
-                        ItemEntry.builder(block)
-                                 .conditionally(
-                                     BlockStatePropertyLootCondition.builder(block)
-                                                                    .properties(StatePredicate.Builder.create().exactMatch(QuadAttachingBlock.PART, QuadBlockPart.FOURTH))
-                                 )
-                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(4.0F)))),
-                        ItemEntry.builder(block)
+                    ItemEntry.builder(block)
+                             .apply(conditionalSetCountQuad(block, 1.0f, QuadBlockPart.SECOND))
+                             .apply(conditionalSetCountQuad(block, 2.0f, QuadBlockPart.THIRD))
+                             .apply(conditionalSetCountQuad(block, 3.0f, QuadBlockPart.FOURTH))
                 )
             )
         );
+    }
+    private static LootFunction.Builder conditionalSetCountQuad(Block block, float count, QuadBlockPart part) {
+        return SetCountLootFunction.builder(ConstantLootNumberProvider.create(count), true)
+                                   .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                                                                 .properties(StatePredicate.Builder.create()
+                                                                                                                   .exactMatch(QuadAttachingBlock.PART, part)));
     }
 
     private static LocationCheckLootCondition.Builder checkDoublePlantHalf(Block plant, DoubleBlockHalf half) {

@@ -9,10 +9,10 @@
           "type": "minecraft:alternatives",
           "children": [
             {
-              "type": "minecraft:alternatives",
-              "children": [
+              "type": "minecraft:item",
+              "functions": [
                 {
-                  "type": "minecraft:item",
+                  "function": "minecraft:set_count",
                   "conditions": [
                     {
                       "condition": "minecraft:block_state_property",
@@ -22,17 +22,11 @@
                       }
                     }
                   ],
-                  "functions": [
-                    {
-                      "function": "minecraft:set_count",
-                      "count": 2.0,
-                      "add": false
-                    }
-                  ],
-                  "name": "marbles:polished_limestone"
+                  "count": 1.0,
+                  "add": true
                 },
                 {
-                  "type": "minecraft:item",
+                  "function": "minecraft:set_count",
                   "conditions": [
                     {
                       "condition": "minecraft:block_state_property",
@@ -42,17 +36,11 @@
                       }
                     }
                   ],
-                  "functions": [
-                    {
-                      "function": "minecraft:set_count",
-                      "count": 3.0,
-                      "add": false
-                    }
-                  ],
-                  "name": "marbles:polished_limestone"
+                  "count": 2.0,
+                  "add": true
                 },
                 {
-                  "type": "minecraft:item",
+                  "function": "minecraft:set_count",
                   "conditions": [
                     {
                       "condition": "minecraft:block_state_property",
@@ -62,19 +50,10 @@
                       }
                     }
                   ],
-                  "functions": [
-                    {
-                      "function": "minecraft:set_count",
-                      "count": 4.0,
-                      "add": false
-                    }
-                  ],
-                  "name": "marbles:polished_limestone"
+                  "count": 3.0,
+                  "add": true
                 }
-              ]
-            },
-            {
-              "type": "minecraft:item",
+              ],
               "name": "marbles:polished_limestone"
             }
           ]
