@@ -3,6 +3,7 @@ package net.dodogang.marbles.datagen;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
+import net.dodogang.marbles.datagen.advancements.MarblesAdvancementsProvider;
 import net.dodogang.marbles.datagen.loottables.MarblesLootTablesProvider;
 import net.dodogang.marbles.datagen.models.MarblesStateModelProvider;
 import net.dodogang.marbles.datagen.recipes.MarblesRecipeProvider;
@@ -72,14 +73,11 @@ public class DataMain {
         }
 
         if (includeServer) {
-//            gen.install(new MarblesFluidTagsProvider(gen));
-//            MarblesBlockTagsProvider blockTags = new MarblesBlockTagsProvider(gen);
-//            gen.install(blockTags);
-//            gen.install(new MarblesItemTagsProvider(gen, blockTags));
             gen.install(new MarblesTagProvider(gen));
             gen.install(new MarblesRecipeProvider(gen));
             gen.install(new MarblesStonecuttingRecipeProvider(gen));
             gen.install(new MarblesLootTablesProvider(gen));
+            gen.install(new MarblesAdvancementsProvider(gen));
         }
 
         return gen;
