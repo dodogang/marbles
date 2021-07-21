@@ -2,10 +2,6 @@ package net.dodogang.marbles.world.gen.surfacebuilder;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.stream.IntStream;
-
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.tag.MarblesBlockTags;
 import net.minecraft.block.BlockState;
@@ -17,6 +13,10 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.ChunkRandom;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.stream.IntStream;
 
 public class TravertineStrawsSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> {
     private static final BlockState TRAVERTINE = MarblesBlocks.PEACH_TRAVERTINE_BLOCKS.RAW.getDefaultState();

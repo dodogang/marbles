@@ -1,7 +1,44 @@
 {
-  "variants": {
-    "": {
-      "model": "marbles:block/rope"
+  "multipart": [
+    {
+      "apply": {
+        "model": "marbles:block/rope"
+      }
+    },
+    {
+      "when": {
+        "connection": "north"
+      },
+      "apply": {
+        "model": "marbles:block/rope_post"
+      }
+    },
+    {
+      "when": {
+        "connection": "east"
+      },
+      "apply": {
+        "model": "marbles:block/rope_post",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "connection": "south"
+      },
+      "apply": {
+        "model": "marbles:block/rope_post",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "connection": "west"
+      },
+      "apply": {
+        "model": "marbles:block/rope_post",
+        "y": 270
+      }
     }
-  }
+  ]
 }

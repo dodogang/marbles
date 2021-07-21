@@ -95,9 +95,9 @@ public class ThrownRopeEntity extends ThrownItemEntity {
     protected void onBlockHit(BlockHitResult hit) {
         super.onBlockHit(hit);
         this.dropRope(
-            hit.isInsideBlock() || hit.getSide() != Direction.DOWN
+            hit.isInsideBlock()
                 ? this.getCount()
-                : this.deployRope(hit.getBlockPos().down())
+                : this.deployRope(hit.getBlockPos().offset(hit.getSide()))
         );
     }
 
@@ -107,7 +107,10 @@ public class ThrownRopeEntity extends ThrownItemEntity {
         BlockPos.Mutable pos = root.mutableCopy();
         BlockPos.Mutable posDown = root.down().mutableCopy();
         while (this.world.getBlockState(posDown).getMaterial().isReplaceable() && i-- > 0) {
-            this.world.setBlockState(pos, MarblesBlocks.ROPE.getDefaultState().with(RopeBlock.WATERLOGGED, this.world.getFluidState(pos).isIn(FluidTags.WATER)));
+            this.world.setBlockState(pos, MarblesBlocks.ROPE.getDefaultState()
+                .with(RopeBlock.CONNECTION, ((RopeBlock) MarblesBlocks.ROPE).getConnection(this.world, pos))
+                .with(RopeBlock.WATERLOGGED, this.world.getFluidState(pos).isIn(FluidTags.WATER))
+            );
 
             pos.move(Direction.DOWN);
             posDown.move(Direction.DOWN);

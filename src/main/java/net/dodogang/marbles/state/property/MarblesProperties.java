@@ -1,8 +1,10 @@
 package net.dodogang.marbles.state.property;
 
-import net.dodogang.marbles.block.enums.*;
-import net.dodogang.marbles.block.DualConnectingBlock;
 import net.dodogang.marbles.block.RopeBlock;
+import net.dodogang.marbles.block.enums.OptionalDirection;
+import net.dodogang.marbles.block.enums.OptionalHorizontalDirection;
+import net.dodogang.marbles.block.enums.QuadBlockPart;
+import net.dodogang.marbles.block.enums.RopePart;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
@@ -22,9 +24,13 @@ public class MarblesProperties {
      */
     public static final IntProperty RETAINED_LIGHT = IntProperty.of("retained_light", 0, 15);
     /**
-     * A property that defines how a {@link DualConnectingBlock} connects to an adjacent {@link DualConnectingBlock}.
+     * A property that defines how a block connects to something, or doesn't.
      */
     public static final EnumProperty<OptionalDirection> CONNECTION = EnumProperty.of("connection", OptionalDirection.class);
+    /**
+     * A property that defines how a block connects to something, or doesn't.
+     */
+    public static final EnumProperty<OptionalHorizontalDirection> HORIZONTAL_CONNECTION = EnumProperty.of("connection", OptionalHorizontalDirection.class);
     /**
      * A property that defines the part of a {@link RopeBlock}.
      */
