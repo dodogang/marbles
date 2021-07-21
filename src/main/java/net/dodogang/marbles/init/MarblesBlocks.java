@@ -280,7 +280,9 @@ public class MarblesBlocks {
 
     public static final Block CHISELED_FLOESTONE = copy("chiseled_floestone", FLOESTONE);
     public static final Block RILLED_FLOESTONE = register("rilled_floestone", new Block(FabricBlockSettings.copyOf(FLOESTONE).emissiveLighting((state, world, pos) -> !ModLoaded.CANVAS).postProcess((state, world, pos) -> !ModLoaded.CANVAS).luminance(8).slipperiness(0.85F)));
+
     public static final Block RINGED_FLOESTONE = register("ringed_floestone", new RingedFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).nonOpaque()));
+    public static final Block RINGED_RILLED_FLOESTONE = register("ringed_rilled_floestone", new RingedFloestoneBlock(FabricBlockSettings.copyOf(RILLED_FLOESTONE).nonOpaque()));
 
     /**
      * Modification of vanilla ice without {@link AbstractBlock.Settings#ticksRandomly}

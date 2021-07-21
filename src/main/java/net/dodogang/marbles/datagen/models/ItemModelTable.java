@@ -216,6 +216,7 @@ public final class ItemModelTable {
         register(MarblesBlocks.CHISELED_FLOESTONE, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.RILLED_FLOESTONE, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.RINGED_FLOESTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.RINGED_RILLED_FLOESTONE, ItemModelTable::inheritBlockFunc);
 
         /*
          * ICE

@@ -186,6 +186,7 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
 
         generic2x2("floestone/polished", MarblesBlocks.FLOESTONE, MarblesBlocks.POLISHED_FLOESTONE, 4);
         ring("floestone/ringed", MarblesBlocks.FLOESTONE, MarblesBlocks.RINGED_FLOESTONE, 8);
+        ring("floestone/ringed_rilled", MarblesBlocks.RILLED_FLOESTONE, MarblesBlocks.RINGED_RILLED_FLOESTONE, 8);
 
         /*
          * ICE

@@ -82,7 +82,8 @@ public class MarblesClient implements ClientModInitializer {
             MarblesBlocks.ASPEN_GRASS,
             MarblesBlocks.TALL_ASPEN_GRASS,
 
-            MarblesBlocks.RINGED_FLOESTONE
+            MarblesBlocks.RINGED_FLOESTONE,
+            MarblesBlocks.RINGED_RILLED_FLOESTONE
         );
 
         brlm.putBlocks(

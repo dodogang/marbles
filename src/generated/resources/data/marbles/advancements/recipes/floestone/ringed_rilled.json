@@ -1,0 +1,34 @@
+{
+  "parent": "marbles:recipes/root",
+  "rewards": {
+    "recipes": [
+      "marbles:floestone/ringed_rilled"
+    ]
+  },
+  "criteria": {
+    "has_ingredient": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "marbles:rilled_floestone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "marbles:floestone/ringed_rilled"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingredient",
+      "has_the_recipe"
+    ]
+  ]
+}

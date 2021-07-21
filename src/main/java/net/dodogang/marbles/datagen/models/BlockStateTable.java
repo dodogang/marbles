@@ -217,6 +217,7 @@ public final class BlockStateTable {
         register(CHISELED_FLOESTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s", "^chiseled_", ""), name(block, "block/%s"))));
         register(RILLED_FLOESTONE, BlockStateTable::cubeAllFunc);
         register(RINGED_FLOESTONE, block -> attaching(name(block, "block/%s"), thickRing(name(block, "block/%s"), name(block, "block/%s_side"))));
+        register(RINGED_RILLED_FLOESTONE, block -> attaching(name(block, "block/%s"), thickRing(name(block, "block/%s"), name(block, "block/%s_side"))));
 
         /*
          * ICE

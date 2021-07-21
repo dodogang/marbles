@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:rilled_floestone"
+    }
+  },
+  "result": {
+    "item": "marbles:ringed_rilled_floestone",
+    "count": 8
+  }
+}

@@ -346,6 +346,7 @@ public class MarblesTagProvider implements DataProvider {
             CHISELED_FLOESTONE,
             RILLED_FLOESTONE,
             RINGED_FLOESTONE,
+            RINGED_RILLED_FLOESTONE,
 
             SCALED_ICE,
             MINTED_ICE,
@@ -420,6 +421,7 @@ public class MarblesTagProvider implements DataProvider {
             CHISELED_FLOESTONE,
             RILLED_FLOESTONE,
             RINGED_FLOESTONE,
+            RINGED_RILLED_FLOESTONE,
 
             PINK_SALT_IRON_ORE,
             PINK_SALT_LAPIS_ORE,
@@ -620,6 +622,7 @@ public class MarblesTagProvider implements DataProvider {
             CHISELED_FLOESTONE,
             RILLED_FLOESTONE,
             RINGED_FLOESTONE,
+            RINGED_RILLED_FLOESTONE,
 
             SCALED_ICE,
             MINTED_ICE,
