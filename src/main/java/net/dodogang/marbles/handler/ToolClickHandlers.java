@@ -15,7 +15,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
@@ -23,11 +22,13 @@ import java.util.Map;
 
 public class ToolClickHandlers {
     private static final Map<Block, BlockState> FLATTENABLE = Util.make(new HashMap<>(), map -> {
+        map.put(MarblesBlocks.COARSE_GRISP_DIRT, MarblesBlocks.GRISP_DIRT_PATH.getDefaultState());
         map.put(MarblesBlocks.GRISP_DIRT, MarblesBlocks.GRISP_DIRT_PATH.getDefaultState());
         map.put(MarblesBlocks.GRISP_PODZOL, MarblesBlocks.GRISP_PODZOL_PATH.getDefaultState());
         map.put(MarblesBlocks.GRISP_MYCELIUM, MarblesBlocks.GRISP_MYCELIUM_PATH.getDefaultState());
     });
     private static final Map<Block, BlockState> TILLABLE = Util.make(new HashMap<>(), map -> {
+        map.put(MarblesBlocks.COARSE_GRISP_DIRT, MarblesBlocks.GRISP_DIRT.getDefaultState());
         map.put(MarblesBlocks.GRISP_DIRT, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
         map.put(MarblesBlocks.GRISP_PODZOL, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
         map.put(MarblesBlocks.GRISP_MYCELIUM, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
@@ -44,7 +45,7 @@ public class ToolClickHandlers {
             BlockPos pos = hit.getBlockPos();
             BlockState state = world.getBlockState(pos);
 
-            if (FabricToolTags.SHOVELS.contains(item) && hit.getSide() == Direction.UP) {
+            if (FabricToolTags.SHOVELS.contains(item)) {
                 BlockState newState = FLATTENABLE.get(state.getBlock());
                 if (newState != null && world.getBlockState(pos.up()).isAir()) {
                     playFlattenSound(world, pos, player);
@@ -58,7 +59,7 @@ public class ToolClickHandlers {
                     return ActionResult.success(world.isClient);
                 }
             }
-            if (FabricToolTags.HOES.contains(item) && hit.getSide() == Direction.UP) {
+            if (FabricToolTags.HOES.contains(item)) {
                 BlockState newState = TILLABLE.get(state.getBlock());
                 if (newState != null && world.getBlockState(pos.up()).isAir()) {
                     playTillSound(world, pos, player);
