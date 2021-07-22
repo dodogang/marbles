@@ -28,8 +28,8 @@ repositories {
     maven { url "https://maven.shadew.net/" }
     maven { url "https://maven.enginehub.org/repo/" }
 
-    // maven { url = "https://maven.terraformersmc.com/releases/" }
-    maven { url 'https://raw.githubusercontent.com/TerraformersMC/Archive/main/releases/' }
+    maven { url = "https://maven.terraformersmc.com/releases/" }
+    // maven { url 'https://raw.githubusercontent.com/TerraformersMC/Archive/main/releases/' }
 }
 
 dependencies {
