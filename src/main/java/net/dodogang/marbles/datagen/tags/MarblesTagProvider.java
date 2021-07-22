@@ -63,6 +63,13 @@ public class MarblesTagProvider implements DataProvider {
         items.factory(ItemTags.WALLS).add(MarblesItemTags.TRAVERTINE_WALLS);
 
         add(
+            BlockTags.ICE,
+
+            SCALED_ICE,
+            MINTED_ICE
+        );
+
+        add(
             MarblesItemTags.HIGH_LIGHT_BLOCKS,
             Blocks.GLOWSTONE,
             Blocks.SEA_LANTERN,
