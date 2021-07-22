@@ -1,8 +1,8 @@
 package net.dodogang.marbles.block;
 
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -13,10 +13,11 @@ import net.minecraft.world.gen.feature.FlowerFeature;
 
 import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
-public class GrispGrassBlock extends SpreadableGrispBlock implements Fertilizable {
-   public GrispGrassBlock(AbstractBlock.Settings settings) {
-      super(settings);
+public class MarblesGrassBlock extends MarblesSpreadableBlock implements Fertilizable {
+   public MarblesGrassBlock(Supplier<Block> hostBlock, AbstractBlock.Settings settings) {
+      super(hostBlock, settings);
    }
 
    @Override
@@ -29,11 +30,11 @@ public class GrispGrassBlock extends SpreadableGrispBlock implements Fertilizabl
       return true;
    }
 
-   @Override
    @SuppressWarnings({"rawtypes", "unchecked"})
+   @Override
    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
       BlockPos start = pos.up();
-      BlockState grassState = Blocks.GRASS.getDefaultState();
+      BlockState grassState = this.getDefaultState();
 
       iterator:
       for (int i = 0; i < 128; i++) {

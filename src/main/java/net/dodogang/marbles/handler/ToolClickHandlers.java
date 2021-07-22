@@ -26,12 +26,22 @@ public class ToolClickHandlers {
         map.put(MarblesBlocks.GRISP_DIRT, MarblesBlocks.GRISP_DIRT_PATH.getDefaultState());
         map.put(MarblesBlocks.GRISP_PODZOL, MarblesBlocks.GRISP_PODZOL_PATH.getDefaultState());
         map.put(MarblesBlocks.GRISP_MYCELIUM, MarblesBlocks.GRISP_MYCELIUM_PATH.getDefaultState());
+
+        map.put(MarblesBlocks.COARSE_PERMAFROST_DIRT, MarblesBlocks.PERMAFROST_DIRT_PATH.getDefaultState());
+        map.put(MarblesBlocks.PERMAFROST_DIRT, MarblesBlocks.PERMAFROST_DIRT_PATH.getDefaultState());
+        map.put(MarblesBlocks.PERMAFROST_PODZOL, MarblesBlocks.PERMAFROST_PODZOL_PATH.getDefaultState());
+        map.put(MarblesBlocks.PERMAFROST_MYCELIUM, MarblesBlocks.PERMAFROST_MYCELIUM_PATH.getDefaultState());
     });
     private static final Map<Block, BlockState> TILLABLE = Util.make(new HashMap<>(), map -> {
         map.put(MarblesBlocks.COARSE_GRISP_DIRT, MarblesBlocks.GRISP_DIRT.getDefaultState());
         map.put(MarblesBlocks.GRISP_DIRT, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
         map.put(MarblesBlocks.GRISP_PODZOL, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
         map.put(MarblesBlocks.GRISP_MYCELIUM, MarblesBlocks.GRISP_FARMLAND.getDefaultState());
+
+        map.put(MarblesBlocks.COARSE_PERMAFROST_DIRT, MarblesBlocks.PERMAFROST_DIRT.getDefaultState());
+        map.put(MarblesBlocks.PERMAFROST_DIRT, MarblesBlocks.PERMAFROST_FARMLAND.getDefaultState());
+        map.put(MarblesBlocks.PERMAFROST_PODZOL, MarblesBlocks.PERMAFROST_FARMLAND.getDefaultState());
+        map.put(MarblesBlocks.PERMAFROST_MYCELIUM, MarblesBlocks.PERMAFROST_FARMLAND.getDefaultState());
     });
 
     static {

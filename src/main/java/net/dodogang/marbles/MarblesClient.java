@@ -51,6 +51,8 @@ public class MarblesClient implements ClientModInitializer {
 
         CClientUtils.registerWoodBlocks(MarblesBlocks.ASPEN, MarblesBlocks.HOOPSI_SPRUCE, MarblesBlocks.RED_BIRCH);
 
+        // render layers
+
         BlockRenderLayerMap brlm = BlockRenderLayerMap.INSTANCE;
         brlm.putBlocks(
             RenderLayer.getCutout(),
@@ -100,10 +102,20 @@ public class MarblesClient implements ClientModInitializer {
             MarblesBlocks.MINTED_ICE_BRICKS
         );
 
+        brlm.putBlocks(
+            RenderLayer.getCutoutMipped(),
+
+            MarblesBlocks.PERMAFROST
+        );
+
+        // particles
+
         ParticleFactoryRegistry pfrInstance = ParticleFactoryRegistry.getInstance();
         pfrInstance.register(MarblesParticles.PINK_SALT, PinkSaltParticle.Factory::new);
         pfrInstance.register(MarblesParticles.ICE_SPORE, IceSporeParticle.Factory::new);
         pfrInstance.register(MarblesParticles.ITEM_ROPE, MarblesParticleFactories.RopeFactory::new);
+
+        // entities
 
         EntityRendererRegistry errInstance = EntityRendererRegistry.INSTANCE;
         errInstance.register(MarblesEntities.BOUNCER, BouncerEntityRenderer::new);
@@ -114,6 +126,8 @@ public class MarblesClient implements ClientModInitializer {
             MarblesEntityModelLayers.BOUNCER, BouncerEntityModel::getTexturedModelData,
             MarblesEntityModelLayers.POLLEN_GRACED_SHEEP, PollenGracedSheepEntityModel::getTexturedModelData
         ).forEach(EntityModelLayerRegistry::registerModelLayer);
+
+        // model predicates
 
         FabricModelPredicateProviderRegistry.register(Items.CROSSBOW, new Identifier(Marbles.MOD_ID, "rope"), (stack, world, entity, seed) -> {
             Item item = stack.getItem();

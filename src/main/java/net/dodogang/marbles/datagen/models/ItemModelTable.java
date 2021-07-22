@@ -221,6 +221,21 @@ public final class ItemModelTable {
         register(MarblesBlocks.RINGED_RILLED_FLOESTONE, ItemModelTable::inheritBlockFunc);
 
         /*
+         * PERMAFROST
+         */
+
+        register(MarblesBlocks.PERMAFROST, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PERMAFROST_PATH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PERMAFROST_DIRT, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.COARSE_PERMAFROST_DIRT, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PERMAFROST_PODZOL, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PERMAFROST_MYCELIUM, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PERMAFROST_DIRT_PATH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PERMAFROST_PODZOL_PATH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PERMAFROST_MYCELIUM_PATH, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.PERMAFROST_FARMLAND, ItemModelTable::inheritBlockFunc);
+
+        /*
          * ICE
          */
 

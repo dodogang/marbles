@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "marbles:block/permafrost_farmland"
+    },
+    "moisture=2": {
+      "model": "marbles:block/permafrost_farmland"
+    },
+    "moisture=1": {
+      "model": "marbles:block/permafrost_farmland"
+    },
+    "moisture=4": {
+      "model": "marbles:block/permafrost_farmland"
+    },
+    "moisture=3": {
+      "model": "marbles:block/permafrost_farmland"
+    },
+    "moisture=6": {
+      "model": "marbles:block/permafrost_farmland"
+    },
+    "moisture=5": {
+      "model": "marbles:block/permafrost_farmland"
+    },
+    "moisture=7": {
+      "model": "marbles:block/permafrost_farmland_moist"
+    }
+  }
+}

@@ -40,7 +40,6 @@
     "client.BiomeColorsMixin",
     "client.ClientPlayerEntityMixin",
     "client.ClientPlayNetworkHandlerMixin",
-    "client.ClientWorldMixin",
     "client.EntityModelLayersInvoker",
     "client.EntityModelLayersMixin",
     "client.InGameHudMixin",

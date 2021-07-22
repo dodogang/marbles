@@ -153,12 +153,12 @@ public final class BlockStateTable {
 
         register(GRISP_DIRT, BlockStateTable::cubeAllFunc);
         register(COARSE_GRISP_DIRT, BlockStateTable::cubeAllFunc);
-        register(GRISP_PODZOL, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(block, "block/grisp_dirt"), "block/snow", name(block, "block/%s_side_snowy"))));
-        register(GRISP_MYCELIUM, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(block, "block/grisp_dirt"), "block/snow", name(block, "block/%s_side_snowy"))));
-        register(GRISP_DIRT_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
-        register(GRISP_PODZOL_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
-        register(GRISP_MYCELIUM_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
-        register(GRISP_FARMLAND, block -> farmland(name(block, "block/%s"), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s"), name(block, "block/grisp_dirt")), flattenedBlock(name(block, "block/grisp_dirt"), name(block, "block/%s_moist"), name(block, "block/grisp_dirt"))));
+        register(GRISP_PODZOL, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(GRISP_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(GRISP_DIRT, "block/%s"), "block/snow", name(block, "block/%s_side_snowy"))));
+        register(GRISP_MYCELIUM, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(GRISP_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(GRISP_DIRT, "block/%s"), "block/snow", name(block, "block/%s_side_snowy"))));
+        register(GRISP_DIRT_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(GRISP_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(GRISP_PODZOL_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(GRISP_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(GRISP_MYCELIUM_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(GRISP_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(GRISP_FARMLAND, block -> farmland(name(block, "block/%s"), flattenedBlock(name(GRISP_DIRT, "block/%s"), name(block, "block/%s"), name(GRISP_DIRT, "block/%s")), flattenedBlock(name(GRISP_DIRT, "block/%s"), name(block, "block/%s_moist"), name(block, "block/grisp_dirt"))));
 
         register(POLLENATED_COBBLESTONE, BlockStateTable::cubeAllFunc);
         register(POLLENATED_COBBLESTONE_SLAB, BlockStateTable::slabAllFunc);
@@ -221,6 +221,21 @@ public final class BlockStateTable {
         register(RILLED_FLOESTONE, BlockStateTable::cubeAllFunc);
         register(RINGED_FLOESTONE, block -> attaching(name(block, "block/%s"), thickRing(name(block, "block/%s"), name(block, "block/%s_side"))));
         register(RINGED_RILLED_FLOESTONE, block -> attaching(name(block, "block/%s"), thickRing(name(block, "block/%s"), name(block, "block/%s_side"))));
+
+        /*
+         * PERMAFROST
+         */
+
+        register(PERMAFROST, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(PERMAFROST_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(PERMAFROST_DIRT, "block/%s"), "block/snow", name(block, "block/%s_side_snowy"))));
+        register(PERMAFROST_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(PERMAFROST_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(PERMAFROST_DIRT, BlockStateTable::cubeAllFunc);
+        register(COARSE_PERMAFROST_DIRT, BlockStateTable::cubeAllFunc);
+        register(PERMAFROST_PODZOL, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(PERMAFROST_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(PERMAFROST_DIRT, "block/%s"), "block/snow", name(block, "block/%s_side_snowy"))));
+        register(PERMAFROST_MYCELIUM, block -> snowyBlock(name(block, "block/%s"), cubeBottomTop(name(PERMAFROST_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side")), cubeBottomTop(name(PERMAFROST_DIRT, "block/%s"), "block/snow", name(block, "block/%s_side_snowy"))));
+        register(PERMAFROST_DIRT_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(PERMAFROST_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(PERMAFROST_PODZOL_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(PERMAFROST_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(PERMAFROST_MYCELIUM_PATH, block -> simple(name(block, "block/%s"), flattenedBlock(name(PERMAFROST_DIRT, "block/%s"), name(block, "block/%s_top"), name(block, "block/%s_side"))));
+        register(PERMAFROST_FARMLAND, block -> farmland(name(block, "block/%s"), flattenedBlock(name(PERMAFROST_DIRT, "block/%s"), name(block, "block/%s"), name(PERMAFROST_DIRT, "block/%s")), flattenedBlock(name(PERMAFROST_DIRT, "block/%s"), name(block, "block/%s_moist"), name(PERMAFROST_DIRT, "block/%s"))));
 
         /*
          * ICE

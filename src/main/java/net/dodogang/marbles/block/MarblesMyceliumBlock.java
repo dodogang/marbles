@@ -3,16 +3,18 @@ package net.dodogang.marbles.block;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
-public class GrispMyceliumBlock extends SpreadableGrispBlock {
-    public GrispMyceliumBlock(AbstractBlock.Settings settings) {
-        super(settings);
+public class MarblesMyceliumBlock extends MarblesSpreadableBlock {
+    public MarblesMyceliumBlock(Supplier<Block> hostBlock, AbstractBlock.Settings settings) {
+        super(hostBlock, settings);
     }
 
     @Override

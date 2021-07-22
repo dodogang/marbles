@@ -11,10 +11,7 @@ import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
 import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
 import net.dodogang.marbles.block.sapling.RedBirchSaplingGenerator;
-import net.dodogang.marbles.block.vanilla.PublicAirBlock;
-import net.dodogang.marbles.block.vanilla.PublicFernBlock;
-import net.dodogang.marbles.block.vanilla.PublicTorchBlock;
-import net.dodogang.marbles.block.vanilla.PublicTransparentBlock;
+import net.dodogang.marbles.block.vanilla.*;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.dodogang.marbles.sound.MarblesBlockSoundGroup;
 import net.dodogang.marbles.sound.MarblesSoundGroups;
@@ -286,6 +283,17 @@ public class MarblesBlocks {
     public static final Block RINGED_FLOESTONE = register("ringed_floestone", new RingedFloestoneBlock(FabricBlockSettings.copyOf(FLOESTONE).nonOpaque()));
     public static final Block RINGED_RILLED_FLOESTONE = register("ringed_rilled_floestone", new RingedFloestoneBlock(FabricBlockSettings.copyOf(RILLED_FLOESTONE).nonOpaque()));
 
+    public static final Block PERMAFROST = register("permafrost", new MarblesGrassBlock(() -> MarblesBlocks.PERMAFROST_DIRT, FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).ticksRandomly().breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block PERMAFROST_PATH = register("permafrost_path", new MarblesPathBlock(() -> MarblesBlocks.PERMAFROST_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).nonOpaque().mapColor(MapColor.DIRT_BROWN).breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block PERMAFROST_PODZOL = register("permafrost_podzol", new PublicSnowyBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).mapColor(MapColor.YELLOW)));
+    public static final Block PERMAFROST_PODZOL_PATH = register("permafrost_podzol_path", new MarblesPathBlock(() -> MarblesBlocks.PERMAFROST_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.YELLOW)));
+    public static final Block PERMAFROST_DIRT = register("permafrost_dirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT)));
+    public static final Block PERMAFROST_DIRT_PATH = register("permafrost_dirt_path", new MarblesPathBlock(() -> MarblesBlocks.PERMAFROST_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.DIRT_BROWN)));
+    public static final Block COARSE_PERMAFROST_DIRT = register("coarse_permafrost_dirt", new Block(FabricBlockSettings.copyOf(Blocks.COARSE_DIRT)));
+    public static final Block PERMAFROST_FARMLAND = register("permafrost_farmland", new MarblesFarmlandBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND).nonOpaque()));
+    public static final Block PERMAFROST_MYCELIUM = register("permafrost_mycelium", new MarblesMyceliumBlock(() -> MarblesBlocks.PERMAFROST_DIRT, FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly()));
+    public static final Block PERMAFROST_MYCELIUM_PATH = register("permafrost_mycelium_path", new MarblesPathBlock(() -> MarblesBlocks.PERMAFROST_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).nonOpaque().mapColor(MapColor.TERRACOTTA_PURPLE)));
+
     /**
      * Modification of vanilla ice without {@link AbstractBlock.Settings#ticksRandomly}
      */
@@ -325,13 +333,13 @@ public class MarblesBlocks {
      * GRISP SET
      */
 
-    public static final Block GRISP_PODZOL = register("grisp_podzol", new GrispPodzolBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).mapColor(MapColor.YELLOW)));
+    public static final Block GRISP_PODZOL = register("grisp_podzol", new PublicSnowyBlock(FabricBlockSettings.copyOf(Blocks.PODZOL).mapColor(MapColor.YELLOW)));
     public static final Block GRISP_PODZOL_PATH = register("grisp_podzol_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.YELLOW)));
     public static final Block GRISP_DIRT = register("grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT)));
     public static final Block GRISP_DIRT_PATH = register("grisp_dirt_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).sounds(BlockSoundGroup.GRAVEL).nonOpaque().mapColor(MapColor.DIRT_BROWN)));
     public static final Block COARSE_GRISP_DIRT = register("coarse_grisp_dirt", new Block(FabricBlockSettings.copyOf(Blocks.COARSE_DIRT)));
     public static final Block GRISP_FARMLAND = register("grisp_farmland", new MarblesFarmlandBlock(FabricBlockSettings.copyOf(Blocks.FARMLAND).nonOpaque()));
-    public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new GrispMyceliumBlock(FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly()));
+    public static final Block GRISP_MYCELIUM = register("grisp_mycelium", new MarblesMyceliumBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.MYCELIUM).ticksRandomly()));
     public static final Block GRISP_MYCELIUM_PATH = register("grisp_mycelium_path", new MarblesPathBlock(() -> MarblesBlocks.GRISP_DIRT, FabricBlockSettings.copyOf(Blocks.DIRT_PATH).nonOpaque().mapColor(MapColor.TERRACOTTA_PURPLE)));
 
     public static final Block POLLENATED_COBBLESTONE = copy("pollenated_cobblestone", Blocks.COBBLESTONE);
@@ -397,9 +405,7 @@ public class MarblesBlocks {
         // .itemGroup(MarblesItemGroup.INSTANCE)
         .build(Marbles.MOD_ID, "red_birch");
 
-    /*
-     * REGISTRY
-     */
+    // ---
 
     public static Block register(String id, Block block, boolean registerItem) {
         Identifier identifier = new Identifier(Marbles.MOD_ID, id);

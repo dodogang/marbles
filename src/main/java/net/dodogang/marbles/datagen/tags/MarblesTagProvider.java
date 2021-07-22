@@ -205,13 +205,29 @@ public class MarblesTagProvider implements DataProvider {
         addGrispDirtBlockTag(CBlockTags.FEATURE_SUPPORTERS_SOIL);
         addGrispDirtBlockTag(CBlockTags.DEAD_BUSH_SUPPORTERS);
         addGrispDirtBlockTag(MarblesBlockTags.GRISP_COLOR_SOURCE);
+        addPermafrostDirtBlockTag(BlockTags.ENDERMAN_HOLDABLE);
+        addPermafrostDirtBlockTag(CBlockTags.PLANT_SUPPORTERS);
+        addPermafrostDirtBlockTag(CBlockTags.WITHER_ROSE_SUPPORTERS);
+        addPermafrostDirtBlockTag(CBlockTags.FEATURE_SUPPORTERS_SOIL);
+        addPermafrostDirtBlockTag(CBlockTags.DEAD_BUSH_SUPPORTERS);
+        addPermafrostDirtBlockTag(MarblesBlockTags.GRISP_COLOR_SOURCE);
         add(
             BlockTags.MUSHROOM_GROW_BLOCK,
+
             GRISP_MYCELIUM,
-            GRISP_PODZOL
+            GRISP_PODZOL,
+
+            PERMAFROST_MYCELIUM,
+            PERMAFROST_PODZOL
         );
         add(
             GRISP_FARMLAND,
+            CBlockTags.CROP_SUPPORTERS,
+            CBlockTags.STEM_SUPPORTERS,
+            CBlockTags.ATTACHED_STEM_SUPPORTERS
+        );
+        add(
+            PERMAFROST_FARMLAND,
             CBlockTags.CROP_SUPPORTERS,
             CBlockTags.STEM_SUPPORTERS,
             CBlockTags.ATTACHED_STEM_SUPPORTERS
@@ -382,6 +398,17 @@ public class MarblesTagProvider implements DataProvider {
             GRISP_FARMLAND,
             GRISP_MYCELIUM,
             GRISP_MYCELIUM_PATH,
+
+            PERMAFROST,
+            PERMAFROST_PATH,
+            PERMAFROST_PODZOL,
+            PERMAFROST_PODZOL_PATH,
+            PERMAFROST_DIRT,
+            PERMAFROST_DIRT_PATH,
+            COARSE_PERMAFROST_DIRT,
+            PERMAFROST_FARMLAND,
+            PERMAFROST_MYCELIUM,
+            PERMAFROST_MYCELIUM_PATH,
 
             SLUSH,
             BLUE_SLUSH,
@@ -628,6 +655,17 @@ public class MarblesTagProvider implements DataProvider {
             RINGED_FLOESTONE,
             RINGED_RILLED_FLOESTONE,
 
+            PERMAFROST,
+            PERMAFROST_PATH,
+            PERMAFROST_DIRT,
+            PERMAFROST_DIRT_PATH,
+            COARSE_PERMAFROST_DIRT,
+            PERMAFROST_FARMLAND,
+            PERMAFROST_PODZOL,
+            PERMAFROST_PODZOL_PATH,
+            PERMAFROST_MYCELIUM,
+            PERMAFROST_MYCELIUM_PATH,
+
             SCALED_ICE,
             MINTED_ICE,
 
@@ -689,7 +727,6 @@ public class MarblesTagProvider implements DataProvider {
             GRISP_MYCELIUM
         );
     }
-
     private void addGrispDirtItemTag(Tag.Identified<Item> tag) {
         add(
             tag,
@@ -697,6 +734,29 @@ public class MarblesTagProvider implements DataProvider {
             COARSE_GRISP_DIRT,
             GRISP_PODZOL,
             GRISP_MYCELIUM
+        );
+    }
+
+    private void addPermafrostDirtBlockTag(Tag.Identified<Block> tag) {
+        add(
+            tag,
+
+            PERMAFROST,
+            PERMAFROST_DIRT,
+            COARSE_PERMAFROST_DIRT,
+            PERMAFROST_PODZOL,
+            PERMAFROST_MYCELIUM
+        );
+    }
+    private void addPermafrostDirtItemTag(Tag.Identified<Item> tag) {
+        add(
+            tag,
+
+            PERMAFROST,
+            PERMAFROST_DIRT,
+            COARSE_PERMAFROST_DIRT,
+            PERMAFROST_PODZOL,
+            PERMAFROST_MYCELIUM
         );
     }
 

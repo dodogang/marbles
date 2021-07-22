@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "marbles:grisp_farmland"
+    "marbles:grisp_farmland",
+    "marbles:permafrost_farmland"
   ]
 }

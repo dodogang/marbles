@@ -1,0 +1,8 @@
+{
+  "parent": "marbles:block/template_flattened_block",
+  "textures": {
+    "bottom": "marbles:block/permafrost_dirt",
+    "top": "marbles:block/permafrost_farmland_moist",
+    "side": "marbles:block/permafrost_dirt"
+  }
+}

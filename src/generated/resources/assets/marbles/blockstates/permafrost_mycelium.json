@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "snowy=false": {
+      "model": "marbles:block/permafrost_mycelium"
+    },
+    "snowy=true": {
+      "model": "marbles:block/permafrost_mycelium_snowy"
+    }
+  }
+}

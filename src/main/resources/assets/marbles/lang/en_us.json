@@ -273,6 +273,17 @@
   "block.marbles.ringed_floestone": "Ringed Floestone",
   "block.marbles.ringed_rilled_floestone": "Ringed Rilled Floestone",
 
+  "block.marbles.permafrost": "Permafrost",
+  "block.marbles.permafrost_path": "Permafrost Path",
+  "block.marbles.permafrost_dirt": "Permafrost Dirt",
+  "block.marbles.permafrost_dirt_path": "Permafrost Dirt Path",
+  "block.marbles.coarse_permafrost_dirt": "Coarse Permafrost Dirt",
+  "block.marbles.permafrost_podzol": "Permafrost Podzol",
+  "block.marbles.permafrost_podzol_path": "Permafrost Podzol Path",
+  "block.marbles.permafrost_mycelium": "Permafrost Mycelium",
+  "block.marbles.permafrost_mycelium_path": "Permafrost Mycelium Path",
+  "block.marbles.permafrost_farmland": "Permafrost Farmland",
+
   "block.marbles.scaled_ice": "Scaled Ice",
   "block.marbles.minted_ice": "Minted Ice",
 

@@ -299,6 +299,17 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.RINGED_FLOESTONE);
         addDrop(MarblesBlocks.RINGED_RILLED_FLOESTONE);
 
+        addDrop(MarblesBlocks.PERMAFROST, block -> dropsWithSilkTouch(block, MarblesBlocks.PERMAFROST_DIRT));
+        addDrop(MarblesBlocks.PERMAFROST_PATH, MarblesBlocks.PERMAFROST_DIRT);
+        addDrop(MarblesBlocks.PERMAFROST_DIRT);
+        addDrop(MarblesBlocks.COARSE_PERMAFROST_DIRT);
+        addDrop(MarblesBlocks.PERMAFROST_PODZOL, block -> dropsWithSilkTouch(block, MarblesBlocks.PERMAFROST_DIRT));
+        addDrop(MarblesBlocks.PERMAFROST_MYCELIUM, block -> dropsWithSilkTouch(block, MarblesBlocks.PERMAFROST_DIRT));
+        addDrop(MarblesBlocks.PERMAFROST_DIRT_PATH, MarblesBlocks.PERMAFROST_DIRT);
+        addDrop(MarblesBlocks.PERMAFROST_PODZOL_PATH, MarblesBlocks.PERMAFROST_DIRT);
+        addDrop(MarblesBlocks.PERMAFROST_MYCELIUM_PATH, MarblesBlocks.PERMAFROST_DIRT);
+        addDrop(MarblesBlocks.PERMAFROST_FARMLAND, MarblesBlocks.PERMAFROST_DIRT);
+
         addDrop(MarblesBlocks.SCALED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
         addDrop(MarblesBlocks.MINTED_ICE, MarblesBlockLootTables::dropsWithSilkTouch);
 

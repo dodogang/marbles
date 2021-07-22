@@ -4,6 +4,11 @@
     "marbles:grisp_dirt",
     "marbles:coarse_grisp_dirt",
     "marbles:grisp_podzol",
-    "marbles:grisp_mycelium"
+    "marbles:grisp_mycelium",
+    "marbles:permafrost",
+    "marbles:permafrost_dirt",
+    "marbles:coarse_permafrost_dirt",
+    "marbles:permafrost_podzol",
+    "marbles:permafrost_mycelium"
   ]
 }

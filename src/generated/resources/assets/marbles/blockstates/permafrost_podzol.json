@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "snowy=false": {
+      "model": "marbles:block/permafrost_podzol"
+    },
+    "snowy=true": {
+      "model": "marbles:block/permafrost_podzol_snowy"
+    }
+  }
+}

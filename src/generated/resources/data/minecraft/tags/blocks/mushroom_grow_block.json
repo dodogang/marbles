@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "marbles:grisp_mycelium",
-    "marbles:grisp_podzol"
+    "marbles:grisp_podzol",
+    "marbles:permafrost_mycelium",
+    "marbles:permafrost_podzol"
   ]
 }
