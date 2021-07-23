@@ -3,9 +3,13 @@ package net.dodogang.marbles.init;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.dodogang.marbles.Marbles;
+import net.dodogang.marbles.world.gen.feature.PermafrostIceSpikeFeatureConfig;
 import net.dodogang.marbles.world.gen.feature.StateProvidedChanceDiskFeatureConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SnowyBlock;
+import net.minecraft.block.TallPlantBlock;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -261,29 +265,37 @@ public class MarblesConfiguredFeatures {
             .spreadHorizontally()
     );
 
+    private static final ImmutableList<BlockState> PERMAFROST_TARGET = ImmutableList.of(
+        States.PERMAFROST, States.PERMAFROST_SNOWY,
+        States.PERMAFROST_DIRT, States.SNOW_BLOCK,
+        States.ICE, States.PACKED_ICE, States.FLOESTONE,
+        States.SLUSH, States.SNOW, States.GRASS,
+        States.TALL_GRASS_TOP, States.TALL_GRASS_BOTTOM
+    );
     public static final ConfiguredFeature<?, ?> PERMAFROST_ICE_SPIKE = register(
         "permafrost_ice_spike",
         MarblesFeatures.PERMAFROST_ICE_SPIKE
-            .configure(FeatureConfig.DEFAULT)
+            .configure(
+                new PermafrostIceSpikeFeatureConfig(
+                    new WeightedBlockStateProvider(createStatePool().add(States.PACKED_ICE, 7).add(States.ICE, 1)),
+                    PERMAFROST_TARGET
+                )
+            )
             .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
             .repeat(3)
     );
     public static final ConfiguredFeature<?, ?> PERMAFROST_ICE_PATCH = register(
         "permafrost_ice_patch",
-        Feature.DISK.configure(
-            new DiskFeatureConfig(
-                States.PACKED_ICE,
-                UniformIntProvider.create(2, 3), 1,
-                ImmutableList.of(
-                    States.PERMAFROST_DIRT, States.PERMAFROST,
-                    States.PERMAFROST_PODZOL, States.COARSE_PERMAFROST_DIRT,
-                    States.PERMAFROST_MYCELIUM, States.SNOW_BLOCK,
-                    States.ICE
-                )
+        MarblesFeatures.STATE_PROVIDED_DISK.configure(
+            new StateProvidedChanceDiskFeatureConfig(
+                new WeightedBlockStateProvider(createStatePool().add(States.ICE, 3).add(States.PACKED_ICE, 1)),
+                UniformIntProvider.create(4, 6), 1, 0.3f,
+                PERMAFROST_TARGET
             )
         )
         .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-        .repeat(2)
+        .repeat(9)
+        .uniformRange(YOffset.getBottom(), YOffset.getTop())
     );
 
     private static DataPool.Builder<BlockState> createStatePool() {
@@ -315,9 +327,15 @@ public class MarblesConfiguredFeatures {
         private static final BlockState SLUSH = MarblesBlocks.SLUSH.getDefaultState();
         private static final BlockState PERMAFROST_DIRT = MarblesBlocks.PERMAFROST_DIRT.getDefaultState();
         private static final BlockState PERMAFROST = MarblesBlocks.PERMAFROST.getDefaultState();
+        private static final BlockState PERMAFROST_SNOWY = MarblesBlocks.PERMAFROST.getDefaultState().with(SnowyBlock.SNOWY, true);
         private static final BlockState PERMAFROST_PODZOL = MarblesBlocks.PERMAFROST_PODZOL.getDefaultState();
         private static final BlockState COARSE_PERMAFROST_DIRT = MarblesBlocks.COARSE_PERMAFROST_DIRT.getDefaultState();
         private static final BlockState PERMAFROST_MYCELIUM = MarblesBlocks.PERMAFROST_MYCELIUM.getDefaultState();
+        private static final BlockState SNOW = Blocks.SNOW.getDefaultState();
         private static final BlockState SNOW_BLOCK = Blocks.SNOW_BLOCK.getDefaultState();
+        private static final BlockState SCALED_ICE = MarblesBlocks.SCALED_ICE.getDefaultState();
+        private static final BlockState GRASS = Blocks.GRASS.getDefaultState();
+        private static final BlockState TALL_GRASS_TOP = Blocks.TALL_GRASS.getDefaultState().with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER);
+        private static final BlockState TALL_GRASS_BOTTOM = Blocks.TALL_GRASS.getDefaultState().with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER);
     }
 }

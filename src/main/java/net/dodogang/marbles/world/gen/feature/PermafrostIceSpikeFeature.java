@@ -1,26 +1,30 @@
 package net.dodogang.marbles.world.gen.feature;
 
 import com.mojang.serialization.Codec;
-import net.dodogang.marbles.init.MarblesBlocks;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.IceSpikeFeature;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
+import java.util.List;
 import java.util.Random;
 
-public class PermafrostIceSpikeFeature extends IceSpikeFeature {
-    public PermafrostIceSpikeFeature(Codec<DefaultFeatureConfig> codec) {
+public class PermafrostIceSpikeFeature extends Feature<PermafrostIceSpikeFeatureConfig> {
+    public PermafrostIceSpikeFeature(Codec<PermafrostIceSpikeFeatureConfig> codec) {
         super(codec);
     }
 
     @Override
-    public boolean generate(FeatureContext<DefaultFeatureConfig> ctx) {
+    public boolean generate(FeatureContext<PermafrostIceSpikeFeatureConfig> ctx) {
+        PermafrostIceSpikeFeatureConfig cfg = ctx.getConfig();
+
+        List<BlockState> targets = cfg.targets();
+        BlockStateProvider stateProvider = cfg.stateProvider();
+
         BlockPos pos = ctx.getOrigin();
         BlockPos.Mutable mpos = pos.mutableCopy();
         Random random = ctx.getRandom();
@@ -30,7 +34,7 @@ public class PermafrostIceSpikeFeature extends IceSpikeFeature {
             mpos = mpos.move(Direction.DOWN);
         }
 
-        if (!world.getBlockState(mpos).isOf(MarblesBlocks.PERMAFROST)) {
+        if (!targets.contains(world.getBlockState(mpos))) {
             return false;
         } else {
             mpos = mpos.move(Direction.UP, random.nextInt(4));
@@ -41,26 +45,28 @@ public class PermafrostIceSpikeFeature extends IceSpikeFeature {
             }
 
             int iy;
-            int l;
+            int z;
             for(iy = 0; iy < i; ++iy) {
                 float f = (1.0F - (float)iy / (float)i) * (float)j;
-                l = MathHelper.ceil(f);
+                z = MathHelper.ceil(f);
 
-                for(int ix = -l; ix <= l; ++ix) {
+                for(int ix = -z; ix <= z; ++ix) {
                     float g = (float)MathHelper.abs(ix) - 0.25F;
 
-                    for(int iz = -l; iz <= l; ++iz) {
+                    for(int iz = -z; iz <= z; ++iz) {
                         float h = (float)MathHelper.abs(iz) - 0.25F;
-                        if ((ix == 0 && iz == 0 || !(g * g + h * h > f * f)) && (ix != -l && ix != l && iz != -l && iz != l || !(random.nextFloat() > 0.75F))) {
+                        if ((ix == 0 && iz == 0 || !(g * g + h * h > f * f)) && (ix != -z && ix != z && iz != -z && iz != z || !(random.nextFloat() > 0.75F))) {
                             BlockState istate = world.getBlockState(mpos.add(ix, iy, iz));
-                            if (istate.isAir() || isSoil(istate) || istate.isOf(Blocks.SNOW_BLOCK) || istate.isOf(Blocks.ICE)) {
-                                this.setBlockState(world, mpos.add(ix, iy, iz), Blocks.PACKED_ICE.getDefaultState());
+                            if (istate.isAir() || isSoil(istate) || targets.contains(istate)) {
+                                BlockPos ipos = mpos.add(ix, iy, iz);
+                                this.setBlockState(world, mpos.add(ix, iy, iz), stateProvider.getBlockState(random, ipos));
                             }
 
-                            if (iy != 0 && l > 1) {
+                            if (iy != 0 && z > 1) {
                                 istate = world.getBlockState(mpos.add(ix, -iy, iz));
-                                if (istate.isAir() || isSoil(istate) || istate.isOf(Blocks.SNOW_BLOCK) || istate.isOf(Blocks.ICE)) {
-                                    this.setBlockState(world, mpos.add(ix, -iy, iz), Blocks.PACKED_ICE.getDefaultState());
+                                if (istate.isAir() || isSoil(istate) || targets.contains(istate)) {
+                                    BlockPos ipos = mpos.add(ix, -iy, iz);
+                                    this.setBlockState(world, ipos, stateProvider.getBlockState(random, ipos));
                                 }
                             }
                         }
@@ -73,21 +79,22 @@ public class PermafrostIceSpikeFeature extends IceSpikeFeature {
                 iy = 1;
             }
 
-            for(int p = -iy; p <= iy; ++p) {
-                for(l = -iy; l <= iy; ++l) {
-                    BlockPos ipos = mpos.add(p, -1, l);
+            for(int ix = -iy; ix <= iy; ++ix) {
+                for(z = -iy; z <= iy; ++z) {
+                    BlockPos ipos = mpos.add(ix, -1, z);
                     int r = 50;
-                    if (Math.abs(p) == 1 && Math.abs(l) == 1) {
+                    if (Math.abs(ix) == 1 && Math.abs(z) == 1) {
                         r = random.nextInt(5);
                     }
 
-                    while(ipos.getY() > 50) {
+                    int maxY = (int) (world.getBottomY() + (world.getLogicalHeight() * 0.05f));
+                    while(ipos.getY() > maxY) {
                         BlockState istate = world.getBlockState(ipos);
-                        if (!istate.isAir() && !isSoil(istate) && !istate.isOf(Blocks.SNOW_BLOCK) && !istate.isOf(Blocks.ICE) && !istate.isOf(Blocks.PACKED_ICE)) {
+                        if (!istate.isAir() && !isSoil(istate) && !targets.contains(istate)) {
                             break;
                         }
 
-                        this.setBlockState(world, ipos, Blocks.PACKED_ICE.getDefaultState());
+                        this.setBlockState(world, ipos, stateProvider.getBlockState(random, ipos));
                         ipos = ipos.down();
                         --r;
                         if (r <= 0) {
