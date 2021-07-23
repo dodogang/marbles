@@ -114,7 +114,7 @@ public final class BlockStateTable {
          * SANDSTONE SETS
          */
 
-        register(DAWN_SAND, BlockStateTable::cubeAllFunc);
+        register(DAWN_SAND, block -> snowyBlock(name(block, "block/%s"), cubeAll(name(block, "block/%s")), cubeBottomTop(name(block, "block/%s"), name(Blocks.SNOW, "block/%s"), name(block, "block/%s_side_snowy"))));
         register(DAWN_SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));
         register(CHISELED_DAWN_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^chiseled_", ""), name(block, "block/%s"))));
         register(CUT_DAWN_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^cut_", ""), name(block, "block/%s"))));
@@ -129,7 +129,7 @@ public final class BlockStateTable {
         register(CUT_DAWN_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_wall"))));
         register(SMOOTH_DAWN_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
 
-        register(DUSK_SAND, BlockStateTable::cubeAllFunc);
+        register(DUSK_SAND, block -> snowyBlock(name(block, "block/%s"), cubeAll(name(block, "block/%s")), cubeBottomTop(name(block, "block/%s"), name(Blocks.SNOW, "block/%s"), name(block, "block/%s_side_snowy"))));
         register(DUSK_SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));
         register(CHISELED_DUSK_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^chiseled_", ""), name(block, "block/%s"))));
         register(CUT_DUSK_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^cut_", ""), name(block, "block/%s"))));

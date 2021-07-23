@@ -178,7 +178,7 @@ public class MarblesBlocks {
      * SANDS
      */
 
-    public static final Block DAWN_SAND = register("dawn_sand", new SandBlock(0xA95821, FabricBlockSettings.copyOf(Blocks.RED_SAND)));
+    public static final Block DAWN_SAND = register("dawn_sand", new SnowySandBlock(0xA95821, FabricBlockSettings.copyOf(Blocks.RED_SAND)));
 
     public static final Block DAWN_SANDSTONE = register("dawn_sandstone", new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE)));
     public static final Block CHISELED_DAWN_SANDSTONE = copy("chiseled_dawn_sandstone", DAWN_SANDSTONE);
@@ -199,7 +199,7 @@ public class MarblesBlocks {
 
 
     public static final Block DUSK_SAND = register(
-        "dusk_sand", new SandBlock(
+        "dusk_sand", new SnowySandBlock(
             0x471515,
             FabricBlockSettings.of(Material.AGGREGATE, MapColor.RED)
                 .strength(0.5f).sounds(BlockSoundGroup.SAND)

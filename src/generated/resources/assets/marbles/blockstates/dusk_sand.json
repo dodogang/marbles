@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "snowy=false": {
       "model": "marbles:block/dusk_sand"
+    },
+    "snowy=true": {
+      "model": "marbles:block/dusk_sand_snowy"
     }
   }
 }
