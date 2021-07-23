@@ -1,11 +1,12 @@
 package net.dodogang.marbles.mixin.hooks.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.dodogang.marbles.MarblesClient;
+import net.dodogang.marbles.client.world.biome.BiomeFog;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.BackgroundRenderer;
 import net.minecraft.client.render.Camera;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -26,10 +27,10 @@ public class BackgroundRendererMixin {
             World world = client.world;
             ClientPlayerEntity player = client.player;
 
-            if (world != null && player != null) {
+            if (world != null && player != null && !player.hasStatusEffect(StatusEffects.NIGHT_VISION)) {
                 Optional<RegistryKey<Biome>> biomeKeyOpt = world.getBiomeKey(player.getBlockPos());
                 if (biomeKeyOpt.isPresent()) {
-                    Function<ClientPlayerEntity, Float> fogDistanceFunc = MarblesClient.BIOME_TO_FOG_DISTANCE_MAP.get(biomeKeyOpt.get());
+                    Function<ClientPlayerEntity, Float> fogDistanceFunc = BiomeFog.BIOME_TO_FOG_DISTANCE_MAP.get(biomeKeyOpt.get());
                     if (fogDistanceFunc != null) {
                         if (fogType == BackgroundRenderer.FogType.FOG_TERRAIN) {
                             float fogDistance = fogDistanceFunc.apply(player);

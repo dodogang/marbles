@@ -40,6 +40,7 @@ public class MarblesBiomes {
      * PERMAFROST
      */
 
+    public static final RegistryKey<Biome> PERMAFROST_ICE_SPIKES = register("permafrost_ice_spikes", createPermafrostSnowyTundra(1.0f, 0.45F, true, false));
     public static final RegistryKey<Biome> WOODED_PERMAFROST_MOUNTAINS = register("wooded_permafrost_mountains", createPermafrostMountains(1.0F, 0.5F, true));
 
     /*
@@ -67,6 +68,70 @@ public class MarblesBiomes {
         OverworldBiomes.addHillsBiome(YELLOW_BAMBOO_JUNGLE, YELLOW_BAMBOO_JUNGLE_HILLS, 1.0F);
 
         OverworldBiomes.addContinentalBiome(WOODED_PERMAFROST_MOUNTAINS, OverworldClimate.COOL, 1.0d);
+        OverworldBiomes.addContinentalBiome(PERMAFROST_ICE_SPIKES, OverworldClimate.COOL, 1.0d);
+    }
+
+    public static Biome createPermafrostSnowyTundra(float depth, float scale, boolean iceSpikes, boolean mountains) {
+        SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder().creatureSpawnProbability(0.07F);
+        DefaultBiomeFeatures.addSnowyMobs(spawnSettings);
+
+        GenerationSettings.Builder generationSettings = new GenerationSettings.Builder().surfaceBuilder(MarblesConfiguredSurfaceBuilders.PERMAFROST);
+        if (!iceSpikes && !mountains) {
+            generationSettings.structureFeature(ConfiguredStructureFeatures.VILLAGE_SNOWY).structureFeature(ConfiguredStructureFeatures.IGLOO);
+        }
+
+        DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
+        if (!iceSpikes && !mountains) {
+            generationSettings.structureFeature(ConfiguredStructureFeatures.PILLAGER_OUTPOST);
+        }
+
+        generationSettings.structureFeature(mountains ? ConfiguredStructureFeatures.RUINED_PORTAL_MOUNTAIN : ConfiguredStructureFeatures.RUINED_PORTAL);
+
+        generationSettings.carver(GenerationStep.Carver.AIR, MarblesConfiguredCarvers.PERMAFROST_CAVE);
+        generationSettings.carver(GenerationStep.Carver.AIR, MarblesConfiguredCarvers.PERMAFROST_CANYON);
+
+        DefaultBiomeFeatures.addDefaultLakes(generationSettings);
+        DefaultBiomeFeatures.addAmethystGeodes(generationSettings);
+        DefaultBiomeFeatures.addDungeons(generationSettings);
+        if (iceSpikes) {
+            generationSettings.feature(GenerationStep.Feature.SURFACE_STRUCTURES, MarblesConfiguredFeatures.PERMAFROST_ICE_SPIKE);
+            generationSettings.feature(GenerationStep.Feature.SURFACE_STRUCTURES, MarblesConfiguredFeatures.PERMAFROST_ICE_PATCH);
+        }
+
+        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.GLOW_LICHEN);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, ConfiguredFeatures.ORE_TUFF);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, ConfiguredFeatures.ORE_DEEPSLATE);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.RARE_DRIPSTONE_CLUSTER);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.RARE_SMALL_DRIPSTONE);
+
+        DefaultBiomeFeatures.addDefaultOres(generationSettings);
+        DefaultBiomeFeatures.addDefaultDisks(generationSettings);
+        DefaultBiomeFeatures.addSnowySpruceTrees(generationSettings);
+        DefaultBiomeFeatures.addDefaultFlowers(generationSettings);
+        DefaultBiomeFeatures.addDefaultGrass(generationSettings);
+        DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);
+        DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
+        DefaultBiomeFeatures.addSprings(generationSettings);
+        DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
+
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, MarblesConfiguredFeatures.LARGE_SLUSH_DISK);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, MarblesConfiguredFeatures.LARGE_ICE_DISK);
+
+        return new Biome.Builder()
+                    .precipitation(Biome.Precipitation.SNOW)
+                    .category(Biome.Category.ICY)
+                    .depth(depth).scale(scale)
+                    .temperature(0.0F).downfall(0.5F)
+                    .effects(
+                        new BiomeEffects.Builder()
+                            .waterColor(0x242356).skyColor(getSkyColor(0.0F))
+                            .fogColor(0x344D6B).waterFogColor(0x344D6B)
+                            .moodSound(BiomeMoodSound.CAVE)
+                            .build()
+                    )
+                    .spawnSettings(spawnSettings.build())
+                    .generationSettings(generationSettings.build())
+                .build();
     }
 
     protected static Biome createPermafrostMountains(float depth, float scale, boolean extraTrees) {

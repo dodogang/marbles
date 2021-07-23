@@ -261,6 +261,31 @@ public class MarblesConfiguredFeatures {
             .spreadHorizontally()
     );
 
+    public static final ConfiguredFeature<?, ?> PERMAFROST_ICE_SPIKE = register(
+        "permafrost_ice_spike",
+        MarblesFeatures.PERMAFROST_ICE_SPIKE
+            .configure(FeatureConfig.DEFAULT)
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+            .repeat(3)
+    );
+    public static final ConfiguredFeature<?, ?> PERMAFROST_ICE_PATCH = register(
+        "permafrost_ice_patch",
+        Feature.DISK.configure(
+            new DiskFeatureConfig(
+                States.PACKED_ICE,
+                UniformIntProvider.create(2, 3), 1,
+                ImmutableList.of(
+                    States.PERMAFROST_DIRT, States.PERMAFROST,
+                    States.PERMAFROST_PODZOL, States.COARSE_PERMAFROST_DIRT,
+                    States.PERMAFROST_MYCELIUM, States.SNOW_BLOCK,
+                    States.ICE
+                )
+            )
+        )
+        .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+        .repeat(2)
+    );
+
     private static DataPool.Builder<BlockState> createStatePool() {
         return DataPool.builder();
     }
@@ -288,5 +313,11 @@ public class MarblesConfiguredFeatures {
         private static final BlockState ICE = Blocks.ICE.getDefaultState();
         private static final BlockState PACKED_ICE = Blocks.PACKED_ICE.getDefaultState();
         private static final BlockState SLUSH = MarblesBlocks.SLUSH.getDefaultState();
+        private static final BlockState PERMAFROST_DIRT = MarblesBlocks.PERMAFROST_DIRT.getDefaultState();
+        private static final BlockState PERMAFROST = MarblesBlocks.PERMAFROST.getDefaultState();
+        private static final BlockState PERMAFROST_PODZOL = MarblesBlocks.PERMAFROST_PODZOL.getDefaultState();
+        private static final BlockState COARSE_PERMAFROST_DIRT = MarblesBlocks.COARSE_PERMAFROST_DIRT.getDefaultState();
+        private static final BlockState PERMAFROST_MYCELIUM = MarblesBlocks.PERMAFROST_MYCELIUM.getDefaultState();
+        private static final BlockState SNOW_BLOCK = Blocks.SNOW_BLOCK.getDefaultState();
     }
 }
