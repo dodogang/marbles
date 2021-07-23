@@ -17,13 +17,13 @@ import net.dodogang.marbles.sound.MarblesBlockSoundGroup;
 import net.dodogang.marbles.sound.MarblesSoundGroups;
 import net.dodogang.marbles.state.property.MarblesProperties;
 import net.dodogang.marbles.util.ModLoaded;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
@@ -412,7 +412,7 @@ public class MarblesBlocks {
 
         Block registeredBlock = Registry.register(Registry.BLOCK, identifier, block);
         if (registerItem) {
-            Registry.register(Registry.ITEM, identifier, new BlockItem(registeredBlock, new Item.Settings().maxCount(64).group(MarblesItemGroup.INSTANCE)));
+            Registry.register(Registry.ITEM, identifier, new BlockItem(registeredBlock, new FabricItemSettings().maxCount(64).group(MarblesItemGroup.INSTANCE)));
         }
 
         return registeredBlock;

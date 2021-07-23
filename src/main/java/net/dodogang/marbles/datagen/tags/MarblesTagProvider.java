@@ -240,8 +240,10 @@ public class MarblesTagProvider implements DataProvider {
             CBlockTags.ATTACHED_STEM_SUPPORTERS
         );
 
-        add(LIMESTONE, ItemTags.STONE_CRAFTING_MATERIALS, ItemTags.STONE_TOOL_MATERIALS);
-        add(LIMESTONE, BlockTags.BASE_STONE_OVERWORLD);
+        for (ItemConvertible i : new ItemConvertible[]{ LIMESTONE, FLOESTONE }) {
+            add(i, ItemTags.STONE_CRAFTING_MATERIALS, ItemTags.STONE_TOOL_MATERIALS);
+            add((Block) i, BlockTags.BASE_STONE_OVERWORLD);
+        }
 
         /*
          * ORES

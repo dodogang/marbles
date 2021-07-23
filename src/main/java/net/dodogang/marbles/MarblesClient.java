@@ -14,11 +14,14 @@ import net.dodogang.marbles.client.particle.MarblesParticleFactories;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
 import net.dodogang.marbles.client.render.entity.PollenGracedSheepEntityRenderer;
+import net.dodogang.marbles.init.MarblesBiomes;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesParticles;
 import net.dodogang.marbles.mixin.hooks.CrossbowItemAccessor;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry;
@@ -26,16 +29,32 @@ import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.biome.Biome;
 
 import java.util.List;
+import java.util.function.Function;
 
+@Environment(EnvType.CLIENT)
 public class MarblesClient implements ClientModInitializer {
     public static BlockState lastNetherPortalState = Blocks.NETHER_PORTAL.getDefaultState();
+
+    public static final ImmutableMap<RegistryKey<Biome>, Function<ClientPlayerEntity, Float>> BIOME_TO_FOG_DISTANCE_MAP = ImmutableMap.of(
+        MarblesBiomes.WOODED_PERMAFROST_MOUNTAINS, (player) -> {
+            int topY = player.world.getTopY();
+            float shift = 3.6f;
+            double yOffset = 16;
+            float stretch = 0.21f;
+
+            return Math.max((float) ((((player.getY() + yOffset) - (topY / shift)) / topY) * (topY * stretch)), 0.00001f);
+        }
+    );
 
     @SuppressWarnings({"UnstableApiUsage","deprecation"})
     @Override

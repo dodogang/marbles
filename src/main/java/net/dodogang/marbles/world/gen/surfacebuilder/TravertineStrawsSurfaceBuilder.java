@@ -108,7 +108,7 @@ public class TravertineStrawsSurfaceBuilder extends SurfaceBuilder<TernarySurfac
         }
 
 
-        for (int y = 0; y < 128; y++) {
+        for (int y = chunk.getBottomY(); y < 128; y++) {
             mpos.setY(y);
             if (chunk.getBlockState(mpos).equals(defaultBlock)) {
                 chunk.setBlockState(mpos, LEMON_TRAVERTINE, false);

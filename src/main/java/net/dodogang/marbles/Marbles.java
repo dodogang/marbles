@@ -37,9 +37,14 @@ public class Marbles implements ModInitializer {
                 MarblesItems.class,
                 MarblesEntities.class,
 
-                BridgedCaveBiomeGeneratorConfigs.class,
                 MarblesFeatures.class,
                 MarblesConfiguredFeatures.class,
+                MarblesCarvers.class,
+                MarblesConfiguredCarvers.class,
+                MarblesSurfaceBuilders.class,
+                MarblesConfiguredSurfaceBuilders.class,
+
+                BridgedCaveBiomeGeneratorConfigs.class,
                 MarblesBiomes.class,
 
                 MarblesParticles.class,

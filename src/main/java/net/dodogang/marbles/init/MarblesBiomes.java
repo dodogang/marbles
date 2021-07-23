@@ -1,6 +1,7 @@
 package net.dodogang.marbles.init;
 
 import net.dodogang.marbles.Marbles;
+import net.dodogang.marbles.mixin.hooks.worldgen.DefaultBiomeCreatorInvoker;
 import net.dodogang.marbles.world.gen.feature.MarblesDefaultBiomeFeatures;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
@@ -10,12 +11,12 @@ import net.minecraft.sound.BiomeAdditionsSound;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.sound.MusicSound;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.ConfiguredStructureFeatures;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilders;
@@ -36,6 +37,12 @@ public class MarblesBiomes {
     public static final RegistryKey<Biome> YELLOW_BAMBOO_JUNGLE_HILLS = register("yellow_bamboo_jungle_hills", createYellowBambooJungleHills());
 
     /*
+     * PERMAFROST
+     */
+
+    public static final RegistryKey<Biome> WOODED_PERMAFROST_MOUNTAINS = register("wooded_permafrost_mountains", createPermafrostMountains(1.0F, 0.5F, true));
+
+    /*
      * CAVE BIOMES
      */
 
@@ -54,10 +61,74 @@ public class MarblesBiomes {
     public static final RegistryKey<Biome> TEST_RED_BIRCH_FOREST = register("red_birch_forest", createRedBirchForest());
 
     static {
-        OverworldBiomes.addContinentalBiome(MarblesBiomes.TRAVERTINE_STRAWS, OverworldClimate.DRY, 1.05);
+        OverworldBiomes.addContinentalBiome(TRAVERTINE_STRAWS, OverworldClimate.DRY, 0.8d);
 
-        OverworldBiomes.addBiomeVariant(BiomeKeys.BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE, 0.5F, OverworldClimate.TEMPERATE);
-        OverworldBiomes.addHillsBiome(MarblesBiomes.YELLOW_BAMBOO_JUNGLE, MarblesBiomes.YELLOW_BAMBOO_JUNGLE_HILLS, 1.0F);
+        OverworldBiomes.addBiomeVariant(BiomeKeys.BAMBOO_JUNGLE, YELLOW_BAMBOO_JUNGLE, 0.5F);
+        OverworldBiomes.addHillsBiome(YELLOW_BAMBOO_JUNGLE, YELLOW_BAMBOO_JUNGLE_HILLS, 1.0F);
+
+        OverworldBiomes.addContinentalBiome(WOODED_PERMAFROST_MOUNTAINS, OverworldClimate.COOL, 1.0d);
+    }
+
+    protected static Biome createPermafrostMountains(float depth, float scale, boolean extraTrees) {
+        SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
+        DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.LLAMA, 5, 4, 6));
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.GOAT, 10, 4, 6));
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
+
+        GenerationSettings.Builder generationSettings = new GenerationSettings.Builder().surfaceBuilder(MarblesConfiguredSurfaceBuilders.PERMAFROST);
+        DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
+        generationSettings.structureFeature(ConfiguredStructureFeatures.RUINED_PORTAL_MOUNTAIN);
+
+        generationSettings.carver(GenerationStep.Carver.AIR, MarblesConfiguredCarvers.PERMAFROST_CAVE);
+        generationSettings.carver(GenerationStep.Carver.AIR, MarblesConfiguredCarvers.PERMAFROST_CANYON);
+
+        DefaultBiomeFeatures.addDefaultLakes(generationSettings);
+        DefaultBiomeFeatures.addAmethystGeodes(generationSettings);
+        DefaultBiomeFeatures.addDungeons(generationSettings);
+
+        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.GLOW_LICHEN);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, ConfiguredFeatures.ORE_TUFF);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, ConfiguredFeatures.ORE_DEEPSLATE);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.RARE_DRIPSTONE_CLUSTER);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, ConfiguredFeatures.RARE_SMALL_DRIPSTONE);
+
+        DefaultBiomeFeatures.addDefaultOres(generationSettings);
+        DefaultBiomeFeatures.addDefaultDisks(generationSettings);
+        if (extraTrees) {
+            DefaultBiomeFeatures.addExtraMountainTrees(generationSettings);
+        } else {
+            DefaultBiomeFeatures.addMountainTrees(generationSettings);
+        }
+
+        DefaultBiomeFeatures.addDefaultFlowers(generationSettings);
+        DefaultBiomeFeatures.addDefaultGrass(generationSettings);
+        DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);
+        DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
+        DefaultBiomeFeatures.addSprings(generationSettings);
+        DefaultBiomeFeatures.addEmeraldOre(generationSettings);
+        DefaultBiomeFeatures.addInfestedStone(generationSettings);
+        DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
+
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, MarblesConfiguredFeatures.LARGE_SLUSH_DISK);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, MarblesConfiguredFeatures.LARGE_ICE_DISK);
+
+        float temp = -0.5f;
+        return new Biome.Builder()
+                    .precipitation(Biome.Precipitation.SNOW)
+                    .category(Biome.Category.EXTREME_HILLS)
+                    .depth(depth).scale(scale)
+                    .temperature(temp).downfall(0.4F)
+                    .effects(
+                        new BiomeEffects.Builder()
+                            .waterColor(0x242356).skyColor(getSkyColor(temp))
+                            .fogColor(0x344D6B).waterFogColor(0x344D6B)
+                            .moodSound(BiomeMoodSound.CAVE)
+                        .build()
+                    )
+                    .spawnSettings(spawnSettings.build())
+                    .generationSettings(generationSettings.build())
+                .build();
     }
 
     // unfinished travertine straws biome, just for people to get travertine from
@@ -84,11 +155,11 @@ public class MarblesBiomes {
                     .temperature(2.0F).downfall(0.0F)
                     .effects(
                         new BiomeEffects.Builder()
-                            .waterColor(4159204).skyColor(getSkyColor(2.0F))
-                            .grassColor(9470285).foliageColor(10387789)
-                            .waterFogColor(329011).fogColor(12638463)
+                            .waterColor(0x3f76e4).skyColor(getSkyColor(2.0F))
+                            .grassColor(0x90814d).foliageColor(0x9e814d)
+                            .waterFogColor(0x50533).fogColor(0xc0d8ff)
                             .moodSound(BiomeMoodSound.CAVE)
-                        .build()
+                            .build()
                     )
                     .spawnSettings(spawnSettings.build())
                     .generationSettings(generationSettings.build())
@@ -118,7 +189,21 @@ public class MarblesBiomes {
         DefaultBiomeFeatures.addSprings(generationSettings);
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
 
-        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.6F).downfall(0.6F).effects(new BiomeEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.6F)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.Builder()
+                    .precipitation(Biome.Precipitation.RAIN)
+                    .category(Biome.Category.FOREST)
+                    .depth(0.1F).scale(0.2F)
+                    .temperature(0.6F).downfall(0.6F)
+                    .effects(
+                        new BiomeEffects.Builder()
+                            .waterColor(0x3f76e4).skyColor(getSkyColor(0.6F))
+                            .fogColor(0xc0d8ff).waterFogColor(0x50533)
+                            .moodSound(BiomeMoodSound.CAVE)
+                            .build()
+                    )
+                    .spawnSettings(spawnSettings.build())
+                    .generationSettings(generationSettings.build())
+                .build();
     }
 
     protected static Biome createHoopsiSpruceForest() {
@@ -152,7 +237,21 @@ public class MarblesBiomes {
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
 
         float temperature = -0.5F;
-        return new Biome.Builder().precipitation(Biome.Precipitation.SNOW).category(Biome.Category.TAIGA).depth(0.2F).scale(0.2F).temperature(temperature).downfall(0.4F).effects(new BiomeEffects.Builder().waterColor(4020182).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(temperature)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.Builder()
+                    .precipitation(Biome.Precipitation.SNOW)
+                    .category(Biome.Category.TAIGA)
+                    .depth(0.2F).scale(0.2F)
+                    .temperature(temperature).downfall(0.4F)
+                    .effects(
+                        new BiomeEffects.Builder()
+                            .waterColor(4020182).skyColor(getSkyColor(temperature))
+                            .fogColor(12638463).waterFogColor(329011)
+                            .moodSound(BiomeMoodSound.CAVE)
+                        .build()
+                    )
+                    .spawnSettings(spawnSettings.build())
+                    .generationSettings(generationSettings.build())
+                .build();
     }
 
     protected static Biome createRedBirchForest() {
@@ -178,7 +277,21 @@ public class MarblesBiomes {
         DefaultBiomeFeatures.addSprings(generationSettings);
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
 
-        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.2F).temperature(0.6F).downfall(0.6F).effects(new BiomeEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.6F)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.Builder()
+                    .precipitation(Biome.Precipitation.RAIN)
+                    .category(Biome.Category.FOREST)
+                    .depth(0.1F).scale(0.2F)
+                    .temperature(0.6F).downfall(0.6F)
+                    .effects(
+                        new BiomeEffects.Builder()
+                            .waterColor(4159204).skyColor(getSkyColor(0.6F))
+                            .waterFogColor(329011).fogColor(12638463)
+                            .moodSound(BiomeMoodSound.CAVE)
+                        .build()
+                    )
+                    .spawnSettings(spawnSettings.build())
+                    .generationSettings(generationSettings.build())
+                .build();
     }
 
     /**
@@ -197,10 +310,8 @@ public class MarblesBiomes {
                     .effects(
                         new BiomeEffects.Builder()
                             .particleConfig(new BiomeParticleConfig(MarblesParticles.PINK_SALT, 0.013f))
-                            .waterColor(0x242356)
-                            .waterFogColor(0x344D6B)
-                            .fogColor(0x344D6B)
-                            .skyColor(0xBD6541)
+                            .waterColor(0x242356).skyColor(0xBD6541)
+                            .fogColor(0x344D6B).waterFogColor(0x344D6B)
 
                             .loopSound(MarblesSoundEvents.AMBIENT_PINK_SALT_CAVE_LOOP)
                             .additionsSound(new BiomeAdditionsSound(MarblesSoundEvents.AMBIENT_PINK_SALT_CAVE_ADDITIONS, 0.0111d))
@@ -311,16 +422,25 @@ public class MarblesBiomes {
         DefaultBiomeFeatures.addJungleVegetation(generationSettings);
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
 
-        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.JUNGLE).depth(depth).scale(scale).temperature(0.95F).downfall(downfall).effects(new BiomeEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.95F)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.Builder()
+                    .precipitation(Biome.Precipitation.RAIN)
+                    .category(Biome.Category.JUNGLE)
+                    .depth(depth).scale(scale)
+                    .temperature(0.95F).downfall(downfall)
+                    .effects(
+                        new BiomeEffects.Builder()
+                            .waterColor(4159204).skyColor(getSkyColor(0.95F))
+                            .waterFogColor(329011).fogColor(12638463)
+                            .moodSound(BiomeMoodSound.CAVE)
+                        .build()
+                    )
+                    .spawnSettings(spawnSettings.build())
+                    .generationSettings(generationSettings.build())
+                .build();
     }
 
-    /*
-     * Same as DefaultBiomeCreator#getSkyColor
-     */
     private static int getSkyColor(float temperature) {
-        float f = temperature / 3.0F;
-        f = MathHelper.clamp(f, -1.0F, 1.0F);
-        return MathHelper.hsvToRgb(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
+        return DefaultBiomeCreatorInvoker.getSkyColor(temperature);
     }
 
     private static RegistryKey<Biome> register(String id, Biome biome) {

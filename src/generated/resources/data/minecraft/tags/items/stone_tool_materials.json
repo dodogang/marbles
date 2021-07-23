@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "marbles:limestone"
+    "marbles:limestone",
+    "marbles:floestone"
   ]
 }

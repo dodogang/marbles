@@ -212,7 +212,7 @@ public class MarblesConfiguredFeatures {
     );
 
     /*
-     * ICE CAVES
+     * ICE
      */
 
     public static final ConfiguredFeature<?, ?> ICE_CAVE_FLOESTONE_DISK = register(
@@ -230,7 +230,38 @@ public class MarblesConfiguredFeatures {
             .spreadHorizontally()
     );
 
-    static DataPool.Builder<BlockState> createStatePool() {
+    public static final ConfiguredFeature<?, ?> LARGE_SLUSH_DISK = register(
+        "large_slush_disk",
+        MarblesFeatures.STATE_PROVIDED_DISK
+            .configure(
+                new StateProvidedChanceDiskFeatureConfig(
+                    new WeightedBlockStateProvider(createStatePool().add(States.SLUSH, 4).add(States.ICE, 1)),
+                    UniformIntProvider.create(6, 8),
+                    4, 0.3f,
+                    Lists.newArrayList(States.FLOESTONE, States.STONE)
+                )
+            )
+            .repeatRandomly(28)
+            .uniformRange(YOffset.getBottom(), YOffset.getTop())
+            .spreadHorizontally()
+    );
+    public static final ConfiguredFeature<?, ?> LARGE_ICE_DISK = register(
+        "large_ice_disk",
+        MarblesFeatures.STATE_PROVIDED_DISK
+            .configure(
+                new StateProvidedChanceDiskFeatureConfig(
+                    new WeightedBlockStateProvider(createStatePool().add(States.ICE, 7).add(States.PACKED_ICE, 1)),
+                    UniformIntProvider.create(6, 8),
+                    4, 0.3f,
+                    Lists.newArrayList(States.FLOESTONE, States.STONE)
+                )
+            )
+            .repeatRandomly(28)
+            .uniformRange(YOffset.getBottom(), YOffset.getTop())
+            .spreadHorizontally()
+    );
+
+    private static DataPool.Builder<BlockState> createStatePool() {
         return DataPool.builder();
     }
 
@@ -250,10 +281,12 @@ public class MarblesConfiguredFeatures {
         private static final BlockState RED_BIRCH_SAPLING = MarblesBlocks.RED_BIRCH.SAPLING.getDefaultState();
         private static final BlockState PINK_SALT = MarblesBlocks.PINK_SALT.getDefaultState();
         private static final BlockState CRUMBLED_PINK_SALT = MarblesBlocks.CRUMBLED_PINK_SALT.getDefaultState();
+        private static final BlockState STONE = Blocks.STONE.getDefaultState();
         private static final BlockState GRANITE = Blocks.GRANITE.getDefaultState();
         private static final BlockState FLOESTONE = MarblesBlocks.FLOESTONE.getDefaultState();
         private static final BlockState RILLED_FLOESTONE = MarblesBlocks.RILLED_FLOESTONE.getDefaultState();
         private static final BlockState ICE = Blocks.ICE.getDefaultState();
         private static final BlockState PACKED_ICE = Blocks.PACKED_ICE.getDefaultState();
+        private static final BlockState SLUSH = MarblesBlocks.SLUSH.getDefaultState();
     }
 }
