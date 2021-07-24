@@ -1,7 +1,6 @@
 package net.dodogang.marbles.block;
 
 import net.dodogang.marbles.init.MarblesBlocks;
-import net.dodogang.marbles.mixin.EntityAccessShapeContext;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.FallingBlockEntity;
@@ -36,7 +35,7 @@ public class PinkSaltStackBlock extends AbstractLightRetainingBlock {
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext ctx) {
-        Entity entity = ((EntityAccessShapeContext) ctx).marbles_getEntity();
+        Entity entity = ((EntityShapeContext) ctx).getEntity().orElse(null);
         return entity instanceof FallingBlockEntity
             ? VoxelShapes.empty()
             : super.getCollisionShape(state, world, pos, ctx);

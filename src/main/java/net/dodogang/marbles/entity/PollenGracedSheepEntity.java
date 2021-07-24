@@ -2,8 +2,8 @@ package net.dodogang.marbles.entity;
 
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
-import net.dodogang.marbles.mixin.hooks.EatGrassGoalAccessor;
-import net.dodogang.marbles.mixin.hooks.SheepEntityAccessor;
+import net.dodogang.marbles.mixin.entity.EatGrassGoalAccessor;
+import net.dodogang.marbles.mixin.entity.SheepEntityAccessor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

@@ -12,7 +12,7 @@ import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.MarblesClient;
-import net.dodogang.marbles.mixin.hooks.client.TitleScreenAccessor;
+import net.dodogang.marbles.mixin.client.gui.TitleScreenAccessor;
 import net.dodogang.marbles.util.ModLoaded;
 import net.dodogang.marbles.util.Util;
 import net.fabricmc.api.EnvType;

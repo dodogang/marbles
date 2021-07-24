@@ -1,5 +1,6 @@
 package net.dodogang.marbles.util;
 
+import net.dodogang.marbles.block.TravertineNetherPortalBlock;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesPointOfInterestTypes;
 import net.minecraft.block.BlockState;
@@ -39,7 +40,7 @@ public class TravertinePortalForcer {
                 poi -> poi.getPos().getY()
             )
         ).filter(
-            poi -> world.getBlockState(poi.getPos()).isOf(MarblesBlocks.TRAVERTINE_NETHER_PORTAL)
+            poi -> world.getBlockState(poi.getPos()).getBlock() instanceof TravertineNetherPortalBlock
         ).findFirst();
 
         return nearestPortal.map(poi -> {

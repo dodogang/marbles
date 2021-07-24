@@ -1,8 +1,7 @@
 package net.dodogang.marbles.init;
 
 import net.dodogang.marbles.Marbles;
-import net.dodogang.marbles.world.gen.carver.PermafrostCaveCarver;
-import net.dodogang.marbles.world.gen.carver.PermafrostCanyonCarver;
+import net.dodogang.marbles.world.gen.carver.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.carver.Carver;

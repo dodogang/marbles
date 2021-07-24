@@ -1,7 +1,7 @@
 package net.dodogang.marbles.init;
 
 import net.dodogang.marbles.Marbles;
-import net.dodogang.marbles.mixin.hooks.worldgen.DefaultBiomeCreatorInvoker;
+import net.dodogang.marbles.mixin.world.gen.DefaultBiomeCreatorInvoker;
 import net.dodogang.marbles.world.gen.feature.MarblesDefaultBiomeFeatures;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;

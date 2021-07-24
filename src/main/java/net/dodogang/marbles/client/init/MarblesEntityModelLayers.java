@@ -1,7 +1,7 @@
 package net.dodogang.marbles.client.init;
 
 import net.dodogang.marbles.Marbles;
-import net.dodogang.marbles.mixin.hooks.client.EntityModelLayersInvoker;
+import net.dodogang.marbles.mixin.client.entity.EntityModelLayersInvoker;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.model.EntityModelLayer;

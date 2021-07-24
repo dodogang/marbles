@@ -46,7 +46,7 @@ public class MarblesBlocks {
     public static final TravertineBlocks TANGERINE_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "tangerine_travertine", MarblesItemGroup.INSTANCE, MapColor.ORANGE);
 
     public static final Block TRAVERTINE_OBSIDIAN = register("travertine_obsidian", new Block(FabricBlockSettings.of(Material.STONE, MapColor.BROWN).requiresTool().strength(50.0f, 1200.0f)));
-    public static final Block TRAVERTINE_NETHER_PORTAL = register("travertine_nether_portal", new TravertinePortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL)), false);
+    public static final Block TRAVERTINE_NETHER_PORTAL = register("travertine_nether_portal", new TravertineNetherPortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL)), false);
 
     public static final Block LIMESTONE = register("limestone", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STONE).mapColor(MapColor.OFF_WHITE)));
     public static final Block LIMESTONE_SLAB = createSlab(LIMESTONE);

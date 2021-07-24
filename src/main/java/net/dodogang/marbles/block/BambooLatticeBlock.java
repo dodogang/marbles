@@ -1,10 +1,10 @@
 package net.dodogang.marbles.block;
 
-import net.dodogang.marbles.mixin.EntityAccessShapeContext;
 import net.dodogang.marbles.tag.MarblesBlockTags;
 import net.dodogang.marbles.tag.MarblesEntityTypeTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.EntityShapeContext;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
@@ -36,7 +36,7 @@ public class BambooLatticeBlock extends AbstractAttachingBlock {
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Entity entity = ((EntityAccessShapeContext) context).marbles_getEntity();
+        Entity entity = ((EntityShapeContext) context).getEntity().orElse(null);
         return entity != null && MarblesEntityTypeTags.CROSSED_LATICE_FALL_THROUGHABLES.contains(entity.getType())
             && MarblesBlockTags.CROSSED_LATTICE.contains(state.getBlock())
                 ? VoxelShapes.empty()

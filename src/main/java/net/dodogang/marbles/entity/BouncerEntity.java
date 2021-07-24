@@ -2,7 +2,7 @@ package net.dodogang.marbles.entity;
 
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.init.MarblesSoundEvents;
-import net.dodogang.marbles.mixin.hooks.MeleeAttackGoalAccessor;
+import net.dodogang.marbles.mixin.entity.MeleeAttackGoalAccessor;
 import net.dodogang.marbles.network.MarblesNetwork;
 import net.dodogang.marbles.tag.MarblesEntityTypeTags;
 import net.dodogang.marbles.util.Util;

@@ -1,6 +1,6 @@
 package net.dodogang.marbles.world.gen.chunk.generator;
 
-import net.dodogang.marbles.mixin.MutableBiomeArray;
+import net.dodogang.marbles.world.MutableBiomeArray;
 import net.dodogang.marbles.world.gen.chunk.decorator.BridgedCaveBiomeDecorator;
 import net.dodogang.marbles.world.gen.chunk.generator.config.BridgedCaveBiomeGeneratorConfig;
 import net.minecraft.block.BlockState;

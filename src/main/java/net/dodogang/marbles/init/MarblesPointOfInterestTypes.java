@@ -2,7 +2,7 @@ package net.dodogang.marbles.init;
 
 import com.google.common.collect.ImmutableSet;
 import net.dodogang.marbles.Marbles;
-import net.dodogang.marbles.mixin.MarblesPOIRegistryHelper;
+import net.dodogang.marbles.mixin.entity.PointOfInterestTypeInvoker;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Identifier;
@@ -17,11 +17,11 @@ public class MarblesPointOfInterestTypes {
 
 
     private static PointOfInterestType register(String id, Set<BlockState> workStationStates, int ticketCount, int searchDistance) {
-        return ((MarblesPOIRegistryHelper) PointOfInterestType.UNEMPLOYED).marbles_register(new Identifier(Marbles.MOD_ID, id).toString(), workStationStates, ticketCount, searchDistance);
+        return PointOfInterestTypeInvoker.register(new Identifier(Marbles.MOD_ID, id).toString(), workStationStates, ticketCount, searchDistance);
     }
 
     private static PointOfInterestType register(String id, Set<BlockState> workStationStates, int ticketCount, Predicate<PointOfInterestType> completionCondition, int searchDistance) {
-        return ((MarblesPOIRegistryHelper) PointOfInterestType.UNEMPLOYED).marbles_register(new Identifier(Marbles.MOD_ID, id).toString(), workStationStates, ticketCount, completionCondition, searchDistance);
+        return PointOfInterestTypeInvoker.register(new Identifier(Marbles.MOD_ID, id).toString(), workStationStates, ticketCount, completionCondition, searchDistance);
     }
 
     private static Set<BlockState> getAllStatesOf(Block block) {

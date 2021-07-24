@@ -10,7 +10,7 @@ import net.dodogang.marbles.block.enums.QuadBlockPart;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesItems;
-import net.dodogang.marbles.mixin.hooks.datagen.BlockLootTableGeneratorInvoker;
+import net.dodogang.marbles.mixin.datagen.BlockLootTableGeneratorInvoker;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.DoubleBlockHalf;

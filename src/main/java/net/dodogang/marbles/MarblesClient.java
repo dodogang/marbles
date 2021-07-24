@@ -17,7 +17,7 @@ import net.dodogang.marbles.client.render.entity.PollenGracedSheepEntityRenderer
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesParticles;
-import net.dodogang.marbles.mixin.hooks.CrossbowItemAccessor;
+import net.dodogang.marbles.mixin.item.CrossbowItemAccessor;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
