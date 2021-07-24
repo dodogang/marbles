@@ -7,10 +7,10 @@ import net.minecraft.client.render.entity.model.EntityModelLayers;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
+@SuppressWarnings("unused")
 @Environment(EnvType.CLIENT)
 @Mixin(EntityModelLayers.class)
 public interface EntityModelLayersInvoker {
-    @SuppressWarnings("unused")
     @Invoker("register")
     static EntityModelLayer register(String id, String layer) {
         throw new AssertionError();

@@ -11,12 +11,12 @@ import java.util.function.Predicate;
 @SuppressWarnings("unused")
 @Mixin(PointOfInterestType.class)
 public interface PointOfInterestTypeInvoker {
-    @Invoker("register")
+    @Invoker(value = "register", remap = false)
     static PointOfInterestType register(String id, Set<BlockState> workStationStates, int ticketCount, int searchDistance) {
         throw new AssertionError();
     }
 
-    @Invoker("register")
+    @Invoker(value = "register", remap = false)
     static PointOfInterestType register(String id, Set<BlockState> workStationStates, int ticketCount, Predicate<PointOfInterestType> completionCondition, int searchDistance) {
         throw new AssertionError();
     }
