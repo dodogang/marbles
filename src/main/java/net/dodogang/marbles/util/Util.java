@@ -21,9 +21,6 @@ import java.util.List;
 import java.util.Random;
 
 public class Util {
-    /*
-     * SHARED CONSTANTS
-     */
     public static final TrackedData<ItemStack> LLAMA_SADDLE_ITEM_TRACKED_DATA = DataTracker.registerData(LlamaEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
 
     public static final ImmutableList<Double> ADDITIONAL_CLOUD_OFFSETS;
@@ -53,9 +50,7 @@ public class Util {
         "Also try Crumbs!", "Also try Sizzle!", "Snazzy cosmetics!"
     );
 
-    /*
-     * UTILITY METHODS
-     */
+    // ---
 
     @Nullable
     public static Biome getBiomeFromKey(RegistryKey<Biome> biomeKey) {
