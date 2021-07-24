@@ -117,6 +117,8 @@ public class MarblesBiomes {
         generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, MarblesConfiguredFeatures.LARGE_SLUSH_DISK);
         generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, MarblesConfiguredFeatures.LARGE_ICE_DISK);
 
+        generationSettings.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MarblesConfiguredFeatures.SNOW_UNDER_TREES);
+
         return new Biome.Builder()
                     .precipitation(Biome.Precipitation.SNOW)
                     .category(Biome.Category.ICY)
@@ -177,6 +179,8 @@ public class MarblesBiomes {
 
         generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, MarblesConfiguredFeatures.LARGE_SLUSH_DISK);
         generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, MarblesConfiguredFeatures.LARGE_ICE_DISK);
+
+        generationSettings.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MarblesConfiguredFeatures.SNOW_UNDER_TREES);
 
         float temp = -0.5f;
         return new Biome.Builder()

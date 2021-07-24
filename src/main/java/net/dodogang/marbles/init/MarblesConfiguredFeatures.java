@@ -286,16 +286,24 @@ public class MarblesConfiguredFeatures {
     );
     public static final ConfiguredFeature<?, ?> PERMAFROST_ICE_PATCH = register(
         "permafrost_ice_patch",
-        MarblesFeatures.STATE_PROVIDED_DISK.configure(
-            new StateProvidedChanceDiskFeatureConfig(
-                new WeightedBlockStateProvider(createStatePool().add(States.ICE, 3).add(States.PACKED_ICE, 1)),
-                UniformIntProvider.create(4, 6), 1, 0.3f,
-                PERMAFROST_TARGET
+        MarblesFeatures.STATE_PROVIDED_DISK
+            .configure(
+                new StateProvidedChanceDiskFeatureConfig(
+                    new WeightedBlockStateProvider(createStatePool().add(States.ICE, 3).add(States.PACKED_ICE, 1)),
+                    UniformIntProvider.create(4, 6), 1, 0.3f,
+                    PERMAFROST_TARGET
+                )
             )
-        )
-        .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
-        .repeat(9)
-        .uniformRange(YOffset.getBottom(), YOffset.getTop())
+            .decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP)
+            .repeat(9)
+            .uniformRange(YOffset.getBottom(), YOffset.getTop())
+    );
+
+    public static final ConfiguredFeature<?, ?> SNOW_UNDER_TREES = register(
+        "snow_under_trees",
+        MarblesFeatures.SNOW_UNDER_TREES
+            .configure(new DefaultFeatureConfig())
+            .decorate(Decorator.NOPE.configure(NopeDecoratorConfig.INSTANCE))
     );
 
     private static DataPool.Builder<BlockState> createStatePool() {
@@ -306,6 +314,7 @@ public class MarblesConfiguredFeatures {
         return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Marbles.MOD_ID, id), configuredFeature);
     }
 
+    @SuppressWarnings("unused")
     private static class States {
         private static final BlockState ASPEN_LOG = MarblesBlocks.ASPEN.LOG.getDefaultState();
         private static final BlockState ASPEN_LEAVES = MarblesBlocks.ASPEN.LEAVES.getDefaultState();

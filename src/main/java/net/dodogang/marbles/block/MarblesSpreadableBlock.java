@@ -23,7 +23,7 @@ public abstract class MarblesSpreadableBlock extends SnowyBlock {
     private static boolean canSurvive(BlockState state, WorldView world, BlockPos pos) {
         BlockPos up = pos.up();
         BlockState upState = world.getBlockState(up);
-        if (upState.isOf(Blocks.SNOW) && upState.get(SnowBlock.LAYERS) == 1) {
+        if (upState.isOf(Blocks.SNOW) && upState.get(SnowBlock.LAYERS) <= 4) {
             return true;
         } else if (upState.getFluidState().getLevel() == 8) {
             return false;
