@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "marbles:pollen_graced_wool"
+    }
+  },
+  "result": {
+    "item": "marbles:pollen_graced_carpet",
+    "count": 3
+  }
+}

@@ -133,12 +133,14 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         generic3x2("dusk_sand/smooth_sandstone_wall", MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, 6);
 
         /*
-         * GRISP SET
+         * ASPEN
          */
 
-        generic3x1("grisp/pollenated_cobblestone_slab", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_SLAB, 6);
-        stairs("grisp/pollenated_cobblestone_stairs", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, 4);
-        generic3x2("grisp/pollenated_cobblestone_wall", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_WALL, 6);
+        generic3x1("pollenated_cobblestone/slab", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_SLAB, 6);
+        stairs("pollenated_cobblestone/stairs", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, 4);
+        generic3x2("pollenated_cobblestone/wall", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_WALL, 6);
+
+        generic2x1("pollen_graced_carpet", MarblesBlocks.POLLEN_GRACED_WOOL, MarblesBlocks.POLLEN_GRACED_CARPET, 3);
 
         /*
          * PINK SALT
