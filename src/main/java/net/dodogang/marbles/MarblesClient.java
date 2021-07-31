@@ -6,6 +6,7 @@ import me.andante.chord.util.CClientUtils;
 import net.dodogang.marbles.block.RopeBlock;
 import net.dodogang.marbles.client.config.MarblesConfigManager;
 import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
+import net.dodogang.marbles.client.init.MarblesSpriteIdentifiers;
 import net.dodogang.marbles.client.model.entity.BouncerEntityModel;
 import net.dodogang.marbles.client.model.entity.PollenGracedSheepEntityModel;
 import net.dodogang.marbles.client.network.MarblesClientNetwork;
@@ -47,6 +48,7 @@ public class MarblesClient implements ClientModInitializer {
 
         Reflection.initialize(
             MarblesEntityModelLayers.class,
+            MarblesSpriteIdentifiers.class,
 
             MarblesClientNetwork.class,
             MarblesConfigManager.class

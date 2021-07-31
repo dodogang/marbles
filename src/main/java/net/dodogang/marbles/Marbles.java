@@ -37,6 +37,8 @@ public class Marbles implements ModInitializer {
                 MarblesItems.class,
                 MarblesEntities.class,
 
+                MarblesBlockEntities.class,
+
                 MarblesFeatures.class,
                 MarblesConfiguredFeatures.class,
                 MarblesCarvers.class,
