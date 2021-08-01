@@ -10,6 +10,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.SnowyBlock;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.block.enums.DoubleBlockHalf;
+import net.minecraft.structure.rule.BlockMatchRuleTest;
+import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -215,6 +217,27 @@ public class MarblesConfiguredFeatures {
             .decorate(Decorator.COUNT.configure(new CountConfig(6)))
     );
 
+    public static final ImmutableList<OreFeatureConfig.Target> PINK_SALT_IRON_ORE_TARGETS = ImmutableList.of(OreFeatureConfig.createTarget(OreRules.PINK_SALT, States.PINK_SALT_IRON_ORE));
+    public static final ImmutableList<OreFeatureConfig.Target> PINK_SALT_REDSTONE_ORE_TARGETS = ImmutableList.of(OreFeatureConfig.createTarget(OreRules.PINK_SALT, States.PINK_SALT_REDSTONE_ORE));
+    public static final ImmutableList<OreFeatureConfig.Target> PINK_SALT_GOLD_ORE_TARGETS = ImmutableList.of(OreFeatureConfig.createTarget(OreRules.PINK_SALT, States.PINK_SALT_GOLD_ORE));
+    public static final ImmutableList<OreFeatureConfig.Target> PINK_SALT_DIAMOND_ORE_TARGETS = ImmutableList.of(OreFeatureConfig.createTarget(OreRules.PINK_SALT, States.PINK_SALT_DIAMOND_ORE));
+    public static final ImmutableList<OreFeatureConfig.Target> PINK_SALT_LAPIS_ORE_TARGETS = ImmutableList.of(OreFeatureConfig.createTarget(OreRules.PINK_SALT, States.PINK_SALT_LAPIS_ORE));
+    public static final ImmutableList<OreFeatureConfig.Target> PINK_SALT_UMBRAL_LAZULI_ORE_TARGETS = ImmutableList.of(OreFeatureConfig.createTarget(OreRules.PINK_SALT, States.PINK_SALT_UMBRAL_LAZULI_ORE));
+    public static final ImmutableList<OreFeatureConfig.Target> PINK_SALT_EMERALD_ORE_TARGETS = ImmutableList.of(OreFeatureConfig.createTarget(OreRules.PINK_SALT, States.PINK_SALT_EMERALD_ORE));
+    public static final ImmutableList<OreFeatureConfig.Target> PINK_SALT_COPPER_ORE_TARGETS = ImmutableList.of(OreFeatureConfig.createTarget(OreRules.PINK_SALT, States.PINK_SALT_COPPER_ORE));
+    public static final ImmutableList<OreFeatureConfig.Target> PINK_SALT_COAL_ORE_TARGETS = ImmutableList.of(OreFeatureConfig.createTarget(OreRules.PINK_SALT, States.PINK_SALT_COAL_ORE));
+    public static final OreFeatureConfig PINK_SALT_REDSTONE_CONFIG = new OreFeatureConfig(PINK_SALT_REDSTONE_ORE_TARGETS, 8);
+
+    public static final ConfiguredFeature<?, ?> ORE_COAL_PINK_SALT = register("ore_coal_pink_salt", Feature.ORE.configure(new OreFeatureConfig(PINK_SALT_COAL_ORE_TARGETS, 17)).uniformRange(YOffset.getBottom(), YOffset.fixed(127)).spreadHorizontally()).repeat(20);
+    public static final ConfiguredFeature<?, ?> ORE_IRON_PINK_SALT = register("ore_iron_pink_salt", Feature.ORE.configure(new OreFeatureConfig(PINK_SALT_IRON_ORE_TARGETS, 9)).uniformRange(YOffset.getBottom(), YOffset.fixed(63)).spreadHorizontally()).repeat(20);
+    public static final ConfiguredFeature<?, ?> ORE_GOLD_PINK_SALT = register("ore_gold_pink_salt", Feature.ORE.configure(new OreFeatureConfig(PINK_SALT_GOLD_ORE_TARGETS, 9)).uniformRange(YOffset.getBottom(), YOffset.fixed(31)).spreadHorizontally()).repeat(2);
+    public static final ConfiguredFeature<?, ?> ORE_REDSTONE_PINK_SALT = register("ore_redstone_pink_salt", Feature.ORE.configure(PINK_SALT_REDSTONE_CONFIG).uniformRange(YOffset.getBottom(), YOffset.fixed(15)).spreadHorizontally()).repeat(8);
+    public static final ConfiguredFeature<?, ?> ORE_DIAMOND_PINK_SALT = register("ore_diamond_pink_salt", Feature.ORE.configure(new OreFeatureConfig(PINK_SALT_DIAMOND_ORE_TARGETS, 8)).uniformRange(YOffset.getBottom(), YOffset.fixed(15)).spreadHorizontally());
+    public static final ConfiguredFeature<?, ?> ORE_LAPIS_PINK_SALT = register("ore_lapis_pink_salt", Feature.ORE.configure(new OreFeatureConfig(PINK_SALT_LAPIS_ORE_TARGETS, 7)).triangleRange(YOffset.fixed(0), YOffset.fixed(30)).spreadHorizontally());
+    public static final ConfiguredFeature<?, ?> ORE_EMERALD_PINK_SALT = register("ore_emerald_pink_salt", Feature.REPLACE_SINGLE_BLOCK.configure(new EmeraldOreFeatureConfig(PINK_SALT_EMERALD_ORE_TARGETS)).uniformRange(YOffset.fixed(4), YOffset.fixed(31)).spreadHorizontally()).repeat(UniformIntProvider.create(3, 8));
+    public static final ConfiguredFeature<?, ?> ORE_COPPER_PINK_SALT = register("ore_copper_pink_salt", Feature.ORE.configure(new OreFeatureConfig(PINK_SALT_COPPER_ORE_TARGETS, 10)).triangleRange(YOffset.fixed(0), YOffset.fixed(96)).spreadHorizontally()).repeat(6);
+    public static final ConfiguredFeature<?, ?> ORE_UMBRAL_LAZULI_PINK_SALT = register("ore_umbral_lazuli_pink_salt", Feature.ORE.configure(new OreFeatureConfig(PINK_SALT_UMBRAL_LAZULI_ORE_TARGETS, 7)).triangleRange(YOffset.fixed(0), YOffset.fixed(30)).spreadHorizontally());
+
     /*
      * ICE
      */
@@ -346,5 +369,36 @@ public class MarblesConfiguredFeatures {
         private static final BlockState GRASS = Blocks.GRASS.getDefaultState();
         private static final BlockState TALL_GRASS_TOP = Blocks.TALL_GRASS.getDefaultState().with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER);
         private static final BlockState TALL_GRASS_BOTTOM = Blocks.TALL_GRASS.getDefaultState().with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER);
+        private static final BlockState COAL_ORE = Blocks.COAL_ORE.getDefaultState();
+        private static final BlockState PINK_SALT_COAL_ORE = MarblesBlocks.PINK_SALT_COAL_ORE.getDefaultState();
+        private static final BlockState DEEPSLATE_COAL_ORE = Blocks.DEEPSLATE_COAL_ORE.getDefaultState();
+        private static final BlockState COPPER_ORE = Blocks.COPPER_ORE.getDefaultState();
+        private static final BlockState PINK_SALT_COPPER_ORE = MarblesBlocks.PINK_SALT_COPPER_ORE.getDefaultState();
+        private static final BlockState DEEPSLATE_COPPER_ORE = Blocks.DEEPSLATE_COPPER_ORE.getDefaultState();
+        private static final BlockState IRON_ORE = Blocks.IRON_ORE.getDefaultState();
+        private static final BlockState PINK_SALT_IRON_ORE = MarblesBlocks.PINK_SALT_IRON_ORE.getDefaultState();
+        private static final BlockState DEEPSLATE_IRON_ORE = Blocks.DEEPSLATE_IRON_ORE.getDefaultState();
+        private static final BlockState GOLD_ORE = Blocks.GOLD_ORE.getDefaultState();
+        private static final BlockState PINK_SALT_GOLD_ORE = MarblesBlocks.PINK_SALT_GOLD_ORE.getDefaultState();
+        private static final BlockState DEEPSLATE_GOLD_ORE = Blocks.DEEPSLATE_GOLD_ORE.getDefaultState();
+        private static final BlockState REDSTONE_ORE = Blocks.REDSTONE_ORE.getDefaultState();
+        private static final BlockState PINK_SALT_REDSTONE_ORE = MarblesBlocks.PINK_SALT_REDSTONE_ORE.getDefaultState();
+        private static final BlockState DEEPSLATE_REDSTONE_ORE = Blocks.DEEPSLATE_REDSTONE_ORE.getDefaultState();
+        private static final BlockState DIAMOND_ORE = Blocks.DIAMOND_ORE.getDefaultState();
+        private static final BlockState PINK_SALT_DIAMOND_ORE = MarblesBlocks.PINK_SALT_DIAMOND_ORE.getDefaultState();
+        private static final BlockState DEEPSLATE_DIAMOND_ORE = Blocks.DEEPSLATE_DIAMOND_ORE.getDefaultState();
+        private static final BlockState LAPIS_ORE = Blocks.LAPIS_ORE.getDefaultState();
+        private static final BlockState PINK_SALT_LAPIS_ORE = MarblesBlocks.PINK_SALT_LAPIS_ORE.getDefaultState();
+        private static final BlockState DEEPSLATE_LAPIS_ORE = Blocks.DEEPSLATE_LAPIS_ORE.getDefaultState();
+        private static final BlockState EMERALD_ORE = Blocks.EMERALD_ORE.getDefaultState();
+        private static final BlockState PINK_SALT_EMERALD_ORE = MarblesBlocks.PINK_SALT_EMERALD_ORE.getDefaultState();
+        private static final BlockState DEEPSLATE_EMERALD_ORE = Blocks.DEEPSLATE_EMERALD_ORE.getDefaultState();
+        private static final BlockState UMBRAL_LAZULI_ORE = MarblesBlocks.UMBRAL_LAZULI_ORE.getDefaultState();
+        private static final BlockState PINK_SALT_UMBRAL_LAZULI_ORE = MarblesBlocks.PINK_SALT_UMBRAL_LAZULI_ORE.getDefaultState();
+        private static final BlockState DEEPSLATE_UMBRAL_LAZULI_ORE = MarblesBlocks.DEEPSLATE_UMBRAL_LAZULI_ORE.getDefaultState();
+    }
+
+    private static class OreRules {
+        public static final RuleTest PINK_SALT = new BlockMatchRuleTest(MarblesBlocks.PINK_SALT);
     }
 }
