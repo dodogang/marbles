@@ -3,6 +3,8 @@ package net.dodogang.marbles.mixin.world.gen;
 import net.dodogang.marbles.init.MarblesRegistries;
 import net.dodogang.marbles.world.gen.chunk.generator.BridgedCaveBiomeGenerator;
 import net.dodogang.marbles.world.gen.chunk.generator.MarblesChunkGenerator;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.ChunkRegion;
 import net.minecraft.world.biome.source.BiomeAccess;
 import net.minecraft.world.biome.source.BiomeSource;
@@ -50,7 +52,14 @@ public abstract class NoiseChunkGeneratorMixin extends ChunkGenerator {
         super.carve(seed, access, chunk, carver);
 
         if (carver == GenerationStep.Carver.LIQUID) {
-            marbles_getGenerator().carve(seed, access, chunk, carver);
+            // TODO some better way of checking for nether/end
+            ChunkPos chunkPos = chunk.getPos();
+            if (
+                !chunk.getBlockState(chunkPos.getBlockPos(0, 127, 0)).isOf(Blocks.BEDROCK)
+                && !chunk.getBlockState(chunkPos.getBlockPos(0, 0, 0)).isAir()
+            ) {
+                marbles_getGenerator().carve(seed, access, chunk, carver);
+            }
         }
     }
 
