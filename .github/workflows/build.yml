@@ -1,4 +1,4 @@
-name: Check Builds for Errors
+name: Build, and Capture Artifacts
 
 on: [ pull_request, push ]
 
