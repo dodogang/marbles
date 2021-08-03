@@ -92,7 +92,7 @@ public abstract class EntityMixin implements TravertinePortalingEntity {
 
     @Environment(EnvType.CLIENT)
     @Inject(method = "setInNetherPortal", at = @At("HEAD"))
-    private void catchNetherPortalState(BlockPos pos, CallbackInfo ci) {
+    private void captureNetherPortalState(BlockPos pos, CallbackInfo ci) {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client != null && client.world != null) {
             MarblesClient.lastNetherPortalState = client.world.getBlockState(pos);

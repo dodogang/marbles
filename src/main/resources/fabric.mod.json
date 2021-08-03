@@ -45,18 +45,15 @@
   "accessWidener": "marbles.accesswidener",
 
   "depends": {
-    "fabricloader": ">=0.11.0",
-    "fabric": ">=0.37.0",
+    "fabricloader": ">=0.11.6",
+    "fabric": ">=0.37.1",
     "minecraft": "1.17.x",
     "java": "16",
-    "chord": "*"
+    "chord": ">=1.8"
   },
   "recommends": {
     "canvas": "*",
     "fallingblocktweaks": "*"
-  },
-  "conflicts": {
-    "minecraft": "<1.16.4"
   },
   "breaks": {
     "lithium": "0.6.1",
