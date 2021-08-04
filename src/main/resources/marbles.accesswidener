@@ -7,3 +7,8 @@ extendable method net/minecraft/world/gen/chunk/NoiseChunkGenerator <init> (Lnet
 
 extendable      class     net/minecraft/world/gen/feature/ConfiguredFeatures$Decorators
 extendable      class     net/minecraft/data/server/recipe/ShapedRecipeJsonFactory$ShapedRecipeJsonProvider
+
+# Entity
+
+accessible    method    net/minecraft/world/poi/PointOfInterestType    register    (Ljava/lang/String;Ljava/util/Set;II)Lnet/minecraft/world/poi/PointOfInterestType;
+accessible    method    net/minecraft/world/poi/PointOfInterestType    register    (Ljava/lang/String;Ljava/util/Set;ILjava/util/function/Predicate;I)Lnet/minecraft/world/poi/PointOfInterestType;

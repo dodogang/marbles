@@ -21,7 +21,6 @@
     "entity.LlamaEntityMixin",
     "entity.MeleeAttackGoalAccessor",
     "entity.PlayerEntityMixin",
-    "entity.PointOfInterestTypeInvoker",
     "entity.SheepEntityAccessor",
     "item.CrossbowItemAccessor",
     "item.CrossbowItemMixin",
