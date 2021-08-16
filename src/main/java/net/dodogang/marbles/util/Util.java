@@ -47,7 +47,7 @@ public class Util {
     @Environment(EnvType.CLIENT)
     public static final List<String> SPLASH_TEXTS = Lists.newArrayList(
         "Losing my Marbles!", "Fast acting portals!", "¡Perdiendo mis canicas!",
-        "Also try Crumbs!", "Also try Sizzle!", "Snazzy cosmetics!"
+        "Also try Crumbs!", "Also try Sizzle!", "Snazzy cosmetics!", "Why wheat gooey?"
     );
 
     // ---
