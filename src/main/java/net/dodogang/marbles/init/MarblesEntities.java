@@ -8,6 +8,7 @@ import net.dodogang.marbles.entity.ThrownRopeEntity;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
@@ -16,9 +17,9 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.SheepEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Pair;
 import net.minecraft.util.registry.Registry;
 
 @SuppressWarnings("unused")
@@ -37,8 +38,9 @@ public class MarblesEntities {
             .spawnableFarFromPlayer()
             .trackRangeBlocks(10)
             .spawnGroup(SpawnGroup.CREATURE)
-        , createSpawnEggColors(0x555c50, 0x967543)
+        , new Pair<>(0X555C50, 0X967543)
     );
+
     public static final EntityType<PollenGracedSheepEntity> POLLEN_GRACED_SHEEP = register(
         "pollen_graced_sheep",
         FabricEntityTypeBuilder.createMob()
@@ -47,8 +49,9 @@ public class MarblesEntities {
             .dimensions(EntityDimensions.changing(0.9F, 1.3F))
             .trackRangeBlocks(10)
             .spawnGroup(SpawnGroup.CREATURE)
-        , createSpawnEggColors(0xFFFBF0, 0xEACA15)
+        , new Pair<>(0XFFFBF0, 0XEACA15)
     );
+
     public static final EntityType<ThrownRopeEntity> THROWN_ROPE = register(
         "thrown_rope",
         FabricEntityTypeBuilder.<ThrownRopeEntity>create(SpawnGroup.MISC, ThrownRopeEntity::new)
@@ -58,11 +61,18 @@ public class MarblesEntities {
     );
 
     @SuppressWarnings("unchecked")
-    private static <T extends Entity> EntityType<T> register(String id, FabricEntityTypeBuilder<T> entityType, int[] spawnEggColors) {
+    private static <T extends Entity> EntityType<T> register(String id, FabricEntityTypeBuilder<T> entityType, Pair<Integer, Integer> spawnEggColors) {
         EntityType<T> builtEntityType = entityType.build();
 
         if (spawnEggColors != null) {
-            Registry.register(Registry.ITEM, new Identifier(Marbles.MOD_ID, id + "_spawn_egg"), new SpawnEggItem((EntityType<? extends MobEntity>) builtEntityType, spawnEggColors[0], spawnEggColors[1], new Item.Settings().maxCount(64).group(MarblesItemGroup.INSTANCE)));
+            Registry.register(
+                Registry.ITEM, new Identifier(Marbles.MOD_ID, id + "_spawn_egg"),
+                new SpawnEggItem(
+                    (EntityType<? extends MobEntity>) builtEntityType,
+                    spawnEggColors.getLeft(), spawnEggColors.getRight(),
+                    new FabricItemSettings().maxCount(64).group(MarblesItemGroup.INSTANCE)
+                )
+            );
         }
 
         return Registry.register(Registry.ENTITY_TYPE, new Identifier(Marbles.MOD_ID, id), builtEntityType);
@@ -71,8 +81,5 @@ public class MarblesEntities {
     @Environment(EnvType.CLIENT)
     public static Identifier texture(String path) {
         return MarblesClient.texture("entity/" + path);
-    }
-    protected static int[] createSpawnEggColors(int primary, int secondary) {
-        return new int[]{ primary, secondary };
     }
 }
