@@ -1,5 +1,9 @@
 accessWidener v1 named
 
+# Block
+accessible    class    net/minecraft/block/AbstractBlock$AbstractBlockState$ShapeCache
+accessible    field    net/minecraft/block/AbstractBlock$AbstractBlockState$ShapeCache    isFullCube    Z
+
 # World generation
 extendable class  net/minecraft/world/gen/chunk/NoiseChunkGenerator
 extendable method net/minecraft/client/world/GeneratorType <init> (Ljava/lang/String;)V

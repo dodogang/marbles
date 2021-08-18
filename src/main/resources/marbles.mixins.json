@@ -5,6 +5,7 @@
   "plugin": "net.dodogang.marbles.mixin.MarblesMixinPlugin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "block.AbstractBlockStateAccessor",
     "block.AbstractFireBlockMixin",
     "block.CropBlockMixin",
     "block.FluidBlockMixin",

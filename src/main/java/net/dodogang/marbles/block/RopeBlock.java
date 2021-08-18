@@ -2,6 +2,7 @@ package net.dodogang.marbles.block;
 
 import net.dodogang.marbles.block.enums.OptionalHorizontalDirection;
 import net.dodogang.marbles.block.enums.RopePart;
+import net.dodogang.marbles.mixin.block.AbstractBlockStateAccessor;
 import net.dodogang.marbles.state.property.MarblesProperties;
 import net.dodogang.marbles.tag.MarblesBlockTags;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -44,6 +45,12 @@ public class RopeBlock extends Block implements Waterloggable {
     public RopeBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(CONNECTION, OptionalHorizontalDirection.NONE).with(WATERLOGGED, false).with(PART, RopePart.MIDDLE));
+    }
+
+    @Override
+    public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction side) {
+        AbstractBlockState.ShapeCache shapeCache = ((AbstractBlockStateAccessor) stateFrom).getShapeCache();
+        return (side.getAxis().isVertical() && stateFrom.isOf(this)) || (shapeCache != null && shapeCache.isFullCube);
     }
 
     @Override
