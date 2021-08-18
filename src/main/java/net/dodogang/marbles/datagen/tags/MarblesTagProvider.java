@@ -52,6 +52,7 @@ public class MarblesTagProvider implements DataProvider {
         addTravertineSet(TANGERINE_TRAVERTINE_BLOCKS, MarblesBlockTags.TANGERINE_TRAVERTINE, MarblesItemTags.TANGERINE_TRAVERTINE);
 
         blocks.factory(MarblesBlockTags.SPECIAL_ROPE_SUPPORTS).add(BlockTags.LEAVES);
+        blocks.factory(MarblesBlockTags.CLIMBABLE_FASTER).add(ROPE);
 
         blocks.factory(BlockTags.PORTALS).add(TRAVERTINE_NETHER_PORTAL);
 

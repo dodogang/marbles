@@ -18,6 +18,7 @@
     "entity.EatGrassGoalAccessor",
     "entity.EntityMixin",
     "entity.FallingBlockMixin",
+    "entity.LivingEntityAccessor",
     "entity.LivingEntityMixin",
     "entity.LlamaEntityMixin",
     "entity.MeleeAttackGoalAccessor",

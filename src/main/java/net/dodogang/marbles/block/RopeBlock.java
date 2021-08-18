@@ -49,8 +49,10 @@ public class RopeBlock extends Block implements Waterloggable {
 
     @Override
     public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction side) {
+        if (!side.getAxis().isVertical()) return false;
+
         AbstractBlockState.ShapeCache shapeCache = ((AbstractBlockStateAccessor) stateFrom).getShapeCache();
-        return (side.getAxis().isVertical() && stateFrom.isOf(this)) || (shapeCache != null && shapeCache.isFullCube);
+        return stateFrom.isOf(this) || (shapeCache != null && shapeCache.isFullCube);
     }
 
     @Override

@@ -3,19 +3,24 @@ package net.dodogang.marbles.util;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.dodogang.marbles.Marbles;
+import net.dodogang.marbles.mixin.entity.LivingEntityAccessor;
+import net.dodogang.marbles.tag.MarblesBlockTags;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.TitleScreen;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.LlamaEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 import java.util.Random;
@@ -49,6 +54,23 @@ public class Util {
         "Losing my Marbles!", "Fast acting portals!", "¡Perdiendo mis canicas!",
         "Also try Crumbs!", "Also try Sizzle!", "Snazzy cosmetics!", "Why wheat gooey?"
     );
+
+    // ---
+
+    public static void applyFasterClimbingMovement(LivingEntity cast, Vec3d vec3d, float f, CallbackInfoReturnable<Vec3d> cir) {
+        if ((cast.horizontalCollision || ((LivingEntityAccessor) cast).isJumping()) && cast.isClimbing() && cast.getBlockStateAtPos().isIn(MarblesBlockTags.CLIMBABLE_FASTER)) {
+            Vec3d vel = cir.getReturnValue();
+
+            vel = vel.add(0.0d, Util.getClimbableFasterSpeed(), 0.0d);
+
+            cast.setVelocity(vel);
+            cir.setReturnValue(vel);
+        }
+    }
+
+    public static double getClimbableFasterSpeed() {
+        return 0.1135d;
+    }
 
     // ---
 
