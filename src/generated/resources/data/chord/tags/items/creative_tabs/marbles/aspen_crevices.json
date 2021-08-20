@@ -26,6 +26,7 @@
     "marbles:grisp_podzol_path",
     "marbles:grisp_mycelium",
     "marbles:grisp_mycelium_path",
+    "marbles:koi_spawn_egg",
     "marbles:pollen_graced_sheep_spawn_egg",
     "marbles:pollen_graced_wool",
     "marbles:pollen_graced_carpet",
@@ -37,8 +38,6 @@
     "marbles:aspen_sprouts",
     "marbles:aspen_grass",
     "marbles:tall_aspen_grass",
-    "marbles:koi_spawn_egg",
-    "marbles:aspen_seagrass",
-    "minecraft:air"
+    "marbles:aspen_seagrass"
   ]
 }

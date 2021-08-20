@@ -610,7 +610,9 @@ public class MarblesTagProvider implements DataProvider {
             GRISP_MYCELIUM,
             GRISP_MYCELIUM_PATH,
 
+            SpawnEggItem.forEntity(MarblesEntities.KOI),
             SpawnEggItem.forEntity(MarblesEntities.POLLEN_GRACED_SHEEP),
+
             POLLEN_GRACED_WOOL,
             POLLEN_GRACED_CARPET,
             POLLEN_GRACED_BED,
@@ -623,11 +625,7 @@ public class MarblesTagProvider implements DataProvider {
             ASPEN_SPROUTS,
             ASPEN_GRASS,
             TALL_ASPEN_GRASS,
-
-            SpawnEggItem.forEntity(MarblesEntities.KOI),
-
-            ASPEN_SEAGRASS,
-            TALL_ASPEN_SEAGRASS
+            ASPEN_SEAGRASS
         );
 
         // bamboo valley
