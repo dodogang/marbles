@@ -10,7 +10,6 @@ import net.dodogang.marbles.init.MarblesItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -167,7 +166,6 @@ public final class ItemModelTable {
         register(MarblesBlocks.TALL_ASPEN_GRASS, item -> generated(name(item, "block/%s_top")));
 
         register(MarblesBlocks.ASPEN_SEAGRASS, ItemModelTable::generatedBlockFunc);
-        register(MarblesBlocks.TALL_ASPEN_SEAGRASS, item -> generated(name(item, "block/%s_top")));
 
         /*
          * PLANTAGE
@@ -324,8 +322,6 @@ public final class ItemModelTable {
 
     private static void register(ItemConvertible provider, Function<Item, ModelGen> genFactory) {
         Item item = provider.asItem();
-        if (item == Items.AIR) return;
-
         ModelGen gen = genFactory.apply(item);
         consumer.accept(item, gen);
     }
