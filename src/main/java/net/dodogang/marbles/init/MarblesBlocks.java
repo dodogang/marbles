@@ -351,6 +351,9 @@ public class MarblesBlocks {
     public static final Block ASPEN_GRASS = register("aspen_grass", new PublicFernBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
     public static final Block TALL_ASPEN_GRASS = register("tall_aspen_grass", new TallPlantBlock(FabricBlockSettings.copyOf(ASPEN_GRASS)));
 
+    public static final Block ASPEN_SEAGRASS = register("aspen_seagrass", new BubblingSeagrassBlock(() -> MarblesBlocks.TALL_ASPEN_SEAGRASS, FabricBlockSettings.copyOf(Blocks.SEAGRASS)));
+    public static final Block TALL_ASPEN_SEAGRASS = register("tall_aspen_seagrass", new BubblingTallSeagrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_SEAGRASS)), false);
+
     /*
      * PLANTAGE
      */

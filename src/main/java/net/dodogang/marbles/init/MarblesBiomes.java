@@ -509,7 +509,7 @@ public class MarblesBiomes {
     }
 
     private static int getSkyColor(float temperature) {
-        return DefaultBiomeCreatorInvoker.getSkyColor(temperature);
+        return DefaultBiomeCreatorInvoker.invoke_getSkyColor(temperature);
     }
 
     private static RegistryKey<Biome> register(String id, Biome biome) {

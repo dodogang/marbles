@@ -3,6 +3,7 @@ package net.dodogang.marbles.init;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.MarblesClient;
 import net.dodogang.marbles.entity.BouncerEntity;
+import net.dodogang.marbles.entity.KoiFishEntity;
 import net.dodogang.marbles.entity.PollenGracedSheepEntity;
 import net.dodogang.marbles.entity.ThrownRopeEntity;
 import net.dodogang.marbles.item.MarblesItemGroup;
@@ -38,7 +39,7 @@ public class MarblesEntities {
             .spawnableFarFromPlayer()
             .trackRangeBlocks(10)
             .spawnGroup(SpawnGroup.CREATURE)
-        , new Pair<>(0X555C50, 0X967543)
+        , new Pair<>(0x555C50, 0x967543)
     );
 
     public static final EntityType<PollenGracedSheepEntity> POLLEN_GRACED_SHEEP = register(
@@ -49,7 +50,18 @@ public class MarblesEntities {
             .dimensions(EntityDimensions.changing(0.9F, 1.3F))
             .trackRangeBlocks(10)
             .spawnGroup(SpawnGroup.CREATURE)
-        , new Pair<>(0XFFFBF0, 0XEACA15)
+        , new Pair<>(0xFFFBF0, 0xEACA15)
+    );
+
+    public static final EntityType<KoiFishEntity> KOI = register(
+        "koi",
+        FabricEntityTypeBuilder.createMob()
+            .entityFactory(KoiFishEntity::new)
+            .spawnGroup(SpawnGroup.WATER_AMBIENT)
+            .defaultAttributes(KoiFishEntity::createFishAttributes)
+            .dimensions(EntityDimensions.changing(0.5F, 0.4F))
+            .trackRangeChunks(4)
+        , new Pair<>(0xFFFBF0, 0xB9CACF)
     );
 
     public static final EntityType<ThrownRopeEntity> THROWN_ROPE = register(

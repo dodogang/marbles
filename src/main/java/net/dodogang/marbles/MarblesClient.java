@@ -9,11 +9,16 @@ import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.init.MarblesSpriteIdentifiers;
 import net.dodogang.marbles.client.model.entity.BouncerEntityModel;
 import net.dodogang.marbles.client.model.entity.PollenGracedSheepEntityModel;
+import net.dodogang.marbles.client.model.entity.koi.DummyThiccKoiFishEntityModel;
+import net.dodogang.marbles.client.model.entity.koi.LargeKoiFishEntityModel;
+import net.dodogang.marbles.client.model.entity.koi.SmallKoiFishEntityModel;
+import net.dodogang.marbles.client.model.entity.koi.ThiccKoiFishEntityModel;
 import net.dodogang.marbles.client.network.MarblesClientNetwork;
 import net.dodogang.marbles.client.particle.IceSporeParticle;
 import net.dodogang.marbles.client.particle.MarblesParticleFactories;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
+import net.dodogang.marbles.client.render.entity.KoiFishEntityRenderer;
 import net.dodogang.marbles.client.render.entity.PollenGracedSheepEntityRenderer;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
@@ -88,6 +93,8 @@ public class MarblesClient implements ClientModInitializer {
             MarblesBlocks.ASPEN_SPROUTS,
             MarblesBlocks.ASPEN_GRASS,
             MarblesBlocks.TALL_ASPEN_GRASS,
+            MarblesBlocks.ASPEN_SEAGRASS,
+            MarblesBlocks.TALL_ASPEN_SEAGRASS,
 
             MarblesBlocks.RINGED_FLOESTONE,
             MarblesBlocks.RINGED_RILLED_FLOESTONE
@@ -125,12 +132,18 @@ public class MarblesClient implements ClientModInitializer {
         EntityRendererRegistry errInstance = EntityRendererRegistry.INSTANCE;
         errInstance.register(MarblesEntities.BOUNCER, BouncerEntityRenderer::new);
         errInstance.register(MarblesEntities.POLLEN_GRACED_SHEEP, PollenGracedSheepEntityRenderer::new);
+        errInstance.register(MarblesEntities.KOI, KoiFishEntityRenderer::new);
         errInstance.register(MarblesEntities.THROWN_ROPE, FlyingItemEntityRenderer::new);
 
-        ImmutableMap.<EntityModelLayer, EntityModelLayerRegistry.TexturedModelDataProvider>of(
-            MarblesEntityModelLayers.BOUNCER, BouncerEntityModel::getTexturedModelData,
-            MarblesEntityModelLayers.POLLEN_GRACED_SHEEP, PollenGracedSheepEntityModel::getTexturedModelData
-        ).forEach(EntityModelLayerRegistry::registerModelLayer);
+        new ImmutableMap.Builder<EntityModelLayer, EntityModelLayerRegistry.TexturedModelDataProvider>()
+            .put(MarblesEntityModelLayers.BOUNCER, BouncerEntityModel::getTexturedModelData)
+            .put(MarblesEntityModelLayers.POLLEN_GRACED_SHEEP, PollenGracedSheepEntityModel::getTexturedModelData)
+
+            .put(MarblesEntityModelLayers.KOI_SMALL, SmallKoiFishEntityModel::getTexturedModelData)
+            .put(MarblesEntityModelLayers.KOI_LARGE, LargeKoiFishEntityModel::getTexturedModelData)
+            .put(MarblesEntityModelLayers.KOI_THICC, ThiccKoiFishEntityModel::getTexturedModelData)
+            .put(MarblesEntityModelLayers.KOI_DUMMY_THICC, DummyThiccKoiFishEntityModel::getTexturedModelData)
+        .build().forEach(EntityModelLayerRegistry::registerModelLayer);
 
         // model predicates
 

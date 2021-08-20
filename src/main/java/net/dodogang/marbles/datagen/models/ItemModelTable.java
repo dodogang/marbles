@@ -5,9 +5,13 @@ import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 import net.dodogang.marbles.init.MarblesBlocks;
+import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesItems;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -22,6 +26,10 @@ public final class ItemModelTable {
 
     public static void registerItemModels(BiConsumer<Item, ModelGen> c) {
         consumer = c;
+
+        registerSpawnEgg(MarblesEntities.BOUNCER);
+        registerSpawnEgg(MarblesEntities.POLLEN_GRACED_SHEEP);
+        registerSpawnEgg(MarblesEntities.KOI);
 
         /*
          * WOOD SETS
@@ -158,6 +166,9 @@ public final class ItemModelTable {
         register(MarblesBlocks.ASPEN_GRASS, ItemModelTable::generatedBlockFunc);
         register(MarblesBlocks.TALL_ASPEN_GRASS, item -> generated(name(item, "block/%s_top")));
 
+        register(MarblesBlocks.ASPEN_SEAGRASS, ItemModelTable::generatedBlockFunc);
+        register(MarblesBlocks.TALL_ASPEN_SEAGRASS, item -> generated(name(item, "block/%s_top")));
+
         /*
          * PLANTAGE
          */
@@ -195,6 +206,7 @@ public final class ItemModelTable {
 
         register(MarblesBlocks.ROPE, ItemModelTable::generatedItemFunc);
         register(MarblesItems.PINK_SALT_SHARD, ItemModelTable::generatedItemFunc);
+        register(MarblesItems.KOI_BUCKET, ItemModelTable::generatedItemFunc);
 
         /*
          * FLOESTONE
@@ -303,8 +315,17 @@ public final class ItemModelTable {
         register(blocks.BOAT_ITEM, ItemModelTable::generatedItemFunc);
     }
 
+    private static void registerSpawnEgg(EntityType<?> entity) {
+        SpawnEggItem item = SpawnEggItem.forEntity(entity);
+        if (item != null) {
+            register(item, ItemModelTable::spawnEgg);
+        }
+    }
+
     private static void register(ItemConvertible provider, Function<Item, ModelGen> genFactory) {
         Item item = provider.asItem();
+        if (item == Items.AIR) return;
+
         ModelGen gen = genFactory.apply(item);
         consumer.accept(item, gen);
     }
@@ -360,6 +381,10 @@ public final class ItemModelTable {
     }
     private static ModelGen wallSidedTopBottomFunc(Item item) {
         return using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_bottom", n + "_top", n));
+    }
+
+    private static ModelGen spawnEgg(Item item) {
+        return inherit("item/template_spawn_egg");
     }
 
     private ItemModelTable() {

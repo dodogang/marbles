@@ -11,19 +11,19 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(BlockLootTableGenerator.class)
 public interface BlockLootTableGeneratorInvoker {
     @Invoker("oreDrops")
-    static LootTable.Builder oreDrops(Block dropWithSilkTouch, Item drop) {
+    static LootTable.Builder invoke_oreDrops(Block dropWithSilkTouch, Item drop) {
         throw new AssertionError();
     }
     @Invoker("copperOreDrops")
-    static LootTable.Builder copperOreDrops(Block ore) {
+    static LootTable.Builder invoke_copperOreDrops(Block ore) {
         throw new AssertionError();
     }
     @Invoker("lapisOreDrops")
-    static LootTable.Builder lapisOreDrops(Block ore) {
+    static LootTable.Builder invoke_lapisOreDrops(Block ore) {
         throw new AssertionError();
     }
     @Invoker("redstoneOreDrops")
-    static LootTable.Builder redstoneOreDrops(Block ore) {
+    static LootTable.Builder invoke_redstoneOreDrops(Block ore) {
         throw new AssertionError();
     }
 }

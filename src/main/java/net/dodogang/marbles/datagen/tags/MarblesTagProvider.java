@@ -622,7 +622,12 @@ public class MarblesTagProvider implements DataProvider {
 
             ASPEN_SPROUTS,
             ASPEN_GRASS,
-            TALL_ASPEN_GRASS
+            TALL_ASPEN_GRASS,
+
+            SpawnEggItem.forEntity(MarblesEntities.KOI),
+
+            ASPEN_SEAGRASS,
+            TALL_ASPEN_SEAGRASS
         );
 
         // bamboo valley

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=upper": {
+      "model": "marbles:block/tall_aspen_seagrass_top"
+    },
+    "half=lower": {
+      "model": "marbles:block/tall_aspen_seagrass_bottom"
+    }
+  }
+}

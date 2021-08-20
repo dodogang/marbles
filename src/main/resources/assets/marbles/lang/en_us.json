@@ -175,6 +175,8 @@
   "block.marbles.aspen_sprouts": "Aspen Sprouts",
   "block.marbles.aspen_grass": "Aspen Grass",
   "block.marbles.tall_aspen_grass": "Tall Aspen Grass",
+  "block.marbles.aspen_seagrass": "Aspen Seagrass",
+  "block.marbles.tall_aspen_seagrass": "Tall Aspen Seagrass",
 
   "block.marbles.pollen_graced_wool": "Pollen-Graced Wool",
   "block.marbles.pollen_graced_carpet": "Pollen-Graced Carpet",
@@ -357,6 +359,10 @@
 
   "entity.marbles.pollen_graced_sheep": "Pollen-Graced Sheep",
   "item.marbles.pollen_graced_sheep_spawn_egg": "Pollen-Graced Sheep Spawn Egg",
+
+  "entity.marbles.koi": "Koi",
+  "item.marbles.koi_spawn_egg": "Koi Spawn Egg",
+  "item.marbles.koi_bucket": "Bucket of Koi",
 
   "debug.option.marbles.spotlight": "Spotlights",
 

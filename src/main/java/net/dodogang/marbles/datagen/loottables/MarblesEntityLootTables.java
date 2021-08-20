@@ -49,8 +49,9 @@ public class MarblesEntityLootTables implements Consumer<BiConsumer<Identifier, 
 
     @Override
     public void accept(BiConsumer<Identifier, LootTable.Builder> biConsumer) {
-        this.register(MarblesEntities.BOUNCER, LootTable.builder());
-        this.register(
+        register(MarblesEntities.BOUNCER, LootTable.builder());
+
+        register(
             MarblesEntities.POLLEN_GRACED_SHEEP,
 
             LootTable.builder().pool(
@@ -65,6 +66,8 @@ public class MarblesEntityLootTables implements Consumer<BiConsumer<Identifier, 
                     )
             )
         );
+
+        register(MarblesEntities.KOI, LootTable.builder());
 
         /*
          * GENERATION

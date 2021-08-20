@@ -94,7 +94,7 @@ public class Util {
         double centered_depth_abs = (max - min) * centered_depth_perc;
         double center = (min + max) / 2;
 
-        double rndCentered = center  + random.nextGaussian() * centered_depth_abs; // generate centered random number.
+        double rndCentered = center + random.nextGaussian() * centered_depth_abs; // generate centered random number.
 
         if (rndCentered >= center) {
             rndBiased = (rndCentered - center) * (max - bias) + bias;

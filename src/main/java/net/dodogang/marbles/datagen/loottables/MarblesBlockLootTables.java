@@ -261,6 +261,9 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
         addDrop(MarblesBlocks.ASPEN_GRASS, MarblesBlockLootTables::dropsGrass);
         addDrop(MarblesBlocks.TALL_ASPEN_GRASS, block -> MarblesBlockLootTables.dropsDoubleGrass(block, MarblesBlocks.ASPEN_GRASS));
 
+        addDrop(MarblesBlocks.ASPEN_SEAGRASS, MarblesBlockLootTables::dropsWithSilkTouch);
+        addDrop(MarblesBlocks.TALL_ASPEN_SEAGRASS, MarblesBlockLootTables::dropsSeagrass);
+
         /*
          * PLANTAGE
          */
@@ -598,16 +601,16 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
     }
 
     private static LootTable.Builder oreDrops(Block dropWithSilkTouch, Item drop) {
-        return BlockLootTableGeneratorInvoker.oreDrops(dropWithSilkTouch, drop);
+        return BlockLootTableGeneratorInvoker.invoke_oreDrops(dropWithSilkTouch, drop);
     }
     private static LootTable.Builder dropsCopperOre(Block ore) {
-        return BlockLootTableGeneratorInvoker.copperOreDrops(ore);
+        return BlockLootTableGeneratorInvoker.invoke_copperOreDrops(ore);
     }
     private static LootTable.Builder dropsRedstoneOre(Block ore) {
-        return BlockLootTableGeneratorInvoker.redstoneOreDrops(ore);
+        return BlockLootTableGeneratorInvoker.invoke_redstoneOreDrops(ore);
     }
     private static LootTable.Builder dropsLapisOre(Block ore) {
-        return BlockLootTableGeneratorInvoker.lapisOreDrops(ore);
+        return BlockLootTableGeneratorInvoker.invoke_lapisOreDrops(ore);
     }
     private static LootTable.Builder dropsUmbralLazuliOre(Block ore) {
         return dropsWithSilkTouch(ore, MarblesItems.UMBRAL_LAZULI, countBiased(4, 0.4f));
@@ -671,6 +674,18 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
                          .conditionally(chance(0.125f))
                          .apply(ApplyBonusLootFunction.uniformBonusCount(Enchantments.FORTUNE, 2))
             )
+        );
+    }
+
+    private static LootTable.Builder dropsSeagrass(Block seagrass) {
+        return LootTable.builder()
+            .pool(
+                LootPool.builder()
+                    .conditionally(WITH_SHEARS)
+                    .with(
+                        ItemEntry.builder(seagrass)
+                            .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F)))
+                    )
         );
     }
 

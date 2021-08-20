@@ -169,6 +169,9 @@ public final class BlockStateTable {
         register(ASPEN_GRASS, block -> simple(name(block, "block/%s"), cross(name(block, "block/%s"))));
         register(TALL_ASPEN_GRASS, block -> doubleBlock(name(block, "block/%s_bottom"), cross(name(block, "block/%s_bottom")), name(block, "block/%s_top"), cross(name(block, "block/%s_top"))));
 
+        register(ASPEN_SEAGRASS, block -> simple(name(block, "block/%s"), cross(name(block, "block/%s"))));
+        register(TALL_ASPEN_SEAGRASS, block -> doubleBlock(name(block, "block/%s_bottom"), cross(name(block, "block/%s_bottom")), name(block, "block/%s_top"), cross(name(block, "block/%s_top"))));
+
         /*
          * PLANTAGE
          */
