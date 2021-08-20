@@ -67,8 +67,10 @@ public class SpotlightDebugView implements DebugView {
                 float y2 = dir.getOffsetY() * 0.8f + y1;
                 float z2 = dir.getOffsetZ() * 0.8f + z1;
 
-                buff.vertex(matrix, x1, y1, z1).color(0f, 1f, 1f, 1f).next();
-                buff.vertex(matrix, x2, y2, z2).color(0f, 1f, 1f, 1f).next();
+                try { // TODO
+                    buff.vertex(matrix, x1, y1, z1).color(0f, 1f, 1f, 1f).next();
+                    buff.vertex(matrix, x2, y2, z2).color(0f, 1f, 1f, 1f).next();
+                } catch (IllegalStateException ignored) {}
             }
 
             int spotlight = SpotlightUtil.getSpotlightData(world, pos);
@@ -85,8 +87,10 @@ public class SpotlightDebugView implements DebugView {
                     float y2 = direction.getOffsetY() * 0.4f + y1;
                     float z2 = direction.getOffsetZ() * 0.4f + z1;
 
-                    buff.vertex(matrix, x1, y1, z1).color(color, color, 0f, 1f).next();
-                    buff.vertex(matrix, x2, y2, z2).color(color, color, 0f, 1f).next();
+                    try { // TODO
+                        buff.vertex(matrix, x1, y1, z1).color(color, color, 0f, 1f).next();
+                        buff.vertex(matrix, x2, y2, z2).color(color, color, 0f, 1f).next();
+                    } catch (IllegalStateException ignored) {}
 
                     DebugRenderer.drawString(
                         String.valueOf(level),
