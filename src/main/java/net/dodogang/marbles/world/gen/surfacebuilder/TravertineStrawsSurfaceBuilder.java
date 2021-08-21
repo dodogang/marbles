@@ -19,10 +19,10 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 public class TravertineStrawsSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> {
-    private static final BlockState TRAVERTINE = MarblesBlocks.PEACH_TRAVERTINE_BLOCKS.RAW.getDefaultState();
-    private static final BlockState LEMON_TRAVERTINE = MarblesBlocks.LEMON_TRAVERTINE_BLOCKS.RAW.getDefaultState();
-    private static final BlockState PEACH_TRAVERTINE = MarblesBlocks.TRAVERTINE_BLOCKS.RAW.getDefaultState();
-    private static final BlockState TANGERINE_TRAVERTINE = MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS.RAW.getDefaultState();
+    private static final BlockState TRAVERTINE = MarblesBlocks.PEACH_TRAVERTINE.RAW.getDefaultState();
+    private static final BlockState LEMON_TRAVERTINE = MarblesBlocks.LEMON_TRAVERTINE.RAW.getDefaultState();
+    private static final BlockState PEACH_TRAVERTINE = MarblesBlocks.TRAVERTINE.RAW.getDefaultState();
+    private static final BlockState TANGERINE_TRAVERTINE = MarblesBlocks.TANGERINE_TRAVERTINE.RAW.getDefaultState();
 
     protected BlockState[] layerBlocks;
     protected long seed;

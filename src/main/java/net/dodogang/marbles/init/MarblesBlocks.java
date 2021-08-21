@@ -7,6 +7,7 @@ import me.andante.chord.block.helper.WoodBlocks;
 import me.andante.chord.block.vanilla.PublicStairsBlock;
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.block.*;
+import net.dodogang.marbles.block.helper.SandBlocks;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.block.sapling.AspenSaplingGenerator;
 import net.dodogang.marbles.block.sapling.HoopsiSpruceSaplingGenerator;
@@ -40,10 +41,10 @@ public class MarblesBlocks {
      * TRAVERTINE
      */
 
-    public static final TravertineBlocks TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "travertine", MarblesItemGroup.INSTANCE, MapColor.WHITE);
-    public static final TravertineBlocks LEMON_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "lemon_travertine", MarblesItemGroup.INSTANCE, MapColor.WHITE);
-    public static final TravertineBlocks PEACH_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "peach_travertine", MarblesItemGroup.INSTANCE, MapColor.TERRACOTTA_WHITE);
-    public static final TravertineBlocks TANGERINE_TRAVERTINE_BLOCKS = new TravertineBlocks(Marbles.MOD_ID, "tangerine_travertine", MarblesItemGroup.INSTANCE, MapColor.ORANGE);
+    public static final TravertineBlocks TRAVERTINE = new TravertineBlocks(Marbles.MOD_ID, "travertine", MarblesItemGroup.INSTANCE, MapColor.WHITE);
+    public static final TravertineBlocks LEMON_TRAVERTINE = new TravertineBlocks(Marbles.MOD_ID, "lemon_travertine", MarblesItemGroup.INSTANCE, MapColor.WHITE);
+    public static final TravertineBlocks PEACH_TRAVERTINE = new TravertineBlocks(Marbles.MOD_ID, "peach_travertine", MarblesItemGroup.INSTANCE, MapColor.TERRACOTTA_WHITE);
+    public static final TravertineBlocks TANGERINE_TRAVERTINE = new TravertineBlocks(Marbles.MOD_ID, "tangerine_travertine", MarblesItemGroup.INSTANCE, MapColor.ORANGE);
 
     public static final Block TRAVERTINE_OBSIDIAN = register("travertine_obsidian", new Block(FabricBlockSettings.of(Material.STONE, MapColor.BROWN).requiresTool().strength(50.0f, 1200.0f)));
     public static final Block TRAVERTINE_NETHER_PORTAL = register("travertine_nether_portal", new TravertineNetherPortalBlock(FabricBlockSettings.copyOf(Blocks.NETHER_PORTAL)), false);
@@ -178,55 +179,8 @@ public class MarblesBlocks {
      * SANDS
      */
 
-    public static final Block DAWN_SAND = register("dawn_sand", new SnowySandBlock(0xA95821, FabricBlockSettings.copyOf(Blocks.RED_SAND)));
-
-    public static final Block DAWN_SANDSTONE = register("dawn_sandstone", new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE)));
-    public static final Block CHISELED_DAWN_SANDSTONE = copy("chiseled_dawn_sandstone", DAWN_SANDSTONE);
-    public static final Block CUT_DAWN_SANDSTONE = copy("cut_dawn_sandstone", DAWN_SANDSTONE);
-    public static final Block SMOOTH_DAWN_SANDSTONE = copy("smooth_dawn_sandstone", DAWN_SANDSTONE);
-
-    public static final Block DAWN_SANDSTONE_SLAB = createSlab(DAWN_SANDSTONE);
-    public static final Block CUT_DAWN_SANDSTONE_SLAB = createSlab(CUT_DAWN_SANDSTONE);
-    public static final Block SMOOTH_DAWN_SANDSTONE_SLAB = createSlab(SMOOTH_DAWN_SANDSTONE);
-
-    public static final Block DAWN_SANDSTONE_STAIRS = createStairs(DAWN_SANDSTONE);
-    public static final Block CUT_DAWN_SANDSTONE_STAIRS = createStairs(CUT_DAWN_SANDSTONE);
-    public static final Block SMOOTH_DAWN_SANDSTONE_STAIRS = createStairs(SMOOTH_DAWN_SANDSTONE);
-
-    public static final Block DAWN_SANDSTONE_WALL = createWall(DAWN_SANDSTONE);
-    public static final Block CUT_DAWN_SANDSTONE_WALL = createWall(CUT_DAWN_SANDSTONE);
-    public static final Block SMOOTH_DAWN_SANDSTONE_WALL = createWall(SMOOTH_DAWN_SANDSTONE);
-
-
-    public static final Block DUSK_SAND = register(
-        "dusk_sand", new SnowySandBlock(
-            0x471515,
-            FabricBlockSettings.of(Material.AGGREGATE, MapColor.RED)
-                .strength(0.5f).sounds(BlockSoundGroup.SAND)
-        )
-    );
-
-    public static final Block DUSK_SANDSTONE = register(
-        "dusk_sandstone", new Block(
-            FabricBlockSettings.of(Material.STONE, MapColor.RED)
-                .requiresTool().strength(0.8f)
-        )
-    );
-    public static final Block CHISELED_DUSK_SANDSTONE = copy("chiseled_dusk_sandstone", DUSK_SANDSTONE);
-    public static final Block CUT_DUSK_SANDSTONE = copy("cut_dusk_sandstone", DUSK_SANDSTONE);
-    public static final Block SMOOTH_DUSK_SANDSTONE = copy("smooth_dusk_sandstone", DUSK_SANDSTONE);
-
-    public static final Block DUSK_SANDSTONE_SLAB = createSlab(DUSK_SANDSTONE);
-    public static final Block CUT_DUSK_SANDSTONE_SLAB = createSlab(CUT_DUSK_SANDSTONE);
-    public static final Block SMOOTH_DUSK_SANDSTONE_SLAB = createSlab(SMOOTH_DUSK_SANDSTONE);
-
-    public static final Block DUSK_SANDSTONE_STAIRS = createStairs(DUSK_SANDSTONE);
-    public static final Block CUT_DUSK_SANDSTONE_STAIRS = createStairs(CUT_DUSK_SANDSTONE);
-    public static final Block SMOOTH_DUSK_SANDSTONE_STAIRS = createStairs(SMOOTH_DUSK_SANDSTONE);
-
-    public static final Block DUSK_SANDSTONE_WALL = createWall(DUSK_SANDSTONE);
-    public static final Block CUT_DUSK_SANDSTONE_WALL = createWall(CUT_DUSK_SANDSTONE);
-    public static final Block SMOOTH_DUSK_SANDSTONE_WALL = createWall(SMOOTH_DUSK_SANDSTONE);
+    public static final SandBlocks DAWN = new SandBlocks(Marbles.MOD_ID, "dawn", MarblesItemGroup.INSTANCE, MapColor.ORANGE, 0xA95821);
+    public static final SandBlocks DUSK = new SandBlocks(Marbles.MOD_ID, "dusk", MarblesItemGroup.INSTANCE, MapColor.RED, 0x471515);
 
     public static final Block MORN_GRASS = register("morn_grass", new PublicFernBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
     public static final Block TALL_MORN_GRASS = register("tall_morn_grass", new TallPlantBlock(FabricBlockSettings.copyOf(MORN_GRASS)));
@@ -352,7 +306,7 @@ public class MarblesBlocks {
     public static final Block TALL_ASPEN_GRASS = register("tall_aspen_grass", new TallPlantBlock(FabricBlockSettings.copyOf(ASPEN_GRASS)));
 
     public static final Block ASPEN_SEAGRASS = register("aspen_seagrass", new BubblingSeagrassBlock(() -> MarblesBlocks.TALL_ASPEN_SEAGRASS, FabricBlockSettings.copyOf(Blocks.SEAGRASS)));
-    public static final Block TALL_ASPEN_SEAGRASS = register("tall_aspen_seagrass", new BubblingTallSeagrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_SEAGRASS)), false);
+    public static final Block TALL_ASPEN_SEAGRASS = register("tall_aspen_seagrass", new BubblingTallSeagrassBlock(() -> MarblesBlocks.ASPEN_SEAGRASS, FabricBlockSettings.copyOf(Blocks.TALL_SEAGRASS)), false);
 
     /*
      * PLANTAGE

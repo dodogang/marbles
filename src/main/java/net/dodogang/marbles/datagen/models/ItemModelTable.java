@@ -42,10 +42,10 @@ public final class ItemModelTable {
          * TRAVERTINE SETS
          */
 
-        registerTravertineBlocks(MarblesBlocks.TRAVERTINE_BLOCKS);
-        registerTravertineBlocks(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);
-        registerTravertineBlocks(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
-        registerTravertineBlocks(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
+        registerTravertineBlocks(MarblesBlocks.TRAVERTINE);
+        registerTravertineBlocks(MarblesBlocks.LEMON_TRAVERTINE);
+        registerTravertineBlocks(MarblesBlocks.PEACH_TRAVERTINE);
+        registerTravertineBlocks(MarblesBlocks.TANGERINE_TRAVERTINE);
 
         register(MarblesBlocks.TRAVERTINE_OBSIDIAN, ItemModelTable::inheritBlockFunc);
 
@@ -110,35 +110,35 @@ public final class ItemModelTable {
          * SANDSTONE SETS
          */
 
-        register(MarblesBlocks.DAWN_SAND, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.DAWN_SANDSTONE, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.CHISELED_DAWN_SANDSTONE, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.DAWN_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.DAWN_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.DAWN_SANDSTONE_WALL, ItemModelTable::wallSidedTopBottomFunc);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE_WALL, item -> using(name(item, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallSidedInventory(n + "_bottom", n + "_top", n)));
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_WALL, item -> wallInventory(name(item, "block/%s_top", "(^smooth_)|(_wall$)", "")));
+        register(MarblesBlocks.DAWN.SAND, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.CHISELED_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.SMOOTH_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.SMOOTH_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.SMOOTH_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DAWN.SANDSTONE_WALL, ItemModelTable::wallSidedTopBottomFunc);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE_WALL, item -> using(name(item, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallSidedInventory(n + "_bottom", n + "_top", n)));
+        register(MarblesBlocks.DAWN.SMOOTH_SANDSTONE_WALL, item -> wallInventory(name(item, "block/%s_top", "(^smooth_)|(_wall$)", "")));
 
-        register(MarblesBlocks.DUSK_SAND, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.DUSK_SANDSTONE, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.CHISELED_DUSK_SANDSTONE, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.DUSK_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.DUSK_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
-        register(MarblesBlocks.DUSK_SANDSTONE_WALL, ItemModelTable::wallSidedTopBottomFunc);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE_WALL, item -> using(name(item, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallSidedInventory(n + "_bottom", n + "_top", n)));
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, item -> wallInventory(name(item, "block/%s_top", "(^smooth_)|(_wall$)", "")));
+        register(MarblesBlocks.DUSK.SAND, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.CHISELED_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.SMOOTH_SANDSTONE, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.SMOOTH_SANDSTONE_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.SMOOTH_SANDSTONE_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.DUSK.SANDSTONE_WALL, ItemModelTable::wallSidedTopBottomFunc);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE_WALL, item -> using(name(item, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallSidedInventory(n + "_bottom", n + "_top", n)));
+        register(MarblesBlocks.DUSK.SMOOTH_SANDSTONE_WALL, item -> wallInventory(name(item, "block/%s_top", "(^smooth_)|(_wall$)", "")));
 
         register(MarblesBlocks.MORN_GRASS, ItemModelTable::generatedItemFunc);
         register(MarblesBlocks.TALL_MORN_GRASS, ItemModelTable::generatedItemFunc);

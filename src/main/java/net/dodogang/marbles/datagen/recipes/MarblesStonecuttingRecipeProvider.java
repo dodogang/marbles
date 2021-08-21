@@ -46,10 +46,10 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
          * TRAVERTINE SETS
          */
 
-        registerTravertine(MarblesBlocks.TRAVERTINE_BLOCKS);
-        registerTravertine(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);
-        registerTravertine(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
-        registerTravertine(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
+        registerTravertine(MarblesBlocks.TRAVERTINE);
+        registerTravertine(MarblesBlocks.LEMON_TRAVERTINE);
+        registerTravertine(MarblesBlocks.PEACH_TRAVERTINE);
+        registerTravertine(MarblesBlocks.TANGERINE_TRAVERTINE);
 
         register(MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_SLAB, 2);
         register(MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_STAIRS);
@@ -79,35 +79,35 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
          * SANDSTONE SETS
          */
 
-        register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE);
-        register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CHISELED_DAWN_SANDSTONE);
-        register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.DAWN_SANDSTONE_SLAB, 2);
-        register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.DAWN_SANDSTONE_STAIRS);
-        register(MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.DAWN_SANDSTONE_WALL);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_SLAB, 2);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_STAIRS);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_WALL);
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE_SLAB, 2);
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE_STAIRS);
-        register(MarblesBlocks.SMOOTH_DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE_WALL);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_SLAB, 2);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_STAIRS);
-        register(MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_WALL);
+        register(MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE);
+        register(MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.CHISELED_SANDSTONE);
+        register(MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.SANDSTONE_SLAB, 2);
+        register(MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.SANDSTONE_STAIRS);
+        register(MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.SANDSTONE_WALL);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE_SLAB, 2);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE_STAIRS);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE_WALL);
+        register(MarblesBlocks.DAWN.SMOOTH_SANDSTONE, MarblesBlocks.DAWN.SMOOTH_SANDSTONE_SLAB, 2);
+        register(MarblesBlocks.DAWN.SMOOTH_SANDSTONE, MarblesBlocks.DAWN.SMOOTH_SANDSTONE_STAIRS);
+        register(MarblesBlocks.DAWN.SMOOTH_SANDSTONE, MarblesBlocks.DAWN.SMOOTH_SANDSTONE_WALL);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE_SLAB, 2);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE_STAIRS);
+        register(MarblesBlocks.DAWN.CUT_SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE_WALL);
 
-        register(MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE);
-        register(MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.CHISELED_DUSK_SANDSTONE);
-        register(MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.DUSK_SANDSTONE_SLAB, 2);
-        register(MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.DUSK_SANDSTONE_STAIRS);
-        register(MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.DUSK_SANDSTONE_WALL);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_SLAB, 2);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_SLAB, 2);
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_STAIRS);
-        register(MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_SLAB, 2);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS);
-        register(MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
+        register(MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE);
+        register(MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.CHISELED_SANDSTONE);
+        register(MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.SANDSTONE_SLAB, 2);
+        register(MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.SANDSTONE_STAIRS);
+        register(MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.SANDSTONE_WALL);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE_SLAB, 2);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE_STAIRS);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE_WALL);
+        register(MarblesBlocks.DUSK.SMOOTH_SANDSTONE, MarblesBlocks.DUSK.SMOOTH_SANDSTONE_SLAB, 2);
+        register(MarblesBlocks.DUSK.SMOOTH_SANDSTONE, MarblesBlocks.DUSK.SMOOTH_SANDSTONE_STAIRS);
+        register(MarblesBlocks.DUSK.SMOOTH_SANDSTONE, MarblesBlocks.DUSK.SMOOTH_SANDSTONE_WALL);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE_SLAB, 2);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE_STAIRS);
+        register(MarblesBlocks.DUSK.CUT_SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE_WALL);
 
         /*
          * GRISP SET

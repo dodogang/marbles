@@ -46,10 +46,10 @@ public class MarblesTagProvider implements DataProvider {
         addWoodSet(HOOPSI_SPRUCE, MarblesBlockTags.HOOPSI_SPRUCE_LOGS, MarblesItemTags.HOOPSI_SPRUCE_LOGS);
         addWoodSet(RED_BIRCH, MarblesBlockTags.RED_BIRCH_LOGS, MarblesItemTags.RED_BIRCH_LOGS);
 
-        addTravertineSet(TRAVERTINE_BLOCKS, MarblesBlockTags.TRAVERTINE, MarblesItemTags.TRAVERTINE);
-        addTravertineSet(LEMON_TRAVERTINE_BLOCKS, MarblesBlockTags.LEMON_TRAVERTINE, MarblesItemTags.LEMON_TRAVERTINE);
-        addTravertineSet(PEACH_TRAVERTINE_BLOCKS, MarblesBlockTags.PEACH_TRAVERTINE, MarblesItemTags.PEACH_TRAVERTINE);
-        addTravertineSet(TANGERINE_TRAVERTINE_BLOCKS, MarblesBlockTags.TANGERINE_TRAVERTINE, MarblesItemTags.TANGERINE_TRAVERTINE);
+        addTravertineSet(TRAVERTINE, MarblesBlockTags.TRAVERTINE, MarblesItemTags.TRAVERTINE);
+        addTravertineSet(LEMON_TRAVERTINE, MarblesBlockTags.LEMON_TRAVERTINE, MarblesItemTags.LEMON_TRAVERTINE);
+        addTravertineSet(PEACH_TRAVERTINE, MarblesBlockTags.PEACH_TRAVERTINE, MarblesItemTags.PEACH_TRAVERTINE);
+        addTravertineSet(TANGERINE_TRAVERTINE, MarblesBlockTags.TANGERINE_TRAVERTINE, MarblesItemTags.TANGERINE_TRAVERTINE);
 
         blocks.factory(MarblesBlockTags.SPECIAL_ROPE_SUPPORTS).add(BlockTags.LEAVES);
         blocks.factory(MarblesBlockTags.CLIMBABLE_FASTER).add(ROPE);
@@ -97,13 +97,13 @@ public class MarblesTagProvider implements DataProvider {
             LIMESTONE_SLAB,
             POLISHED_LIMESTONE_SLAB,
 
-            DAWN_SANDSTONE_SLAB,
-            CUT_DAWN_SANDSTONE_SLAB,
-            SMOOTH_DAWN_SANDSTONE_SLAB,
+            DAWN.SANDSTONE_SLAB,
+            DAWN.CUT_SANDSTONE_SLAB,
+            DAWN.SMOOTH_SANDSTONE_SLAB,
 
-            DUSK_SANDSTONE_SLAB,
-            CUT_DUSK_SANDSTONE_SLAB,
-            SMOOTH_DUSK_SANDSTONE_SLAB,
+            DUSK.SANDSTONE_SLAB,
+            DUSK.CUT_SANDSTONE_SLAB,
+            DUSK.SMOOTH_SANDSTONE_SLAB,
 
             PINK_SALT_SLAB,
             PINK_SALT_BRICK_SLAB,
@@ -124,13 +124,13 @@ public class MarblesTagProvider implements DataProvider {
             LIMESTONE_STAIRS,
             POLISHED_LIMESTONE_STAIRS,
 
-            DAWN_SANDSTONE_STAIRS,
-            CUT_DAWN_SANDSTONE_STAIRS,
-            SMOOTH_DAWN_SANDSTONE_STAIRS,
+            DAWN.SANDSTONE_STAIRS,
+            DAWN.CUT_SANDSTONE_STAIRS,
+            DAWN.SMOOTH_SANDSTONE_STAIRS,
 
-            DUSK_SANDSTONE_STAIRS,
-            CUT_DUSK_SANDSTONE_STAIRS,
-            SMOOTH_DUSK_SANDSTONE_STAIRS,
+            DUSK.SANDSTONE_STAIRS,
+            DUSK.CUT_SANDSTONE_STAIRS,
+            DUSK.SMOOTH_SANDSTONE_STAIRS,
 
             PINK_SALT_STAIRS,
             PINK_SALT_BRICK_STAIRS,
@@ -148,13 +148,13 @@ public class MarblesTagProvider implements DataProvider {
             LIMESTONE_WALL,
             POLISHED_LIMESTONE_WALL,
 
-            DAWN_SANDSTONE_WALL,
-            CUT_DAWN_SANDSTONE_WALL,
-            SMOOTH_DAWN_SANDSTONE_WALL,
+            DAWN.SANDSTONE_WALL,
+            DAWN.CUT_SANDSTONE_WALL,
+            DAWN.SMOOTH_SANDSTONE_WALL,
 
-            DUSK_SANDSTONE_WALL,
-            CUT_DUSK_SANDSTONE_WALL,
-            SMOOTH_DUSK_SANDSTONE_WALL,
+            DUSK.SANDSTONE_WALL,
+            DUSK.CUT_SANDSTONE_WALL,
+            DUSK.SMOOTH_SANDSTONE_WALL,
 
             POLLENATED_COBBLESTONE_WALL,
 
@@ -182,8 +182,8 @@ public class MarblesTagProvider implements DataProvider {
 
         add(
             BlockTags.ENDERMAN_HOLDABLE,
-            DAWN_SAND,
-            DUSK_SAND
+            DAWN.SAND,
+            DUSK.SAND
         );
 
         add(
@@ -203,8 +203,8 @@ public class MarblesTagProvider implements DataProvider {
 
         add(
             CBlockTags.DEAD_BUSH_SUPPORTERS,
-            DAWN_SAND,
-            DUSK_SAND
+            DAWN.SAND,
+            DUSK.SAND
         );
 
         addGrispDirtBlockTag(BlockTags.ENDERMAN_HOLDABLE);
@@ -313,35 +313,35 @@ public class MarblesTagProvider implements DataProvider {
             PINK_SALT_COPPER_ORE,
             PINK_SALT_UMBRAL_LAZULI_ORE,
 
-            DAWN_SAND,
-            DAWN_SANDSTONE,
-            CHISELED_DAWN_SANDSTONE,
-            CUT_DAWN_SANDSTONE,
-            SMOOTH_DAWN_SANDSTONE,
-            DAWN_SANDSTONE_SLAB,
-            CUT_DAWN_SANDSTONE_SLAB,
-            SMOOTH_DAWN_SANDSTONE_SLAB,
-            DAWN_SANDSTONE_STAIRS,
-            CUT_DAWN_SANDSTONE_STAIRS,
-            SMOOTH_DAWN_SANDSTONE_STAIRS,
-            DAWN_SANDSTONE_WALL,
-            CUT_DAWN_SANDSTONE_WALL,
-            SMOOTH_DAWN_SANDSTONE_WALL,
+            DAWN.SAND,
+            DAWN.SANDSTONE,
+            DAWN.CHISELED_SANDSTONE,
+            DAWN.CUT_SANDSTONE,
+            DAWN.SMOOTH_SANDSTONE,
+            DAWN.SANDSTONE_SLAB,
+            DAWN.CUT_SANDSTONE_SLAB,
+            DAWN.SMOOTH_SANDSTONE_SLAB,
+            DAWN.SANDSTONE_STAIRS,
+            DAWN.CUT_SANDSTONE_STAIRS,
+            DAWN.SMOOTH_SANDSTONE_STAIRS,
+            DAWN.SANDSTONE_WALL,
+            DAWN.CUT_SANDSTONE_WALL,
+            DAWN.SMOOTH_SANDSTONE_WALL,
 
-            DUSK_SAND,
-            DUSK_SANDSTONE,
-            CHISELED_DUSK_SANDSTONE,
-            CUT_DUSK_SANDSTONE,
-            SMOOTH_DUSK_SANDSTONE,
-            DUSK_SANDSTONE_SLAB,
-            CUT_DUSK_SANDSTONE_SLAB,
-            SMOOTH_DUSK_SANDSTONE_SLAB,
-            DUSK_SANDSTONE_STAIRS,
-            CUT_DUSK_SANDSTONE_STAIRS,
-            SMOOTH_DUSK_SANDSTONE_STAIRS,
-            DUSK_SANDSTONE_WALL,
-            CUT_DUSK_SANDSTONE_WALL,
-            SMOOTH_DUSK_SANDSTONE_WALL,
+            DUSK.SAND,
+            DUSK.SANDSTONE,
+            DUSK.CHISELED_SANDSTONE,
+            DUSK.CUT_SANDSTONE,
+            DUSK.SMOOTH_SANDSTONE,
+            DUSK.SANDSTONE_SLAB,
+            DUSK.CUT_SANDSTONE_SLAB,
+            DUSK.SMOOTH_SANDSTONE_SLAB,
+            DUSK.SANDSTONE_STAIRS,
+            DUSK.CUT_SANDSTONE_STAIRS,
+            DUSK.SMOOTH_SANDSTONE_STAIRS,
+            DUSK.SANDSTONE_WALL,
+            DUSK.CUT_SANDSTONE_WALL,
+            DUSK.SMOOTH_SANDSTONE_WALL,
 
             LAPIS_SHINGLES,
             LAPIS_SHINGLE_SLAB,
@@ -398,7 +398,7 @@ public class MarblesTagProvider implements DataProvider {
         add(
             BlockTags.SHOVEL_MINEABLE,
 
-            DAWN_SAND, DUSK_SAND,
+            DAWN.SAND, DUSK.SAND,
 
             GRISP_PODZOL,
             GRISP_PODZOL_PATH,
@@ -543,35 +543,35 @@ public class MarblesTagProvider implements DataProvider {
         add(
             MarblesItemTags.CHORD_GROUP_SUNSET_GROTTO,
 
-            DAWN_SAND,
-            DAWN_SANDSTONE,
-            CHISELED_DAWN_SANDSTONE,
-            CUT_DAWN_SANDSTONE,
-            SMOOTH_DAWN_SANDSTONE,
-            DAWN_SANDSTONE_SLAB,
-            CUT_DAWN_SANDSTONE_SLAB,
-            SMOOTH_DAWN_SANDSTONE_SLAB,
-            DAWN_SANDSTONE_STAIRS,
-            CUT_DAWN_SANDSTONE_STAIRS,
-            SMOOTH_DAWN_SANDSTONE_STAIRS,
-            DAWN_SANDSTONE_WALL,
-            CUT_DAWN_SANDSTONE_WALL,
-            SMOOTH_DAWN_SANDSTONE_WALL,
+            DAWN.SAND,
+            DAWN.SANDSTONE,
+            DAWN.CHISELED_SANDSTONE,
+            DAWN.CUT_SANDSTONE,
+            DAWN.SMOOTH_SANDSTONE,
+            DAWN.SANDSTONE_SLAB,
+            DAWN.CUT_SANDSTONE_SLAB,
+            DAWN.SMOOTH_SANDSTONE_SLAB,
+            DAWN.SANDSTONE_STAIRS,
+            DAWN.CUT_SANDSTONE_STAIRS,
+            DAWN.SMOOTH_SANDSTONE_STAIRS,
+            DAWN.SANDSTONE_WALL,
+            DAWN.CUT_SANDSTONE_WALL,
+            DAWN.SMOOTH_SANDSTONE_WALL,
 
-            DUSK_SAND,
-            DUSK_SANDSTONE,
-            CHISELED_DUSK_SANDSTONE,
-            CUT_DUSK_SANDSTONE,
-            SMOOTH_DUSK_SANDSTONE,
-            DUSK_SANDSTONE_SLAB,
-            CUT_DUSK_SANDSTONE_SLAB,
-            SMOOTH_DUSK_SANDSTONE_SLAB,
-            DUSK_SANDSTONE_STAIRS,
-            CUT_DUSK_SANDSTONE_STAIRS,
-            SMOOTH_DUSK_SANDSTONE_STAIRS,
-            DUSK_SANDSTONE_WALL,
-            CUT_DUSK_SANDSTONE_WALL,
-            SMOOTH_DUSK_SANDSTONE_WALL,
+            DUSK.SAND,
+            DUSK.SANDSTONE,
+            DUSK.CHISELED_SANDSTONE,
+            DUSK.CUT_SANDSTONE,
+            DUSK.SMOOTH_SANDSTONE,
+            DUSK.SANDSTONE_SLAB,
+            DUSK.CUT_SANDSTONE_SLAB,
+            DUSK.SMOOTH_SANDSTONE_SLAB,
+            DUSK.SANDSTONE_STAIRS,
+            DUSK.CUT_SANDSTONE_STAIRS,
+            DUSK.SMOOTH_SANDSTONE_STAIRS,
+            DUSK.SANDSTONE_WALL,
+            DUSK.CUT_SANDSTONE_WALL,
+            DUSK.SMOOTH_SANDSTONE_WALL,
 
             MORN_GRASS,
             TALL_MORN_GRASS,

@@ -116,10 +116,10 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
          * TRAVERTINE SETS
          */
 
-        addTravertineDrops(MarblesBlocks.TRAVERTINE_BLOCKS);
-        addTravertineDrops(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS);
-        addTravertineDrops(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS);
-        addTravertineDrops(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS);
+        addTravertineDrops(MarblesBlocks.TRAVERTINE);
+        addTravertineDrops(MarblesBlocks.LEMON_TRAVERTINE);
+        addTravertineDrops(MarblesBlocks.PEACH_TRAVERTINE);
+        addTravertineDrops(MarblesBlocks.TANGERINE_TRAVERTINE);
 
         addDrop(MarblesBlocks.TRAVERTINE_OBSIDIAN);
         addDrop(MarblesBlocks.TRAVERTINE_NETHER_PORTAL, block -> dropsNothing());
@@ -206,35 +206,35 @@ public class MarblesBlockLootTables implements Consumer<BiConsumer<Identifier, L
          * SANDSTONE SETS
          */
 
-        addDrop(MarblesBlocks.DAWN_SAND);
-        addDrop(MarblesBlocks.DAWN_SANDSTONE);
-        addDrop(MarblesBlocks.CHISELED_DAWN_SANDSTONE);
-        addDrop(MarblesBlocks.CUT_DAWN_SANDSTONE);
-        addDrop(MarblesBlocks.SMOOTH_DAWN_SANDSTONE);
-        addSlabDrop(MarblesBlocks.DAWN_SANDSTONE_SLAB);
-        addSlabDrop(MarblesBlocks.CUT_DAWN_SANDSTONE_SLAB);
-        addSlabDrop(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_SLAB);
-        addDrop(MarblesBlocks.DAWN_SANDSTONE_STAIRS);
-        addDrop(MarblesBlocks.CUT_DAWN_SANDSTONE_STAIRS);
-        addDrop(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_STAIRS);
-        addDrop(MarblesBlocks.DAWN_SANDSTONE_WALL);
-        addDrop(MarblesBlocks.CUT_DAWN_SANDSTONE_WALL);
-        addDrop(MarblesBlocks.SMOOTH_DAWN_SANDSTONE_WALL);
+        addDrop(MarblesBlocks.DAWN.SAND);
+        addDrop(MarblesBlocks.DAWN.SANDSTONE);
+        addDrop(MarblesBlocks.DAWN.CHISELED_SANDSTONE);
+        addDrop(MarblesBlocks.DAWN.CUT_SANDSTONE);
+        addDrop(MarblesBlocks.DAWN.SMOOTH_SANDSTONE);
+        addSlabDrop(MarblesBlocks.DAWN.SANDSTONE_SLAB);
+        addSlabDrop(MarblesBlocks.DAWN.CUT_SANDSTONE_SLAB);
+        addSlabDrop(MarblesBlocks.DAWN.SMOOTH_SANDSTONE_SLAB);
+        addDrop(MarblesBlocks.DAWN.SANDSTONE_STAIRS);
+        addDrop(MarblesBlocks.DAWN.CUT_SANDSTONE_STAIRS);
+        addDrop(MarblesBlocks.DAWN.SMOOTH_SANDSTONE_STAIRS);
+        addDrop(MarblesBlocks.DAWN.SANDSTONE_WALL);
+        addDrop(MarblesBlocks.DAWN.CUT_SANDSTONE_WALL);
+        addDrop(MarblesBlocks.DAWN.SMOOTH_SANDSTONE_WALL);
 
-        addDrop(MarblesBlocks.DUSK_SAND);
-        addDrop(MarblesBlocks.DUSK_SANDSTONE);
-        addDrop(MarblesBlocks.CHISELED_DUSK_SANDSTONE);
-        addDrop(MarblesBlocks.CUT_DUSK_SANDSTONE);
-        addDrop(MarblesBlocks.SMOOTH_DUSK_SANDSTONE);
-        addSlabDrop(MarblesBlocks.DUSK_SANDSTONE_SLAB);
-        addSlabDrop(MarblesBlocks.CUT_DUSK_SANDSTONE_SLAB);
-        addSlabDrop(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_SLAB);
-        addDrop(MarblesBlocks.DUSK_SANDSTONE_STAIRS);
-        addDrop(MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS);
-        addDrop(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_STAIRS);
-        addDrop(MarblesBlocks.DUSK_SANDSTONE_WALL);
-        addDrop(MarblesBlocks.CUT_DUSK_SANDSTONE_WALL);
-        addDrop(MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL);
+        addDrop(MarblesBlocks.DUSK.SAND);
+        addDrop(MarblesBlocks.DUSK.SANDSTONE);
+        addDrop(MarblesBlocks.DUSK.CHISELED_SANDSTONE);
+        addDrop(MarblesBlocks.DUSK.CUT_SANDSTONE);
+        addDrop(MarblesBlocks.DUSK.SMOOTH_SANDSTONE);
+        addSlabDrop(MarblesBlocks.DUSK.SANDSTONE_SLAB);
+        addSlabDrop(MarblesBlocks.DUSK.CUT_SANDSTONE_SLAB);
+        addSlabDrop(MarblesBlocks.DUSK.SMOOTH_SANDSTONE_SLAB);
+        addDrop(MarblesBlocks.DUSK.SANDSTONE_STAIRS);
+        addDrop(MarblesBlocks.DUSK.CUT_SANDSTONE_STAIRS);
+        addDrop(MarblesBlocks.DUSK.SMOOTH_SANDSTONE_STAIRS);
+        addDrop(MarblesBlocks.DUSK.SANDSTONE_WALL);
+        addDrop(MarblesBlocks.DUSK.CUT_SANDSTONE_WALL);
+        addDrop(MarblesBlocks.DUSK.SMOOTH_SANDSTONE_WALL);
 
         addDrop(MarblesBlocks.MORN_GRASS, MarblesBlockLootTables::dropsGrass);
         addDrop(MarblesBlocks.TALL_MORN_GRASS, block -> MarblesBlockLootTables.dropsDoubleGrass(block, MarblesBlocks.MORN_GRASS));

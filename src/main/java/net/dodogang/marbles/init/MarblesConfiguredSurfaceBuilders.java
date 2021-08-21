@@ -22,7 +22,7 @@ public class MarblesConfiguredSurfaceBuilders {
         public static final TernarySurfaceConfig PERMAFROST = new TernarySurfaceConfig(States.PERMAFROST, States.PERMAFROST_DIRT, States.GRAVEL);
     }
     public static class States {
-        public static final BlockState TRAVERTINE = MarblesBlocks.TRAVERTINE_BLOCKS.RAW.getDefaultState();
+        public static final BlockState TRAVERTINE = MarblesBlocks.TRAVERTINE.RAW.getDefaultState();
         public static final BlockState PERMAFROST = MarblesBlocks.PERMAFROST.getDefaultState();
         public static final BlockState PERMAFROST_DIRT = MarblesBlocks.PERMAFROST_DIRT.getDefaultState();
         public static final BlockState GRAVEL = Blocks.GRAVEL.getDefaultState();

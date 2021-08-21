@@ -47,10 +47,10 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
          * TRAVERTINE SETS
          */
 
-        travertineSet(MarblesBlocks.TRAVERTINE_BLOCKS, MarblesItemTags.TRAVERTINE);
-        travertineSet(MarblesBlocks.LEMON_TRAVERTINE_BLOCKS, MarblesItemTags.LEMON_TRAVERTINE);
-        travertineSet(MarblesBlocks.PEACH_TRAVERTINE_BLOCKS, MarblesItemTags.PEACH_TRAVERTINE);
-        travertineSet(MarblesBlocks.TANGERINE_TRAVERTINE_BLOCKS, MarblesItemTags.TANGERINE_TRAVERTINE);
+        travertineSet(MarblesBlocks.TRAVERTINE, MarblesItemTags.TRAVERTINE);
+        travertineSet(MarblesBlocks.LEMON_TRAVERTINE, MarblesItemTags.LEMON_TRAVERTINE);
+        travertineSet(MarblesBlocks.PEACH_TRAVERTINE, MarblesItemTags.PEACH_TRAVERTINE);
+        travertineSet(MarblesBlocks.TANGERINE_TRAVERTINE, MarblesItemTags.TANGERINE_TRAVERTINE);
 
         generic3x1("limestone/slab", MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_SLAB, 6);
         stairs("limestone/stairs", MarblesBlocks.LIMESTONE, MarblesBlocks.LIMESTONE_STAIRS, 4);
@@ -104,33 +104,33 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
          * SANDSTONE
          */
 
-        generic2x2("dawn_sand/sandstone", MarblesBlocks.DAWN_SAND, MarblesBlocks.DAWN_SANDSTONE, 1);
-        generic2x2("dawn_sand/cut_sandstone", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE, 4);
-        generic2x1("dawn_sand/chiseled_sandstone", MarblesBlocks.DAWN_SANDSTONE_SLAB, MarblesBlocks.CHISELED_DAWN_SANDSTONE, 4);
-        smelting("dawn_sand/smooth_sandstone", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE, 0.1f);
-        generic3x1("dawn_sand/sandstone_slab", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.DAWN_SANDSTONE_SLAB, 6);
-        generic3x1("dawn_sand/cut_sandstone_slab", MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_SLAB, 6);
-        generic3x1("dawn_sand/smooth_sandstone_slab", MarblesBlocks.SMOOTH_DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE_SLAB, 6);
-        stairs("dawn_sand/sandstone_stairs", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.DAWN_SANDSTONE_STAIRS, 4);
-        stairs("dawn_sand/cut_sandstone_stairs", MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_STAIRS, 4);
-        stairs("dawn_sand/smooth_sandstone_stairs", MarblesBlocks.SMOOTH_DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE_STAIRS, 4);
-        generic3x2("dawn_sand/sandstone_wall", MarblesBlocks.DAWN_SANDSTONE, MarblesBlocks.DAWN_SANDSTONE_WALL, 6);
-        generic3x2("dawn_sand/cut_sandstone_wall", MarblesBlocks.CUT_DAWN_SANDSTONE, MarblesBlocks.CUT_DAWN_SANDSTONE_WALL, 6);
-        generic3x2("dawn_sand/smooth_sandstone_wall", MarblesBlocks.SMOOTH_DAWN_SANDSTONE, MarblesBlocks.SMOOTH_DAWN_SANDSTONE_WALL, 6);
+        generic2x2("dawn_sand/sandstone", MarblesBlocks.DAWN.SAND, MarblesBlocks.DAWN.SANDSTONE, 1);
+        generic2x2("dawn_sand/cut_sandstone", MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE, 4);
+        generic2x1("dawn_sand/chiseled_sandstone", MarblesBlocks.DAWN.SANDSTONE_SLAB, MarblesBlocks.DAWN.CHISELED_SANDSTONE, 4);
+        smelting("dawn_sand/smooth_sandstone", MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.SMOOTH_SANDSTONE, 0.1f);
+        generic3x1("dawn_sand/sandstone_slab", MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.SANDSTONE_SLAB, 6);
+        generic3x1("dawn_sand/cut_sandstone_slab", MarblesBlocks.DAWN.CUT_SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE_SLAB, 6);
+        generic3x1("dawn_sand/smooth_sandstone_slab", MarblesBlocks.DAWN.SMOOTH_SANDSTONE, MarblesBlocks.DAWN.SMOOTH_SANDSTONE_SLAB, 6);
+        stairs("dawn_sand/sandstone_stairs", MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.SANDSTONE_STAIRS, 4);
+        stairs("dawn_sand/cut_sandstone_stairs", MarblesBlocks.DAWN.CUT_SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE_STAIRS, 4);
+        stairs("dawn_sand/smooth_sandstone_stairs", MarblesBlocks.DAWN.SMOOTH_SANDSTONE, MarblesBlocks.DAWN.SMOOTH_SANDSTONE_STAIRS, 4);
+        generic3x2("dawn_sand/sandstone_wall", MarblesBlocks.DAWN.SANDSTONE, MarblesBlocks.DAWN.SANDSTONE_WALL, 6);
+        generic3x2("dawn_sand/cut_sandstone_wall", MarblesBlocks.DAWN.CUT_SANDSTONE, MarblesBlocks.DAWN.CUT_SANDSTONE_WALL, 6);
+        generic3x2("dawn_sand/smooth_sandstone_wall", MarblesBlocks.DAWN.SMOOTH_SANDSTONE, MarblesBlocks.DAWN.SMOOTH_SANDSTONE_WALL, 6);
 
-        generic2x2("dusk_sand/sandstone", MarblesBlocks.DUSK_SAND, MarblesBlocks.DUSK_SANDSTONE, 1);
-        generic2x2("dusk_sand/cut_sandstone", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE, 4);
-        generic2x1("dusk_sand/chiseled_sandstone", MarblesBlocks.DUSK_SANDSTONE_SLAB, MarblesBlocks.CHISELED_DUSK_SANDSTONE, 4);
-        smelting("dusk_sand/smooth_sandstone", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE, 0.1f);
-        generic3x1("dusk_sand/sandstone_slab", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.DUSK_SANDSTONE_SLAB, 6);
-        generic3x1("dusk_sand/cut_sandstone_slab", MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_SLAB, 6);
-        generic3x1("dusk_sand/smooth_sandstone_slab", MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_SLAB, 6);
-        stairs("dusk_sand/sandstone_stairs", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.DUSK_SANDSTONE_STAIRS, 4);
-        stairs("dusk_sand/cut_sandstone_stairs", MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_STAIRS, 4);
-        stairs("dusk_sand/smooth_sandstone_stairs", MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_STAIRS, 4);
-        generic3x2("dusk_sand/sandstone_wall", MarblesBlocks.DUSK_SANDSTONE, MarblesBlocks.DUSK_SANDSTONE_WALL, 6);
-        generic3x2("dusk_sand/cut_sandstone_wall", MarblesBlocks.CUT_DUSK_SANDSTONE, MarblesBlocks.CUT_DUSK_SANDSTONE_WALL, 6);
-        generic3x2("dusk_sand/smooth_sandstone_wall", MarblesBlocks.SMOOTH_DUSK_SANDSTONE, MarblesBlocks.SMOOTH_DUSK_SANDSTONE_WALL, 6);
+        generic2x2("dusk_sand/sandstone", MarblesBlocks.DUSK.SAND, MarblesBlocks.DUSK.SANDSTONE, 1);
+        generic2x2("dusk_sand/cut_sandstone", MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE, 4);
+        generic2x1("dusk_sand/chiseled_sandstone", MarblesBlocks.DUSK.SANDSTONE_SLAB, MarblesBlocks.DUSK.CHISELED_SANDSTONE, 4);
+        smelting("dusk_sand/smooth_sandstone", MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.SMOOTH_SANDSTONE, 0.1f);
+        generic3x1("dusk_sand/sandstone_slab", MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.SANDSTONE_SLAB, 6);
+        generic3x1("dusk_sand/cut_sandstone_slab", MarblesBlocks.DUSK.CUT_SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE_SLAB, 6);
+        generic3x1("dusk_sand/smooth_sandstone_slab", MarblesBlocks.DUSK.SMOOTH_SANDSTONE, MarblesBlocks.DUSK.SMOOTH_SANDSTONE_SLAB, 6);
+        stairs("dusk_sand/sandstone_stairs", MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.SANDSTONE_STAIRS, 4);
+        stairs("dusk_sand/cut_sandstone_stairs", MarblesBlocks.DUSK.CUT_SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE_STAIRS, 4);
+        stairs("dusk_sand/smooth_sandstone_stairs", MarblesBlocks.DUSK.SMOOTH_SANDSTONE, MarblesBlocks.DUSK.SMOOTH_SANDSTONE_STAIRS, 4);
+        generic3x2("dusk_sand/sandstone_wall", MarblesBlocks.DUSK.SANDSTONE, MarblesBlocks.DUSK.SANDSTONE_WALL, 6);
+        generic3x2("dusk_sand/cut_sandstone_wall", MarblesBlocks.DUSK.CUT_SANDSTONE, MarblesBlocks.DUSK.CUT_SANDSTONE_WALL, 6);
+        generic3x2("dusk_sand/smooth_sandstone_wall", MarblesBlocks.DUSK.SMOOTH_SANDSTONE, MarblesBlocks.DUSK.SMOOTH_SANDSTONE_WALL, 6);
 
         /*
          * ASPEN

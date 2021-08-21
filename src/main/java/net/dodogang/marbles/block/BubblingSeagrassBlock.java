@@ -39,6 +39,6 @@ public class BubblingSeagrassBlock extends SeagrassBlock implements Bubbling {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         super.randomDisplayTick(state, world, pos, random);
-        this.spawnBubbles(world, pos, random);
+        this.spawnBubbles(world, pos, random, state.getModelOffset(world, pos));
     }
 }

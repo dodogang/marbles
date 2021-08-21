@@ -16,7 +16,7 @@ public class TravertineBlocks {
     private final String id;
     private final String modId;
     private final ItemGroup itemGroup;
-    private final MapColor color;
+    private final MapColor mapColor;
 
     public final Block RAW;
     public final Block BRICKS;
@@ -40,15 +40,15 @@ public class TravertineBlocks {
 
     public final Block SALT_LAMP;
 
-    public TravertineBlocks(String modId, String id, ItemGroup itemGroup, MapColor color) {
+    public TravertineBlocks(String modId, String id, ItemGroup itemGroup, MapColor mapColor) {
         this.id = id;
         this.modId = modId;
         this.itemGroup = itemGroup;
-        this.color = color;
+        this.mapColor = mapColor;
 
         RAW = register(
             "%s", new PillarBlock(
-                FabricBlockSettings.of(Material.STONE, color)
+                FabricBlockSettings.of(Material.STONE, mapColor)
                                    .strength(1.5f, 6f)
                                    .breakByTool(FabricToolTags.PICKAXES)
                                    .requiresTool()
@@ -77,20 +77,22 @@ public class TravertineBlocks {
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public String getModId() {
-        return modId;
+        return this.modId;
     }
 
     public ItemGroup getItemGroup() {
-        return itemGroup;
+        return this.itemGroup;
     }
 
-    public MapColor getColor() {
-        return color;
+    public MapColor getMapColor() {
+        return this.mapColor;
     }
+
+    // ---
 
     private Block register(String id, Block block, boolean registerItem) {
         if (registerItem) register(id, new BlockItem(block, new Item.Settings().group(itemGroup)));
