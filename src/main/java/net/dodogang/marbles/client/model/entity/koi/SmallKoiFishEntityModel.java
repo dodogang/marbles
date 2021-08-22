@@ -17,6 +17,8 @@ public class SmallKoiFishEntityModel extends AbstractKoiFishEntityModel<KoiFishE
     private final ModelPart analFin;
     private final ModelPart tail;
     private final ModelPart tailFin;
+    private final ModelPart rightVentralFin;
+    private final ModelPart leftVentralFin;
 
     public SmallKoiFishEntityModel(ModelPart root) {
         super(root);
@@ -29,6 +31,8 @@ public class SmallKoiFishEntityModel extends AbstractKoiFishEntityModel<KoiFishE
         this.analFin = body.getChild("anal_fin");
         this.tail = body.getChild("tail");
         this.tailFin = tail.getChild("tail_fin");
+        this.rightVentralFin = body.getChild("right_ventral_fin");
+        this.leftVentralFin = body.getChild("left_ventral_fin");
     }
 
     public static TexturedModelData getTexturedModelData() {
@@ -40,7 +44,7 @@ public class SmallKoiFishEntityModel extends AbstractKoiFishEntityModel<KoiFishE
             ModelPartBuilder.create()
                 .uv(0, 0)
                 .mirrored(false)
-                .cuboid(-2.5F, -3.0F, -4.0F, 5.0F, 5.0F, 9.0F, new Dilation(0.0F)),
+                .cuboid(-2.5F, -3.0F, -4.0F, 5.0F, 5.0F, 9.0F),
             ModelTransform.of(0.0F, 22.0F, 0.0F, 0.0F, 0.0F, 0.0F)
         );
 
@@ -49,43 +53,43 @@ public class SmallKoiFishEntityModel extends AbstractKoiFishEntityModel<KoiFishE
             ModelPartBuilder.create()
                 .uv(19, 2)
                 .mirrored(false)
-                .cuboid(-1.5F, -2.25F, -6.5F, 4.0F, 4.0F, 3.0F, new Dilation(0.0F)),
-            ModelTransform.of(-0.5F, 0.25F, -0.5F, 0.0F, 0.0F, 0.0F)
+                .cuboid(-2.0F, -2.25F, -6.5F, 4.0F, 4.0F, 3.0F),
+            ModelTransform.of(0.0F, 0.25F, -0.5F, 0.0F, 0.0F, 0.0F)
         );
 
         ModelPartData leftFin = body.addChild(
             "left_fin",
             ModelPartBuilder.create()
-                .uv(18, 16)
+                .uv(4, 26)
                 .mirrored(false)
-                .cuboid(0.0F, 0.0F, -1.0F, 0.0F, 3.0F, 2.0F, new Dilation(0.0F)),
+                .cuboid(0.0F, 0.0F, -4.0F, 0.0F, 3.0F, 2.0F),
             ModelTransform.of(2.5F, 1.0F, 0.0F, 0.0F, 0.0F, -0.3927F)
         );
 
         ModelPartData rightFin = body.addChild(
             "right_fin",
             ModelPartBuilder.create()
-                .uv(18, 16)
+                .uv(4, 26)
                 .mirrored(false)
-                .cuboid(0.0F, 0.0F, -1.0F, 0.0F, 3.0F, 2.0F, new Dilation(0.0F)),
+                .cuboid(0.0F, 0.0F, -4.0F, 0.0F, 3.0F, 2.0F),
             ModelTransform.of(-2.5F, 1.0F, 0.0F, 0.0F, 0.0F, 0.3927F)
         );
 
-        ModelPartData upFin = body.addChild(
+        ModelPartData dorsalFin = body.addChild(
             "dorsal_fin",
             ModelPartBuilder.create()
                 .uv(10, 7)
                 .mirrored(false)
-                .cuboid(1.0F, -7.0F, -3.0F, 0.0F, 2.0F, 7.0F, new Dilation(0.0F)),
-            ModelTransform.of(-0.5F, 2.0F, 0.0F, 0.0F, 0.0F, 0.0F)
+                .cuboid(0.0F, -2.0F, -3.0F, 0.0F, 2.0F, 7.0F),
+            ModelTransform.of(0.0F, -3.0F, 0.0F, 0.0F, 0.0F, 0.0F)
         );
 
-        ModelPartData downFin = body.addChild(
+        ModelPartData analFin = body.addChild(
             "anal_fin",
             ModelPartBuilder.create()
                 .uv(10, 8)
                 .mirrored(false)
-                .cuboid(0.5F, 0.0F, -5.0F, 0.0F, 3.0F, 10.0F, new Dilation(0.0F)),
+                .cuboid(0.0F, 0.0F, -5.0F, 0.0F, 3.0F, 10.0F),
             ModelTransform.of(0.0F, 2.0F, 0.0F, 0.0F, 0.0F, 0.0F)
         );
 
@@ -94,7 +98,7 @@ public class SmallKoiFishEntityModel extends AbstractKoiFishEntityModel<KoiFishE
             ModelPartBuilder.create()
                 .uv(0, 14)
                 .mirrored(false)
-                .cuboid(-1.5F, -1.5F, 1.0F, 3.0F, 3.0F, 2.0F, new Dilation(0.0F)),
+                .cuboid(-1.5F, -1.5F, 1.0F, 3.0F, 3.0F, 2.0F),
             ModelTransform.of(0.0F, -0.5F, 4.0F, 0.0F, 0.0F, 0.0F)
         );
 
@@ -103,8 +107,26 @@ public class SmallKoiFishEntityModel extends AbstractKoiFishEntityModel<KoiFishE
             ModelPartBuilder.create()
                 .uv(0, 15)
                 .mirrored(false)
-                .cuboid(0.0F, -2.75F, 1.0F, 0.0F, 5.0F, 5.0F, new Dilation(0.0F)),
+                .cuboid(0.0F, -2.75F, 1.0F, 0.0F, 5.0F, 5.0F),
             ModelTransform.of(0.0F, 0.25F, 1.0F, 0.0F, 0.0F, 0.0F)
+        );
+
+        ModelPartData rightVentralFin = body.addChild(
+            "right_ventral_fin",
+            ModelPartBuilder.create()
+                .uv(2, 3)
+                .mirrored(false)
+                .cuboid(0.0F, 0.0F, -1.0F, 0.0F, 3.0F, 2.0F),
+            ModelTransform.of(-1.5F, 2.0F, 0.0F, 0.0F, 0.0F, 1.1781F)
+        );
+
+        ModelPartData leftVentralFin = body.addChild(
+            "left_ventral_fin",
+            ModelPartBuilder.create()
+                .uv(2, 3)
+                .mirrored(false)
+                .cuboid(0.0F, 0.0F, -1.0F, 0.0F, 3.0F, 2.0F),
+            ModelTransform.of(1.5F, 2.0F, 0.0F, 0.0F, 0.0F, -1.1781F)
         );
 
         return TexturedModelData.of(data, 64, 64);
