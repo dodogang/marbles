@@ -2,6 +2,7 @@ package net.dodogang.marbles.entity;
 
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.entity.enums.KoiSize;
+import net.dodogang.marbles.entity.enums.KoiVariant;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesItems;
@@ -28,10 +29,15 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import org.apache.logging.log4j.Level;
 import org.jetbrains.annotations.Nullable;
 
 public class KoiFishEntity extends SchoolingFishEntity {
     public static final TrackedData<KoiSize> SIZE = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_SIZE);
+
+    public static final TrackedData<KoiVariant> VAR_BASE = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_VARIANT);
+    public static final TrackedData<KoiVariant> VAR_SPOTS = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_VARIANT);
+    public static final TrackedData<KoiVariant> VAR_FINS = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_VARIANT);
 
     public KoiFishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
         super(entityType, world);
@@ -56,6 +62,10 @@ public class KoiFishEntity extends SchoolingFishEntity {
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(SIZE, KoiSize.SMALL);
+
+        this.dataTracker.startTracking(VAR_BASE, KoiVariant.WHITE);
+        this.dataTracker.startTracking(VAR_SPOTS, KoiVariant.WHITE);
+        this.dataTracker.startTracking(VAR_FINS, KoiVariant.WHITE);
     }
 
     @Override
@@ -82,6 +92,27 @@ public class KoiFishEntity extends SchoolingFishEntity {
         this.calculateDimensions();
     }
 
+    public KoiVariant getVariantBase() {
+        return this.dataTracker.get(VAR_BASE);
+    }
+    public void setVariantBase(KoiVariant variant) {
+        this.dataTracker.set(VAR_BASE, variant);
+    }
+
+    public KoiVariant getVariantSpots() {
+        return this.dataTracker.get(VAR_SPOTS);
+    }
+    public void setVariantSpots(KoiVariant variant) {
+        this.dataTracker.set(VAR_SPOTS, variant);
+    }
+
+    public KoiVariant getVariantFins() {
+        return this.dataTracker.get(VAR_FINS);
+    }
+    public void setVariantFins(KoiVariant variant) {
+        this.dataTracker.set(VAR_FINS, variant);
+    }
+
     // ---
 
     @Override
@@ -90,7 +121,13 @@ public class KoiFishEntity extends SchoolingFishEntity {
 
         try {
             this.setSize(KoiSize.valueOf(nbt.getString("Size")));
-        } catch (Exception ignored) {}
+
+            this.setVariantBase(KoiVariant.valueOf(nbt.getString("VariantBase")));
+            this.setVariantSpots(KoiVariant.valueOf(nbt.getString("VariantSpots")));
+            this.setVariantFins(KoiVariant.valueOf(nbt.getString("VariantFins")));
+        } catch (Exception e) {
+            logParseIssue(e);
+        }
 
         this.age = nbt.getInt("Age");
     }
@@ -100,6 +137,11 @@ public class KoiFishEntity extends SchoolingFishEntity {
         super.writeCustomDataToNbt(nbt);
 
         nbt.putString("Size", this.getSize().asString());
+
+        nbt.putString("VariantBase", this.getVariantBase().asString());
+        nbt.putString("VariantSpots", this.getVariantSpots().asString());
+        nbt.putString("VariantFins", this.getVariantFins().asString());
+
         nbt.putInt("Age", this.age);
     }
 
@@ -215,6 +257,10 @@ public class KoiFishEntity extends SchoolingFishEntity {
         NbtCompound nbt = stack.getOrCreateNbt();
         nbt.putString("Size", this.getSize().asString());
 
+        nbt.putString("VariantBase", this.getVariantBase().asString());
+        nbt.putString("VariantSpots", this.getVariantSpots().asString());
+        nbt.putString("VariantFins", this.getVariantFins().asString());
+
         nbt.putInt("Age", this.age);
         nbt.putLong("WorldTimeAtBucketEntry", this.world.getTime());
     }
@@ -224,7 +270,13 @@ public class KoiFishEntity extends SchoolingFishEntity {
 
         try {
             this.setSize(KoiSize.valueOf(nbt.getString("Size")));
-        } catch (Exception ignored) {}
+
+            this.setVariantBase(KoiVariant.valueOf(nbt.getString("VariantBase")));
+            this.setVariantSpots(KoiVariant.valueOf(nbt.getString("VariantSpots")));
+            this.setVariantFins(KoiVariant.valueOf(nbt.getString("VariantFins")));
+        } catch (Exception e) {
+            logParseIssue(e);
+        }
 
         int ageToAdd = nbt.contains("WorldTimeAtBucketEntry")
             ? (int) (this.world.getTime() - nbt.getInt("WorldTimeAtBucketEntry"))
@@ -245,5 +297,20 @@ public class KoiFishEntity extends SchoolingFishEntity {
     public float getPathfindingFavor(BlockPos pos, WorldView world) {
         BlockState state = world.getBlockState(pos.down());
         return state.isOf(MarblesBlocks.ASPEN_SEAGRASS) || state.isOf(MarblesBlocks.TALL_ASPEN_SEAGRASS) ? 10.0F : world.getBrightness(pos) - 0.5F;
+    }
+
+    // ---
+
+    public static String getNameForVariantType(TrackedData<KoiVariant> variantType) {
+        if (variantType == VAR_SPOTS) {
+            return "spots";
+        } else if (variantType == VAR_FINS) {
+            return "fins";
+        }
+
+        return "base";
+    }
+    public void logParseIssue(Throwable throwable) {
+        Marbles.log(Level.ERROR, String.format("Error parsing koi entity - (%s) '%s' %s", this.getBlockPos().toShortString(), this.getUuidAsString(), throwable.getMessage()));
     }
 }

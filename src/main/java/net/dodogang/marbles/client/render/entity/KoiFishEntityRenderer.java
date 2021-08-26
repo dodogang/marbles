@@ -2,7 +2,7 @@ package net.dodogang.marbles.client.render.entity;
 
 import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.model.entity.koi.*;
-import net.dodogang.marbles.client.render.entity.feature.KoiFishEntityAppendageFeatureRenderer;
+import net.dodogang.marbles.client.render.entity.feature.KoiFishEntityVariantFeatureRenderer;
 import net.dodogang.marbles.entity.KoiFishEntity;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.fabricmc.api.EnvType;
@@ -37,7 +37,9 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
     public KoiFishEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx, null, 0.15f);
 
-        // this.addFeature(new KoiFishEntityAppendageFeatureRenderer<>(this));
+        this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.VAR_BASE));
+        this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.VAR_FINS));
+        this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.VAR_SPOTS));
 
         this.modelSmall = new SmallKoiFishEntityModel(ctx.getPart(MarblesEntityModelLayers.KOI_SMALL));
         this.modelLarge = new LargeKoiFishEntityModel(ctx.getPart(MarblesEntityModelLayers.KOI_LARGE));
@@ -141,19 +143,15 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
         }
     }
 
-    @Nullable
-    public RenderLayer getRenderLayer(T entity, boolean showBody, boolean translucent, boolean showOutline, Identifier identifier) {
-        if (translucent) {
-            return RenderLayer.getItemEntityTranslucentCull(identifier);
-        } else if (showBody) {
-            return this.getModel(entity).getLayer(identifier);
-        } else {
-            return showOutline ? RenderLayer.getOutline(identifier) : null;
-        }
+    @Override
+    public M getModel() {
+        return this.getModel(null);
     }
 
     @SuppressWarnings("unchecked")
-    public M getModel(T entity) {
+    public M getModel(@Nullable T entity) {
+        if (entity == null) return (M) this.modelSmall;
+
         return switch (entity.getSize()) {
             default -> (M) this.modelSmall;
             case LARGE -> (M) this.modelLarge;
