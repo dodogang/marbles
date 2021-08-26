@@ -4,24 +4,21 @@ import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.model.entity.koi.*;
 import net.dodogang.marbles.client.render.entity.KoiFishEntityRenderer;
 import net.dodogang.marbles.entity.KoiFishEntity;
-import net.dodogang.marbles.entity.enums.KoiSize;
 import net.dodogang.marbles.entity.enums.KoiVariant;
-import net.dodogang.marbles.init.MarblesEntities;
+import net.dodogang.marbles.mixin.client.render.LivingEntityRendererInvoker;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Locale;
 
 @Environment(EnvType.CLIENT)
 public class KoiFishEntityVariantFeatureRenderer<T extends KoiFishEntity, M extends AbstractKoiFishEntityModel<T>> extends FeatureRenderer<T, M> {
@@ -46,6 +43,7 @@ public class KoiFishEntityVariantFeatureRenderer<T extends KoiFishEntity, M exte
         this.variantType = variantType;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider vertices, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         M model = this.getModel(entity);
@@ -53,7 +51,7 @@ public class KoiFishEntityVariantFeatureRenderer<T extends KoiFishEntity, M exte
         model.animateModel(entity, limbAngle, limbDistance, tickDelta);
         model.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
         VertexConsumer vertex = vertices.getBuffer(RenderLayer.getEntityCutoutNoCull(this.getTexture(entity)));
-        model.render(matrices, vertex, light, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
+        model.render(matrices, vertex, light, LivingEntityRenderer.getOverlay(entity, ((LivingEntityRendererInvoker<T, M>) this.renderer).invoke_getAnimationCounter(entity, tickDelta)), 1.0F, 1.0F, 1.0F, 1.0F);
     }
 
     @SuppressWarnings("unchecked")
@@ -70,10 +68,6 @@ public class KoiFishEntityVariantFeatureRenderer<T extends KoiFishEntity, M exte
 
     @Override
     public Identifier getTexture(KoiFishEntity entity) {
-        return createTexture(entity.getSize(), entity.getDataTracker().get(this.variantType));
-    }
-
-    public Identifier createTexture(KoiSize size, KoiVariant variant) {
-        return MarblesEntities.texture(String.format("koi_fish/koi_fish_%s_%s_%s", size.name().toLowerCase(Locale.ROOT), KoiFishEntity.getNameForVariantType(this.variantType), variant.name().toLowerCase(Locale.ROOT)));
+        return KoiFishEntityRenderer.createTexture(entity, this.variantType);
     }
 }

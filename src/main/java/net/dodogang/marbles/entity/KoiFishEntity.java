@@ -308,7 +308,7 @@ public class KoiFishEntity extends SchoolingFishEntity {
             return "fins";
         }
 
-        return "base";
+        return "";
     }
     public void logParseIssue(Throwable throwable) {
         Marbles.log(Level.ERROR, String.format("Error parsing koi entity - (%s) '%s' %s", this.getBlockPos().toShortString(), this.getUuidAsString(), throwable.getMessage()));

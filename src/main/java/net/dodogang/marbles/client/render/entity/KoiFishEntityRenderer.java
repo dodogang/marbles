@@ -4,6 +4,7 @@ import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.model.entity.koi.*;
 import net.dodogang.marbles.client.render.entity.feature.KoiFishEntityVariantFeatureRenderer;
 import net.dodogang.marbles.entity.KoiFishEntity;
+import net.dodogang.marbles.entity.enums.KoiVariant;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -17,18 +18,16 @@ import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.data.TrackedData;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Locale;
+
 @Environment(EnvType.CLIENT)
 public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKoiFishEntityModel<T>> extends MobEntityRenderer<T, M> {
-    public static final Identifier TEXTURE_SMALL = MarblesEntities.texture("koi_fish/koi_fish_small");
-    public static final Identifier TEXTURE_LARGE = MarblesEntities.texture("koi_fish/koi_fish_large");
-    public static final Identifier TEXTURE_THICC = MarblesEntities.texture("koi_fish/koi_fish_thicc");
-    public static final Identifier TEXTURE_DUMMY_THICC = MarblesEntities.texture("koi_fish/koi_fish_dummy_thicc");
-
     protected final SmallKoiFishEntityModel modelSmall;
     protected final LargeKoiFishEntityModel modelLarge;
     protected final ThiccKoiFishEntityModel modelThicc;
@@ -37,7 +36,6 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
     public KoiFishEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx, null, 0.15f);
 
-        this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.VAR_BASE));
         this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.VAR_FINS));
         this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.VAR_SPOTS));
 
@@ -162,11 +160,18 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
 
     @Override
     public Identifier getTexture(KoiFishEntity entity) {
-        return switch (entity.getSize()) {
-            default -> TEXTURE_SMALL;
-            case LARGE -> TEXTURE_LARGE;
-            case THICC -> TEXTURE_THICC;
-            case DUMMY_THICC -> TEXTURE_DUMMY_THICC;
-        };
+        return KoiFishEntityRenderer.createTexture(entity, KoiFishEntity.VAR_BASE);
+    }
+
+    public static Identifier createTexture(KoiFishEntity entity, TrackedData<KoiVariant> variantType) {
+        KoiVariant variant = entity.getDataTracker().get(variantType);
+        String variantTypeStr = KoiFishEntity.getNameForVariantType(variantType);
+
+        return MarblesEntities.texture(String.format(
+            "koi_fish/koi_fish_%s%s_%s",
+            entity.getSize().name().toLowerCase(Locale.ROOT),
+            variantTypeStr.isEmpty() ? "" : "_" + variantTypeStr,
+            variant.name().toLowerCase(Locale.ROOT)
+        ));
     }
 }
