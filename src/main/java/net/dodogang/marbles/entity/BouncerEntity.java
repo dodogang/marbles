@@ -392,7 +392,7 @@ public class BouncerEntity extends PathAwareEntity implements Angerable {
 
         @Override
         protected double getSquaredMaxAttackDistance(LivingEntity entity) {
-            double distance = this.mob.getWidth() * 1.5f;
+            double distance = this.mob.getWidth() * 2.3f;
             return Math.max(Math.min(24.0d, distance * distance), 6.0f);
         }
 
