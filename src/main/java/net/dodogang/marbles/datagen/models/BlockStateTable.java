@@ -1,6 +1,7 @@
 package net.dodogang.marbles.datagen.models;
 
 import me.andante.chord.block.helper.WoodBlocks;
+import net.dodogang.marbles.block.helper.SandBlocks;
 import net.dodogang.marbles.block.helper.TravertineBlocks;
 import net.dodogang.marbles.datagen.models.modelgen.ModelGen;
 import net.dodogang.marbles.datagen.models.stategen.StateGen;
@@ -114,35 +115,8 @@ public final class BlockStateTable {
          * SANDSTONE SETS
          */
 
-        register(DAWN.SAND, block -> snowyBlock(name(block, "block/%s"), cubeAll(name(block, "block/%s")), cubeBottomTop(name(block, "block/%s"), name(Blocks.SNOW, "block/%s"), name(block, "block/%s_side_snowy"))));
-        register(DAWN.SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(DAWN.CHISELED_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^chiseled_", ""), name(block, "block/%s"))));
-        register(DAWN.CUT_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^cut_", ""), name(block, "block/%s"))));
-        register(DAWN.SMOOTH_SANDSTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s_top", "^smooth_", ""))));
-        register(DAWN.SANDSTONE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabSided(name(block, "block/%s"), n, n + "_bottom", n + "_top", n)));
-        register(DAWN.CUT_SANDSTONE_SLAB, block -> using(name(block, "block/%s", "(^cut_)|(_slab$)", ""), n -> slabColumn(name(block, "block/%s"), n, n + "_top", name(block, "block/%s", "_slab"))));
-        register(DAWN.SMOOTH_SANDSTONE_SLAB, block -> using(name(block, "block/%s", "(^smooth_)|(_slab$)", ""), n -> slabAll(name(block, "block/%s"), n, n + "_top")));
-        register(DAWN.SANDSTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsSided(name(block, "block/%s"), n + "_bottom", n + "_top", n)));
-        register(DAWN.CUT_SANDSTONE_STAIRS, block -> using(name(block, "block/%s", "(^cut_)|(_stairs$)", ""), n -> stairsColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_stairs"))));
-        register(DAWN.SMOOTH_SANDSTONE_STAIRS, block -> using(name(block, "block/%s", "(^smooth_)|(_stairs$)", ""), n -> stairsAll(name(block, "block/%s"), n + "_top")));
-        register(DAWN.SANDSTONE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallSided(name(block, "block/%s"), n + "_bottom", n + "_top", n)));
-        register(DAWN.CUT_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_wall"))));
-        register(DAWN.SMOOTH_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
-
-        register(DUSK.SAND, block -> snowyBlock(name(block, "block/%s"), cubeAll(name(block, "block/%s")), cubeBottomTop(name(block, "block/%s"), name(Blocks.SNOW, "block/%s"), name(block, "block/%s_side_snowy"))));
-        register(DUSK.SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));
-        register(DUSK.CHISELED_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^chiseled_", ""), name(block, "block/%s"))));
-        register(DUSK.CUT_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^cut_", ""), name(block, "block/%s"))));
-        register(DUSK.SMOOTH_SANDSTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s_top", "^smooth_", ""))));
-        register(DUSK.SANDSTONE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabSided(name(block, "block/%s"), n, n + "_bottom", n + "_top", n)));
-        register(DUSK.CUT_SANDSTONE_SLAB, block -> using(name(block, "block/%s", "(^cut_)|(_slab$)", ""), n -> slabColumn(name(block, "block/%s"), n, n + "_top", name(block, "block/%s", "_slab"))));
-        register(DUSK.SMOOTH_SANDSTONE_SLAB, block -> using(name(block, "block/%s", "(^smooth_)|(_slab$)", ""), n -> slabAll(name(block, "block/%s"), n, n + "_top")));
-        register(DUSK.SANDSTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsSided(name(block, "block/%s"), n + "_bottom", n + "_top", n)));
-        register(DUSK.CUT_SANDSTONE_STAIRS, block -> using(name(block, "block/%s", "(^cut_)|(_stairs$)", ""), n -> stairsColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_stairs"))));
-        register(DUSK.SMOOTH_SANDSTONE_STAIRS, block -> using(name(block, "block/%s", "(^smooth_)|(_stairs$)", ""), n -> stairsAll(name(block, "block/%s"), n + "_top")));
-        register(DUSK.SANDSTONE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallSided(name(block, "block/%s"), n + "_bottom", n + "_top", n)));
-        register(DUSK.CUT_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_wall"))));
-        register(DUSK.SMOOTH_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
+        registerSand(DAWN);
+        registerSand(DUSK);
 
         register(MORN_GRASS, block -> simple(name(block, "block/%s"), octoCross(name(block, "block/%s")).texture("particle", name(block, "item/%s"))));
         register(TALL_MORN_GRASS, block -> doubleBlock(name(block, "block/%s_bottom"), tallOctoCrossBottom(name(block, "block/%s")).texture("particle", name(block, "item/%s")), name(block, "block/%s_top"), tallOctoCrossTop(name(block, "block/%s")).texture("particle", name(block, "item/%s"))));
@@ -309,6 +283,28 @@ public final class BlockStateTable {
         register(blocks.PRESSURE_PLATE, block -> pressurePlate(name(block, "block/%s"), name(block, "block/%s_planks", "_pressure_plate")));
         register(blocks.SIGN, block -> simple(name(block, "block/%s"), particles(name(block, "block/%s_planks", "_sign"))));
         register(blocks.WALL_SIGN, block -> simple(name(block, "block/%s_sign", "_wall_sign"), null)); // same particle-only model as floor sign, avoid double generation
+    }
+
+    private static void registerSand(SandBlocks blocks) {
+        register(blocks.SAND, block -> snowyBlock(name(block, "block/%s"), cubeAll(name(block, "block/%s")), cubeBottomTop(name(block, "block/%s"), name(Blocks.SNOW, "block/%s"), name(block, "block/%s_side_snowy"))));
+
+        register(blocks.CHISELED_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^chiseled_", ""), name(block, "block/%s"))));
+
+        register(blocks.SANDSTONE, block -> simple(name(block, "block/%s"), cubeBottomTop(name(block, "block/%s_bottom"), name(block, "block/%s_top"), name(block, "block/%s"))));
+        register(blocks.CUT_SANDSTONE, block -> simple(name(block, "block/%s"), cubeColumn(name(block, "block/%s_top", "^cut_", ""), name(block, "block/%s"))));
+        register(blocks.SMOOTH_SANDSTONE, block -> simple(name(block, "block/%s"), cubeAll(name(block, "block/%s_top", "^smooth_", ""))));
+
+        register(blocks.SANDSTONE_SLAB, block -> using(name(block, "block/%s", "_slab"), n -> slabSided(name(block, "block/%s"), n, n + "_bottom", n + "_top", n)));
+        register(blocks.CUT_SANDSTONE_SLAB, block -> using(name(block, "block/%s", "(^cut_)|(_slab$)", ""), n -> slabColumn(name(block, "block/%s"), name(block, "block/%s", "_slab"), n + "_top", name(block, "block/%s", "_slab"))));
+        register(blocks.SMOOTH_SANDSTONE_SLAB, block -> using(name(block, "block/%s", "(^smooth_)|(_slab$)", ""), n -> slabAll(name(block, "block/%s"), name(block, "block/%s", "_slab"), n + "_top")));
+
+        register(blocks.SANDSTONE_STAIRS, block -> using(name(block, "block/%s", "_stairs"), n -> stairsSided(name(block, "block/%s"), n + "_bottom", n + "_top", n)));
+        register(blocks.CUT_SANDSTONE_STAIRS, block -> using(name(block, "block/%s", "(^cut_)|(_stairs$)", ""), n -> stairsColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_stairs"))));
+        register(blocks.SMOOTH_SANDSTONE_STAIRS, block -> using(name(block, "block/%s", "(^smooth_)|(_stairs$)", ""), n -> stairsAll(name(block, "block/%s"), n + "_top")));
+
+        register(blocks.SANDSTONE_WALL, block -> using(name(block, "block/%s", "_wall"), n -> wallSided(name(block, "block/%s"), n + "_bottom", n + "_top", n)));
+        register(blocks.CUT_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^cut_)|(_wall$)", ""), n -> wallColumn(name(block, "block/%s"), n + "_top", name(block, "block/%s", "_wall"))));
+        register(blocks.SMOOTH_SANDSTONE_WALL, block -> using(name(block, "block/%s", "(^smooth_)|(_wall$)", ""), n -> wallAll(name(block, "block/%s"), n + "_top")));
     }
 
     private static void register(Block block, Function<Block, StateGen> genFactory) {

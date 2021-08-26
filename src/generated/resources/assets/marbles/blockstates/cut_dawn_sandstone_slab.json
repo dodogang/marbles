@@ -4,7 +4,7 @@
       "model": "marbles:block/cut_dawn_sandstone_slab"
     },
     "type=double": {
-      "model": "marbles:block/dawn_sandstone"
+      "model": "marbles:block/cut_dawn_sandstone"
     },
     "type=top": {
       "model": "marbles:block/cut_dawn_sandstone_slab_top"
