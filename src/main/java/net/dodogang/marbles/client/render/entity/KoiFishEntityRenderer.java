@@ -22,6 +22,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3f;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
@@ -126,6 +127,18 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
         }
 
         matrices.pop();
+    }
+
+    @Override
+    protected void setupTransforms(T entity, MatrixStack matrixStack, float animationProgress, float bodyYaw, float headYaw) {
+        super.setupTransforms(entity, matrixStack, animationProgress, bodyYaw, headYaw);
+        float degrees = 4.3F * MathHelper.sin(0.6F * animationProgress);
+        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(degrees));
+        if (!entity.isTouchingWater()) {
+            matrixStack.translate(0.1D, 0.1D, -0.1D);
+            matrixStack.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(90.0F));
+        }
+
     }
 
     @Override
