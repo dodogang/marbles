@@ -32,6 +32,8 @@ import net.minecraft.world.WorldView;
 import org.apache.logging.log4j.Level;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Random;
+
 public class KoiFishEntity extends SchoolingFishEntity {
     public static final TrackedData<KoiSize> SIZE = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_SIZE);
 
@@ -49,6 +51,12 @@ public class KoiFishEntity extends SchoolingFishEntity {
         if (spawnReason == SpawnReason.NATURAL || spawnReason == SpawnReason.CHUNK_GENERATION || spawnReason == SpawnReason.SPAWN_EGG) {
             this.age = random.nextInt(this.getAgeToTransform(KoiSize.values().length - 1));
             this.setSize(this.getSizeForAge(this.age));
+
+            KoiVariant[] variants = KoiVariant.values();
+            Random random = world.getRandom();
+            this.setVariantBase(variants[random.nextInt(variants.length)]);
+            this.setVariantSpots(variants[random.nextInt(variants.length)]);
+            this.setVariantFins(variants[random.nextInt(variants.length)]);
 
             // Marbles.log(this.getSizeForAge(this.age) + " " + " " + this.getAgeToTransform(this.getSize().ordinal()) + " " + this.age + " " + (this.getAgeToTransform(this.getSize().ordinal()) <= this.age));
         }
@@ -159,10 +167,6 @@ public class KoiFishEntity extends SchoolingFishEntity {
                     this.setSize(koiSizes[nextSize]);
                 }
             }
-
-            /*if (this.getVelocity().length() > 0.02d) {
-                serverWorld.spawnParticles(ParticleTypes.BUBBLE, this.getX(), this.getY() + (this.getDimensions(this.getPose()).height / 2), this.getZ(), 1, 0.0d, 0.0d, 0.0d, 0.0d);
-            }*/
         }
 
         super.mobTick();
@@ -184,19 +188,15 @@ public class KoiFishEntity extends SchoolingFishEntity {
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
-        if (stack.getItem() instanceof SpawnEggItem spawnEgg) {
-            if (spawnEgg.isOfSameEntityType(stack.getOrCreateNbt(), this.getType())) {
-                KoiFishEntity fish = MarblesEntities.KOI.create(this.world);
-                if (fish != null) {
-                    fish.refreshPositionAndAngles(this.getBlockPos(), 0.0f, 0.0f);
-                    this.world.spawnEntity(fish);
+        if (stack.getItem() instanceof SpawnEggItem spawnEgg && player.world instanceof ServerWorld serverWorld) {
+            if (spawnEgg.isOfSameEntityType(stack.getOrCreateNbt(), this.getType()) && this.getSize() != KoiSize.SMALL) {
+                this.world.spawnEntity(this.createChild(serverWorld, null));
 
-                    if (!player.isCreative()) {
-                        stack.decrement(1);
-                    }
-
-                    return ActionResult.SUCCESS;
+                if (!player.isCreative()) {
+                    stack.decrement(1);
                 }
+
+                return ActionResult.SUCCESS;
             }
         }
 
@@ -206,6 +206,22 @@ public class KoiFishEntity extends SchoolingFishEntity {
     @Override
     public ItemStack getBucketItem() {
         return new ItemStack(MarblesItems.KOI_BUCKET);
+    }
+
+    @SuppressWarnings({ "ConstantConditions", "unused" })
+    public KoiFishEntity createChild(ServerWorld world, @Nullable KoiFishEntity other) {
+        KoiFishEntity fish = MarblesEntities.KOI.create(this.world);
+
+        fish.setVariantBase(this.getVariantBase());
+        fish.setVariantSpots(this.getVariantSpots());
+        fish.setVariantFins(this.getVariantFins());
+
+        fish.age = 0;
+        fish.setSize(KoiSize.SMALL);
+
+        fish.refreshPositionAndAngles(this.getBlockPos(), 0.0f, 0.0f);
+
+        return fish;
     }
 
     // ---
