@@ -181,9 +181,9 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
         String variantTypeStr = KoiFishEntity.getNameForVariantType(variantType);
 
         return MarblesEntities.texture(String.format(
-            "koi_fish/koi_fish_%s%s_%s",
+            "koi/koi_%s_%s%s",
             entity.getSize().name().toLowerCase(Locale.ROOT),
-            variantTypeStr.isEmpty() ? "" : "_" + variantTypeStr,
+            variantTypeStr.isEmpty() ? "" : variantTypeStr + "_",
             variant.name().toLowerCase(Locale.ROOT)
         ));
     }
