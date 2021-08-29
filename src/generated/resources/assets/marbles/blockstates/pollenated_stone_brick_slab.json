@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "marbles:block/pollenated_stone_brick_slab"
+    },
+    "type=double": {
+      "model": "marbles:block/pollenated_stone_bricks"
+    },
+    "type=top": {
+      "model": "marbles:block/pollenated_stone_brick_slab_top"
+    }
+  }
+}

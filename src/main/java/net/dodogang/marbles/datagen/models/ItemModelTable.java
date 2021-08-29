@@ -161,6 +161,11 @@ public final class ItemModelTable {
         register(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, ItemModelTable::inheritBlockFunc);
         register(MarblesBlocks.POLLENATED_COBBLESTONE_WALL, ItemModelTable::wallFunc);
 
+        register(MarblesBlocks.POLLENATED_STONE_BRICKS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLLENATED_STONE_BRICK_SLAB, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLLENATED_STONE_BRICK_STAIRS, ItemModelTable::inheritBlockFunc);
+        register(MarblesBlocks.POLLENATED_STONE_BRICK_WALL, ItemModelTable::wallFuncPlu);
+
         register(MarblesBlocks.ASPEN_SPROUTS, ItemModelTable::generatedBlockFunc);
         register(MarblesBlocks.ASPEN_GRASS, ItemModelTable::generatedBlockFunc);
         register(MarblesBlocks.TALL_ASPEN_GRASS, item -> generated(name(item, "block/%s_top")));
@@ -369,6 +374,7 @@ public final class ItemModelTable {
     private static ModelGen inheritBlockFunc(Item item) {
         return inherit(name(item, "block/%s"));
     }
+
     private static ModelGen wallFunc(Item item) {
         return wallInventory(name(item, "block/%s", "_wall"));
     }
@@ -377,6 +383,10 @@ public final class ItemModelTable {
     }
     private static ModelGen wallSidedTopBottomFunc(Item item) {
         return using(name(item, "block/%s", "_wall"), n -> wallSidedInventory(n + "_bottom", n + "_top", n));
+    }
+
+    private static ModelGen wallFuncPlu(Item item) {
+        return wallInventory(name(item, "block/%ss", "_wall"));
     }
 
     private static ModelGen spawnEgg(Item item) {

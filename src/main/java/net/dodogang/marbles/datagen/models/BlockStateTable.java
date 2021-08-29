@@ -139,6 +139,11 @@ public final class BlockStateTable {
         register(POLLENATED_COBBLESTONE_STAIRS, BlockStateTable::stairsAllFunc);
         register(POLLENATED_COBBLESTONE_WALL, BlockStateTable::wallAllFunc);
 
+        register(POLLENATED_STONE_BRICKS, BlockStateTable::cubeAllFunc);
+        register(POLLENATED_STONE_BRICK_SLAB, BlockStateTable::slabAllFuncPlu);
+        register(POLLENATED_STONE_BRICK_STAIRS, BlockStateTable::stairsAllFuncPlu);
+        register(POLLENATED_STONE_BRICK_WALL, BlockStateTable::wallAllFuncPlu);
+
         register(ASPEN_SPROUTS, block -> simple(name(block, "block/%s"), cross(name(block, "block/%s"))));
         register(ASPEN_GRASS, block -> simple(name(block, "block/%s"), cross(name(block, "block/%s"))));
         register(TALL_ASPEN_GRASS, block -> doubleBlock(name(block, "block/%s_bottom"), cross(name(block, "block/%s_bottom")), name(block, "block/%s_top"), cross(name(block, "block/%s_top"))));
@@ -358,6 +363,17 @@ public final class BlockStateTable {
     private static StateGen wallAllFunc(Block block) {
         return using(name(block, "block/%s", "_wall"), n -> wallAll(name(block, "block/%s"), n));
     }
+
+    private static StateGen slabAllFuncPlu(Block block) {
+        return slabAll(name(block, "block/%s"), name(block, "block/%ss", "_slab"), name(block, "block/%ss", "_slab"));
+    }
+    private static StateGen stairsAllFuncPlu(Block block) {
+        return stairsAll(name(block, "block/%s"), name(block, "block/%ss", "_stairs"));
+    }
+    private static StateGen wallAllFuncPlu(Block block) {
+        return using(name(block, "block/%ss", "_wall"), n -> wallAll(name(block, "block/%s"), n));
+    }
+
     private static StateGen emptyFunc(Block block) {
         return simple(name(block, "block/%s"), ModelGen.EMPTY);
     }

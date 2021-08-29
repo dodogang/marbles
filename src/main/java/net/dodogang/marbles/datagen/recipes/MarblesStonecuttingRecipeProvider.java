@@ -121,6 +121,14 @@ public class MarblesStonecuttingRecipeProvider extends AbstractRecipesProvider {
         register(MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, Blocks.COBBLESTONE_STAIRS);
         register(MarblesBlocks.POLLENATED_COBBLESTONE_WALL, Blocks.COBBLESTONE_WALL);
 
+        register(MarblesBlocks.POLLENATED_STONE_BRICKS, Blocks.STONE_BRICKS);
+        register(MarblesBlocks.POLLENATED_STONE_BRICKS, Blocks.STONE_BRICK_SLAB, 2);
+        register(MarblesBlocks.POLLENATED_STONE_BRICKS, Blocks.STONE_BRICK_STAIRS);
+        register(MarblesBlocks.POLLENATED_STONE_BRICKS, Blocks.STONE_BRICK_WALL);
+        register(MarblesBlocks.POLLENATED_STONE_BRICK_SLAB, Blocks.STONE_BRICK_SLAB);
+        register(MarblesBlocks.POLLENATED_STONE_BRICK_STAIRS, Blocks.STONE_BRICK_STAIRS);
+        register(MarblesBlocks.POLLENATED_STONE_BRICK_WALL, Blocks.STONE_BRICK_WALL);
+
         /*
          * PINK SALT
          */

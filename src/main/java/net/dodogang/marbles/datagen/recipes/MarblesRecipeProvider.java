@@ -140,6 +140,10 @@ public class MarblesRecipeProvider extends AbstractRecipesProvider {
         stairs("pollenated_cobblestone/stairs", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_STAIRS, 4);
         generic3x2("pollenated_cobblestone/wall", MarblesBlocks.POLLENATED_COBBLESTONE, MarblesBlocks.POLLENATED_COBBLESTONE_WALL, 6);
 
+        generic3x1("pollenated_stone_bricks/slab", MarblesBlocks.POLLENATED_STONE_BRICKS, MarblesBlocks.POLLENATED_STONE_BRICK_SLAB, 6);
+        stairs("pollenated_stone_bricks/stairs", MarblesBlocks.POLLENATED_STONE_BRICKS, MarblesBlocks.POLLENATED_STONE_BRICK_STAIRS, 4);
+        generic3x2("pollenated_stone_bricks/wall", MarblesBlocks.POLLENATED_STONE_BRICKS, MarblesBlocks.POLLENATED_STONE_BRICK_WALL, 6);
+
         generic2x1("pollen_graced_carpet", MarblesBlocks.POLLEN_GRACED_WOOL, MarblesBlocks.POLLEN_GRACED_CARPET, 3);
 
         /*

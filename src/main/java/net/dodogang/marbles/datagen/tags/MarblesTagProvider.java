@@ -131,6 +131,7 @@ public class MarblesTagProvider implements DataProvider {
             PINK_SALT_BRICK_SLAB,
 
             POLLENATED_COBBLESTONE_SLAB,
+            POLLENATED_STONE_BRICK_SLAB,
 
             FLOESTONE_SLAB,
             POLISHED_FLOESTONE_SLAB,
@@ -158,6 +159,7 @@ public class MarblesTagProvider implements DataProvider {
             PINK_SALT_BRICK_STAIRS,
 
             POLLENATED_COBBLESTONE_STAIRS,
+            POLLENATED_STONE_BRICK_STAIRS,
 
             FLOESTONE_STAIRS,
             POLISHED_FLOESTONE_STAIRS,
@@ -179,6 +181,7 @@ public class MarblesTagProvider implements DataProvider {
             DUSK.SMOOTH_SANDSTONE_WALL,
 
             POLLENATED_COBBLESTONE_WALL,
+            POLLENATED_STONE_BRICK_WALL,
 
             FLOESTONE_WALL,
             POLISHED_FLOESTONE_WALL,
@@ -415,7 +418,12 @@ public class MarblesTagProvider implements DataProvider {
             POLLENATED_COBBLESTONE,
             POLLENATED_COBBLESTONE_SLAB,
             POLLENATED_COBBLESTONE_STAIRS,
-            POLLENATED_COBBLESTONE_WALL
+            POLLENATED_COBBLESTONE_WALL,
+
+            POLLENATED_STONE_BRICKS,
+            POLLENATED_STONE_BRICK_SLAB,
+            POLLENATED_STONE_BRICK_STAIRS,
+            POLLENATED_STONE_BRICK_WALL
         );
         add(
             BlockTags.SHOVEL_MINEABLE,
@@ -643,6 +651,11 @@ public class MarblesTagProvider implements DataProvider {
             POLLENATED_COBBLESTONE_SLAB,
             POLLENATED_COBBLESTONE_STAIRS,
             POLLENATED_COBBLESTONE_WALL,
+
+            POLLENATED_STONE_BRICKS,
+            POLLENATED_STONE_BRICK_SLAB,
+            POLLENATED_STONE_BRICK_STAIRS,
+            POLLENATED_STONE_BRICK_WALL,
 
             ASPEN_SPROUTS,
             ASPEN_GRASS,

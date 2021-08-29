@@ -105,6 +105,10 @@
     "marbles:pollenated_cobblestone",
     "marbles:pollenated_cobblestone_slab",
     "marbles:pollenated_cobblestone_stairs",
-    "marbles:pollenated_cobblestone_wall"
+    "marbles:pollenated_cobblestone_wall",
+    "marbles:pollenated_stone_bricks",
+    "marbles:pollenated_stone_brick_slab",
+    "marbles:pollenated_stone_brick_stairs",
+    "marbles:pollenated_stone_brick_wall"
   ]
 }
