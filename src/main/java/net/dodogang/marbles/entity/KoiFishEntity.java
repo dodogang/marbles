@@ -2,7 +2,7 @@ package net.dodogang.marbles.entity;
 
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.entity.enums.KoiSize;
-import net.dodogang.marbles.entity.enums.KoiVariant;
+import net.dodogang.marbles.entity.enums.KoiColor;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesItems;
@@ -37,9 +37,9 @@ import java.util.Random;
 public class KoiFishEntity extends SchoolingFishEntity {
     public static final TrackedData<KoiSize> SIZE = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_SIZE);
 
-    public static final TrackedData<KoiVariant> VAR_BASE = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_VARIANT);
-    public static final TrackedData<KoiVariant> VAR_SPOTS = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_VARIANT);
-    public static final TrackedData<KoiVariant> VAR_FINS = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_VARIANT);
+    public static final TrackedData<KoiColor> COL_BASE = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_COLOR);
+    public static final TrackedData<KoiColor> COL_BODY = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_COLOR);
+    public static final TrackedData<KoiColor> COL_FINS = DataTracker.registerData(KoiFishEntity.class, MarblesTrackedDataHandlers.KOI_COLOR);
 
     public KoiFishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
         super(entityType, world);
@@ -52,11 +52,11 @@ public class KoiFishEntity extends SchoolingFishEntity {
             this.age = random.nextInt(this.getAgeToTransform(KoiSize.values().length - 1));
             this.setSize(this.getSizeForAge(this.age));
 
-            KoiVariant[] variants = KoiVariant.values();
+            KoiColor[] colors = KoiColor.values();
             Random random = world.getRandom();
-            this.setVariantBase(variants[random.nextInt(variants.length)]);
-            this.setVariantSpots(variants[random.nextInt(variants.length)]);
-            this.setVariantFins(variants[random.nextInt(variants.length)]);
+            this.setColorBase(colors[random.nextInt(colors.length)]);
+            this.setColorBody(colors[random.nextInt(colors.length)]);
+            this.setColorFins(colors[random.nextInt(colors.length)]);
 
             // Marbles.log(this.getSizeForAge(this.age) + " " + " " + this.getAgeToTransform(this.getSize().ordinal()) + " " + this.age + " " + (this.getAgeToTransform(this.getSize().ordinal()) <= this.age));
         }
@@ -71,9 +71,9 @@ public class KoiFishEntity extends SchoolingFishEntity {
         super.initDataTracker();
         this.dataTracker.startTracking(SIZE, KoiSize.SMALL);
 
-        this.dataTracker.startTracking(VAR_BASE, KoiVariant.WHITE);
-        this.dataTracker.startTracking(VAR_SPOTS, KoiVariant.WHITE);
-        this.dataTracker.startTracking(VAR_FINS, KoiVariant.WHITE);
+        this.dataTracker.startTracking(COL_BASE, KoiColor.WHITE);
+        this.dataTracker.startTracking(COL_BODY, KoiColor.WHITE);
+        this.dataTracker.startTracking(COL_FINS, KoiColor.WHITE);
     }
 
     @Override
@@ -100,25 +100,25 @@ public class KoiFishEntity extends SchoolingFishEntity {
         this.calculateDimensions();
     }
 
-    public KoiVariant getVariantBase() {
-        return this.dataTracker.get(VAR_BASE);
+    public KoiColor getColorBase() {
+        return this.dataTracker.get(COL_BASE);
     }
-    public void setVariantBase(KoiVariant variant) {
-        this.dataTracker.set(VAR_BASE, variant);
-    }
-
-    public KoiVariant getVariantSpots() {
-        return this.dataTracker.get(VAR_SPOTS);
-    }
-    public void setVariantSpots(KoiVariant variant) {
-        this.dataTracker.set(VAR_SPOTS, variant);
+    public void setColorBase(KoiColor variant) {
+        this.dataTracker.set(COL_BASE, variant);
     }
 
-    public KoiVariant getVariantFins() {
-        return this.dataTracker.get(VAR_FINS);
+    public KoiColor getColorBody() {
+        return this.dataTracker.get(COL_BODY);
     }
-    public void setVariantFins(KoiVariant variant) {
-        this.dataTracker.set(VAR_FINS, variant);
+    public void setColorBody(KoiColor variant) {
+        this.dataTracker.set(COL_BODY, variant);
+    }
+
+    public KoiColor getColorFins() {
+        return this.dataTracker.get(COL_FINS);
+    }
+    public void setColorFins(KoiColor variant) {
+        this.dataTracker.set(COL_FINS, variant);
     }
 
     // ---
@@ -130,9 +130,9 @@ public class KoiFishEntity extends SchoolingFishEntity {
         try {
             this.setSize(KoiSize.valueOf(nbt.getString("Size")));
 
-            this.setVariantBase(KoiVariant.valueOf(nbt.getString("VariantBase")));
-            this.setVariantSpots(KoiVariant.valueOf(nbt.getString("VariantSpots")));
-            this.setVariantFins(KoiVariant.valueOf(nbt.getString("VariantFins")));
+            this.setColorBase(KoiColor.valueOf(nbt.getString("ColorBase")));
+            this.setColorBody(KoiColor.valueOf(nbt.getString("ColorBody")));
+            this.setColorFins(KoiColor.valueOf(nbt.getString("ColorFins")));
         } catch (Exception e) {
             logParseIssue(e);
         }
@@ -144,11 +144,11 @@ public class KoiFishEntity extends SchoolingFishEntity {
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
 
-        nbt.putString("Size", this.getSize().asString());
+        nbt.putString("Size", this.getSize().name());
 
-        nbt.putString("VariantBase", this.getVariantBase().asString());
-        nbt.putString("VariantSpots", this.getVariantSpots().asString());
-        nbt.putString("VariantFins", this.getVariantFins().asString());
+        nbt.putString("ColorBase", this.getColorBase().name());
+        nbt.putString("ColorBody", this.getColorBody().name());
+        nbt.putString("ColorFins", this.getColorFins().name());
 
         nbt.putInt("Age", this.age);
     }
@@ -212,9 +212,9 @@ public class KoiFishEntity extends SchoolingFishEntity {
     public KoiFishEntity createChild(ServerWorld world, @Nullable KoiFishEntity other) {
         KoiFishEntity fish = MarblesEntities.KOI.create(this.world);
 
-        fish.setVariantBase(this.getVariantBase());
-        fish.setVariantSpots(this.getVariantSpots());
-        fish.setVariantFins(this.getVariantFins());
+        fish.setColorBase(this.getColorBase());
+        fish.setColorBody(this.getColorBody());
+        fish.setColorFins(this.getColorFins());
 
         fish.age = 0;
         fish.setSize(KoiSize.SMALL);
@@ -271,11 +271,11 @@ public class KoiFishEntity extends SchoolingFishEntity {
         super.copyDataToStack(stack);
 
         NbtCompound nbt = stack.getOrCreateNbt();
-        nbt.putString("Size", this.getSize().asString());
+        nbt.putString("Size", this.getSize().name());
 
-        nbt.putString("VariantBase", this.getVariantBase().asString());
-        nbt.putString("VariantSpots", this.getVariantSpots().asString());
-        nbt.putString("VariantFins", this.getVariantFins().asString());
+        nbt.putString("ColorBase", this.getColorBase().name());
+        nbt.putString("ColorBody", this.getColorBody().name());
+        nbt.putString("ColorFins", this.getColorFins().name());
 
         nbt.putInt("Age", this.age);
         nbt.putLong("WorldTimeAtBucketEntry", this.world.getTime());
@@ -287,9 +287,9 @@ public class KoiFishEntity extends SchoolingFishEntity {
         try {
             this.setSize(KoiSize.valueOf(nbt.getString("Size")));
 
-            this.setVariantBase(KoiVariant.valueOf(nbt.getString("VariantBase")));
-            this.setVariantSpots(KoiVariant.valueOf(nbt.getString("VariantSpots")));
-            this.setVariantFins(KoiVariant.valueOf(nbt.getString("VariantFins")));
+            this.setColorBase(KoiColor.valueOf(nbt.getString("ColorBase")));
+            this.setColorBody(KoiColor.valueOf(nbt.getString("ColorBody")));
+            this.setColorFins(KoiColor.valueOf(nbt.getString("ColorFins")));
         } catch (Exception e) {
             logParseIssue(e);
         }
@@ -317,10 +317,10 @@ public class KoiFishEntity extends SchoolingFishEntity {
 
     // ---
 
-    public static String getNameForVariantType(TrackedData<KoiVariant> variantType) {
-        if (variantType == VAR_SPOTS) {
-            return "spots";
-        } else if (variantType == VAR_FINS) {
+    public static String getNameForVariantType(TrackedData<KoiColor> variantType) {
+        if (variantType == COL_BODY) {
+            return "body";
+        } else if (variantType == COL_FINS) {
             return "fins";
         }
 

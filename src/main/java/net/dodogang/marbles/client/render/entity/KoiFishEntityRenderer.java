@@ -1,10 +1,12 @@
 package net.dodogang.marbles.client.render.entity;
 
+import com.google.common.collect.ImmutableMap;
 import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.model.entity.koi.*;
 import net.dodogang.marbles.client.render.entity.feature.KoiFishEntityVariantFeatureRenderer;
 import net.dodogang.marbles.entity.KoiFishEntity;
-import net.dodogang.marbles.entity.enums.KoiVariant;
+import net.dodogang.marbles.entity.enums.KoiColor;
+import net.dodogang.marbles.entity.enums.KoiSize;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -25,10 +27,25 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3f;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Locale;
-
+@SuppressWarnings("unchecked")
 @Environment(EnvType.CLIENT)
 public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKoiFishEntityModel<T>> extends MobEntityRenderer<T, M> {
+    public static ImmutableMap<String, Identifier> TEXTURES_MAP;
+    static {
+        ImmutableMap.Builder<String, Identifier> builder = ImmutableMap.builder();
+
+        for (KoiSize size : KoiSize.values()) {
+            for (TrackedData<KoiColor> variantType : new TrackedData[]{ KoiFishEntity.COL_BASE, KoiFishEntity.COL_BODY, KoiFishEntity.COL_FINS }) {
+                for (KoiColor color : KoiColor.values()) {
+                    String formatted = getTexture(size, variantType, color);
+                    builder.put(formatted, MarblesEntities.texture(String.format("koi/koi_%s", formatted)));
+                }
+            }
+        }
+
+        TEXTURES_MAP = builder.build();
+    }
+
     protected final SmallKoiFishEntityModel modelSmall;
     protected final LargeKoiFishEntityModel modelLarge;
     protected final ThiccKoiFishEntityModel modelThicc;
@@ -37,8 +54,8 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
     public KoiFishEntityRenderer(EntityRendererFactory.Context ctx) {
         super(ctx, null, 0.15f);
 
-        this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.VAR_FINS));
-        this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.VAR_SPOTS));
+        this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.COL_FINS));
+        this.addFeature(new KoiFishEntityVariantFeatureRenderer<>(this, ctx, KoiFishEntity.COL_BODY));
 
         this.modelSmall = new SmallKoiFishEntityModel(ctx.getPart(MarblesEntityModelLayers.KOI_SMALL));
         this.modelLarge = new LargeKoiFishEntityModel(ctx.getPart(MarblesEntityModelLayers.KOI_LARGE));
@@ -138,8 +155,9 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
             matrixStack.translate(0.1D, 0.1D, -0.1D);
             matrixStack.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(90.0F));
         }
-
     }
+
+    // ---
 
     @Override
     @Nullable
@@ -159,6 +177,13 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
         return this.getModel(null);
     }
 
+    @Override
+    public Identifier getTexture(KoiFishEntity entity) {
+        return KoiFishEntityRenderer.getTexture(entity, KoiFishEntity.COL_BASE);
+    }
+
+    // ---
+
     @SuppressWarnings("unchecked")
     public M getModel(@Nullable T entity) {
         if (entity == null) return (M) this.modelSmall;
@@ -171,20 +196,12 @@ public class KoiFishEntityRenderer<T extends KoiFishEntity, M extends AbstractKo
         };
     }
 
-    @Override
-    public Identifier getTexture(KoiFishEntity entity) {
-        return KoiFishEntityRenderer.createTexture(entity, KoiFishEntity.VAR_BASE);
+    public static String getTexture(KoiSize size, TrackedData<KoiColor> variantType, KoiColor color) {
+        String variantTypeName = KoiFishEntity.getNameForVariantType(variantType);
+        return String.format("%s_%s%s", size.toString(), variantTypeName.isEmpty() ? "" : variantTypeName + "_", color.toString());
     }
 
-    public static Identifier createTexture(KoiFishEntity entity, TrackedData<KoiVariant> variantType) {
-        KoiVariant variant = entity.getDataTracker().get(variantType);
-        String variantTypeStr = KoiFishEntity.getNameForVariantType(variantType);
-
-        return MarblesEntities.texture(String.format(
-            "koi/koi_%s_%s%s",
-            entity.getSize().name().toLowerCase(Locale.ROOT),
-            variantTypeStr.isEmpty() ? "" : variantTypeStr + "_",
-            variant.name().toLowerCase(Locale.ROOT)
-        ));
+    public static Identifier getTexture(KoiFishEntity entity, TrackedData<KoiColor> variantType) {
+        return TEXTURES_MAP.get(getTexture(entity.getSize(), variantType, entity.getDataTracker().get(variantType)));
     }
 }

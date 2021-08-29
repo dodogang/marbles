@@ -4,7 +4,7 @@ import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.model.entity.koi.*;
 import net.dodogang.marbles.client.render.entity.KoiFishEntityRenderer;
 import net.dodogang.marbles.entity.KoiFishEntity;
-import net.dodogang.marbles.entity.enums.KoiVariant;
+import net.dodogang.marbles.entity.enums.KoiColor;
 import net.dodogang.marbles.mixin.client.render.LivingEntityRendererInvoker;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -29,9 +29,9 @@ public class KoiFishEntityVariantFeatureRenderer<T extends KoiFishEntity, M exte
     protected final ThiccKoiFishEntityModel modelThicc;
     protected final DummyThiccKoiFishEntityModel modelDummyThicc;
 
-    protected final TrackedData<KoiVariant> variantType;
+    protected final TrackedData<KoiColor> variantType;
 
-    public KoiFishEntityVariantFeatureRenderer(FeatureRendererContext<T, M> rctx, EntityRendererFactory.Context fctx, TrackedData<KoiVariant> variantType) {
+    public KoiFishEntityVariantFeatureRenderer(FeatureRendererContext<T, M> rctx, EntityRendererFactory.Context fctx, TrackedData<KoiColor> variantType) {
         super(rctx);
         this.renderer = (KoiFishEntityRenderer<T, M>) rctx;
 
@@ -68,6 +68,6 @@ public class KoiFishEntityVariantFeatureRenderer<T extends KoiFishEntity, M exte
 
     @Override
     public Identifier getTexture(KoiFishEntity entity) {
-        return KoiFishEntityRenderer.createTexture(entity, this.variantType);
+        return KoiFishEntityRenderer.getTexture(entity, this.variantType);
     }
 }
