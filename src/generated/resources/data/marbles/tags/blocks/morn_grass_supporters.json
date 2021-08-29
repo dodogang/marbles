@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:sand",
+    "minecraft:sandstone",
+    "minecraft:chiseled_sandstone",
+    "minecraft:cut_sandstone",
+    "minecraft:smooth_sandstone",
+    "marbles:dusk_sand",
+    "marbles:dusk_sandstone",
+    "marbles:chiseled_dusk_sandstone",
+    "marbles:cut_dusk_sandstone",
+    "marbles:smooth_dusk_sandstone",
+    "marbles:dawn_sand",
+    "marbles:dawn_sandstone",
+    "marbles:chiseled_dawn_sandstone",
+    "marbles:cut_dawn_sandstone",
+    "marbles:smooth_dawn_sandstone"
+  ]
+}

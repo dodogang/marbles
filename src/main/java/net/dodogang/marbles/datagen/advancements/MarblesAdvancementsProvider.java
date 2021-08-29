@@ -19,7 +19,7 @@ import java.util.function.Consumer;
 
 public class MarblesAdvancementsProvider implements DataProvider {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private final DataGenerator root;
     private final ImmutableList<Consumer<Consumer<Advancement>>> tabGenerators = ImmutableList.of(new MarblesStoryAdvancementGenerator());
 

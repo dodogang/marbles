@@ -64,6 +64,28 @@ public class MarblesTagProvider implements DataProvider {
         items.factory(ItemTags.WALLS).add(MarblesItemTags.TRAVERTINE_WALLS);
 
         add(
+            MarblesBlockTags.MORN_GRASS_SUPPORTERS,
+
+            Blocks.SAND,
+            Blocks.SANDSTONE,
+            Blocks.CHISELED_SANDSTONE,
+            Blocks.CUT_SANDSTONE,
+            Blocks.SMOOTH_SANDSTONE,
+
+            DUSK.SAND,
+            DUSK.SANDSTONE,
+            DUSK.CHISELED_SANDSTONE,
+            DUSK.CUT_SANDSTONE,
+            DUSK.SMOOTH_SANDSTONE,
+
+            DAWN.SAND,
+            DAWN.SANDSTONE,
+            DAWN.CHISELED_SANDSTONE,
+            DAWN.CUT_SANDSTONE,
+            DAWN.SMOOTH_SANDSTONE
+        );
+
+        add(
             BlockTags.ICE,
 
             SCALED_ICE,

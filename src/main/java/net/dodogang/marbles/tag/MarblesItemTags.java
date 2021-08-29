@@ -2,9 +2,8 @@ package net.dodogang.marbles.tag;
 
 import me.andante.chord.Chord;
 import net.dodogang.marbles.Marbles;
-import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.fabricmc.fabric.api.tag.TagFactory;
 import net.minecraft.item.Item;
-import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
@@ -42,6 +41,6 @@ public class MarblesItemTags {
         return register(new Identifier(Marbles.MOD_ID, id));
     }
     private static Tag.Identified<Item> register(Identifier id) {
-        return TagRegistry.create(id, ItemTags::getTagGroup);
+        return TagFactory.ITEM.create(id);
     }
 }

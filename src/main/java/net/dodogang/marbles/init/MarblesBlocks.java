@@ -182,8 +182,8 @@ public class MarblesBlocks {
     public static final SandBlocks DAWN = new SandBlocks(Marbles.MOD_ID, "dawn", MarblesItemGroup.INSTANCE, MapColor.ORANGE, 0xA95821);
     public static final SandBlocks DUSK = new SandBlocks(Marbles.MOD_ID, "dusk", MarblesItemGroup.INSTANCE, MapColor.RED, 0x471515);
 
-    public static final Block MORN_GRASS = register("morn_grass", new PublicFernBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
-    public static final Block TALL_MORN_GRASS = register("tall_morn_grass", new TallPlantBlock(FabricBlockSettings.copyOf(MORN_GRASS)));
+    public static final Block MORN_GRASS = register("morn_grass", new MornGrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS)));
+    public static final Block TALL_MORN_GRASS = register("tall_morn_grass", new TallMornGrassBlock(FabricBlockSettings.copyOf(MORN_GRASS)));
 
     /*
      * LAPIS SETS

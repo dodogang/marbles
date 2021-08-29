@@ -1,9 +1,8 @@
 package net.dodogang.marbles.tag;
 
 import net.dodogang.marbles.Marbles;
-import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.fabricmc.fabric.api.tag.TagFactory;
 import net.minecraft.block.Block;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
@@ -24,8 +23,9 @@ public class MarblesBlockTags {
     public static final Tag.Identified<Block> TRAVERTINE_LAMPS = register("travertine_lamps");
 
     public static final Tag.Identified<Block> SPECIAL_ROPE_SUPPORTS = register("special_rope_supports");
-    public static final Tag.Identified<Block> CLIMBABLE_FASTER = register("climbable_faster");
+    public static final Tag.Identified<Block> MORN_GRASS_SUPPORTERS = register("morn_grass_supporters");
 
+    public static final Tag.Identified<Block> CLIMBABLE_FASTER = register("climbable_faster");
     public static final Tag.Identified<Block> GRISP_COLOR_SOURCE = register("grisp_color_source");
     public static final Tag.Identified<Block> CROSSED_LATTICE = register("crossed_lattice");
     public static final Tag.Identified<Block> UMBRAL_LAZULI_ORES = register("umbral_lazuli_ores");
@@ -34,6 +34,6 @@ public class MarblesBlockTags {
         return register(new Identifier(Marbles.MOD_ID, id));
     }
     private static Tag.Identified<Block> register(Identifier id) {
-        return TagRegistry.create(id, BlockTags::getTagGroup);
+        return TagFactory.BLOCK.create(id);
     }
 }
