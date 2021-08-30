@@ -1,12 +1,18 @@
 package net.dodogang.marbles.client.config;
 
+import com.google.common.reflect.Reflection;
 import com.google.gson.JsonPrimitive;
 import me.andante.chord.client.config.Option;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
+@SuppressWarnings("UnstableApiUsage")
 @Environment(EnvType.CLIENT)
 public class MarblesConfig {
+    static {
+        Reflection.initialize(Graphics.class);
+    }
+
     public static class Graphics {
         /**
          * Enable or disable any additional cloud layers.

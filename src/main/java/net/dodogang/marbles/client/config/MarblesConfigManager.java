@@ -72,14 +72,10 @@ public class MarblesConfigManager {
 
                 OPTIONS.forEach(option -> option.value = load(jsonObject, option));
             }
-        } catch (IOException ignored) {
-            Marbles.log(Level.WARN, "Could not load configuration file! Saving and loading default values.");
+        } catch (Exception e) {
+            Marbles.log(Level.WARN, String.format("Could not load configuration file! Saving and loading default values - %s", e.getMessage()));
             MarblesConfigManager.save();
-        } catch (NullPointerException e) {
-            Marbles.log(Level.WARN, "Configuration failed to load fully from file due to " + e + ". This is probably just a configuration update.");
-        } catch (IllegalArgumentException e) {
-            Marbles.log(Level.ERROR, "Configuration option failed to load: " + e);
-        } catch (Exception ignored) {}
+        }
     }
     private static JsonPrimitive load(JsonObject jsonObject, Option<JsonPrimitive> option) {
         try {
