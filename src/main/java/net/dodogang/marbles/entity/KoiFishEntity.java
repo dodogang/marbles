@@ -31,6 +31,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -190,6 +191,45 @@ public class KoiFishEntity extends SchoolingFishEntity {
 
         super.mobTick();
     }
+
+    @Override
+    public void travel(Vec3d movementInput) {
+        /*if (this.canMoveVoluntarily() && this.isTouchingWater()) {
+            this.updateVelocity(0.01F, movementInput);
+            this.move(MovementType.SELF, this.getVelocity());
+            this.setVelocity(this.getVelocity().multiply(0.9D));
+
+            if (this.getTarget() == null) {
+                BlockPos pos = this.getBlockPos();
+                int x = pos.getX();
+                double y = this.getY();
+                int z = pos.getZ();
+
+                double oceanFloorLevel = this.world.getTopY(Heightmap.Type.OCEAN_FLOOR, x, z);
+                double oceanFloorDiff = y - oceanFloorLevel;
+                if (oceanFloorDiff > 0 && oceanFloorDiff < 8) {
+                    this.setVelocity(this.getVelocity().add(0.0D, 0.01D, 0.0D));
+                } else {
+                    double waterLevel = this.world.getTopY(Heightmap.Type.WORLD_SURFACE, x, z);
+
+                    double bottomY = this.world.getBottomY();
+                    BlockPos.Mutable mpos = new BlockPos(this.getX(), waterLevel, this.getZ()).mutableCopy();
+                    while (mpos.getY() >= bottomY && !this.world.getFluidState(mpos).isIn(FluidTags.WATER)) {
+                        mpos.move(Direction.DOWN);
+                    }
+
+                    double waterDepth = waterLevel - oceanFloorLevel;
+                    if (waterLevel - y < waterDepth / 3) {
+                        this.setVelocity(this.getVelocity().add(0.0D, -0.01D, 0.0D));
+                    }
+                }
+            }
+        } else {*/
+            super.travel(movementInput);
+        // }
+    }
+
+    // ---
 
     public int getAgeToTransform(int size) {
         return size * ((30 * 60) * 20);
