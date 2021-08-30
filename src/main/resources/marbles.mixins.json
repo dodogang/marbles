@@ -16,6 +16,7 @@
     "datagen.SharedConstantsMixin",
     "datagen.SingleItemRecipeJsonFactoryMixin",
     "entity.EatGrassGoalAccessor",
+    "entity.EntityInvoker",
     "entity.EntityMixin",
     "entity.FallingBlockMixin",
     "entity.LivingEntityAccessor",

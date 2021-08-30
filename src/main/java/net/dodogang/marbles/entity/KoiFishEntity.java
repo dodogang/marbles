@@ -1,23 +1,29 @@
 package net.dodogang.marbles.entity;
 
 import net.dodogang.marbles.Marbles;
-import net.dodogang.marbles.entity.enums.KoiSize;
+import net.dodogang.marbles.entity.ai.goal.KoiFollowGroupLeaderGoal;
 import net.dodogang.marbles.entity.enums.KoiColor;
+import net.dodogang.marbles.entity.enums.KoiSize;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
 import net.dodogang.marbles.init.MarblesItems;
 import net.dodogang.marbles.init.MarblesTrackedDataHandlers;
+import net.dodogang.marbles.mixin.entity.EntityInvoker;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -62,6 +68,17 @@ public class KoiFishEntity extends SchoolingFishEntity {
         }
 
         return super.initialize(world, difficulty, spawnReason, entityData, nbt);
+    }
+
+    @Override
+    protected void initGoals() {
+        // FishEntity
+        this.goalSelector.add(0, new EscapeDangerGoal(this, 1.25D));
+        this.goalSelector.add(2, new FleeEntityGoal<>(this, PlayerEntity.class, 8.0F, 1.6D, 1.4D, EntityPredicates.EXCEPT_SPECTATOR::test));
+        this.goalSelector.add(4, new FishEntity.SwimToRandomPlaceGoal(this));
+
+        // custom
+        this.goalSelector.add(5, new KoiFollowGroupLeaderGoal(this));
     }
 
     // ---
@@ -163,8 +180,10 @@ public class KoiFishEntity extends SchoolingFishEntity {
             if (nextSize < koiSizes.length) {
                 int ageToTransform = this.getAgeToTransform(nextSize);
                 if (this.age >= ageToTransform) {
-                    serverWorld.spawnParticles(ParticleTypes.BUBBLE, this.getX(), this.getY(), this.getZ(), nextSize * 7, 0.2d, 0.2d, 0.2d, 1.0d);
-                    this.setSize(koiSizes[nextSize]);
+                    if (((EntityInvoker) this).invoke_doesNotCollide(this.getDimensions(this.getPose(), nextSize).getBoxAt(this.getPos()))) {
+                        serverWorld.spawnParticles(ParticleTypes.BUBBLE, this.getX(), this.getY(), this.getZ(), nextSize * 7, 0.2d, 0.2d, 0.2d, 1.0d);
+                        this.setSize(koiSizes[nextSize]);
+                    }
                 }
             }
         }
@@ -250,7 +269,10 @@ public class KoiFishEntity extends SchoolingFishEntity {
 
     @Override
     public EntityDimensions getDimensions(EntityPose pose) {
-        return super.getDimensions(pose).scaled(1 + (this.getSize().ordinal() * 0.5f));
+        return this.getDimensions(pose, this.getSize().ordinal());
+    }
+    public EntityDimensions getDimensions(EntityPose pose, int size) {
+        return super.getDimensions(pose).scaled(1 + (size * 0.5f));
     }
 
     @Override

@@ -16,3 +16,5 @@ extendable      class     net/minecraft/data/server/recipe/ShapedRecipeJsonFacto
 
 accessible    method    net/minecraft/world/poi/PointOfInterestType    register    (Ljava/lang/String;Ljava/util/Set;II)Lnet/minecraft/world/poi/PointOfInterestType;
 accessible    method    net/minecraft/world/poi/PointOfInterestType    register    (Ljava/lang/String;Ljava/util/Set;ILjava/util/function/Predicate;I)Lnet/minecraft/world/poi/PointOfInterestType;
+
+accessible    class    net/minecraft/entity/passive/FishEntity$SwimToRandomPlaceGoal
