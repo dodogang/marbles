@@ -7,18 +7,15 @@ import net.dodogang.marbles.block.RopeBlock;
 import net.dodogang.marbles.client.config.MarblesConfigManager;
 import net.dodogang.marbles.client.init.MarblesEntityModelLayers;
 import net.dodogang.marbles.client.init.MarblesSpriteIdentifiers;
-import net.dodogang.marbles.client.model.entity.BouncerEntityModel;
-import net.dodogang.marbles.client.model.entity.PollenGracedSheepEntityModel;
-import net.dodogang.marbles.client.model.entity.koi.DummyThiccKoiFishEntityModel;
-import net.dodogang.marbles.client.model.entity.koi.LargeKoiFishEntityModel;
-import net.dodogang.marbles.client.model.entity.koi.SmallKoiFishEntityModel;
-import net.dodogang.marbles.client.model.entity.koi.ThiccKoiFishEntityModel;
+import net.dodogang.marbles.client.model.entity.*;
+import net.dodogang.marbles.client.model.entity.koi.*;
 import net.dodogang.marbles.client.network.MarblesClientNetwork;
 import net.dodogang.marbles.client.particle.IceSporeParticle;
 import net.dodogang.marbles.client.particle.MarblesParticleFactories;
 import net.dodogang.marbles.client.particle.PinkSaltParticle;
 import net.dodogang.marbles.client.render.entity.BouncerEntityRenderer;
 import net.dodogang.marbles.client.render.entity.KoiFishEntityRenderer;
+import net.dodogang.marbles.client.render.entity.PinkSaltCubeEntityRenderer;
 import net.dodogang.marbles.client.render.entity.PollenGracedSheepEntityRenderer;
 import net.dodogang.marbles.init.MarblesBlocks;
 import net.dodogang.marbles.init.MarblesEntities;
@@ -133,11 +130,13 @@ public class MarblesClient implements ClientModInitializer {
         errInstance.register(MarblesEntities.BOUNCER, BouncerEntityRenderer::new);
         errInstance.register(MarblesEntities.POLLEN_GRACED_SHEEP, PollenGracedSheepEntityRenderer::new);
         errInstance.register(MarblesEntities.KOI, KoiFishEntityRenderer::new);
+        errInstance.register(MarblesEntities.PINK_SALT_CUBE, PinkSaltCubeEntityRenderer::new);
         errInstance.register(MarblesEntities.THROWN_ROPE, FlyingItemEntityRenderer::new);
 
         new ImmutableMap.Builder<EntityModelLayer, EntityModelLayerRegistry.TexturedModelDataProvider>()
             .put(MarblesEntityModelLayers.BOUNCER, BouncerEntityModel::getTexturedModelData)
             .put(MarblesEntityModelLayers.POLLEN_GRACED_SHEEP, PollenGracedSheepEntityModel::getTexturedModelData)
+            .put(MarblesEntityModelLayers.PINK_SALT_CUBE, PinkSaltCubeEntityModel::getTexturedModelData)
 
             .put(MarblesEntityModelLayers.KOI_SMALL, SmallKoiFishEntityModel::getTexturedModelData)
             .put(MarblesEntityModelLayers.KOI_LARGE, LargeKoiFishEntityModel::getTexturedModelData)

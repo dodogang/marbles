@@ -369,6 +369,9 @@
   "item.marbles.koi_spawn_egg": "Koi Spawn Egg",
   "item.marbles.koi_bucket": "Bucket of Koi",
 
+  "entity.marbles.pink_salt_cube": "Pink Salt Cube",
+  "item.marbles.pink_salt_cube_spawn_egg": "Pink Salt Cube Spawn Egg",
+
   "debug.option.marbles.spotlight": "Spotlights",
 
   "config.marbles.title": "Marbles",

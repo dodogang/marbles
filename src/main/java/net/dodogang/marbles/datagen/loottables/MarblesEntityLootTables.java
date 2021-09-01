@@ -68,6 +68,7 @@ public class MarblesEntityLootTables implements Consumer<BiConsumer<Identifier, 
         );
 
         register(MarblesEntities.KOI, LootTable.builder());
+        register(MarblesEntities.PINK_SALT_CUBE, LootTable.builder());
 
         /*
          * GENERATION

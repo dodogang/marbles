@@ -29,6 +29,7 @@ public final class ItemModelTable {
         registerSpawnEgg(MarblesEntities.BOUNCER);
         registerSpawnEgg(MarblesEntities.POLLEN_GRACED_SHEEP);
         registerSpawnEgg(MarblesEntities.KOI);
+        registerSpawnEgg(MarblesEntities.PINK_SALT_CUBE);
 
         /*
          * WOOD SETS

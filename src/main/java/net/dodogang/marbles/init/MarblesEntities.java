@@ -2,10 +2,7 @@ package net.dodogang.marbles.init;
 
 import net.dodogang.marbles.Marbles;
 import net.dodogang.marbles.MarblesClient;
-import net.dodogang.marbles.entity.BouncerEntity;
-import net.dodogang.marbles.entity.KoiFishEntity;
-import net.dodogang.marbles.entity.PollenGracedSheepEntity;
-import net.dodogang.marbles.entity.ThrownRopeEntity;
+import net.dodogang.marbles.entity.*;
 import net.dodogang.marbles.item.MarblesItemGroup;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -62,6 +59,17 @@ public class MarblesEntities {
             .dimensions(EntityDimensions.changing(0.5F, 0.4F))
             .trackRangeChunks(4)
         , new Pair<>(0xFFFBF0, 0xB9CACF)
+    );
+
+    public static final EntityType<PinkSaltCubeEntity> PINK_SALT_CUBE = register(
+        "pink_salt_cube",
+        FabricEntityTypeBuilder.createMob()
+            .entityFactory(PinkSaltCubeEntity::new)
+            .spawnGroup(SpawnGroup.CREATURE)
+            .defaultAttributes(PinkSaltCubeEntity::createPinkSaltCubeAttributes)
+            .dimensions(EntityDimensions.fixed(1.0F, 1.0F))
+            .trackRangeChunks(4)
+        , new Pair<>(0xDD6336, 0xF7DECA)
     );
 
     public static final EntityType<ThrownRopeEntity> THROWN_ROPE = register(

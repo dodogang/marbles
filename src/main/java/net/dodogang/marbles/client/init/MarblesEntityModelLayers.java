@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 public class MarblesEntityModelLayers {
     public static final EntityModelLayer BOUNCER = registerMain("bouncer");
     public static final EntityModelLayer POLLEN_GRACED_SHEEP = registerMain("pollen_graced_sheep");
+    public static final EntityModelLayer PINK_SALT_CUBE = registerMain("pink_salt_cube");
 
     public static final EntityModelLayer KOI_SMALL = registerMain("koi_small");
     public static final EntityModelLayer KOI_LARGE = registerMain("koi_large");
