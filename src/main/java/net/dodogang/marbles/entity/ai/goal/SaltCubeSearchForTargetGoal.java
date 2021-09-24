@@ -2,12 +2,12 @@ package net.dodogang.marbles.entity.ai.goal;
 
 import net.dodogang.marbles.entity.PinkSaltCubeEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.FollowTargetGoal;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 
-public class SaltCubeSearchForTargetGoal extends FollowTargetGoal<LivingEntity> {
+public class SaltCubeSearchForTargetGoal extends ActiveTargetGoal<LivingEntity> {
     public SaltCubeSearchForTargetGoal(PinkSaltCubeEntity shulker) {
         super(shulker, LivingEntity.class, 10, true, false, (entity) -> entity instanceof Monster);
     }

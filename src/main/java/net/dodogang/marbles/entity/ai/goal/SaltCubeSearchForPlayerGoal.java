@@ -2,13 +2,13 @@ package net.dodogang.marbles.entity.ai.goal;
 
 
 import net.dodogang.marbles.entity.PinkSaltCubeEntity;
-import net.minecraft.entity.ai.goal.FollowTargetGoal;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.Difficulty;
 
-public class SaltCubeSearchForPlayerGoal extends FollowTargetGoal<PlayerEntity> {
+public class SaltCubeSearchForPlayerGoal extends ActiveTargetGoal<PlayerEntity> {
     public SaltCubeSearchForPlayerGoal(PinkSaltCubeEntity mob) {
         super(mob, PlayerEntity.class, true);
     }

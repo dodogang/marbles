@@ -50,7 +50,7 @@ dependencies {
      * COMPATIBILITY
      */
 
-    String canvas = "grondag:canvas-mc117-1.17:${project.canvas_version}"
+    /*String canvas = "grondag:canvas-mc117-1.17:${project.canvas_version}"
     if (!Boolean.parseBoolean("${project.ip_enabled}") && Boolean.parseBoolean("${project.canvas_enabled}")) { // Immersive Portals is incompatible with Canvas
         modImplementation(canvas) {
             exclude group: "net.fabricmc.fabric-api"
@@ -61,7 +61,7 @@ dependencies {
             exclude group: "net.fabricmc.fabric-api"
             exclude group: "me.shedaniel.cloth"
         }
-    }
+    }*/
 
     String ip = "com.github.qouteall.ImmersivePortalsMod:build:${project.ip_version}"
     if (Boolean.parseBoolean("${project.ip_enabled}")) {
@@ -91,7 +91,7 @@ dependencies {
 
     modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}") { exclude group: "net.fabricmc.fabric-api" }
 
-    modImplementation("net.shadew:debug:${project.jedt_version}") { exclude group: "net.fabricmc.fabric-api" }
+    modImplementation("net.shadew:jedt:${project.jedt_version}") { exclude group: "net.fabricmc.fabric-api" }
 
     include("net.shadew:shwutil:${project.shwutil_version}")
     implementation("net.shadew:shwutil:${project.shwutil_version}") // not a mod, no need for modImplementation
